@@ -1,0 +1,11 @@
+# Questo file contiene la logica che collega l'SVG alle entità di HA
+# Percorso nel repo: packages/dashboard_floorplan.yaml
+
+lovelace:
+  dashboards:
+    floorplan-bosco: # Crea una dashboard dedicata nel menu laterale
+      mode: yaml
+      title: Progetto Bosco
+      icon: mdi:home-floor-3
+      show_in_sidebar: true
+      filename: dashboards/floorplan_main.yaml # Punto al file della dashboard

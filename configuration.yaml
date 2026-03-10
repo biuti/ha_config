@@ -1,10 +1,17 @@
-
 # Loads default set of integrations. Do not remove.
 default_config:
+
+# core system configuration
+homeassistant:
+  packages: !include_dir_named packages
 
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
+
+# Configurazione Dashboard
+lovelace:
+  mode: storage # Usa la modalità storage per permettere modifiche tramite UI
 
 automation: !include automations.yaml
 script: !include scripts.yaml
