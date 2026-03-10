@@ -1,0 +1,77 @@
+## Ignore VSCode temporary files, HA database, and user files
+
+# Forced files
+!*.yaml
+!.gitignore
+!*.md
+!*.sh
+!*.js
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.env
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Home Assistant
+.HA_VERSION
+.ha_run.lock
+.storage/
+.cloud/
+.google.token
+tts/
+home-assistant.log*
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+pyozw.sqlite
+
+# Logs
+*.log
+*.log.fault
+OZW_Log.txt
+
+# Python
+__pycache__/
+deps/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+._*
+
+# NFS
+.nfs*
+
+# Trash
+.Trash-0/
+
+# Secrets and credentials
+.ssh
+secrets.yaml
+
+# HACS
+custom_components/
