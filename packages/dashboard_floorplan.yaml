@@ -3,9 +3,9 @@
 
 lovelace:
   dashboards:
-    floorplan-bosco: # Crea una dashboard dedicata nel menu laterale
+    floorplan-test: # Crea una dashboard dedicata nel menu laterale
       mode: yaml
-      title: Progetto Bosco
+      title: BOSCO TEST 123
       icon: mdi:floor-plan
       show_in_sidebar: true
       filename: dashboards/floorplan_main.yaml # Punto al file della dashboard
