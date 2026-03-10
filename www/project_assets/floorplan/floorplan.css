@@ -1,3 +1,15 @@
+/* Forza l'SVG a occupare tutto lo spazio disponibile senza strabordare */
+svg {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+#floorplan {
+  padding: 10px;
+  background-color: transparent;
+}
+
 /* Colora le stanze quando la luce è accesa */
 .light-on {
   fill: #ffeb3b !important; /* Giallo */

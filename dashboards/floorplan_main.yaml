@@ -6,11 +6,14 @@ views:
         config:
           image: /local/project_assets/floorplan/progetto_bosco_master.svg
           stylesheet: /local/project_assets/floorplan/floorplan.css
-          
+
+          # floorplan base url definition for relative paths in rules
+          base_url: /local/project_assets/floorplan/
+
           defaults:
             hover_action: hover-info
             tap_action: more-info
-            
+
           rules:
             # LUCI (Elementi interattivi)
             - name: Luci Interattive
