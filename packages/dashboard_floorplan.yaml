@@ -3,7 +3,7 @@
 
 lovelace:
   dashboards:
-    floorplan: # Crea una dashboard dedicata nel menu laterale
+    home-floorplan: # Crea una dashboard dedicata nel menu laterale
       mode: yaml
       title: Home Floorplan
       icon: mdi:floor-plan
