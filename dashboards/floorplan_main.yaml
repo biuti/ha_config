@@ -10,6 +10,7 @@ views:
 
           # Imposta il viewBox per scalare correttamente l'SVG
           viewbox: "0 1860 1440 2215"
+          viewBox: "0 1860 1440 2215"
 
           # floorplan base url definition for relative paths in rules
           base_url: /local/home-floorplan/
@@ -32,6 +33,7 @@ views:
 
           # Imposta il viewBox per scalare correttamente l'SVG
           viewbox: "0 0 1440 1860"
+          viewBox: "0 0 1440 1860"
 
           # floorplan base url definition for relative paths in rules
           base_url: /local/home-floorplan/
@@ -54,6 +56,7 @@ views:
 
           # Imposta il viewBox per scalare correttamente l'SVG
           viewbox: "0 0 1440 1860"
+          viewBox: "0 0 1440 1860"
 
           # floorplan base url definition for relative paths in rules
           base_url: /local/home-floorplan/
@@ -76,6 +79,7 @@ views:
 
           # Imposta il viewBox per scalare correttamente l'SVG
           viewbox: "0 0 1440 1860"
+          viewBox: "0 0 1440 1860"
 
           # floorplan base url definition for relative paths in rules
           base_url: /local/home-floorplan/

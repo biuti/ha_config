@@ -94,7 +94,6 @@
            x="410.06549"
            y="1266.2914"
            id="sensor_seminterrato_temperature"
-           transform="scale(0.9056278,1.1042064)"
            inkscape:label="temp"><tspan
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
@@ -259,7 +258,6 @@
            x="242.9259"
            y="1178.563"
            id="sensor_piano_terra_temperature"
-           transform="scale(0.9056278,1.1042064)"
            inkscape:label="temp"><tspan
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
@@ -440,7 +438,6 @@
            x="636.61554"
            y="821.32385"
            id="sensor_piano_primo_temperature"
-           transform="scale(0.90562781,1.1042064)"
            inkscape:label="temp"><tspan
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
