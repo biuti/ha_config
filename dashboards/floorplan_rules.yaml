@@ -1,6 +1,6 @@
 - name: Master Layer Controller
   entities:
-    - sun.sun # Usiamo il sole come trigger universale che cambia spesso
+    - sun.sun
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -12,12 +12,11 @@
     service: floorplan.class_set
     service_data: >
       ${
-        const currentPath = config.path;
+        /* Aggiungiamo un check di sicurezza */
+        const currentPath = (config && config.path) ? config.path : 'seminterrato';
         const layerId = element.id.replace('layer_', '').replace('_', '-');
         
-        // Se siamo nel path 'garage', dobbiamo mostrare il layer 'seminterrato'
         if (currentPath === 'garage' && layerId === 'seminterrato') return "layer-visible";
-        
         return (layerId === currentPath) ? "layer-visible" : "layer-hidden";
       }
 
@@ -84,7 +83,8 @@
   state_action:
     action: call-service
     service: floorplan.class_set
-    service_data: '${(entity.state === "on") ? "light-on" : "light-off"}'
+    service_data: >
+      ${ (entity.state === 'on') ? 'light-on' : 'light-off' }
 
 # TEMPERATURE (Label di testo)
 - name: Sensori Clima

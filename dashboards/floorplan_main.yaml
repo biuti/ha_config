@@ -19,7 +19,7 @@ views:
             tap_action: more-info
 
           rules:
-            - !include floorplan_rules.yaml
+            # - !include floorplan_rules.yaml
 
   - title: Seminterrato
     path: seminterrato
@@ -41,7 +41,7 @@ views:
             tap_action: more-info
 
           rules:
-            - !include floorplan_rules.yaml
+            # - !include floorplan_rules.yaml
 
   - title: Piano Terra
     path: piano-terra
@@ -63,7 +63,7 @@ views:
             tap_action: more-info
 
           rules:
-            - !include floorplan_rules.yaml
+            # - !include floorplan_rules.yaml
 
   - title: Piano Primo
     path: piano-primo
@@ -85,4 +85,4 @@ views:
             tap_action: more-info
 
           rules:
-            - !include floorplan_rules.yaml
+            # - !include floorplan_rules.yaml
