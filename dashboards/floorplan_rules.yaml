@@ -1,8 +1,29 @@
+- name: Master Layer Controller
+  entities:
+    - sun.sun # Usiamo il sole come trigger universale che cambia spesso
+  element:
+    - layer_seminterrato
+    - layer_piano_terra
+    - layer_piano_primo
+    - layer_garage
+    - layer_tetto
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: >
+      ${
+        const currentPath = config.path;
+        const layerId = element.id.replace('layer_', '').replace('_', '-');
+        
+        // Se siamo nel path 'garage', dobbiamo mostrare il layer 'seminterrato'
+        if (currentPath === 'garage' && layerId === 'seminterrato') return "layer-visible";
+        
+        return (layerId === currentPath) ? "layer-visible" : "layer-hidden";
+      }
+
 - name: Gestione Ciclo Giorno Notte via Label
   entities:
     - sun.sun
-  # Applichiamo la regola a tutti gli elementi che hanno una classe specifica
-  # (Consiglio di dare la classe "render-img" a tutte le immagini di sfondo in Inkscape)
   class: render-img 
   state_action:
     action: call-service
@@ -10,14 +31,16 @@
     service_data: >
       ${ 
         const isNight = (entity.state === "below_horizon");
-        // Recuperiamo la label di Inkscape
         const label = element.getAttribute('inkscape:label');
         
+        if (!label) return "render-hidden"; 
+
         if (label === "notte") {
           return isNight ? "render-visible" : "render-hidden";
         } else if (label === "giorno") {
           return isNight ? "render-hidden" : "render-visible";
         }
+        return "render-hidden";
       }
 
 # LUCI (Elementi interattivi)

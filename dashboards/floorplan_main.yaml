@@ -1,5 +1,6 @@
 views:
   - title: Garage e Cancelli
+    path: garage
     panel: true # Occupa tutta la pagina
     cards:
       - type: 'custom:floorplan-card'
@@ -18,24 +19,10 @@ views:
             tap_action: more-info
 
           rules:
-            - name: Impostazione Visibilità Layer
-              # Usiamo un'entità "finta" o sempre presente per attivare la regola all'avvio
-              entities:
-                - sensor.time 
-              element:
-                - layer_seminterrato
-                - layer_piano_terra
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${ (elements.indexOf(element.id) === elements.indexOf('layer_seminterrato')) ? "layer-visible" : "layer-hidden" }
-
             - !include floorplan_rules.yaml
 
   - title: Seminterrato
+    path: seminterrato
     panel: true # Occupa tutta la pagina
     cards:
       - type: 'custom:floorplan-card'
@@ -54,24 +41,10 @@ views:
             tap_action: more-info
 
           rules:
-            - name: Impostazione Visibilità Layer
-              # Usiamo un'entità "finta" o sempre presente per attivare la regola all'avvio
-              entities:
-                - sensor.time 
-              element:
-                - layer_seminterrato
-                - layer_piano_terra
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${ (elements.indexOf(element.id) === elements.indexOf('layer_seminterrato')) ? "layer-visible" : "layer-hidden" }
-
             - !include floorplan_rules.yaml
 
   - title: Piano Terra
+    path: piano-terra
     panel: true # Occupa tutta la pagina
     cards:
       - type: 'custom:floorplan-card'
@@ -90,24 +63,10 @@ views:
             tap_action: more-info
 
           rules:
-            - name: Impostazione Visibilità Layer
-              # Usiamo un'entità "finta" o sempre presente per attivare la regola all'avvio
-              entities:
-                - sensor.time 
-              element:
-                - layer_seminterrato
-                - layer_piano_terra
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${ (elements.indexOf(element.id) === elements.indexOf('layer_piano_terra')) ? "layer-visible" : "layer-hidden" }
-
             - !include floorplan_rules.yaml
 
   - title: Piano Primo
+    path: piano-primo
     panel: true # Occupa tutta la pagina
     cards:
       - type: 'custom:floorplan-card'
@@ -126,19 +85,4 @@ views:
             tap_action: more-info
 
           rules:
-            - name: Impostazione Visibilità Layer
-              # Usiamo un'entità "finta" o sempre presente per attivare la regola all'avvio
-              entities:
-                - sensor.time 
-              element:
-                - layer_seminterrato
-                - layer_piano_terra
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${ (elements.indexOf(element.id) === elements.indexOf('layer_piano_primo')) ? "layer-visible" : "layer-hidden" }
-
             - !include floorplan_rules.yaml
