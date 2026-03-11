@@ -14,7 +14,7 @@
       ${
         /* Aggiungiamo un check di sicurezza */
         const currentPath = (config && config.path) ? config.path : 'seminterrato';
-        const layerId = element.id.replace('layer_', '').replace('_', '-');
+        const layerId = element.id.replace('layer_', '').replaceAll('_', '-');
         
         if (currentPath === 'garage' && layerId === 'seminterrato') return "layer-visible";
         return (layerId === currentPath) ? "layer-visible" : "layer-hidden";

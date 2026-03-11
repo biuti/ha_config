@@ -15,6 +15,7 @@
 *.sln.docstates
 *.env
 * copy*.*
+*_master.svg
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
