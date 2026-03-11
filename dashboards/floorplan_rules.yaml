@@ -1,115 +1,114 @@
-rules:
-  - name: Gestione Ciclo Giorno Notte via Label
-    entities:
-      - sun.sun
-    # Applichiamo la regola a tutti gli elementi che hanno una classe specifica
-    # (Consiglio di dare la classe "render-img" a tutte le immagini di sfondo in Inkscape)
-    class: render-img 
-    state_action:
-      action: call-service
-      service: floorplan.class_set
-      service_data: >
-        ${ 
-          const isNight = (entity.state === "below_horizon");
-          // Recuperiamo la label di Inkscape
-          const label = element.getAttribute('inkscape:label');
-          
-          if (label === "notte") {
-            return isNight ? "render-visible" : "render-hidden";
-          } else if (label === "giorno") {
-            return isNight ? "render-hidden" : "render-visible";
-          }
+- name: Gestione Ciclo Giorno Notte via Label
+  entities:
+    - sun.sun
+  # Applichiamo la regola a tutti gli elementi che hanno una classe specifica
+  # (Consiglio di dare la classe "render-img" a tutte le immagini di sfondo in Inkscape)
+  class: render-img 
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: >
+      ${ 
+        const isNight = (entity.state === "below_horizon");
+        // Recuperiamo la label di Inkscape
+        const label = element.getAttribute('inkscape:label');
+        
+        if (label === "notte") {
+          return isNight ? "render-visible" : "render-hidden";
+        } else if (label === "giorno") {
+          return isNight ? "render-hidden" : "render-visible";
         }
+      }
 
-  # LUCI (Elementi interattivi)
-  - name: Luci Interattive
-    entities:
-      # Esterno
-      - light.esterno_sud
-      - light.esterno_nord
-      - light.esterno_ovest
-      - light.esterno_est
-      - light.piazzale
-      - light.cancelli
-      # Garage
-      - light.garage
-      # Seminterrato
-      - light.monolocale
-      - light.seminterrato_bagno
-      - light.lavanderia
-      - light.seminterrato_ingresso
-      - light.locale_tecnico
-      # Piano Terra
-      - light.camera_padronale
-      - light.bagno_padronale
-      - light.cabina_armadio
-      - light.piano_terra_bagno
-      - light.camera_ospiti
-      - light.studio
-      - light.ripostiglio
-      - light.corridoio
-      - light.balcone
-      - light.ingresso
-      # Piano Primo
-      - light.cucina
-      - light.soggiorno
-      - light.piano_primo_bagno
-      - light.dispensa
-      - light.terrazzo_nord
-      - light.terrazzo_sud
-    # Sostituisce il punto con l'underscore per trovare l'ID nell'SVG
-    element: ${entity.entity_id.replace('.', '_')}
-    state_action:
-      action: call-service
-      service: floorplan.class_set
-      service_data: '${(entity.state === "on") ? "light-on" : "light-off"}'
+# LUCI (Elementi interattivi)
+- name: Luci Interattive
+  entities:
+    # Esterno
+    - light.esterno_sud
+    - light.esterno_nord
+    - light.esterno_ovest
+    - light.esterno_est
+    - light.piazzale
+    - light.cancelli
+    # Garage
+    - light.garage
+    # Seminterrato
+    - light.monolocale
+    - light.seminterrato_bagno
+    - light.lavanderia
+    - light.seminterrato_ingresso
+    - light.locale_tecnico
+    # Piano Terra
+    - light.camera_padronale
+    - light.bagno_padronale
+    - light.cabina_armadio
+    - light.piano_terra_bagno
+    - light.camera_ospiti
+    - light.studio
+    - light.ripostiglio
+    - light.corridoio
+    - light.balcone
+    - light.ingresso
+    # Piano Primo
+    - light.cucina
+    - light.soggiorno
+    - light.piano_primo_bagno
+    - light.dispensa
+    - light.terrazzo_nord
+    - light.terrazzo_sud
+  # Sostituisce il punto con l'underscore per trovare l'ID nell'SVG
+  element: ${entity.entity_id.replace('.', '_')}
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: '${(entity.state === "on") ? "light-on" : "light-off"}'
 
-  # TEMPERATURE (Label di testo)
-  - name: Sensori Clima
-    entities:
-      - sensor.seminterrato_temperature
-      - sensor.piano_terra_temperature
-      - sensor.piano_primo_temperature
-    element: ${entity.entity_id.replace('.', '_')}
-    state_action:
-      action: floorplan.text_set
-      text: '${entity.state + " °C"}'
-    class_set: temp-label
+# TEMPERATURE (Label di testo)
+- name: Sensori Clima
+  entities:
+    - sensor.seminterrato_temperature
+    - sensor.piano_terra_temperature
+    - sensor.piano_primo_temperature
+  element: ${entity.entity_id.replace('.', '_')}
+  state_action:
+    action: floorplan.text_set
+    text: '${entity.state + " °C"}'
+  class_set: temp-label
 
-  # RAFFSTORE E CANCELLI (Linee Penna Bezier)
-  - name: Coperture
-    entities:
-      # Esterno
-      - cover.cancello_carraio
-      - binary_sensor.cancello_pedonale
-      - cover.garage_est
-      - cover.garage_ovest
-      # Seminterrato
-      - cover.seminterrato_raffstore_sud
-      - cover.seminterrato_raffstore_bagno
-      - binary_sensor.seminterrato_porta
-      # Piano Terra
-      - cover.piano_terra_raffstore_sud
-      - cover.piano_terra_raffstore_bagno_padronale
-      - cover.piano_terra_raffstore_bagno
-      - cover.piano_terra_raffstore_camera_ospiti
-      - cover.piano_terra_raffstore_studio
-      - cover.piano_terra_raffstore_vano_scale
-      - binary_sensor.piano_terra_porta
-      # Piano Primo
-      - cover.piano_primo_raffstore_sud
-      - cover.piano_primo_raffstore_bagno
-      - cover.piano_primo_raffstore_cucina
-      - cover.piano_primo_raffstore_ovest
-      - cover.piano_primo_raffstore_vela
-      - cover.piano_primo_raffstore_porta_nord
-      - binary_sensor.piano_primo_porta_nord
-    element: ${entity.entity_id.replace('.', '_')}
-    state_action:
-      action: call-service
-      service: floorplan.class_set
-      service_data: |
-        >
-        if (entity.state === "opening" || entity.state === "closing") return "cover-moving";
-        if (entity.state === "open") return "cover-open";
-        return "cover-closed";
+# RAFFSTORE E CANCELLI (Linee Penna Bezier)
+- name: Coperture
+  entities:
+    # Esterno
+    - cover.cancello_carraio
+    - binary_sensor.cancello_pedonale
+    - cover.garage_est
+    - cover.garage_ovest
+    # Seminterrato
+    - cover.seminterrato_raffstore_sud
+    - cover.seminterrato_raffstore_bagno
+    - binary_sensor.seminterrato_porta
+    # Piano Terra
+    - cover.piano_terra_raffstore_sud
+    - cover.piano_terra_raffstore_bagno_padronale
+    - cover.piano_terra_raffstore_bagno
+    - cover.piano_terra_raffstore_camera_ospiti
+    - cover.piano_terra_raffstore_studio
+    - cover.piano_terra_raffstore_vano_scale
+    - binary_sensor.piano_terra_porta
+    # Piano Primo
+    - cover.piano_primo_raffstore_sud
+    - cover.piano_primo_raffstore_bagno
+    - cover.piano_primo_raffstore_cucina
+    - cover.piano_primo_raffstore_ovest
+    - cover.piano_primo_raffstore_vela
+    - cover.piano_primo_raffstore_porta_nord
+    - binary_sensor.piano_primo_porta_nord
+  element: ${entity.entity_id.replace('.', '_')}
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: |
+      >
+      if (entity.state === "opening" || entity.state === "closing") return "cover-moving";
+      if (entity.state === "open") return "cover-open";
+      return "cover-closed";
