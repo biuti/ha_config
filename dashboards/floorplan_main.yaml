@@ -5,7 +5,7 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
-          image: /local/home-floorplan/progetto_bosco_garage.svg
+          image: /local/home-floorplan/progetto_bosco_master.svg
           stylesheet: /local/home-floorplan/floorplan.css
 
           # Imposta il viewBox per scalare correttamente l'SVG
