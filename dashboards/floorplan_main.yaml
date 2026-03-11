@@ -4,11 +4,11 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
-          image: /local/project_assets/floorplan/progetto_bosco_master.svg
-          stylesheet: /local/project_assets/floorplan/floorplan.css
+          image: /local/floorplan/progetto_bosco_master.svg
+          stylesheet: /local/floorplan/floorplan.css
 
           # floorplan base url definition for relative paths in rules
-          base_url: /local/project_assets/floorplan/
+          base_url: /local/floorplan/
 
           defaults:
             hover_action: hover-info
