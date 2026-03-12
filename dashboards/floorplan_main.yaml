@@ -7,16 +7,7 @@ views:
         config:
           image: /local/home-floorplan/garage.svg
           stylesheet: /local/home-floorplan/floorplan.css
-
-          # floorplan base url definition for relative paths in rules
-          base_url: /local/home-floorplan/
-
-          defaults:
-            hover_action: hover-info
-            tap_action: more-info
-
-          rules:
-            # - !include floorplan_rules.yaml
+          config: /local/home-floorplan/floorplan_config.yaml
 
   - title: Seminterrato
     path: seminterrato
@@ -26,16 +17,7 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-
-          # floorplan base url definition for relative paths in rules
-          base_url: /local/home-floorplan/
-
-          defaults:
-            hover_action: hover-info
-            tap_action: more-info
-
-          rules:
-            # - !include floorplan_rules.yaml
+          config: /local/home-floorplan/floorplan_config.yaml
 
   - title: Piano Terra
     path: piano-terra
@@ -45,16 +27,7 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-
-          # floorplan base url definition for relative paths in rules
-          base_url: /local/home-floorplan/
-
-          defaults:
-            hover_action: hover-info
-            tap_action: more-info
-
-          rules:
-            # - !include floorplan_rules.yaml
+          config: /local/home-floorplan/floorplan_config.yaml
 
   - title: Piano Primo
     path: piano-primo
@@ -64,13 +37,4 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-
-          # floorplan base url definition for relative paths in rules
-          base_url: /local/home-floorplan/
-
-          defaults:
-            hover_action: hover-info
-            tap_action: more-info
-
-          rules:
-            # - !include floorplan_rules.yaml
+          config: /local/home-floorplan/floorplan_config.yaml

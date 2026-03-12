@@ -1,0 +1,10 @@
+
+# floorplan base url definition for relative paths in rules
+base_url: /local/home-floorplan/
+
+defaults:
+  hover_action: hover-info
+  tap_action: more-info
+
+rules:
+  - !include floorplan_rules.yaml

@@ -3,6 +3,7 @@ svg {
   width: 100% !important;
   height: auto !important;
   display: block;
+  touch-action: manipulation; /* Migliora l'interazione su dispositivi touch */
 }
 
 #floorplan {
@@ -70,8 +71,17 @@ svg {
   animation: pulse 1s infinite;
 }
 
+.light-on,
+.light-off,
+.cover-open,
+.cover-moving,
+.cover-tilt,
+.cover-closed {
+  cursor: pointer;
+}
+
 @keyframes pulse {
-  0% { opacity: 1; stroke-width: 10px; }
-  50% { opacity: 0.3; stroke-width: 15px; }
+  0%   { opacity: 1; stroke-width: 10px; }
+  50%  { opacity: 0.4; stroke-width: 14px; }
   100% { opacity: 1; stroke-width: 10px; }
 }
