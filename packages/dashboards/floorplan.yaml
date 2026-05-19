@@ -1,5 +1,5 @@
 # Questo file contiene la logica che collega l'SVG alle entità di HA
-# Percorso nel repo: packages/dashboard_floorplan.yaml
+# Percorso nel repo: packages/dashboards/floorplan.yaml
 
 lovelace:
   dashboards:

@@ -1,0 +1,49 @@
+# packages/sensors/environment.yaml
+# Sensori ambientali esterni
+# Crepuscolare: virtuale in attesa del sensore ZigBee fisico
+# Meteo: integrazione Met.no nativa HA (nessuna API key necessaria)
+
+input_boolean:
+  crepuscolare:
+    name: "Crepuscolare"
+    icon: mdi:weather-sunset
+
+input_number:
+  soglia_lux_raffstore:
+    name: "Soglia Lux Raffstore"
+    min: 0
+    max: 100000
+    step: 100
+    unit_of_measurement: "lx"
+    icon: mdi:brightness-6
+
+  soglia_lux_luci_esterne:
+    name: "Soglia Lux Luci Esterne"
+    min: 0
+    max: 100000
+    step: 100
+    unit_of_measurement: "lx"
+    icon: mdi:brightness-6
+
+  # Anemometro — sul palo antenna
+  # Sarà sostituito dall'entity_id del sensore fisico (ZigBee o cablato)
+  velocita_vento:
+    name: "Velocità Vento"
+    min: 0
+    max: 200
+    step: 0.1
+    unit_of_measurement: "km/h"
+    icon: mdi:weather-windy
+
+  soglia_vento_raffstore:
+    name: "Soglia Vento Raffstore"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "km/h"
+    icon: mdi:weather-windy-variant
+
+# Nota: aggiungere integrazione Met.no da UI:
+# Impostazioni → Dispositivi e servizi → Aggiungi integrazione → Met.no
+# Fornisce: temperatura esterna, umidità, vento, previsioni 48h
+# Entity IDs generati automaticamente da HA dopo l'installazione

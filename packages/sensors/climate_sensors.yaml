@@ -1,0 +1,169 @@
+# packages/sensors/climate_sensors.yaml
+# Sensori temperatura e umidità per stanza
+# Simulati con input_number in attesa dei sensori ZigBee fisici
+
+input_number:
+
+  # Piano Primo
+  temp_soggiorno:
+    name: "Temperatura Soggiorno"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_soggiorno:
+    name: "Umidità Soggiorno"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # Piano Terra
+  temp_camera_padronale:
+    name: "Temperatura Camera Padronale"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_camera_padronale:
+    name: "Umidità Camera Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_camera:
+    name: "Temperatura Camera"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_camera:
+    name: "Umidità Camera"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_studio:
+    name: "Temperatura Studio"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_studio:
+    name: "Umidità Studio"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_bagno_padronale:
+    name: "Temperatura Bagno Padronale"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_padronale:
+    name: "Umidità Bagno Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_bagno_comune:
+    name: "Temperatura Bagno Comune"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_comune:
+    name: "Umidità Bagno Comune"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # Seminterrato
+  temp_taverna:
+    name: "Temperatura Taverna"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_taverna:
+    name: "Umidità Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_bagno_taverna:
+    name: "Temperatura Bagno Taverna"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_taverna:
+    name: "Umidità Bagno Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_locale_tecnico:
+    name: "Temperatura Locale Tecnico"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_locale_tecnico:
+    name: "Umidità Locale Tecnico"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # Garage
+  temp_garage:
+    name: "Temperatura Garage"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_garage:
+    name: "Umidità Garage"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent

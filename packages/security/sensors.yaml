@@ -1,0 +1,95 @@
+# packages/security/sensors.yaml
+# Sensori apertura finestre, portefinestre e porte
+# Simulati con input_boolean in attesa dei sensori ZigBee fisici
+# Convenzione: portafinestra = pf_, finestra = fin_, porta = porta_
+
+input_boolean:
+
+  # ── GARAGE ────────────────────────────────────────────────
+  porta_garage:
+    name: "Porta Garage"
+    icon: mdi:door
+
+  serranda_garage_1:
+    name: "Serranda Garage 1 (stato)"
+    icon: mdi:garage
+
+  serranda_garage_2:
+    name: "Serranda Garage 2 (stato)"
+    icon: mdi:garage
+
+  # ── SEMINTERRATO ──────────────────────────────────────────
+  pf_taverna:
+    name: "Portafinestra Taverna"
+    icon: mdi:door
+
+  fin_bagno_taverna:
+    name: "Finestra Bagno Taverna"
+    icon: mdi:window-open
+
+  fin_lavanderia:
+    name: "Finestra Bocca di Lupo Lavanderia"
+    icon: mdi:window-open
+
+  porta_seminterrato:
+    name: "Porta Ingresso Seminterrato"
+    icon: mdi:door
+
+  # ── VANO SCALE (elementi comuni ai piani) ─────────────────
+  porta_piano_terra:
+    name: "Porta Ingresso"
+    icon: mdi:door
+
+  fin_vano_scale_pt:
+    name: "Finestra Vano Scale Piano Terra"
+    icon: mdi:window-open
+
+  fin_vano_scale_p1:
+    name: "Finestra Vano Scale Piano Primo"
+    icon: mdi:window-open
+
+  # ── PIANO TERRA ───────────────────────────────────────────
+  pf_camera_padronale:
+    name: "Portafinestra Camera Padronale"
+    icon: mdi:door
+
+  fin_bagno_padronale:
+    name: "Finestra Bagno Padronale"
+    icon: mdi:window-open
+
+  fin_bagno_comune:
+    name: "Finestra Bagno Comune"
+    icon: mdi:window-open
+
+  fin_studio:
+    name: "Finestra Studio"
+    icon: mdi:window-open
+
+  pf_camera_ospiti:
+    name: "Portafinestra Camera Ospiti"
+    icon: mdi:door
+
+  # ── PIANO PRIMO ───────────────────────────────────────────
+  pf_soggiorno:
+    name: "Portafinestra Soggiorno"
+    icon: mdi:door
+
+  fin_soggiorno_ovest:
+    name: "Finestra Soggiorno Ovest"
+    icon: mdi:window-open
+
+  fin_soggiorno_est:
+    name: "Finestra Soggiorno Est"
+    icon: mdi:window-open
+
+  pf_ingresso_terrazzo:
+    name: "Portafinestra Ingresso Terrazzo"
+    icon: mdi:door
+
+  fin_cucina:
+    name: "Finestra Cucina"
+    icon: mdi:window-open
+
+  fin_bagno_p1:
+    name: "Finestra Bagno Piano Primo"
+    icon: mdi:window-open
