@@ -1,0 +1,33 @@
+# packages/access/access.yaml
+# Cancello carrabile e porte garage
+# Simulati con input_boolean in attesa dei dispositivi fisici
+# Nota: i dispositivi reali si espongono come entità cover in HA
+# Hörmann LPU42 via modulo BiSecur Gateway o relè ZigBee
+
+input_boolean:
+
+  # ── CANCELLO CARRABILE ────────────────────────────────────
+  cancello_carrabile:
+    name: "Cancello Carrabile"
+    icon: mdi:gate
+
+  cancello_carrabile_in_movimento:
+    name: "Cancello in Movimento"
+    icon: mdi:gate-arrow-right
+
+  # ── GARAGE ────────────────────────────────────────────────
+  serranda_garage_1:
+    name: "Serranda Garage 1"
+    icon: mdi:garage-variant
+
+  serranda_garage_1_in_movimento:
+    name: "Serranda Garage 1 in Movimento"
+    icon: mdi:garage-variant
+
+  serranda_garage_2:
+    name: "Serranda Garage 2"
+    icon: mdi:garage-variant
+
+  serranda_garage_2_in_movimento:
+    name: "Serranda Garage 2 in Movimento"
+    icon: mdi:garage-variant
