@@ -1,3 +1,13 @@
+# packages/automation/raffstore_vento.yaml
+# Automazioni raffstore — gestione vento
+# Dipendenze:
+#   - input_number.velocita_vento (templates/environment_virtual.yaml)
+#   - input_number.soglia_vento_raffstore (templates/environment_virtual.yaml)
+#   - input_boolean.override_vento_raffstore (templates/environment_virtual.yaml)
+#   - input_boolean.crepuscolare (templates/environment_virtual.yaml)
+#   - input_boolean.pf_* (templates/security_sensors_virtual.yaml)
+#   - cover.tutti_i_raffstore (groups/raffstore_groups.yaml)
+
 automation:
 
   - id: raffstore_vento_chiudi_lamelle
@@ -32,10 +42,16 @@ automation:
                | map(attribute='entity_id') | list }}
         data:
           position: 0
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_vento_raffstore
     mode: single
 
   - id: raffstore_vento_alza_giorno
     alias: "Raffstore — Vento: alza completamente (giorno)"
+    description: >
+      Vento > soglia + è giorno + finestra chiusa → alza completamente
+      per evitare danni meccanici. Attiva override vento.
     trigger:
       - platform: template
         value_template: >
@@ -52,10 +68,16 @@ automation:
       - service: cover.open_cover
         target:
           entity_id: cover.tutti_i_raffstore
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_vento_raffstore
     mode: single
 
   - id: raffstore_vento_abbassa_notte
     alias: "Raffstore — Vento: abbassa completamente (notte)"
+    description: >
+      Vento > soglia + è notte + finestra chiusa → abbassa completamente.
+      Attiva override vento.
     trigger:
       - platform: template
         value_template: >
@@ -72,19 +94,27 @@ automation:
       - service: cover.close_cover
         target:
           entity_id: cover.tutti_i_raffstore
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_vento_raffstore
     mode: single
 
-  - id: raffstore_vacanza_chiudi_tutto
-    alias: "Raffstore — Vacanza: chiudi tutto"
+  - id: raffstore_vento_cessato
+    alias: "Raffstore — Vento cessato: rilascia override"
     description: >
-      Modalità Vacanza attiva → chiude tutti i raffstore ignorando
-      lo stato delle finestre. Sigilla la casa.
+      Quando il vento scende sotto la soglia, rilascia il force override
+      così ACP può riprendere il controllo dei raffstore.
     trigger:
-      - platform: state
-        entity_id: input_select.modalita_casa
-        to: "Vacanza"
+      - platform: template
+        value_template: >
+          {{ states('input_number.velocita_vento') | float <=
+             states('input_number.soglia_vento_raffstore') | float }}
+    condition:
+      - condition: state
+        entity_id: input_boolean.override_vento_raffstore
+        state: "on"
     action:
-      - service: cover.close_cover
+      - service: input_boolean.turn_off
         target:
-          entity_id: cover.tutti_i_raffstore
+          entity_id: input_boolean.override_vento_raffstore
     mode: single

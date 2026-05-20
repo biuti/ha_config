@@ -1,0 +1,113 @@
+# packages/automation/raffstore_presenza.yaml
+# Automazioni raffstore — gestione presenza e modalità casa
+# Dipendenze:
+#   - input_select.modalita_casa (templates/presence_virtual.yaml)
+#   - input_boolean.modalita_notte_attiva (templates/presence_virtual.yaml)
+#   - input_boolean.crepuscolare (templates/environment_virtual.yaml)
+#   - input_boolean.override_presenza_raffstore (templates/environment_virtual.yaml)
+#   - cover.tutti_i_raffstore (groups/raffstore_groups.yaml)
+#   - cover.raffstore_crepuscolo (groups/raffstore_groups.yaml)
+#   - cover.raffstore_mattina (groups/raffstore_groups.yaml)
+#   - cover.raffstore_sveglia (groups/raffstore_groups.yaml)
+
+automation:
+
+  - id: raffstore_via
+    alias: "Raffstore — Modalità Via: abbassa tutto"
+    description: >
+      Quando tutti escono, abbassa tutti i raffstore incluse le panoramiche.
+      Attiva override presenza così ACP non interferisce.
+    trigger:
+      - platform: state
+        entity_id: input_select.modalita_casa
+        to: "Via"
+    action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+    mode: single
+
+  - id: raffstore_vacanza_chiudi_tutto
+    alias: "Raffstore — Vacanza: chiudi tutto"
+    description: >
+      Modalità Vacanza → chiude tutti i raffstore ignorando lo stato
+      delle finestre. Sigilla la casa. Override permanente finché
+      non si rientra dalla vacanza.
+    trigger:
+      - platform: state
+        entity_id: input_select.modalita_casa
+        to: "Vacanza"
+    action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+    mode: single
+
+  - id: raffstore_rientro
+    alias: "Raffstore — Rientro: ripristina e rilascia override"
+    description: >
+      Quando si rientra a casa (da Via o Vacanza), rilascia l'override
+      presenza e ripristina i raffstore in base all'ora del giorno.
+      ACP riprende il controllo dopo il rilascio.
+    trigger:
+      - platform: state
+        entity_id: input_select.modalita_casa
+        from: "Via"
+      - platform: state
+        entity_id: input_select.modalita_casa
+        from: "Vacanza"
+    condition:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Via', 'Vacanza'] }}
+    action:
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.crepuscolare
+                state: "off"
+            sequence:
+              - service: cover.open_cover
+                target:
+                  entity_id: cover.raffstore_mattina
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.crepuscolare
+                state: "on"
+            sequence:
+              - service: cover.close_cover
+                target:
+                  entity_id: cover.raffstore_crepuscolo
+    mode: single
+
+  - id: raffstore_notte_manuale
+    alias: "Raffstore — Modalità Notte manuale: abbassa"
+    description: >
+      Quando si attiva la modalità notte manualmente prima del tramonto,
+      abbassa i raffstore del gruppo crepuscolo.
+      Non attiva override — ACP può continuare a operare in modalità notte.
+    trigger:
+      - platform: state
+        entity_id: input_boolean.modalita_notte_attiva
+        to: "on"
+    condition:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') != 'Vacanza' }}
+      - condition: state
+        entity_id: input_boolean.crepuscolare
+        state: "off"
+    action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.raffstore_crepuscolo
+    mode: single

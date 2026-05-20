@@ -1,0 +1,37 @@
+# packages/automation/overrides.yaml
+# Flag di override per il sistema raffstore e altri attuatori
+# Questi boolean rappresentano lo stato delle priorità nel pipeline
+# di controllo. Non sono virtuali — rimangono nell'installazione definitiva.
+# Usati come Force Override Entity in Adaptive Cover Pro.
+
+input_boolean:
+
+  # ── RAFFSTORE ─────────────────────────────────────────────
+
+  override_vento_raffstore:
+    name: "Override Vento Raffstore"
+    icon: mdi:weather-windy-variant
+
+  override_presenza_raffstore:
+    name: "Override Presenza Raffstore"
+    icon: mdi:home-lock
+
+  override_manuale_raffstore:
+    name: "Override Manuale Raffstore"
+    icon: mdi:hand-back-right
+
+  override_pioggia_raffstore:
+    name: "Override Pioggia Raffstore"
+    icon: mdi:weather-rainy
+
+  # ── IRRIGAZIONE ───────────────────────────────────────────
+  # (pioggia recente o prevista blocca l'irrigazione)
+  override_pioggia_irrigazione:
+    name: "Override Pioggia Irrigazione"
+    icon: mdi:weather-rainy
+
+  # ── ALLARME ───────────────────────────────────────────────
+  # (quando allarme attivo, blocca apertura cancello/garage)
+  override_allarme_accessi:
+    name: "Override Allarme Accessi"
+    icon: mdi:shield-alert
