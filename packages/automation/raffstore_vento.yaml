@@ -1,0 +1,90 @@
+automation:
+
+  - id: raffstore_vento_chiudi_lamelle
+    alias: "Raffstore — Vento: chiudi lamelle"
+    description: >
+      Vento > soglia + raffstore parzialmente abbassata + finestra chiusa
+      → chiude le lamelle. Non agisce se finestra aperta o modalità Vacanza.
+    trigger:
+      - platform: template
+        value_template: >
+          {{ states('input_number.velocita_vento') | float >
+             states('input_number.soglia_vento_raffstore') | float }}
+    condition:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') != 'Vacanza' }}
+    action:
+      - service: cover.set_cover_position
+        target:
+          entity_id: >
+            {{ states.cover
+               | selectattr('entity_id', 'in', state_attr('cover.tutti_i_raffstore', 'entity_id'))
+               | selectattr('attributes.current_position', 'lt', 100)
+               | selectattr('attributes.current_position', 'gt', 0)
+               | rejectattr('entity_id', 'in',
+                   ['cover.raffstore_pf_taverna' if is_state('input_boolean.pf_taverna', 'on') else '',
+                    'cover.raffstore_fin_bagno_taverna' if is_state('input_boolean.fin_bagno_taverna', 'on') else '',
+                    'cover.raffstore_pf_camera_padronale' if is_state('input_boolean.pf_camera_padronale', 'on') else '',
+                    'cover.raffstore_pf_camera_ospiti' if is_state('input_boolean.pf_camera_ospiti', 'on') else '',
+                    'cover.raffstore_pf_soggiorno' if is_state('input_boolean.pf_soggiorno', 'on') else '',
+                    'cover.raffstore_pf_ingresso_terrazzo' if is_state('input_boolean.pf_ingresso_terrazzo', 'on') else ''])
+               | map(attribute='entity_id') | list }}
+        data:
+          position: 0
+    mode: single
+
+  - id: raffstore_vento_alza_giorno
+    alias: "Raffstore — Vento: alza completamente (giorno)"
+    trigger:
+      - platform: template
+        value_template: >
+          {{ states('input_number.velocita_vento') | float >
+             states('input_number.soglia_vento_raffstore') | float }}
+    condition:
+      - condition: state
+        entity_id: input_boolean.crepuscolare
+        state: "off"
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') != 'Vacanza' }}
+    action:
+      - service: cover.open_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+    mode: single
+
+  - id: raffstore_vento_abbassa_notte
+    alias: "Raffstore — Vento: abbassa completamente (notte)"
+    trigger:
+      - platform: template
+        value_template: >
+          {{ states('input_number.velocita_vento') | float >
+             states('input_number.soglia_vento_raffstore') | float }}
+    condition:
+      - condition: state
+        entity_id: input_boolean.crepuscolare
+        state: "on"
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') != 'Vacanza' }}
+    action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+    mode: single
+
+  - id: raffstore_vacanza_chiudi_tutto
+    alias: "Raffstore — Vacanza: chiudi tutto"
+    description: >
+      Modalità Vacanza attiva → chiude tutti i raffstore ignorando
+      lo stato delle finestre. Sigilla la casa.
+    trigger:
+      - platform: state
+        entity_id: input_select.modalita_casa
+        to: "Vacanza"
+    action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+    mode: single

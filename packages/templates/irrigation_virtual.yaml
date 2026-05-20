@@ -1,0 +1,84 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/irrigation/irrigation.yaml
+# Impianto irrigazione interrato
+# Alimentato da vasca 1, integrazione meteo via Met.no
+# 4 zone: prato, aiuole, contorno edificio, riserva
+
+input_boolean:
+
+  # ── POMPA ─────────────────────────────────────────────────
+  pompa_irrigazione:
+    name: "Pompa Irrigazione"
+    icon: mdi:pump
+
+  # ── ZONE ──────────────────────────────────────────────────
+  irrigazione_zona1_prato:
+    name: "Irrigazione Zona 1 — Prato"
+    icon: mdi:sprinkler-variant
+
+  irrigazione_zona2_aiuole:
+    name: "Irrigazione Zona 2 — Aiuole"
+    icon: mdi:flower
+
+  irrigazione_zona3_contorno:
+    name: "Irrigazione Zona 3 — Contorno Edificio"
+    icon: mdi:home-outline
+
+  irrigazione_zona4_riserva:
+    name: "Irrigazione Zona 4 — Riserva"
+    icon: mdi:valve
+
+  # ── CONTROLLO METEO ───────────────────────────────────────
+  irrigazione_sospesa_pioggia:
+    name: "Irrigazione Sospesa per Pioggia"
+    icon: mdi:weather-rainy
+
+  irrigazione_modalita_manuale:
+    name: "Irrigazione Modalità Manuale"
+    icon: mdi:hand-back-right
+
+input_number:
+
+  # ── SOGLIE ────────────────────────────────────────────────
+  soglia_pioggia_sospensione:
+    name: "Soglia Pioggia per Sospensione (mm)"
+    min: 0
+    max: 20
+    step: 0.5
+    unit_of_measurement: "mm"
+    icon: mdi:weather-rainy
+
+  durata_irrigazione_prato:
+    name: "Durata Irrigazione Prato"
+    min: 5
+    max: 60
+    step: 5
+    unit_of_measurement: "min"
+    icon: mdi:timer
+
+  durata_irrigazione_aiuole:
+    name: "Durata Irrigazione Aiuole"
+    min: 5
+    max: 60
+    step: 5
+    unit_of_measurement: "min"
+    icon: mdi:timer
+
+  durata_irrigazione_contorno:
+    name: "Durata Irrigazione Contorno"
+    min: 5
+    max: 60
+    step: 5
+    unit_of_measurement: "min"
+    icon: mdi:timer
+
+  # ── ORARIO ────────────────────────────────────────────────
+  ora_irrigazione:
+    name: "Ora Irrigazione"
+    min: 0
+    max: 23
+    step: 1
+    unit_of_measurement: "h"
+    icon: mdi:clock-outline

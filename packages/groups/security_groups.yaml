@@ -1,0 +1,23 @@
+# packages/groups/security_groups.yaml
+# Gruppo sensori finestre aperte — usato dalle automazioni raffstore
+# per verificare se una finestra è aperta prima di agire
+
+group:
+  finestre_aperte:
+    name: "Finestre Aperte"
+    entities:
+      - input_boolean.pf_taverna
+      - input_boolean.fin_bagno_taverna
+      - input_boolean.fin_vano_scale_pt
+      - input_boolean.fin_vano_scale_p1
+      - input_boolean.pf_camera_padronale
+      - input_boolean.fin_bagno_padronale
+      - input_boolean.fin_bagno_comune
+      - input_boolean.fin_studio
+      - input_boolean.pf_camera_ospiti
+      - input_boolean.pf_soggiorno
+      - input_boolean.fin_soggiorno_ovest
+      - input_boolean.fin_soggiorno_est
+      - input_boolean.pf_ingresso_terrazzo
+      - input_boolean.fin_cucina
+      - input_boolean.fin_bagno_p1

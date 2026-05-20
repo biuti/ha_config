@@ -1,3 +1,6 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
 # packages/security/sensors.yaml
 # Sensori apertura finestre, portefinestre e porte
 # Simulati con input_boolean in attesa dei sensori ZigBee fisici

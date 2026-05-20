@@ -1,0 +1,614 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/lighting/raffstore.yaml
+# Raffstore Hella AR92 motorizzati
+# Simulati con input_boolean (su/giù) e input_number (posizione %)
+# Convenzione: raffstore_ per tutti, posizione in 0-100 (0=chiuso, 100=aperto)
+
+# Contiene: dati grezzi (input_boolean + input_number) e cover template
+# Quando installati i dispositivi fisici:
+#   1. Eliminare questo file
+#   2. Aggiornare groups/raffstore_groups.yaml con i cover fisici Zigbee2MQTT
+#   3. Le automazioni in automation/raffstore_vento.yaml non cambiano
+
+input_boolean:
+
+  # ── SEMINTERRATO ──────────────────────────────────────────
+  raffstore_pf_taverna:
+    name: "Raffstore Portafinestra Taverna"
+    icon: mdi:blinds
+
+  raffstore_fin_bagno_taverna:
+    name: "Raffstore Finestra Bagno Taverna"
+    icon: mdi:blinds
+
+  # ── VANO SCALE ────────────────────────────────────────────
+  raffstore_fin_vano_scale_pt:
+    name: "Raffstore Finestra Vano Scale Piano Terra"
+    icon: mdi:blinds
+
+  raffstore_fin_vano_scale_p1:
+    name: "Raffstore Finestra Vano Scale Piano Primo"
+    icon: mdi:blinds
+
+  # ── PIANO TERRA ───────────────────────────────────────────
+  raffstore_pf_camera_padronale:
+    name: "Raffstore Portafinestra Camera Padronale"
+    icon: mdi:blinds
+
+  raffstore_fin_bagno_padronale:
+    name: "Raffstore Finestra Bagno Padronale"
+    icon: mdi:blinds
+
+  raffstore_fin_bagno_comune:
+    name: "Raffstore Finestra Bagno Comune"
+    icon: mdi:blinds
+
+  raffstore_fin_studio:
+    name: "Raffstore Finestra Studio"
+    icon: mdi:blinds
+
+  raffstore_pf_camera_ospiti:
+    name: "Raffstore Portafinestra Camera Ospiti"
+    icon: mdi:blinds
+
+  # ── PIANO PRIMO ───────────────────────────────────────────
+  raffstore_pf_soggiorno:
+    name: "Raffstore Portafinestra Soggiorno"
+    icon: mdi:blinds
+
+  raffstore_fin_soggiorno_ovest:
+    name: "Raffstore Finestra Soggiorno Ovest"
+    icon: mdi:blinds
+
+  raffstore_fin_soggiorno_est:
+    name: "Raffstore Finestra Soggiorno Est"
+    icon: mdi:blinds
+
+  raffstore_pf_ingresso_terrazzo:
+    name: "Raffstore Portafinestra Ingresso Terrazzo"
+    icon: mdi:blinds
+
+  raffstore_fin_cucina:
+    name: "Raffstore Finestra Cucina"
+    icon: mdi:blinds
+
+  raffstore_fin_bagno_p1:
+    name: "Raffstore Finestra Bagno Piano Primo"
+    icon: mdi:blinds
+
+input_number:
+
+  # ── SEMINTERRATO ──────────────────────────────────────────
+  pos_raffstore_pf_taverna:
+    name: "Posizione Raffstore Portafinestra Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_bagno_taverna:
+    name: "Posizione Raffstore Finestra Bagno Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  # ── VANO SCALE ────────────────────────────────────────────
+  pos_raffstore_fin_vano_scale_pt:
+    name: "Posizione Raffstore Finestra Vano Scale Piano Terra"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_vano_scale_p1:
+    name: "Posizione Raffstore Finestra Vano Scale Piano Primo"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  # ── PIANO TERRA ───────────────────────────────────────────
+  pos_raffstore_pf_camera_padronale:
+    name: "Posizione Raffstore Portafinestra Camera Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_bagno_padronale:
+    name: "Posizione Raffstore Finestra Bagno Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_bagno_comune:
+    name: "Posizione Raffstore Finestra Bagno Comune"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_studio:
+    name: "Posizione Raffstore Finestra Studio"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_pf_camera_ospiti:
+    name: "Posizione Raffstore Portafinestra Camera Ospiti"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  # ── PIANO PRIMO ───────────────────────────────────────────
+  pos_raffstore_pf_soggiorno:
+    name: "Posizione Raffstore Portafinestra Soggiorno"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_soggiorno_ovest:
+    name: "Posizione Raffstore Finestra Soggiorno Ovest"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_soggiorno_est:
+    name: "Posizione Raffstore Finestra Soggiorno Est"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_pf_ingresso_terrazzo:
+    name: "Posizione Raffstore Portafinestra Ingresso Terrazzo"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_cucina:
+    name: "Posizione Raffstore Finestra Cucina"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+  pos_raffstore_fin_bagno_p1:
+    name: "Posizione Raffstore Finestra Bagno Piano Primo"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:blinds
+
+cover:
+  - platform: template
+    covers:
+
+      raffstore_pf_taverna:
+        friendly_name: "Raffstore Portafinestra Taverna"
+        position_template: >
+          {{ states('input_number.pos_raffstore_pf_taverna') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_taverna
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_taverna
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_taverna
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_pf_taverna
+
+      raffstore_fin_bagno_taverna:
+        friendly_name: "Raffstore Finestra Bagno Taverna"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_bagno_taverna') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_taverna
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_taverna
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_taverna
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_bagno_taverna
+
+      raffstore_fin_vano_scale_pt:
+        friendly_name: "Raffstore Finestra Vano Scale Piano Terra"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_vano_scale_pt') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_pt
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_pt
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_pt
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_vano_scale_pt
+
+      raffstore_fin_vano_scale_p1:
+        friendly_name: "Raffstore Finestra Vano Scale Piano Primo"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_vano_scale_p1') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_p1
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_p1
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_vano_scale_p1
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_vano_scale_p1
+
+      raffstore_pf_camera_padronale:
+        friendly_name: "Raffstore Portafinestra Camera Padronale"
+        position_template: >
+          {{ states('input_number.pos_raffstore_pf_camera_padronale') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_padronale
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_padronale
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_padronale
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_pf_camera_padronale
+
+      raffstore_fin_bagno_padronale:
+        friendly_name: "Raffstore Finestra Bagno Padronale"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_bagno_padronale') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_padronale
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_padronale
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_padronale
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_bagno_padronale
+
+      raffstore_fin_bagno_comune:
+        friendly_name: "Raffstore Finestra Bagno Comune"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_bagno_comune') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_comune
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_comune
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_comune
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_bagno_comune
+
+      raffstore_fin_studio:
+        friendly_name: "Raffstore Finestra Studio"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_studio') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_studio
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_studio
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_studio
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_studio
+
+      raffstore_pf_camera_ospiti:
+        friendly_name: "Raffstore Portafinestra Camera Ospiti"
+        position_template: >
+          {{ states('input_number.pos_raffstore_pf_camera_ospiti') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_ospiti
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_ospiti
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_camera_ospiti
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_pf_camera_ospiti
+
+      raffstore_pf_soggiorno:
+        friendly_name: "Raffstore Portafinestra Soggiorno"
+        position_template: >
+          {{ states('input_number.pos_raffstore_pf_soggiorno') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_soggiorno
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_soggiorno
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_soggiorno
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_pf_soggiorno
+
+      raffstore_fin_soggiorno_ovest:
+        friendly_name: "Raffstore Finestra Soggiorno Ovest"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_soggiorno_ovest') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_ovest
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_ovest
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_ovest
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_soggiorno_ovest
+
+      raffstore_fin_soggiorno_est:
+        friendly_name: "Raffstore Finestra Soggiorno Est"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_soggiorno_est') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_est
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_est
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_soggiorno_est
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_soggiorno_est
+
+      raffstore_pf_ingresso_terrazzo:
+        friendly_name: "Raffstore Portafinestra Ingresso Terrazzo"
+        position_template: >
+          {{ states('input_number.pos_raffstore_pf_ingresso_terrazzo') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_pf_ingresso_terrazzo
+
+      raffstore_fin_cucina:
+        friendly_name: "Raffstore Finestra Cucina"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_cucina') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_cucina
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_cucina
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_cucina
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_cucina
+
+      raffstore_fin_bagno_p1:
+        friendly_name: "Raffstore Finestra Bagno Piano Primo"
+        position_template: >
+          {{ states('input_number.pos_raffstore_fin_bagno_p1') | int }}
+        open_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_p1
+          data:
+            value: 100
+        close_cover:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_p1
+          data:
+            value: 0
+        set_cover_position:
+          service: input_number.set_value
+          target:
+            entity_id: input_number.pos_raffstore_fin_bagno_p1
+          data:
+            value: "{{ position }}"
+        stop_cover:
+          service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.raffstore_fin_bagno_p1
