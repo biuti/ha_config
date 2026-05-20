@@ -2,10 +2,10 @@
 # Gruppi cover raffstore
 # STATO: quasi definitivo — a casa ultimata sostituire i cover virtuali
 # con i dispositivi fisici Hella AR92 esposti da Zigbee2MQTT
-# File temporanei da rimuovere: lighting/raffstore_covers.yaml
-#                               lighting/raffstore.yaml (input_boolean/number)
+# File temporaneo da rimuovere: templates/raffstore_virtual.yaml
 
 cover:
+  # ── GRUPPO PRINCIPALE ─────────────────────────────────────
   - platform: group
     name: "Tutti i Raffstore"
     entities:
@@ -24,3 +24,82 @@ cover:
       - cover.raffstore_pf_ingresso_terrazzo
       - cover.raffstore_fin_cucina
       - cover.raffstore_fin_bagno_p1
+
+  # ── GRUPPI AUTOMAZIONE CREPUSCOLO / MATTINA ───────────────
+  - platform: group
+    name: "Raffstore Crepuscolo"
+    # Tutti tranne le due panoramiche (pf_soggiorno, fin_soggiorno_ovest)
+    # che rimangono manuali
+    entities:
+      - cover.raffstore_pf_taverna
+      - cover.raffstore_fin_bagno_taverna
+      - cover.raffstore_fin_vano_scale_pt
+      - cover.raffstore_fin_vano_scale_p1
+      - cover.raffstore_pf_camera_padronale
+      - cover.raffstore_fin_bagno_padronale
+      - cover.raffstore_fin_bagno_comune
+      - cover.raffstore_fin_studio
+      - cover.raffstore_pf_camera_ospiti
+      - cover.raffstore_fin_soggiorno_est
+      - cover.raffstore_pf_ingresso_terrazzo
+      - cover.raffstore_fin_cucina
+      - cover.raffstore_fin_bagno_p1
+
+  - platform: group
+    name: "Raffstore Sveglia"
+    # Camere e taverna — si aprono con la sveglia, non con l'alba
+    entities:
+      - cover.raffstore_pf_camera_padronale
+      - cover.raffstore_pf_camera_ospiti
+      - cover.raffstore_pf_taverna
+
+  - platform: group
+    name: "Raffstore Mattina"
+    # Raffstore crepuscolo meno quelli sveglia
+    # Si aprono all'alba, non attendono la sveglia
+    entities:
+      - cover.raffstore_fin_bagno_taverna
+      - cover.raffstore_fin_vano_scale_pt
+      - cover.raffstore_fin_vano_scale_p1
+      - cover.raffstore_fin_bagno_padronale
+      - cover.raffstore_fin_bagno_comune
+      - cover.raffstore_fin_studio
+      - cover.raffstore_fin_soggiorno_est
+      - cover.raffstore_pf_ingresso_terrazzo
+      - cover.raffstore_fin_cucina
+      - cover.raffstore_fin_bagno_p1
+
+  # ── GRUPPI OMBREGGIATURA PER FACCIATA ─────────────────────
+  - platform: group
+    name: "Raffstore Ombreggiatura Est"
+    # Irraggiamento diretto mattutino
+    # Logica: abbassa con lamelle aperte dal mattino fino a mezzogiorno
+    entities:
+      - cover.raffstore_fin_studio
+      - cover.raffstore_fin_soggiorno_est
+      - cover.raffstore_fin_bagno_p1
+
+  - platform: group
+    name: "Raffstore Ombreggiatura Ovest"
+    # Irraggiamento diretto pomeridiano
+    # Logica: abbassa con lamelle aperte da mezzogiorno al tramonto
+    entities:
+      - cover.raffstore_fin_soggiorno_ovest
+      - cover.raffstore_fin_cucina
+      - cover.raffstore_fin_bagno_padronale
+      - cover.raffstore_fin_bagno_comune
+      - cover.raffstore_fin_bagno_taverna
+      - cover.raffstore_pf_camera_ospiti
+
+  - platform: group
+    name: "Raffstore Ombreggiatura Sud"
+    # Protette parzialmente da terrazzo e geometria edificio
+    # Logica più permissiva — interviene solo nelle ore centrali estive
+    entities:
+      - cover.raffstore_pf_camera_padronale
+      - cover.raffstore_fin_vano_scale_pt
+      - cover.raffstore_fin_vano_scale_p1
+
+  # ── ESCLUSE DA OMBREGGIATURA AUTOMATICA ───────────────────
+  # cover.raffstore_pf_soggiorno    → recessa + timpano, nessun irraggiamento diretto
+  # cover.raffstore_pf_ingresso_terrazzo → facciata nord, mai irraggiamento diretto
