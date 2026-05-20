@@ -207,6 +207,7 @@ input_number:
 template:
   - cover:
       - name: "Raffstore Portafinestra Taverna"
+        unique_id: raffstore_pf_taverna
         position: "{{ states('input_number.pos_raffstore_pf_taverna') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -232,6 +233,7 @@ template:
               entity_id: input_boolean.raffstore_pf_taverna
 
       - name: "Raffstore Finestra Bagno Taverna"
+        unique_id: raffstore_fin_bagno_taverna
         position: "{{ states('input_number.pos_raffstore_fin_bagno_taverna') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -257,6 +259,7 @@ template:
               entity_id: input_boolean.raffstore_fin_bagno_taverna
 
       - name: "Raffstore Finestra Vano Scale Piano Terra"
+        unique_id: raffstore_fin_vano_scale_pt
         position: "{{ states('input_number.pos_raffstore_fin_vano_scale_pt') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -282,6 +285,7 @@ template:
               entity_id: input_boolean.raffstore_fin_vano_scale_pt
 
       - name: "Raffstore Finestra Vano Scale Piano Primo"
+        unique_id: raffstore_fin_vano_scale_p1
         position: "{{ states('input_number.pos_raffstore_fin_vano_scale_p1') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -307,6 +311,7 @@ template:
               entity_id: input_boolean.raffstore_fin_vano_scale_p1
 
       - name: "Raffstore Portafinestra Camera Padronale"
+        unique_id: raffstore_pf_camera_padronale
         position: "{{ states('input_number.pos_raffstore_pf_camera_padronale') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -332,6 +337,7 @@ template:
               entity_id: input_boolean.raffstore_pf_camera_padronale
 
       - name: "Raffstore Finestra Bagno Padronale"
+        unique_id: raffstore_fin_bagno_padronale
         position: "{{ states('input_number.pos_raffstore_fin_bagno_padronale') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -357,6 +363,7 @@ template:
               entity_id: input_boolean.raffstore_fin_bagno_padronale
 
       - name: "Raffstore Finestra Bagno Comune"
+        unique_id: raffstore_fin_bagno_comune
         position: "{{ states('input_number.pos_raffstore_fin_bagno_comune') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -382,6 +389,7 @@ template:
               entity_id: input_boolean.raffstore_fin_bagno_comune
 
       - name: "Raffstore Finestra Studio"
+        unique_id: raffstore_fin_studio
         position: "{{ states('input_number.pos_raffstore_fin_studio') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -407,6 +415,7 @@ template:
               entity_id: input_boolean.raffstore_fin_studio
 
       - name: "Raffstore Portafinestra Camera Ospiti"
+        unique_id: raffstore_pf_camera_ospiti
         position: "{{ states('input_number.pos_raffstore_pf_camera_ospiti') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -432,6 +441,7 @@ template:
               entity_id: input_boolean.raffstore_pf_camera_ospiti
 
       - name: "Raffstore Portafinestra Soggiorno"
+        unique_id: raffstore_pf_soggiorno
         position: "{{ states('input_number.pos_raffstore_pf_soggiorno') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -457,6 +467,7 @@ template:
               entity_id: input_boolean.raffstore_pf_soggiorno
 
       - name: "Raffstore Finestra Soggiorno Ovest"
+        unique_id: raffstore_fin_soggiorno_ovest
         position: "{{ states('input_number.pos_raffstore_fin_soggiorno_ovest') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -482,6 +493,7 @@ template:
               entity_id: input_boolean.raffstore_fin_soggiorno_ovest
 
       - name: "Raffstore Finestra Soggiorno Est"
+        unique_id: raffstore_fin_soggiorno_est
         position: "{{ states('input_number.pos_raffstore_fin_soggiorno_est') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -507,6 +519,7 @@ template:
               entity_id: input_boolean.raffstore_fin_soggiorno_est
 
       - name: "Raffstore Portafinestra Ingresso Terrazzo"
+        unique_id: raffstore_pf_ingresso_terrazzo
         position: "{{ states('input_number.pos_raffstore_pf_ingresso_terrazzo') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -532,6 +545,7 @@ template:
               entity_id: input_boolean.raffstore_pf_ingresso_terrazzo
 
       - name: "Raffstore Finestra Cucina"
+        unique_id: raffstore_fin_cucina
         position: "{{ states('input_number.pos_raffstore_fin_cucina') | int }}"
         open_cover:
           - action: input_number.set_value
@@ -557,6 +571,7 @@ template:
               entity_id: input_boolean.raffstore_fin_cucina
 
       - name: "Raffstore Finestra Bagno Piano Primo"
+        unique_id: raffstore_fin_bagno_p1
         position: "{{ states('input_number.pos_raffstore_fin_bagno_p1') | int }}"
         open_cover:
           - action: input_number.set_value
