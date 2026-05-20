@@ -1,0 +1,136 @@
+# packages/climate/climate.yaml
+# Impianto climatizzazione: Nilan HCR 800T, Innova Filomuro SLW 600 x2
+# Pompa di calore Panasonic WH-WXG9ME8 (r290, 9kW)
+# Integrazione reale via HACS + Modbus TCP
+# Virtual sensors simulano le entità che verranno esposte dai dispositivi fisici
+
+input_boolean:
+
+  # ── NILAN HCR 800T — VMC + riscaldamento/raffrescamento ──
+  nilan_on:
+    name: "Nilan Acceso"
+    icon: mdi:air-filter
+
+  nilan_modalita_estate:
+    name: "Nilan Modalità Estate"
+    icon: mdi:sun-thermometer
+
+  # ── INNOVA FILOMURO SLW 600 ───────────────────────────────
+  innova_piano_terra_on:
+    name: "Fancoil Piano Terra Acceso"
+    icon: mdi:fan
+
+  innova_piano_primo_on:
+    name: "Fancoil Piano Primo Acceso"
+    icon: mdi:fan
+
+  # ── PANASONIC WH-WXG9ME8 — pompa di calore ───────────────
+  pompa_calore_on:
+    name: "Pompa di Calore Accesa"
+    icon: mdi:heat-pump
+
+  pompa_calore_modalita_riscaldamento:
+    name: "Pompa di Calore Riscaldamento"
+    icon: mdi:radiator
+
+input_number:
+
+  # ── NILAN HCR 800T ────────────────────────────────────────
+  nilan_temp_mandata:
+    name: "Nilan Temperatura Mandata"
+    min: 0
+    max: 50
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  nilan_temp_ripresa:
+    name: "Nilan Temperatura Ripresa"
+    min: 0
+    max: 50
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-down
+
+  nilan_temp_target:
+    name: "Nilan Temperatura Target"
+    min: 16
+    max: 28
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  nilan_velocita_ventilatore:
+    name: "Nilan Velocità Ventilatore"
+    min: 1
+    max: 4
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  nilan_umidita_ripresa:
+    name: "Nilan Umidità Ripresa"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # ── INNOVA FILOMURO — piano terra ─────────────────────────
+  innova_pt_temp_target:
+    name: "Fancoil Piano Terra Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  innova_pt_velocita_ventilatore:
+    name: "Fancoil Piano Terra Velocità Ventilatore"
+    min: 1
+    max: 3
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  # ── INNOVA FILOMURO — piano primo ─────────────────────────
+  innova_p1_temp_target:
+    name: "Fancoil Piano Primo Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  innova_p1_velocita_ventilatore:
+    name: "Fancoil Piano Primo Velocità Ventilatore"
+    min: 1
+    max: 3
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  # ── PANASONIC WH-WXG9ME8 ─────────────────────────────────
+  pompa_calore_temp_mandata:
+    name: "Pompa di Calore Temperatura Mandata"
+    min: 0
+    max: 60
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  pompa_calore_temp_target:
+    name: "Pompa di Calore Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  pompa_calore_cop:
+    name: "Pompa di Calore COP"
+    min: 0
+    max: 10
+    step: 0.1
+    unit_of_measurement: ""
+    icon: mdi:leaf

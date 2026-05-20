@@ -1,0 +1,54 @@
+# packages/security/motion.yaml
+# Sensori di movimento PIR ZigBee
+# Simulati con input_boolean in attesa dei sensori fisici
+# Best practice: ogni PIR espone anche luminosità e tamper nei dispositivi reali
+
+input_boolean:
+
+  # ── ESTERNO ───────────────────────────────────────────────
+  pir_garage:
+    name: "Movimento Garage"
+    icon: mdi:motion-sensor
+
+  pir_terrazzo_nord:
+    name: "Movimento Terrazzo Nord"
+    icon: mdi:motion-sensor
+
+  pir_giardino_sud:
+    name: "Movimento Giardino Sud"
+    icon: mdi:motion-sensor
+
+  # ── SEMINTERRATO ──────────────────────────────────────────
+  pir_taverna:
+    name: "Movimento Taverna"
+    icon: mdi:motion-sensor
+
+  # ── VANO SCALE ────────────────────────────────────────────
+  pir_vano_scale:
+    name: "Movimento Vano Scale"
+    icon: mdi:motion-sensor
+
+  # ── PIANO TERRA ───────────────────────────────────────────
+  pir_camera_padronale:
+    name: "Movimento Camera Padronale"
+    icon: mdi:motion-sensor
+
+  pir_camera_ospiti:
+    name: "Movimento Camera Ospiti"
+    icon: mdi:motion-sensor
+
+  pir_studio:
+    name: "Movimento Studio"
+    icon: mdi:motion-sensor
+
+  # ── PIANO PRIMO ───────────────────────────────────────────
+  pir_soggiorno:
+    name: "Movimento Soggiorno"
+    icon: mdi:motion-sensor
+
+  # ── STATO ALLARME (logico) ────────────────────────────────
+  # Usato per disabilitare i PIR come trigger di allarme
+  # quando la casa è occupata
+  allarme_attivo:
+    name: "Allarme Attivo"
+    icon: mdi:shield-home

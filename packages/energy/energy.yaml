@@ -1,0 +1,107 @@
+# packages/energy/energy.yaml
+# Sistema energetico: SigenStor (FV + accumulo + rete), colonnina ricarica auto
+# Integrazione reale: HACS Sigenergy ESS via Modbus TCP
+# Virtual sensors simulano le entità principali del sistema
+
+input_boolean:
+
+  # ── SIGENSTOR ─────────────────────────────────────────────
+  sigenstor_on:
+    name: "SigenStor Attivo"
+    icon: mdi:battery-charging
+
+  sigenstor_modalita_remota:
+    name: "SigenStor Modalità Remota EMS"
+    icon: mdi:remote
+
+  # ── COLONNINA RICARICA AUTO ───────────────────────────────
+  colonnina_ricarica_attiva:
+    name: "Colonnina Ricarica Attiva"
+    icon: mdi:ev-station
+
+input_number:
+
+  # ── PRODUZIONE FV ─────────────────────────────────────────
+  fv_potenza_attuale:
+    name: "FV Potenza Attuale"
+    min: 0
+    max: 12000
+    step: 10
+    unit_of_measurement: "W"
+    icon: mdi:solar-power
+
+  fv_energia_oggi:
+    name: "FV Energia Prodotta Oggi"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "kWh"
+    icon: mdi:solar-power-variant
+
+  # ── ACCUMULO BATTERIA ─────────────────────────────────────
+  batteria_soc:
+    name: "Batteria Stato di Carica"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:battery
+
+  batteria_potenza:
+    name: "Batteria Potenza"
+    min: -10000
+    max: 10000
+    step: 10
+    unit_of_measurement: "W"
+    icon: mdi:battery-charging-outline
+
+  # ── RETE ──────────────────────────────────────────────────
+  rete_potenza:
+    name: "Rete Potenza"
+    min: -10000
+    max: 10000
+    step: 10
+    unit_of_measurement: "W"
+    icon: mdi:transmission-tower
+
+  rete_energia_importata_oggi:
+    name: "Rete Energia Importata Oggi"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "kWh"
+    icon: mdi:transmission-tower-import
+
+  rete_energia_esportata_oggi:
+    name: "Rete Energia Esportata Oggi"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "kWh"
+    icon: mdi:transmission-tower-export
+
+  # ── CONSUMI CASA ──────────────────────────────────────────
+  casa_potenza_totale:
+    name: "Casa Potenza Totale"
+    min: 0
+    max: 20000
+    step: 10
+    unit_of_measurement: "W"
+    icon: mdi:home-lightning-bolt
+
+  # ── COLONNINA AUTO ────────────────────────────────────────
+  colonnina_potenza:
+    name: "Colonnina Potenza Ricarica"
+    min: 0
+    max: 22000
+    step: 100
+    unit_of_measurement: "W"
+    icon: mdi:ev-station
+
+  colonnina_energia_sessione:
+    name: "Colonnina Energia Sessione"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "kWh"
+    icon: mdi:battery-charging-100

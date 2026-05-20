@@ -1,0 +1,58 @@
+# packages/presence/presence.yaml
+# Rilevamento presenza: modalità casa e stato per persona
+# Best practice 2026:
+# - input_select per modalità casa (unica sorgente di verità per tutte le automazioni)
+# - input_boolean per presenza per persona (alimentato da app HA companion)
+# - device_tracker viene gestito dall'integrazione HA companion, non qui
+# - le automazioni leggeranno sempre presence.modalita_casa, mai i device_tracker direttamente
+
+input_select:
+
+  modalita_casa:
+    name: "Modalità Casa"
+    options:
+      - Casa
+      - Via
+      - Notte
+      - Ospiti
+      - Vacanza
+    initial: Casa
+    icon: mdi:home-account
+
+input_boolean:
+
+  # ── PRESENZA PER PERSONA ──────────────────────────────────
+  # Alimentato dall'app HA companion (GPS + WiFi + BLE)
+  # Non usare device_tracker direttamente nelle automazioni
+  presenza_antonio:
+    name: "Presenza Antonio"
+    icon: mdi:account
+
+  presenza_nicoletta:
+    name: "Presenza Nicoletta"
+    icon: mdi:account
+
+  # ── PRESENZA OSPITI ───────────────────────────────────────
+  ospiti_presenti:
+    name: "Ospiti Presenti"
+    icon: mdi:account-group
+
+  # ── STATO NOTTE ───────────────────────────────────────────
+  # Separato dalla modalità casa per permettere
+  # "Notte con ospiti" o "Notte in vacanza" come combinazioni
+  modalita_notte_attiva:
+    name: "Modalità Notte Attiva"
+    icon: mdi:weather-night
+
+input_datetime:
+
+  # Orari configurabili per automazioni notte/giorno
+  ora_inizio_notte:
+    name: "Ora Inizio Modalità Notte"
+    has_date: false
+    has_time: true
+
+  ora_fine_notte:
+    name: "Ora Fine Modalità Notte"
+    has_date: false
+    has_time: true

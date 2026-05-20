@@ -1,0 +1,103 @@
+# packages/lighting/scenes.yaml
+# Modalità luce configurabili per stanza
+# Usate come input_select dalle automazioni
+# I valori reali (colore, brightness) saranno nelle automazioni o nelle scene HA
+
+input_select:
+
+  # ── SOGGIORNO ─────────────────────────────────────────────
+  scena_soggiorno:
+    name: "Scena Soggiorno"
+    options:
+      - Normale
+      - Serale
+      - TV
+      - Notte
+      - Evento
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── CUCINA ────────────────────────────────────────────────
+  scena_cucina:
+    name: "Scena Cucina"
+    options:
+      - Normale
+      - Serale
+      - Notte
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── STUDIO ────────────────────────────────────────────────
+  scena_studio:
+    name: "Scena Studio"
+    options:
+      - Normale
+      - Concentrazione
+      - TV
+      - Notte
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── CAMERA PADRONALE ──────────────────────────────────────
+  scena_camera_padronale:
+    name: "Scena Camera Padronale"
+    options:
+      - Normale
+      - Lettura
+      - TV
+      - Notte
+      - Sveglia
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── CAMERA OSPITI ─────────────────────────────────────────
+  scena_camera_ospiti:
+    name: "Scena Camera Ospiti"
+    options:
+      - Normale
+      - Lettura
+      - TV
+      - Notte
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── TAVERNA ───────────────────────────────────────────────
+  scena_taverna:
+    name: "Scena Taverna"
+    options:
+      - Normale
+      - TV
+      - Notte
+      - Evento
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── VANO SCALE ────────────────────────────────────────────
+  scena_vano_scale:
+    name: "Scena Vano Scale"
+    options:
+      - Normale
+      - Notte
+      - Evento
+      - Spento
+    initial: Normale
+    icon: mdi:palette
+
+  # ── ESTERNO ───────────────────────────────────────────────
+  scena_esterno:
+    name: "Scena Esterno"
+    options:
+      - Normale
+      - Notte
+      - Serale
+      - Sicurezza
+      - Evento
+      - Spento
+    initial: Normale
+    icon: mdi:palette

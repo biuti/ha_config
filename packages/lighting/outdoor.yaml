@@ -1,0 +1,94 @@
+# packages/lighting/outdoor.yaml
+# Luci esterne — faretti RGBW + strisce LED RGBW ZigBee
+# Intensità strisce segnapassi collegata ai PIR in security/motion.yaml
+# Simulato con input_boolean + input_number
+
+input_boolean:
+
+  # ── PERIMETRO EDIFICIO ────────────────────────────────────
+  luce_ingresso_principale:
+    name: "Luce Ingresso Principale"
+    icon: mdi:spotlight
+
+  luce_ingresso_seminterrato:
+    name: "Luce Ingresso Seminterrato"
+    icon: mdi:spotlight
+
+  luce_perimetro_edificio:
+    name: "Luce Perimetro Edificio"
+    icon: mdi:spotlight
+
+  # ── TERRAZZI ──────────────────────────────────────────────
+
+  luce_balcone_piano_terra:
+    name: "Luce Balcone Piano Terra"
+    icon: mdi:spotlight
+
+  luce_terrazzo_nord:
+    name: "Luce Terrazzo Nord"
+    icon: mdi:spotlight
+
+  luce_terrazzo_sud:
+    name: "Luce Terrazzo Sud"
+    icon: mdi:spotlight
+
+  # ── GIARDINO SUD ──────────────────────────────────────────
+  luce_giardino:
+    name: "Luce Giardino"
+    icon: mdi:outdoor-lamp
+
+  luce_vialetto_pedonale:
+    name: "Strisce LED Vialetto Pedonale"
+    icon: mdi:led-strip-variant
+
+  luce_segnapassi_scale:
+    name: "Strisce LED Segnapassi Scale"
+    icon: mdi:led-strip-variant
+
+  luce_vialetto_carraio:
+    name: "Strisce LED Vialetto Carraio"
+    icon: mdi:led-strip-variant
+
+  # ── MODALITÀ EVENTI ───────────────────────────────────────
+  modalita_evento_esterno:
+    name: "Modalità Evento Esterno"
+    icon: mdi:party-popper
+
+input_number:
+
+  # Brightness strisce segnapassi — alzato automaticamente dai PIR
+  bright_vialetto_pedonale:
+    name: "Luminosità Vialetto"
+    min: 0
+    max: 255
+    step: 1
+    icon: mdi:brightness-6
+
+  bright_segnapassi_scale:
+    name: "Luminosità Segnapassi Scale"
+    min: 0
+    max: 255
+    step: 1
+    icon: mdi:brightness-6
+
+  bright_vialetto_carraio:
+    name: "Luminosità Vialetto Carraio"
+    min: 0
+    max: 255
+    step: 1
+    icon: mdi:brightness-6
+
+  bright_perimetro:
+    name: "Luminosità Perimetro"
+    min: 0
+    max: 255
+    step: 1
+    icon: mdi:brightness-6
+
+  # Brightness notturna di base (segnaletica minima)
+  bright_notte_vialetto:
+    name: "Luminosità Notturna Vialetto"
+    min: 0
+    max: 50
+    step: 1
+    icon: mdi:brightness-2
