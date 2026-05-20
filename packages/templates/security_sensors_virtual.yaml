@@ -13,12 +13,12 @@ input_boolean:
     name: "Porta Garage"
     icon: mdi:door
 
-  serranda_garage_1:
-    name: "Serranda Garage 1 (stato)"
+  serranda_garage_est_stato:
+    name: "Serranda Garage Est (stato)"
     icon: mdi:garage
 
-  serranda_garage_2:
-    name: "Serranda Garage 2 (stato)"
+  serranda_garage_ovest_stato:
+    name: "Serranda Garage Ovest (stato)"
     icon: mdi:garage
 
   # ── SEMINTERRATO ──────────────────────────────────────────

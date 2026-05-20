@@ -19,18 +19,18 @@ input_boolean:
     icon: mdi:gate-arrow-right
 
   # ── GARAGE ────────────────────────────────────────────────
-  serranda_garage_1:
-    name: "Serranda Garage 1"
+  serranda_garage_est:
+    name: "Serranda Garage Est"
     icon: mdi:garage-variant
 
-  serranda_garage_1_in_movimento:
-    name: "Serranda Garage 1 in Movimento"
+  serranda_garage_est_in_movimento:
+    name: "Serranda Garage Est in Movimento"
     icon: mdi:garage-variant
 
-  serranda_garage_2:
-    name: "Serranda Garage 2"
+  serranda_garage_ovest:
+    name: "Serranda Garage Ovest"
     icon: mdi:garage-variant
 
-  serranda_garage_2_in_movimento:
-    name: "Serranda Garage 2 in Movimento"
+  serranda_garage_ovest_in_movimento:
+    name: "Serranda Garage Ovest in Movimento"
     icon: mdi:garage-variant
