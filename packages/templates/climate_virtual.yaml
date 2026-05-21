@@ -36,6 +36,10 @@ input_boolean:
     name: "Pompa di Calore Riscaldamento"
     icon: mdi:radiator
 
+  geo_pompa_circolatore:
+    name: "Geotermico Pompa Circolatore"
+    icon: mdi:pump
+
 input_number:
 
   # ── NILAN HCR 800T ────────────────────────────────────────
@@ -137,3 +141,75 @@ input_number:
     step: 0.1
     unit_of_measurement: ""
     icon: mdi:leaf
+
+  # ── IMPIANTO GEOTERMICO ECWK (EXRG) ──────────────────────
+  # Pre-trattamento aria: circuito glicole/aria interrato
+  # Integrazione: sensori ZigBee temperatura/umidità
+  # (o Modbus se centralina EXRG lo supporta — verificare con fornitore)
+
+  geo_temp_aria_pre_scambiatore:
+    name: "Geotermico Temperatura Aria Pre-Scambiatore"
+    min: -20
+    max: 40
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-down
+
+  geo_temp_aria_post_scambiatore:
+    name: "Geotermico Temperatura Aria Post-Scambiatore"
+    min: -20
+    max: 40
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  geo_temp_glicole_mandata:
+    name: "Geotermico Temperatura Glicole Mandata"
+    min: -10
+    max: 30
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-lines
+
+  geo_temp_glicole_ritorno:
+    name: "Geotermico Temperatura Glicole Ritorno"
+    min: -10
+    max: 30
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-lines
+
+  geo_delta_temperatura:
+    name: "Geotermico Delta Temperatura Aria"
+    min: -20
+    max: 20
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-alert
+
+template:
+
+  - sensor:
+      - name: "Geotermico Delta Temperatura Aria"
+        unique_id: geo_delta_temperatura_calcolato
+        unit_of_measurement: "°C"
+        icon: mdi:thermometer-alert
+        state: >
+          {{ (states('input_number.geo_temp_aria_post_scambiatore') | float
+             - states('input_number.geo_temp_aria_pre_scambiatore') | float) | round(1) }}
+        attributes:
+          descrizione: >
+            Positivo in inverno (lo scambiatore riscalda l'aria),
+            negativo in estate (lo scambiatore raffredda l'aria).
+
+      - name: "Geotermico Delta Glicole"
+        unique_id: geo_delta_glicole_calcolato
+        unit_of_measurement: "°C"
+        icon: mdi:thermometer-lines
+        state: >
+          {{ (states('input_number.geo_temp_glicole_mandata') | float
+             - states('input_number.geo_temp_glicole_ritorno') | float) | round(1) }}
+        attributes:
+          descrizione: >
+            Delta temperatura circuito glicole.
+            Indica l'energia scambiata con il terreno.
