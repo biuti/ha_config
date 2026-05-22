@@ -8,6 +8,30 @@ input_boolean:
 
   # ── RAFFSTORE ─────────────────────────────────────────────
 
+  # Override per portafinestra — uno per accesso esterno
+  # Attivati individualmente quando la portafinestra corrispondente è aperta
+  # Rilasciati quando la portafinestra si chiude
+  # Configurati come Force Override Entity in ACP per il cover corrispondente
+  override_pf_camera_padronale:
+    name: "Override Portafinestra Camera Padronale"
+    icon: mdi:door-open
+
+  override_pf_soggiorno:
+    name: "Override Portafinestra Soggiorno"
+    icon: mdi:door-open
+
+  override_pf_ingresso_terrazzo:
+    name: "Override Portafinestra Ingresso Terrazzo"
+    icon: mdi:door-open
+
+  override_pf_taverna:
+    name: "Override Portafinestra Taverna"
+    icon: mdi:door-open
+
+  override_pf_camera_ospiti:
+    name: "Override Portafinestra Camera Ospiti"
+    icon: mdi:door-open
+
   override_vento_raffstore:
     name: "Override Vento Raffstore"
     icon: mdi:weather-windy-variant

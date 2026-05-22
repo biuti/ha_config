@@ -1,0 +1,154 @@
+# packages/automation/raffstore_overrides.yaml
+# Gestione override raffstore — portafinestra, pioggia, manuale
+#
+# LABEL DA ASSEGNARE IN HA:
+#   portafinestra_esterna → input_boolean delle 5 portafinestre
+#   raffstore_non_recesso → cover dei serramenti esposti
+#
+# AREE DA ASSEGNARE IN HA:
+#   Ogni portafinestra e il suo raffstore nella stessa area
+#   (es. pf_soggiorno e raffstore_pf_soggiorno → area: soggiorno)
+#
+# NOTA: dopo modifiche UI fare push di .storage/core.*_registry
+
+automation:
+
+  # ── OVERRIDE PORTAFINESTRA ────────────────────────────────
+
+  - id: override_portafinestre
+    alias: "Override — Portafinestre: gestione apertura e chiusura"
+    description: >
+      Intercetta apertura e chiusura di qualsiasi portafinestra esterna.
+      Apertura: ferma il raffstore nell'area corrispondente e attiva
+      l'override specifico per quella portafinestra.
+      Chiusura: se non ci sono altre portafinestre aperte nella stessa
+      area, rilascia l'override corrispondente.
+    triggers:
+      - trigger: state
+        entity_id: "{{ label_entities('portafinestra_esterna') }}"
+        to: null
+    actions:
+      - variables:
+          raffstore_id: >
+            {{ 'cover.raffstore_' ~ trigger.entity_id.split('.')[1] }}
+          override_id: >
+            {{ 'input_boolean.override_' ~ trigger.entity_id.split('.')[1] }}
+          area_evento: >
+            {{ area_id(trigger.entity_id) }}
+          altre_pf_aperte_in_area: >
+            {{ label_entities('portafinestra_esterna')
+               | select('ne', trigger.entity_id)
+               | selectattr('area_id', 'eq', area_evento)
+               | map('states')
+               | select('eq', 'on')
+               | list | count }}
+      - choose:
+          - conditions:
+              - condition: template
+                value_template: "{{ trigger.to_state.state == 'on' }}"
+            sequence:
+              - action: cover.stop_cover
+                target:
+                  entity_id: "{{ raffstore_id }}"
+              - action: input_boolean.turn_on
+                target:
+                  entity_id: "{{ override_id }}"
+
+          - conditions:
+              - condition: template
+                value_template: >
+                  {{ trigger.to_state.state == 'off'
+                     and altre_pf_aperte_in_area == 0 }}
+            sequence:
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: "{{ override_id }}"
+    mode: parallel
+    max: 5
+
+  # ── OVERRIDE PIOGGIA ──────────────────────────────────────
+
+  - id: override_pioggia_attiva
+    alias: "Override — Pioggia: chiudi raffstore non recessi"
+    description: >
+      Quando inizia a piovere, chiude i raffstore esposti
+      (label raffstore_non_recesso) e blocca ACP.
+      I serramenti recessi vengono ignorati.
+    triggers:
+      - trigger: state
+        entity_id: weather.casa
+        to:
+          - "rainy"
+          - "pouring"
+          - "lightning-rainy"
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_pioggia_raffstore
+      - action: cover.close_cover
+        target:
+          entity_id: "{{ label_entities('raffstore_non_recesso') }}"
+    mode: single
+
+  - id: override_pioggia_disattiva
+    alias: "Override — Pioggia cessata: rilascia blocco"
+    description: >
+      Quando smette di piovere rilascia l'override pioggia.
+      Non riapre i raffstore — ACP e automazioni ripristinano.
+    triggers:
+      - trigger: state
+        entity_id: weather.casa
+        from:
+          - "rainy"
+          - "pouring"
+          - "lightning-rainy"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('weather.casa') not in
+             ['rainy', 'pouring', 'lightning-rainy'] }}
+    actions:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.override_pioggia_raffstore
+    mode: single
+
+  # ── OVERRIDE MANUALE ──────────────────────────────────────
+
+  - id: override_manuale_attiva
+    alias: "Override — Manuale: sospendi ACP 60 minuti"
+    description: >
+      Quando l'utente muove manualmente un raffstore dalla UI
+      (user_id non nullo = comando umano, non automazione),
+      sospende ACP per 60 minuti con controllo portafinestre a 30.
+    triggers:
+      - trigger: event
+        event_type: call_service
+        event_data:
+          domain: cover
+          service: set_cover_position
+    conditions:
+      - condition: template
+        value_template: >
+          {{ trigger.event.context.user_id is not none }}
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_manuale_raffstore
+      - delay:
+          minutes: 30
+      - choose:
+          - conditions:
+              - condition: template
+                value_template: >
+                  {{ label_entities('portafinestra_esterna')
+                     | map('states')
+                     | select('eq', 'on')
+                     | list | count > 0 }}
+            sequence:
+              - delay:
+                  minutes: 30
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.override_manuale_raffstore
+    mode: restart

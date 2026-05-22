@@ -1,0 +1,53 @@
+# packages/architecture/areas.yaml
+homeassistant:
+  areas:
+    garage:
+      name: "Garage"
+      icon: mdi:garage
+
+    # ── SEMINTERRATO ────────────────────────────────────────
+    taverna:
+      name: "Taverna"
+      icon: mdi:sofa
+    lavanderia:
+      name: "Lavanderia"
+      icon: mdi:washing-machine
+    bagno_taverna:
+      name: "Bagno Taverna"
+      icon: mdi:toilet
+    locale_tecnico:
+      name: "Locale Tecnico"
+      icon: mdi:wrench
+
+    # ── VANO SCALE (Interpiano) ─────────────────────────────
+    vano_scale:
+      name: "Vano Scale"
+      icon: mdi:stairs
+
+    # ── PIANO TERRA ─────────────────────────────────────────
+    camera_padronale:
+      name: "Camera Padronale"
+      icon: mdi:bed
+    bagno_padronale:
+      name: "Bagno Padronale"
+      icon: mdi:bathtub
+    bagno_comune:
+      name: "Bagno Comune"
+      icon: mdi:toilet
+    camera_ospiti:
+      name: "Camera Ospiti"
+      icon: mdi:bed-outline
+    studio:
+      name: "Studio"
+      icon: mdi:desk
+
+    # ── PIANO PRIMO ─────────────────────────────────────────
+    soggiorno:
+      name: "Soggiorno"
+      icon: mdi:television
+    cucina:
+      name: "Cucina"
+      icon: mdi:countertop
+    bagno_p1:
+      name: "Bagno Piano Primo"
+      icon: mdi:toilet
