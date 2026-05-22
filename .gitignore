@@ -78,3 +78,9 @@ secrets.yaml
 
 # HACS
 custom_components/
+
+# 3. ENTITÀ DA TRACCIARE ASSOLUTAMENTE (Eccezioni al punto 1)
+!.storage/core.area_registry
+!.storage/core.label_registry
+!.storage/core.entity_registry
+!.storage/core.device_registry
