@@ -19,21 +19,23 @@ automation:
     alias: "Override — Portafinestre: gestione apertura e chiusura"
     description: >
       Intercetta apertura e chiusura di qualsiasi portafinestra esterna usando le label.
-      Apertura: ferma il raffstore nell'area corrispondente e attiva l'override.
-      Chiusura: se non ci sono altre portafinestre aperte nella stessa area, rilascia l'override.
     mode: parallel
     max: 5
 
     trigger:
       - platform: event
         event_type: state_changed
+        # FIX CRUCIALE: Ascolta solo gli eventi che avvengono nel dominio input_boolean
+        event_data:
+          domain: input_boolean
 
     condition:
-      # Filtra l'evento: vogliamo SOLO i cambi di stato delle entità che hanno la label 'portafinestra'
+      # 1. Filtra: l'entità deve avere tassativamente la label 'portafinestra'
       - condition: template
         value_template: >
           {{ trigger.event.data.entity_id in label_entities('portafinestra') }}
-      # Evita i trigger inutili dovuti a cambi di attributi (es. cambi di batteria o aggiornamenti di timestamp)
+      
+      # 2. Evita i cambi di attributo (es. se cambia un timestamp ma lo stato resta ON)
       - condition: template
         value_template: >
           {{ trigger.event.data.old_state is not none 
@@ -42,26 +44,25 @@ automation:
 
     action:
       - variables:
-          # Isola l'entity_id che ha scatenato l'evento reale
           entita_evento: "{{ trigger.event.data.entity_id }}"
           stato_futuro: "{{ trigger.event.data.new_state.state }}"
           
-          # Genera dinamicamente i target basandoti sullo snake_case del nome dell'entità
+          # Generazione ID dinamici
           raffstore_id: "cover.raffstore_{{ entita_evento.split('.')[1] }}"
           override_id: "input_boolean.override_{{ entita_evento.split('.')[1] }}"
           area_evento: "{{ area_id(entita_evento) }}"
           
-          # Conta le ALTRE portafinestre aperte nella STESSA area
+          # Conteggio altre porte aperte nell'area
           altre_pf_aperte_in_area: >
             {{ label_entities('portafinestra')
               | select('ne', entita_evento)
-              | select('expand')
+              | expand
               | selectattr('area_id', 'eq', area_evento)
               | selectattr('state', 'eq', 'on')
               | list | count }}
 
       - choose:
-          # CASO 1: La portafinestra si è APERTA
+          # CASO 1: Apertura
           - conditions:
               - condition: template
                 value_template: "{{ stato_futuro == 'on' }}"
@@ -73,7 +74,7 @@ automation:
                 target:
                   entity_id: "{{ override_id }}"
 
-          # CASO 2: La portafinestra si è CHIUSA (e l'area è libera da altre PF aperte)
+          # CASO 2: Chiusura
           - conditions:
               - condition: template
                 value_template: "{{ stato_futuro == 'off' and altre_pf_aperte_in_area == 0 }}"
