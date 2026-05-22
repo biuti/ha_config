@@ -19,23 +19,24 @@ automation:
     alias: "Override — Portafinestre: gestione apertura e chiusura"
     description: >
       Intercetta apertura e chiusura di qualsiasi portafinestra esterna usando le label.
+      Apertura: ferma il raffstore nell'area corrispondente e attiva l'override.
+      Chiusura: se non ci sono altre portafinestre aperte nella stessa area, rilascia l'override.
     mode: parallel
     max: 5
 
     trigger:
       - platform: event
         event_type: state_changed
-        # FIX CRUCIALE: Ascolta solo gli eventi che avvengono nel dominio input_boolean
-        event_data:
-          domain: input_boolean
 
     condition:
-      # 1. Filtra: l'entità deve avere tassativamente la label 'portafinestra'
+      # 1. FIX LOOP: L'evento deve riguardare SOLO entità del dominio input_boolean
+      - condition: template
+        value_template: "{{ trigger.event.data.entity_id.startswith('input_boolean.') }}"
+      # 2. Filtra: l'entità deve avere tassativamente la label 'portafinestra'
       - condition: template
         value_template: >
           {{ trigger.event.data.entity_id in label_entities('portafinestra') }}
-      
-      # 2. Evita i cambi di attributo (es. se cambia un timestamp ma lo stato resta ON)
+      # 3. Evita i cambi di attributo (es. se cambia un timestamp ma lo stato resta ON)
       - condition: template
         value_template: >
           {{ trigger.event.data.old_state is not none 
@@ -44,6 +45,7 @@ automation:
 
     action:
       - variables:
+          # Isola l'entity_id che ha scatenato l'evento reale
           entita_evento: "{{ trigger.event.data.entity_id }}"
           stato_futuro: "{{ trigger.event.data.new_state.state }}"
           
