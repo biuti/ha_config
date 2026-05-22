@@ -1,53 +1,22 @@
 # packages/architecture/areas.yaml
-homeassistant:
-  areas:
-    garage:
-      name: "Garage"
-      icon: mdi:garage
-
-    # ── SEMINTERRATO ────────────────────────────────────────
-    taverna:
-      name: "Taverna"
-      icon: mdi:sofa
-    lavanderia:
-      name: "Lavanderia"
-      icon: mdi:washing-machine
-    bagno_taverna:
-      name: "Bagno Taverna"
-      icon: mdi:toilet
-    locale_tecnico:
-      name: "Locale Tecnico"
-      icon: mdi:wrench
-
-    # ── VANO SCALE (Interpiano) ─────────────────────────────
-    vano_scale:
-      name: "Vano Scale"
-      icon: mdi:stairs
-
-    # ── PIANO TERRA ─────────────────────────────────────────
-    camera_padronale:
-      name: "Camera Padronale"
-      icon: mdi:bed
-    bagno_padronale:
-      name: "Bagno Padronale"
-      icon: mdi:bathtub
-    bagno_comune:
-      name: "Bagno Comune"
-      icon: mdi:toilet
-    camera_ospiti:
-      name: "Camera Ospiti"
-      icon: mdi:bed-outline
-    studio:
-      name: "Studio"
-      icon: mdi:desk
-
-    # ── PIANO PRIMO ─────────────────────────────────────────
-    soggiorno:
-      name: "Soggiorno"
-      icon: mdi:television
-    cucina:
-      name: "Cucina"
-      icon: mdi:countertop
-    bagno_p1:
-      name: "Bagno Piano Primo"
-      icon: mdi:toilet
+# DOCUMENTAZIONE — le aree non possono essere definite via YAML in HA
+# Vanno create manualmente in Impostazioni → Aree
+# Questo file serve come riferimento per la struttura prevista
+# Lo stato reale è in .storage/core.area_registry (versionato nel repo)
+#
+# Aree previste per Bosco:
+#
+# garage          → Garage
+# taverna         → Taverna (seminterrato)
+# lavanderia      → Lavanderia
+# bagno_taverna   → Bagno Taverna
+# locale_tecnico  → Locale Tecnico
+# vano_scale      → Vano Scale
+# camera_padronale → Camera Padronale
+# bagno_padronale → Bagno Padronale
+# bagno_comune    → Bagno Comune
+# camera_ospiti   → Camera Ospiti
+# studio          → Studio
+# soggiorno       → Soggiorno
+# cucina          → Cucina
+# bagno_p1        → Bagno Piano Primo
