@@ -18,34 +18,53 @@ automation:
   - id: override_portafinestre
     alias: "Override — Portafinestre: gestione apertura e chiusura"
     description: >
-      Intercetta apertura e chiusura di qualsiasi portafinestra esterna.
-      Apertura: ferma il raffstore nell'area corrispondente e attiva
-      l'override specifico per quella portafinestra.
-      Chiusura: se non ci sono altre portafinestre aperte nella stessa
-      area, rilascia l'override corrispondente.
-    triggers:
-      - trigger: state
-        entity_id: "{{ label_entities('portafinestra') }}"
-        to: null
-    actions:
+      Intercetta apertura e chiusura di qualsiasi portafinestra esterna usando le label.
+      Apertura: ferma il raffstore nell'area corrispondente e attiva l'override.
+      Chiusura: se non ci sono altre portafinestre aperte nella stessa area, rilascia l'override.
+    mode: parallel
+    max: 5
+
+    trigger:
+      - platform: event
+        event_type: state_changed
+
+    condition:
+      # Filtra l'evento: vogliamo SOLO i cambi di stato delle entità che hanno la label 'portafinestra'
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.entity_id in label_entities('portafinestra') }}
+      # Evita i trigger inutili dovuti a cambi di attributi (es. cambi di batteria o aggiornamenti di timestamp)
+      - condition: template
+        value_template: >
+          {{ trigger.event.data.old_state is not none 
+            and trigger.event.data.new_state is not none 
+            and trigger.event.data.old_state.state != trigger.event.data.new_state.state }}
+
+    action:
       - variables:
-          raffstore_id: >
-            {{ 'cover.raffstore_' ~ trigger.entity_id.split('.')[1] }}
-          override_id: >
-            {{ 'input_boolean.override_' ~ trigger.entity_id.split('.')[1] }}
-          area_evento: >
-            {{ area_id(trigger.entity_id) }}
+          # Isola l'entity_id che ha scatenato l'evento reale
+          entita_evento: "{{ trigger.event.data.entity_id }}"
+          stato_futuro: "{{ trigger.event.data.new_state.state }}"
+          
+          # Genera dinamicamente i target basandoti sullo snake_case del nome dell'entità
+          raffstore_id: "cover.raffstore_{{ entita_evento.split('.')[1] }}"
+          override_id: "input_boolean.override_{{ entita_evento.split('.')[1] }}"
+          area_evento: "{{ area_id(entita_evento) }}"
+          
+          # Conta le ALTRE portafinestre aperte nella STESSA area
           altre_pf_aperte_in_area: >
             {{ label_entities('portafinestra')
-               | select('ne', trigger.entity_id)
-               | selectattr('area_id', 'eq', area_evento)
-               | map('states')
-               | select('eq', 'on')
-               | list | count }}
+              | select('ne', entita_evento)
+              | select('expand')
+              | selectattr('area_id', 'eq', area_evento)
+              | selectattr('state', 'eq', 'on')
+              | list | count }}
+
       - choose:
+          # CASO 1: La portafinestra si è APERTA
           - conditions:
               - condition: template
-                value_template: "{{ trigger.to_state.state == 'on' }}"
+                value_template: "{{ stato_futuro == 'on' }}"
             sequence:
               - action: cover.stop_cover
                 target:
@@ -54,17 +73,14 @@ automation:
                 target:
                   entity_id: "{{ override_id }}"
 
+          # CASO 2: La portafinestra si è CHIUSA (e l'area è libera da altre PF aperte)
           - conditions:
               - condition: template
-                value_template: >
-                  {{ trigger.to_state.state == 'off'
-                     and altre_pf_aperte_in_area == 0 }}
+                value_template: "{{ stato_futuro == 'off' and altre_pf_aperte_in_area == 0 }}"
             sequence:
               - action: input_boolean.turn_off
                 target:
                   entity_id: "{{ override_id }}"
-    mode: parallel
-    max: 5
 
   # ── OVERRIDE PIOGGIA ──────────────────────────────────────
 
