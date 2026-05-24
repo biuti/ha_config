@@ -1,0 +1,21 @@
+# packages/blinds/adaptive_cover.yaml
+# Configurazione predittiva degli oscuranti per il Progetto Bosco
+
+adaptive_cover:
+  - name: "Schermature Solari Bosco"
+    platform: "sun"               # Calcola la posizione del sole azimut/elevazione
+    covers:
+      - cover.tutti_i_raffstore   # Il tuo gruppo master o le singole cover
+    
+    # Parametri Geometrici dell'Edificio (Esempio per facciata Sud)
+    azimuth_backfish: 180         # Orientamento della facciata (180 = Sud perfetto)
+    tilt_calibration: 90          # Angolo di lavoro delle lamelle Hella AR92
+    
+    # Strategia di controllo
+    mode: "horizontal"            # Tipo di veneziana esterna (Raffstore a lamelle orizzontali)
+    max_elevation: 90
+    min_elevation: 0
+    
+    # Soglie di attivazione (Evita continui movimenti della cordina)
+    delta_position: 10            # Muove l'altezza solo se il cambio è superiore al 10%
+    delta_tilt: 5                 # Muove le lamelle solo per variazioni superiori a 5°
