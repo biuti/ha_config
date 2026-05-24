@@ -7,11 +7,11 @@ adaptive_lighting:
       - light.luci_interne
     prefer_rgb_color: false
     transition: 60              # Transizione flemmatica (1 minuto) per non notare i cambi di stato
-    initial_transition: 0       # FONDAMENTALE: 0 secondi all'accensione per azzerare l'effetto flash
-    interval: 300               # Controlla e corregge ogni 5 minuti (evita il flood ZigBee)
+    initial_transition: 0       # FONDAMENTALE: 0 secondi all'accensione per azzerare l'effetlo flash
+    interval: 300               # Controlla e corregge ogni 5 minut (evita il flood ZigBee)
     min_brightness: 1           # Minimo notturno
     max_brightness: 100         # Massimo diurno
-    min_color_temp: 450         # Luce caldissima (circa 2200K) per la sera/notte
-    max_color_temp: 250         # Luce diurna neutra (4000K) per il mezzogiorno
+    min_color_temp: 2200        # [CORRETTO] Sostituisce 450 mired (luce caldissima sera)
+    max_color_temp: 4000        # [CORRETTO] Sostituisce 250 mired (luce bianca giorno)
     sleep_brightness: 5         # Luminosità ridotta quando la Sleep Mode è attiva
-    sleep_color_temp: 500       # Luce effetto candela (calda al massimo) per la notte profonda
+    sleep_color_temp: 2000      # [CORRETTO] Sostituisce 500 mired (effetto candela notturno)
