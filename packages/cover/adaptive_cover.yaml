@@ -1,7 +1,7 @@
 # packages/blinds/adaptive_cover.yaml
 # Configurazione predittiva degli oscuranti per il Progetto Bosco
 
-adaptive_cover:
+adaptive_cover_pro:
   - name: "Schermature Solari Bosco"
     platform: "sun"               # Calcola la posizione del sole azimut/elevazione
     covers:
