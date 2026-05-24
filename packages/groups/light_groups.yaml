@@ -1,0 +1,118 @@
+# packages/groups/light_groups.yaml
+# Gruppi luci per zona e funzione
+# STATO: quasi definitivo — a casa ultimata sostituire light.* virtuali
+# con i dispositivi fisici ZigBee esposti da Zigbee2MQTT
+#
+# Gerarchia:
+#   light.tutte_le_luci
+#   ├── light.luci_interne
+#   │   ├── light.luci_zona_giorno (soggiorno, cucina, ingresso)
+#   │   ├── light.luci_zone_notte (camere, taverna)
+#   │   ├── light.luci_bagni
+#   │   ├── light.luci_servizio (ripostigli, lavanderia, locale tecnico, garage)
+#   │   └── light.luci_vano_scale
+#   ├── light.luci_esterne
+#   │   ├── light.luci_terrazzi_balcone
+#   │   ├── light.luci_giardino
+#   │   └── light.luci_perimetro
+#   ├── light.luci_segnapassi
+#   └── light.luci_accento
+
+light:
+  # ── GRUPPO PRINCIPALE ─────────────────────────────────────
+  - platform: group
+    name: "Tutte le Luci"
+    entities:
+      - light.luci_interne
+      - light.luci_esterne
+      - light.luci_segnapassi
+      - light.luci_accento
+
+  # ── LUCI INTERNE ──────────────────────────────────────────
+  - platform: group
+    name: "Luci Interne"
+    entities:
+      - light.luci_zona_giorno
+      - light.luci_zone_notte
+      - light.luci_bagni
+      - light.luci_servizio
+      - light.luci_vano_scale
+
+  - platform: group
+    name: "Luci Zona Giorno"
+    entities:
+      - light.luce_soggiorno
+      - light.luce_cucina
+
+  - platform: group
+    name: "Luci Zone Notte"
+    entities:
+      - light.luce_camera_padronale
+      - light.luce_camera_ospiti
+      - light.luce_taverna
+
+  - platform: group
+    name: "Luci Bagni"
+    entities:
+      - light.luce_bagno_padronale
+      - light.luce_bagno_comune
+      - light.luce_bagno_taverna
+      - light.luce_bagno_p1
+
+  - platform: group
+    name: "Luci Servizio"
+    entities:
+      - light.luce_ripostiglio_pt
+      - light.luce_ripostiglio_p1
+      - light.luce_lavanderia
+      - light.luce_locale_tecnico
+      - light.luce_garage
+
+  - platform: group
+    name: "Luci Vano Scale"
+    entities:
+      - light.luce_vano_scale
+      - light.luce_corridoio
+
+  # ── LUCI ESTERNE ──────────────────────────────────────────
+  - platform: group
+    name: "Luci Esterne"
+    entities:
+      - light.luci_terrazzi_balcone
+      - light.luci_giardino
+      - light.luci_perimetro
+
+  - platform: group
+    name: "Luci Terrazzi e Balcone"
+    entities:
+      - light.luce_terrazzo_nord
+      - light.luce_terrazzo_sud
+      - light.luce_balcone_piano_terra
+
+  - platform: group
+    name: "Luci Giardino"
+    entities:
+      - light.luce_giardino
+      - light.luce_vialetto_pedonale
+      - light.luce_vialetto_carraio
+
+  - platform: group
+    name: "Luci Perimetro"
+    entities:
+      - light.luce_perimetro_edificio
+      - light.luce_ingresso_principale
+      - light.luce_ingresso_seminterrato
+
+  # ── LUCI SEGNAPASSI ───────────────────────────────────────
+  - platform: group
+    name: "Luci Segnapassi"
+    entities:
+      - light.luce_segnapassi_scale
+      - light.luce_segnapassi_scale_esterno
+
+  # ── LUCI ACCENTO ──────────────────────────────────────────
+  - platform: group
+    name: "Luci Accento"
+    entities:
+      - light.luce_accento_cucina
+      # future luci accento: soggiorno, camera padronale, ecc.

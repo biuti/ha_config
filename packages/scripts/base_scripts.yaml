@@ -1,0 +1,444 @@
+# packages/scripts/base_scripts.yaml
+# Script atomici riutilizzabili — blocchi base per automazioni e scene
+# Ogni script fa una sola cosa, senza condizioni né logica complessa.
+# Le condizioni e la logica stanno nelle automazioni che li chiamano.
+
+script:
+
+  # ── RAFFSTORE ─────────────────────────────────────────────
+
+  raffstore_crepuscolo:
+    alias: "Raffstore: abbassa gruppo crepuscolo"
+    description: "Abbassa tutti i raffstore del gruppo crepuscolo (escluse le panoramiche)"
+    sequence:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.raffstore_crepuscolo
+
+  raffstore_sigillati:
+    alias: "Raffstore: sigilla tutto"
+    description: "Abbassa tutti i raffstore senza eccezioni"
+    sequence:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+
+  raffstore_sveglia:
+    alias: "Raffstore: sveglia con lamelle aperte"
+    description: >
+      Mantiene i raffstore sveglia abbassati ma ruota le lamelle
+      in posizione orizzontale (90°) per luce diffusa senza sole diretto.
+      Usato da scenario_buongiorno quando crepuscolare è ancora on.
+    sequence:
+      - action: cover.set_cover_tilt_position
+        target:
+          entity_id: cover.raffstore_sveglia
+        data:
+          tilt_position: 90
+
+  raffstore_mattina:
+    alias: "Raffstore: mattina con lamelle aperte"
+    description: >
+      Alza il gruppo mattina e apre le lamelle a 90°.
+      ACP gestirà poi la posizione ottimale.
+    sequence:
+      - action: cover.set_cover_position
+        target:
+          entity_id: cover.raffstore_mattina
+        data:
+          position: 100
+      - action: cover.set_cover_tilt_position
+        target:
+          entity_id: cover.raffstore_mattina
+        data:
+          tilt_position: 90
+
+  # ── LUCI ──────────────────────────────────────────────────
+
+# packages/scripts/base_scripts.yaml
+# (solo sezione luci — il resto rimane invariato)
+
+  luci_crepuscolo:
+    alias: "Luci: modalità crepuscolo"
+    description: >
+      Accende luci esterne, segnapassi e accento.
+      Per le luci interne: se accesa cambia colore,
+      se spenta imposta colore senza accendere.
+    sequence:
+      # Luci esterne, segnapassi, accento — accendi sempre
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_esterne
+        data:
+          brightness: 100
+          color_temp: 370
+
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_segnapassi
+        data:
+          brightness: 30
+          color_temp: 500
+
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_accento
+        data:
+          brightness: 150
+          color_temp: 400
+
+      # # Luci interne — per ogni luce controlla se è accesa o spenta
+      # - repeat:
+      #     for_each: >
+      #       {{ state_attr('light.luci_interne', 'entity_id') }}
+      #     sequence:
+      #       - choose:
+      #           # Se accesa: cambia solo colore e temperatura
+      #           - conditions:
+      #               - condition: template
+      #                 value_template: >
+      #                   {{ is_state(repeat.item, 'on') }}
+      #             sequence:
+      #               - action: light.turn_on
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+      #                 data:
+      #                   color_temp: 450
+      #                   transition: 2
+      #           # Se spenta: imposta colore al minimo poi spegni
+      #           - conditions:
+      #               - condition: template
+      #                 value_template: >
+      #                   {{ is_state(repeat.item, 'off') }}
+      #             sequence:
+      #               - action: light.turn_on
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+      #                 data:
+      #                   brightness: 1
+      #                   color_temp: 450
+      #               - delay:
+      #                   milliseconds: 200
+      #               - action: light.turn_off
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+
+  luci_notte:
+    alias: "Luci: modalità notte"
+    description: >
+      Spegne tutte le luci interne ed esterne.
+      Mantiene segnapassi al minimo assoluto per sicurezza.
+    sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_esterne
+        data:
+          brightness: 50
+          color_temp: 370
+          transition: 2
+
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_accento
+        data:
+          brightness: 30
+          color_temp: 400
+          transition: 2
+
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_segnapassi
+        data:
+          brightness: 20
+          color_temp: 500
+          transition: 2
+      # Attiva la Sleep Mode di Adaptive Lighting per il passaggio notturno
+      - action: switch.turn_on
+        target:
+          entity_id: switch.adaptive_lighting_sleep_mode_adaptive_lighting
+
+  luci_sveglia:
+    alias: "Luci: modalità sveglia"
+    description: >
+      Usato solo quando crepuscolare è on (sveglia prima dell'alba).
+      Luci vano scale e corridoio già accese e calde — non si toccano.
+      Luci zona giorno già calde — accende a intensità media.
+      Camere: modalità TV (blu tenue) — meno aggressiva al buio.
+    sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.adaptive_lighting_sleep_mode_adaptive_lighting
+      # Zona giorno — accendi a intensità media con colore già caldo
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_zona_giorno
+        data:
+          brightness: 120
+          transition: 3
+
+      # Camere — modalità TV blu tenue, meno aggressiva
+      - action: script.luci_tv_camera_padronale
+      - action: script.luci_tv_taverna
+
+  luci_alba:
+    alias: "Luci: modalità mattina"
+    description: >
+      Accende zona giorno a piena luminosità con luce diurna neutra.
+      Spegne tutte le luci esterne.
+    sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.adaptive_lighting_sleep_mode_adaptive_lighting
+      - action: light.turn_off
+        target:
+          entity_id: light.luci_esterne
+          entity_id: light.luci_segnapassi
+          entity_id: light.luci_accento
+
+      # # Luci interne — per ogni luce controlla se è accesa o spenta
+      # - repeat:
+      #     for_each: >
+      #       {{ state_attr('light.luci_interne', 'entity_id') }}
+      #     sequence:
+      #       - choose:
+      #           - conditions:
+      #               - condition: template
+      #                 value_template: "{{ is_state(repeat.item, 'on') }}"
+      #             sequence:
+      #               - action: light.turn_on
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+      #                 data:
+      #                   brightness: 220
+      #                   color_temp: 250
+      #                   transition: 5
+      #           - conditions:
+      #               - condition: template
+      #                 value_template: "{{ is_state(repeat.item, 'off') }}"
+      #             sequence:
+      #               - action: light.turn_on
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+      #                 data:
+      #                   brightness: 1
+      #                   color_temp: 250
+      #               - delay:
+      #                   milliseconds: 200
+      #               - action: light.turn_off
+      #                 target:
+      #                   entity_id: "{{ repeat.item }}"
+
+  luci_tutte_spente:
+    alias: "Luci: spegni tutto"
+    description: "Spegne tutte le luci — usato da modalità via/vacanza"
+    sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.tutte_le_luci
+
+  luci_tv_soggiorno:
+    alias: "Luci: modalità TV soggiorno"
+    description: >
+      Bias lighting per visione TV in soggiorno.
+      Spegne le luci zona giorno, accende accento in blu tenue.
+    sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.luci_zona_giorno
+      - action: light.turn_on
+        target:
+          entity_id: light.luci_accento
+        data:
+          brightness: 15
+          rgb_color: [0, 20, 255]
+          transition: 2
+
+  luci_tv_camera_padronale:
+    alias: "Luci: modalità TV camera padronale"
+    description: >
+      Bias lighting per visione TV in camera padronale.
+    sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.luce_camera_padronale
+        data:
+          brightness: 10
+          rgb_color: [0, 20, 255]
+          transition: 2
+
+  luci_tv_taverna:
+    alias: "Luci: modalità TV taverna"
+    description: >
+      Bias lighting per visione TV in taverna.
+    sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.luce_taverna
+        data:
+          brightness: 10
+          rgb_color: [0, 20, 255]
+          transition: 2
+
+  luci_tv_studio:
+    alias: "Luci: modalità TV studio"
+    sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.luce_studio
+        data:
+          brightness: 10
+          rgb_color: [0, 20, 255]
+          transition: 2
+
+  # ── ANTIFURTO ─────────────────────────────────────────────
+
+  antifurto_perimetrale:
+    alias: "Antifurto: modalità perimetrale"
+    description: >
+      Attiva allarme perimetrale — monitora solo ingressi esterni.
+      Movimento interno ignorato (persone in casa).
+    sequence:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.allarme_attivo
+      # TODO: attivare solo sensori perimetrali quando allarme reale installato
+
+  antifurto_totale:
+    alias: "Antifurto: modalità totale"
+    description: >
+      Attiva allarme totale — monitora tutti i sensori incluso
+      movimento interno. Massima sicurezza.
+    sequence:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.allarme_attivo
+      # TODO: attivare tutti i sensori quando allarme reale installato
+
+  antifurto_disattiva:
+    alias: "Antifurto: disattiva"
+    description: "Disattiva l'allarme"
+    sequence:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.allarme_attivo
+
+  # ── CLIMA ─────────────────────────────────────────────────
+
+  clima_notte:
+    alias: "Clima: modalità notte"
+    description: "Riduce temperature target per il periodo notturno"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 18
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 17
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 1
+
+  clima_vacanza:
+    alias: "Clima: modalità vacanza"
+    description: "Porta il clima al minimo — solo anticongelamento"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 15
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 14
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.innova_piano_terra_on
+            - input_boolean.innova_piano_primo_on
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 1
+
+  clima_ripristino:
+    alias: "Clima: ripristino temperature normali"
+    description: "Riporta il clima alle temperature di comfort"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 21
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 21
+      - action: input_boolean.turn_on
+        target:
+          entity_id:
+            - input_boolean.innova_piano_terra_on
+            - input_boolean.innova_piano_primo_on
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 2
+
+  # ── IRRIGAZIONE ───────────────────────────────────────────
+
+  irrigazione_ferma:
+    alias: "Irrigazione: ferma tutto"
+    description: "Spegne immediatamente pompa e tutte le zone"
+    sequence:
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.pompa_irrigazione
+            - input_boolean.irrigazione_zona1_prato
+            - input_boolean.irrigazione_zona2_aiuole
+            - input_boolean.irrigazione_zona3_contorno
+            - input_boolean.irrigazione_zona4_riserva
+
+  # ── CHECK INFISSI ─────────────────────────────────────────
+
+  check_infissi_aperti:
+    alias: "Check: infissi aperti"
+    description: >
+      Verifica se ci sono finestre o portafinestre aperte
+      e invia una notifica con l'elenco.
+      Da chiamare prima di attivare modalità via/vacanza.
+    sequence:
+      - variables:
+          infissi_aperti: >
+            {{ label_entities('portafinestra_esterna')
+               | select('is_state', 'on')
+               | map('state_attr', 'friendly_name')
+               | list }}
+      - choose:
+          - conditions:
+              - condition: template
+                value_template: "{{ infissi_aperti | count > 0 }}"
+            sequence:
+              - action: persistent_notification.create
+                data:
+                  title: "⚠️ Infissi aperti"
+                  message: >
+                    Attenzione — i seguenti infissi sono aperti:
+                    {{ infissi_aperti | join(', ') }}
+                  notification_id: "check_infissi"

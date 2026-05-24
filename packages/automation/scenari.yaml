@@ -1,0 +1,230 @@
+# packages/automation/scenari.yaml
+# Scenari — stati della casa
+# Ogni scenario orchestra script atomici da scripts/base_scripts.yaml
+# Gli scenari reagono a cambi di modalità casa, orari e input manuali
+#
+# Gerarchia scenari (priorità decrescente):
+#   Vacanza > Via > Notte > Casa
+#
+# Dipendenze:
+#   - scripts/base_scripts.yaml
+#   - templates/presence_virtual.yaml (modalita_casa, modalita_notte_attiva)
+#   - templates/environment_virtual.yaml (crepuscolare)
+#   - automation/overrides.yaml (override_presenza_raffstore)
+
+automation:
+
+  # ══════════════════════════════════════════════════════════
+  # SCENARI MODALITÀ CASA
+  # Triggerati dal cambio di input_select.modalita_casa
+  # ══════════════════════════════════════════════════════════
+
+  - id: scenario_vacanza_attiva
+    alias: "Scenario — Vacanza: attiva"
+    description: >
+      Assenza prolungata. Massima sicurezza e risparmio energetico.
+      Sigilla tutto, clima al minimo anticongelamento, allarme totale.
+    triggers:
+      - trigger: state
+        entity_id: input_select.modalita_casa
+        to: "Vacanza"
+    actions:
+      # Verifica preventiva
+      - action: script.check_infissi_aperti
+      # Sicurezza fisica
+      - action: script.raffstore_sigillati
+      - action: script.antifurto_vacanza
+      # Risparmio energetico
+      - action: script.luci_tutte_spente
+      - action: script.clima_vacanza
+      - action: script.irrigazione_ferma
+      # Override — blocca ACP e automazioni raffstore
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+    mode: single
+
+  - id: scenario_via_attiva
+    alias: "Scenario — Via: attiva"
+    description: >
+      Assenza breve. Sicurezza base, luci spente, raffstore chiusi.
+      Clima non modificato — casa torna in temperatura al rientro.
+    triggers:
+      - trigger: state
+        entity_id: input_select.modalita_casa
+        to: "Via"
+    actions:
+      - action: script.check_infissi_aperti
+      - action: script.raffstore_sigillati
+      - action: script.luci_tutte_spente
+      - action: script.antifurto_in_casa
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+    mode: single
+
+  - id: scenario_rientro
+    alias: "Scenario — Rientro a casa"
+    description: >
+      Rientro da Via o Vacanza. Rilascia override, disattiva allarme,
+      ripristina clima. Raffstore e luci in base all'ora del giorno.
+    triggers:
+      - trigger: state
+        entity_id: input_select.modalita_casa
+        from:
+          - "Via"
+          - "Vacanza"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Via', 'Vacanza'] }}
+    actions:
+      # Rilascia blocchi
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.override_presenza_raffstore
+      - action: script.antifurto_disattiva
+      # Ripristina clima
+      - action: script.clima_ripristino
+      # Raffstore e luci in base all'ora
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.crepuscolare
+                state: "off"
+            sequence:
+              - action: script.raffstore_mattina
+              - action: script.luci_alba
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.crepuscolare
+                state: "on"
+            sequence:
+              - action: script.raffstore_crepuscolo
+              - action: script.luci_crepuscolo
+    mode: single
+
+  - id: scenario_ospiti_attiva
+    alias: "Scenario — Ospiti: attiva"
+    description: >
+      Modalità ospiti — camera ospiti preparata, allarme non attivo
+      sulle zone ospiti, clima normale.
+    triggers:
+      - trigger: state
+        entity_id: input_select.modalita_casa
+        to: "Ospiti"
+    actions:
+      - action: script.antifurto_disattiva
+      - action: script.clima_ripristino
+    mode: single
+
+  # ══════════════════════════════════════════════════════════
+  # SCENARI GIORNALIERI
+  # Triggerati da orari o eventi naturali (alba/tramonto)
+  # ══════════════════════════════════════════════════════════
+
+  - id: scenario_buongiorno
+    alias: "Scenario — Buongiorno"
+    description: >
+      All'ora della sveglia (08:30). Alza i raffstore delle camere,
+      accende le luci principali, ripristina clima, disattiva allarme.
+      Non agisce se Via o Vacanza.
+    triggers:
+      - trigger: time
+        at: "08:30:00"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+      - condition: state
+        entity_id: input_boolean.modalita_notte_attiva
+        state: "on"
+    actions:
+      - action: script.clima_ripristino
+      - action: script.antifurto_disattiva
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.modalita_notte_attiva
+      # Accendi luci solo se è ancora buio
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.crepuscolare
+                state: "on"
+            sequence:
+              - action: script.raffstore_sveglia
+              - action: script.luci_alba
+    mode: single
+
+  - id: scenario_alba
+    alias: "Scenario — Alba: alza raffstore mattina"
+    description: >
+      Al tramonto del crepuscolare (alba), alza il gruppo mattina.
+      Non agisce se notte attiva, Via o Vacanza.
+      Fallback: se crepuscolare non disponibile, non fa nulla
+      (ci pensa scenario_buongiorno).
+    triggers:
+      - trigger: state
+        entity_id: input_boolean.crepuscolare
+        to: "off"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+      - condition: state
+        entity_id: input_boolean.modalita_notte_attiva
+        state: "off"
+    actions:
+      - action: script.raffstore_mattina
+    mode: single
+
+  - id: scenario_tramonto
+    alias: "Scenario — Tramonto: crepuscolo"
+    description: >
+      Al tramonto, abbassa i raffstore crepuscolo e passa alle luci serali.
+      Non agisce se Via o Vacanza (già sigillati).
+      Fallback alle 22:30 se sensore non disponibile.
+    triggers:
+      - trigger: state
+        entity_id: input_boolean.crepuscolare
+        to: "on"
+      - trigger: time
+        at: "22:30:00"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+      - condition: state
+        entity_id: input_boolean.crepuscolare
+        state: "on"
+    actions:
+      - action: script.raffstore_crepuscolo
+      - action: script.luci_crepuscolo
+    mode: single
+
+  # ══════════════════════════════════════════════════════════
+  # SCENARI MANUALI
+  # Triggerati da input manuali dell'utente
+  # ══════════════════════════════════════════════════════════
+
+  - id: scenario_buonanotte
+    alias: "Scenario — Buonanotte"
+    description: >
+      Attivabile manualmente prima di dormire (input_boolean.modalita_notte_attiva).
+      Chiude i raffstore, spegne le luci, clima notte, allarme perimetrale.
+      Funziona anche prima del tramonto naturale.
+    triggers:
+      - trigger: state
+        entity_id: input_boolean.modalita_notte_attiva
+        to: "on"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+    actions:
+      - action: script.check_infissi_aperti
+      - action: script.raffstore_crepuscolo
+      - action: script.luci_notte
+      - action: script.clima_notte
+      - action: script.antifurto_in_casa
+    mode: single

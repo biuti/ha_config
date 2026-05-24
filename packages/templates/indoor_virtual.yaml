@@ -42,8 +42,8 @@ input_boolean:
     icon: mdi:light-recessed
 
   # ── PIANO TERRA ───────────────────────────────────────────
-  luce_ingresso:
-    name: "Luce Ingresso"
+  luce_corridoio:
+    name: "Luce Corridoio"
     icon: mdi:light-recessed
 
   luce_camera_padronale:
@@ -117,8 +117,8 @@ input_number:
     step: 1
     icon: mdi:brightness-6
 
-  bright_ingresso:
-    name: "Luminosità Ingresso"
+  bright_corridoio:
+    name: "Luminosità Corridoio"
     min: 0
     max: 255
     step: 1

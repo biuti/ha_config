@@ -74,6 +74,15 @@ input_number:
     unit_of_measurement: "min"
     icon: mdi:timer
 
+  soglia_probabilita_pioggia:
+    name: "Soglia Probabilità Pioggia (%)"
+    min: 0
+    max: 100
+    step: 5
+    unit_of_measurement: "%"
+    icon: mdi:weather-rainy
+    initial: 60
+
   # ── ORARIO ────────────────────────────────────────────────
   ora_irrigazione:
     name: "Ora Irrigazione"

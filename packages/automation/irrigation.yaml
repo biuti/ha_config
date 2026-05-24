@@ -1,0 +1,252 @@
+# packages/automation/irrigation.yaml
+# Automazioni irrigazione
+# Dipendenze:
+#   - templates/irrigation_virtual.yaml
+#   - templates/water_virtual.yaml
+#   - templates/environment_virtual.yaml
+#   - automation/overrides.yaml (override_pioggia_irrigazione)
+#
+# HARDWARE DA INSTALLARE:
+#   Controller zone: OpenSprinkler o valvole ZigBee 24V AC
+#   Pompa: relè ZigBee o integrata nel controller
+#   Sensori livello vasche: galleggiante ultrasonico ZigBee
+#
+# NOTA: weather.casa → aggiornare con entity_id reale Met.no dopo installazione
+
+automation:
+
+  # ── 1. CICLO IRRIGAZIONE AUTOMATICO ──────────────────────
+
+  - id: irrigazione_ciclo_automatico
+    alias: "Irrigazione — Ciclo automatico giornaliero"
+    description: >
+      Ogni giorno all'ora configurata avvia le zone in sequenza.
+      Controlla meteo, livello vasca e override prima di partire.
+      Le zone vengono attivate una alla volta per la durata configurata.
+    triggers:
+      - trigger: time
+        at: >
+          {{ '%02d:00' | format(states('input_number.ora_irrigazione') | int) }}
+    conditions:
+      # Non irrigare in modalità vacanza o via
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+      # Non irrigare se override pioggia attivo
+      - condition: state
+        entity_id: input_boolean.override_pioggia_irrigazione
+        state: "off"
+      # Non irrigare se livello vasca 1 troppo basso
+      - condition: template
+        value_template: >
+          {{ states('input_number.livello_vasca1') | float >
+             states('input_number.soglia_ripristino_vasca1') | float }}
+      # Non irrigare se piove ora
+      - condition: template
+        value_template: >
+          {{ states('weather.casa') not in
+             ['rainy', 'pouring', 'lightning-rainy'] }}
+      # Non irrigare se previsione pioggia domani > soglia
+      - condition: template
+        value_template: >
+          {% set forecast = state_attr('weather.casa', 'forecast') %}
+          {% if forecast and forecast | length > 0 %}
+            {% set domani = forecast[0] %}
+            {% set prob = domani.get('precipitation_probability', 0) %}
+            {{ prob < states('input_number.soglia_probabilita_pioggia') | float }}
+          {% else %}
+            true
+          {% endif %}
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.pompa_irrigazione
+
+      # Zona 1 — Prato
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.irrigazione_zona1_prato
+      - delay:
+          minutes: "{{ states('input_number.durata_irrigazione_prato') | int }}"
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.irrigazione_zona1_prato
+
+      # Pausa tra zone (evita sovrapressioni)
+      - delay:
+          seconds: 30
+
+      # Zona 2 — Aiuole
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.irrigazione_zona2_aiuole
+      - delay:
+          minutes: "{{ states('input_number.durata_irrigazione_aiuole') | int }}"
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.irrigazione_zona2_aiuole
+
+      - delay:
+          seconds: 30
+
+      # Zona 3 — Contorno edificio
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.irrigazione_zona3_contorno
+      - delay:
+          minutes: "{{ states('input_number.durata_irrigazione_contorno') | int }}"
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.irrigazione_zona3_contorno
+
+      # Spegni pompa
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.pompa_irrigazione
+
+      # Aggiorna flag sospensione pioggia (reset)
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.irrigazione_sospesa_pioggia
+    mode: single
+
+  # ── 2. SOSPENSIONE PER PIOGGIA ────────────────────────────
+
+  - id: irrigazione_sospendi_pioggia
+    alias: "Irrigazione — Sospendi per pioggia"
+    description: >
+      Quando inizia a piovere, interrompe immediatamente
+      l'irrigazione se in corso e attiva l'override pioggia.
+    triggers:
+      - trigger: state
+        entity_id: weather.casa
+        to:
+          - "rainy"
+          - "pouring"
+          - "lightning-rainy"
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.irrigazione_sospesa_pioggia
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.override_pioggia_irrigazione
+      # Ferma tutto se in corso
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.pompa_irrigazione
+            - input_boolean.irrigazione_zona1_prato
+            - input_boolean.irrigazione_zona2_aiuole
+            - input_boolean.irrigazione_zona3_contorno
+            - input_boolean.irrigazione_zona4_riserva
+    mode: single
+
+  # ── 3. RIPRISTINO DOPO PIOGGIA ────────────────────────────
+
+  - id: irrigazione_ripristina_dopo_pioggia
+    alias: "Irrigazione — Ripristina dopo pioggia"
+    description: >
+      Quando smette di piovere, rilascia l'override irrigazione.
+      Attende 2 ore prima di rilasciare per permettere al terreno
+      di assorbire l'acqua piovana.
+    triggers:
+      - trigger: state
+        entity_id: weather.casa
+        from:
+          - "rainy"
+          - "pouring"
+          - "lightning-rainy"
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states('weather.casa') not in
+             ['rainy', 'pouring', 'lightning-rainy'] }}
+    actions:
+      - delay:
+          hours: 2
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.override_pioggia_irrigazione
+    mode: single
+
+  # ── 4. RIPRISTINO VASCA 1 ─────────────────────────────────
+
+  - id: irrigazione_ripristino_vasca1
+    alias: "Irrigazione — Ripristino vasca 1"
+    description: >
+      Se il livello della vasca 1 scende sotto la soglia configurata,
+      apre il rubinetto di ripristino da acqua corrente.
+      Chiude quando il livello raggiunge l'80%.
+    triggers:
+      - trigger: numeric_state
+        entity_id: input_number.livello_vasca1
+        below: input_number.soglia_ripristino_vasca1
+    conditions:
+      - condition: state
+        entity_id: input_boolean.rubinetto_ripristino_vasca1
+        state: "off"
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.rubinetto_ripristino_vasca1
+    mode: single
+
+  - id: irrigazione_chiudi_ripristino_vasca1
+    alias: "Irrigazione — Chiudi ripristino vasca 1"
+    description: >
+      Chiude il rubinetto di ripristino quando la vasca 1
+      raggiunge l'80% di capacità.
+    triggers:
+      - trigger: numeric_state
+        entity_id: input_number.livello_vasca1
+        above: 80
+    conditions:
+      - condition: state
+        entity_id: input_boolean.rubinetto_ripristino_vasca1
+        state: "on"
+    actions:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.rubinetto_ripristino_vasca1
+    mode: single
+
+  # ── 5. RIPRISTINO VASCA 2 ─────────────────────────────────
+
+  - id: irrigazione_ripristino_vasca2
+    alias: "Irrigazione — Ripristino vasca 2"
+    description: >
+      Se il livello della vasca 2 (sanitari) scende sotto soglia,
+      apre il rubinetto di ripristino. Chiude all'80%.
+    triggers:
+      - trigger: numeric_state
+        entity_id: input_number.livello_vasca2
+        below: input_number.soglia_ripristino_vasca2
+    conditions:
+      - condition: state
+        entity_id: input_boolean.rubinetto_ripristino_vasca2
+        state: "off"
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.rubinetto_ripristino_vasca2
+    mode: single
+
+  - id: irrigazione_chiudi_ripristino_vasca2
+    alias: "Irrigazione — Chiudi ripristino vasca 2"
+    description: >
+      Chiude il rubinetto di ripristino vasca 2 quando
+      raggiunge l'80% di capacità.
+    triggers:
+      - trigger: numeric_state
+        entity_id: input_number.livello_vasca2
+        above: 80
+    conditions:
+      - condition: state
+        entity_id: input_boolean.rubinetto_ripristino_vasca2
+        state: "on"
+    actions:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.rubinetto_ripristino_vasca2
+    mode: single
