@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "core.label_registry",
+  "data": {
+    "labels": [
+      {
+        "color": null,
+        "description": null,
+        "icon": null,
+        "label_id": "portafinestra",
+        "name": "Portafinestra",
+        "created_at": "2026-05-22T09:15:29.272111+00:00",
+        "modified_at": "2026-05-22T09:15:29.272115+00:00"
+      },
+      {
+        "color": null,
+        "description": "cover dei serramenti esposti",
+        "icon": null,
+        "label_id": "raffstore_non_recesso",
+        "name": "Raffstore non recesso",
+        "created_at": "2026-05-22T09:17:10.274620+00:00",
+        "modified_at": "2026-05-22T09:17:10.274623+00:00"
+      }
+    ]
+  }
+}
