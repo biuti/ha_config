@@ -86,3 +86,5 @@ custom_components/
 !.storage/core.label_registry
 !.storage/core.entity_registry
 !.storage/core.device_registry
+!.storage/core.person
+!.storage/core.zone
