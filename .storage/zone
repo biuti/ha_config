@@ -6,8 +6,8 @@
     "items": [
       {
         "id": "nearby",
-        "latitude": 45.85820915664788,
-        "longitude": 8.623749911785128,
+        "latitude": 45.85818954277042,
+        "longitude": 8.623835742473604,
         "name": "Nearby",
         "icon": "mdi:map-marker-radius",
         "passive": true,
@@ -20,7 +20,7 @@
         "name": "Work",
         "icon": "mdi:briefcase",
         "passive": false,
-        "radius": 39.0
+        "radius": 75.0
       },
       {
         "id": "marina_romea",
@@ -29,7 +29,7 @@
         "name": "Marina Romea",
         "icon": "mdi:beach",
         "passive": true,
-        "radius": 500.0
+        "radius": 10000.0
       },
       {
         "id": "campitello_di_fassa",
@@ -38,7 +38,16 @@
         "name": "Campitello di Fassa",
         "icon": "mdi:ski",
         "passive": true,
-        "radius": 500.0
+        "radius": 15000.0
+      },
+      {
+        "id": "far_away",
+        "latitude": 45.85818674078737,
+        "longitude": 8.623913526535036,
+        "name": "Far Away",
+        "icon": "mdi:plane-car",
+        "passive": true,
+        "radius": 150000.0
       }
     ]
   }
