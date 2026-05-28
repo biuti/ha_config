@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "zone",
+  "data": {
+    "items": [
+      {
+        "id": "nearby",
+        "latitude": 45.85820915664788,
+        "longitude": 8.623749911785128,
+        "name": "Nearby",
+        "icon": "mdi:map-marker-radius",
+        "passive": true,
+        "radius": 5000.0
+      },
+      {
+        "id": "work",
+        "latitude": 45.908681680814695,
+        "longitude": 8.619120419025423,
+        "name": "Work",
+        "icon": "mdi:briefcase",
+        "passive": false,
+        "radius": 39.0
+      },
+      {
+        "id": "marina_romea",
+        "latitude": 44.516513984235274,
+        "longitude": 12.274231016635895,
+        "name": "Marina Romea",
+        "icon": "mdi:beach",
+        "passive": true,
+        "radius": 500.0
+      },
+      {
+        "id": "campitello_di_fassa",
+        "latitude": 46.47785310440366,
+        "longitude": 11.744360625743866,
+        "name": "Campitello di Fassa",
+        "icon": "mdi:ski",
+        "passive": true,
+        "radius": 500.0
+      }
+    ]
+  }
+}

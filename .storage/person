@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "antonio_golfari",
+        "name": "Antonio Golfari",
+        "user_id": "6a62381d828d499fa872a9cfb24097ff",
+        "device_trackers": []
+      },
+      {
+        "id": "nicoletta_orsenigo",
+        "name": "Nicoletta Orsenigo",
+        "device_trackers": [],
+        "user_id": null,
+        "picture": null
+      }
+    ]
+  }
+}
