@@ -33,7 +33,7 @@ automation:
       - action: script.check_infissi_aperti
       # Sicurezza fisica
       - action: script.raffstore_sigillati
-      - action: script.antifurto_vacanza
+      - action: script.antifurto_totale
       # Risparmio energetico
       - action: script.luci_tutte_spente
       - action: script.clima_vacanza
@@ -57,7 +57,7 @@ automation:
       - action: script.check_infissi_aperti
       - action: script.raffstore_sigillati
       - action: script.luci_tutte_spente
-      - action: script.antifurto_in_casa
+      - action: script.antifurto_perimetrale
       - action: input_boolean.turn_on
         target:
           entity_id: input_boolean.override_presenza_raffstore
@@ -226,5 +226,5 @@ automation:
       - action: script.raffstore_crepuscolo
       - action: script.luci_notte
       - action: script.clima_notte
-      - action: script.antifurto_in_casa
+      - action: script.antifurto_perimetrale
     mode: single

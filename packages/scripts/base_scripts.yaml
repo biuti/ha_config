@@ -191,9 +191,10 @@ script:
           entity_id: switch.adaptive_lighting_sleep_mode_adaptive_lighting
       - action: light.turn_off
         target:
-          entity_id: light.luci_esterne
-          entity_id: light.luci_segnapassi
-          entity_id: light.luci_accento
+          entity_id:
+            - light.luci_esterne
+            - light.luci_segnapassi
+            - light.luci_accento
 
       # # Luci interne — per ogni luce controlla se è accesa o spenta
       # - repeat:
