@@ -4,7 +4,7 @@
 # Gli scenari reagono a cambi di modalità casa, orari e input manuali
 #
 # Gerarchia scenari (priorità decrescente):
-#   Vacanza > Via > Notte > Casa
+#   Vacanza > Fuori Casa > Notte > Casa
 #
 # Dipendenze:
 #   - scripts/base_scripts.yaml
@@ -45,14 +45,14 @@ automation:
     mode: single
 
   - id: scenario_via_attiva
-    alias: "Scenario — Via: attiva"
+    alias: "Scenario — Fuori Casa: attiva"
     description: >
       Assenza breve. Sicurezza base, luci spente, raffstore chiusi.
       Clima non modificato — casa torna in temperatura al rientro.
     triggers:
       - trigger: state
         entity_id: input_select.modalita_casa
-        to: "Via"
+        to: "Fuori Casa"
     actions:
       - action: script.check_infissi_aperti
       - action: script.raffstore_sigillati
@@ -66,18 +66,18 @@ automation:
   - id: scenario_rientro
     alias: "Scenario — Rientro a casa"
     description: >
-      Rientro da Via o Vacanza. Rilascia override, disattiva allarme,
+      Rientro da Fuori Casa o Vacanza. Rilascia override, disattiva allarme,
       ripristina clima. Raffstore e luci in base all'ora del giorno.
     triggers:
       - trigger: state
         entity_id: input_select.modalita_casa
         from:
-          - "Via"
+          - "Fuori Casa"
           - "Vacanza"
     conditions:
       - condition: template
         value_template: >
-          {{ states('input_select.modalita_casa') not in ['Via', 'Vacanza'] }}
+          {{ states('input_select.modalita_casa') not in ['Fuori Casa', 'Vacanza'] }}
     actions:
       # Rilascia blocchi
       - action: input_boolean.turn_off
@@ -128,14 +128,14 @@ automation:
     description: >
       All'ora della sveglia (08:30). Alza i raffstore delle camere,
       accende le luci principali, ripristina clima, disattiva allarme.
-      Non agisce se Via o Vacanza.
+      Non agisce se Fuori Casa o Vacanza.
     triggers:
       - trigger: time
         at: "08:30:00"
     conditions:
       - condition: template
         value_template: >
-          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Fuori Casa'] }}
       - condition: state
         entity_id: input_boolean.modalita_notte_attiva
         state: "on"
@@ -160,7 +160,7 @@ automation:
     alias: "Scenario — Alba: alza raffstore mattina"
     description: >
       Al tramonto del crepuscolare (alba), alza il gruppo mattina.
-      Non agisce se notte attiva, Via o Vacanza.
+      Non agisce se notte attiva, Fuori Casa o Vacanza.
       Fallback: se crepuscolare non disponibile, non fa nulla
       (ci pensa scenario_buongiorno).
     triggers:
@@ -170,7 +170,7 @@ automation:
     conditions:
       - condition: template
         value_template: >
-          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Fuori Casa'] }}
       - condition: state
         entity_id: input_boolean.modalita_notte_attiva
         state: "off"
@@ -182,7 +182,7 @@ automation:
     alias: "Scenario — Tramonto: crepuscolo"
     description: >
       Al tramonto, abbassa i raffstore crepuscolo e passa alle luci serali.
-      Non agisce se Via o Vacanza (già sigillati).
+      Non agisce se Fuori Casa o Vacanza (già sigillati).
       Fallback alle 22:30 se sensore non disponibile.
     triggers:
       - trigger: state
@@ -193,7 +193,7 @@ automation:
     conditions:
       - condition: template
         value_template: >
-          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Fuori Casa'] }}
       - condition: state
         entity_id: input_boolean.crepuscolare
         state: "on"
@@ -220,7 +220,7 @@ automation:
     conditions:
       - condition: template
         value_template: >
-          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Via'] }}
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Fuori Casa'] }}
     actions:
       - action: script.check_infissi_aperti
       - action: script.raffstore_crepuscolo

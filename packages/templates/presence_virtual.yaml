@@ -15,7 +15,7 @@ input_select:
     name: "Modalità Casa"
     options:
       - Casa
-      - Via
+      - Fuori Casa
       - Notte
       - Ospiti
       - Vacanza
