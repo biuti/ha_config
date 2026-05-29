@@ -203,7 +203,7 @@ automation:
             Sembra che state rientrando a casa.
             Vuoi attivare la modalità Fuori Casa per aumentare
             il comfort al vostro rientro?
-          notification_id: "suggerisci_via"
+          notification_id: "suggerisci_fuori_casa"
     mode: single
 
   # ── OSPITI ────────────────────────────────────────────────

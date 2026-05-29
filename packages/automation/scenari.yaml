@@ -44,7 +44,7 @@ automation:
           entity_id: input_boolean.override_presenza_raffstore
     mode: single
 
-  - id: scenario_via_attiva
+  - id: scenario_fuori_casa_attiva
     alias: "Scenario — Fuori Casa: attiva"
     description: >
       Assenza breve. Sicurezza base, luci spente, raffstore chiusi.
