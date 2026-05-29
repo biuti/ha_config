@@ -1,0 +1,9 @@
+# packages/groups/person_groups.yaml
+# Gruppi persone per funzione
+
+group:
+  residenti:
+    name: "Residenti Via Bosco"
+    entities:
+      - person.antonio_golfari
+      - person.nicoletta_orsenigo

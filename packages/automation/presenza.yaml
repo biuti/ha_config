@@ -15,10 +15,28 @@
 # NOTA: la modalità Vacanza non viene mai attivata automaticamente
 #   — richiede sempre conferma manuale per evitare falsi positivi
 
+input_number:
+  raggio_nearby:
+    name: "Soglia Distanza Nearby"
+    initial: 5.0
+    min: 1.0
+    max: 10.0
+    step: 0.5
+    unit_of_measurement: "km"
+    icon: mdi:map-marker-distance
+
+  raggio_far_away:
+    name: "Soglia Distanza Far Away"
+    initial: 150.0
+    min: 10.0
+    max: 200.0
+    step: 10.0
+    unit_of_measurement: "km"
+    icon: mdi:airplane
+
 automation:
 
   # ── ARRIVO A CASA ─────────────────────────────────────────
-
   - id: presenza_arrivo_casa
     alias: "Presenza — Arrivo a casa"
     description: >
@@ -27,9 +45,7 @@ automation:
       Non agisce se già in modalità Casa o Ospiti.
     triggers:
       - trigger: state
-        entity_id:
-          - person.antonio_golfari
-          - person.nicoletta_orsenigo
+        entity_id: group.residenti
         to: "home"
     conditions:
       - condition: template
@@ -41,13 +57,6 @@ automation:
           entity_id: input_select.modalita_casa
         data:
           option: "Casa"
-      # presenza_antonio / presenza_nicoletta aggiornati
-      - action: input_boolean.turn_on
-        target:
-          entity_id: >
-            {{ 'input_boolean.presenza_antonio'
-               if trigger.entity_id == 'person.antonio_golfari'
-               else 'input_boolean.presenza_nicoletta' }}
     mode: single
 
   # ── USCITA DA CASA ────────────────────────────────────────
@@ -61,41 +70,27 @@ automation:
       per brevi disconnessioni GPS).
     triggers:
       - trigger: state
-        entity_id:
-          - person.antonio_golfari
-          - person.nicoletta_orsenigo
-        from: "home"
-        to: "not_home"
+        entity_id: binary_sensor.nessuno_nearby
+        to: "on"
         for:
           minutes: 5
     conditions:
-      # Tutti devono essere fuori casa
-      - condition: state
-        entity_id: person.antonio_golfari
-        state: "not_home"
-      - condition: state
-        entity_id: person.nicoletta_orsenigo
-        state: "not_home"
-      # Nessun ospite presente
       - condition: state
         entity_id: input_boolean.ospiti_presenti
         state: "off"
-      # Non già in modalità Fuori Casa o Vacanza
-      - condition: template
-        value_template: >
-          {{ states('input_select.modalita_casa') not in ['Fuori Casa', 'Vacanza'] }}
+      - condition: state
+        entity_id: input_select.modalita_casa
+        state: "Casa"
     actions:
-      - action: input_boolean.turn_off
-        target:
-          entity_id:
-            - input_boolean.presenza_antonio
-            - input_boolean.presenza_nicoletta
       - action: input_select.select_option
         target:
           entity_id: input_select.modalita_casa
         data:
           option: "Fuori Casa"
-    mode: single
+      - action: notify.notify
+        data:
+          title: "🏠 Progetto Bosco"
+          message: "Tutti i residenti hanno superato i {{ states('input_number.raggio_nearby') | int }} km. Modalità Fuori Casa attivata."
 
   # ── AGGIORNAMENTO PRESENZA INDIVIDUALE ────────────────────
 
