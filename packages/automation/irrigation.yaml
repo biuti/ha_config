@@ -24,9 +24,9 @@ automation:
       Controlla meteo, livello vasca e override prima di partire.
       Le zone vengono attivate una alla volta per la durata configurata.
     triggers:
-      - trigger: time
-        at: >
-          {{ '%02d:00' | format(states('input_number.ora_irrigazione') | int) }}
+      - trigger: template
+        value_template: >
+          {{ now().strftime('%H:%M') == '%02d:00' | format(states('input_number.ora_irrigazione') | int) }}
     conditions:
       # Non irrigare in modalità vacanza o via
       - condition: template

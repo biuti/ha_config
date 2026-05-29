@@ -5,7 +5,7 @@ template:
   - binary_sensor:
       # ── LOGICA VACANZA ANTONIO ──────────────────────────────
       - name: "Status Vacanza Antonio"
-        id: status_vacanza_antonio
+        unique_id: status_vacanza_antonio
         state: >
           {{ states('person.antonio_golfari') == 'far_away' 
              or (states('person.antonio_golfari') != 'home' and (as_timestamp(now()) - as_timestamp(states.person.antonio_golfari.last_changed | default(now()))) > 86400) }}
@@ -13,7 +13,7 @@ template:
 
       # ── LOGICA VACANZA NICOLETTA ────────────────────────────
       - name: "Status Vacanza Nicoletta"
-        id: status_vacanza_nicoletta
+        unique_id: status_vacanza_nicoletta
         state: >
           {{ states('person.nicoletta_orsenigo') == 'far_away' 
              or (states('person.nicoletta_orsenigo') != 'home' and (as_timestamp(now()) - as_timestamp(states.person.nicoletta_orsenigo.last_changed | default(now()))) > 86400) }}
@@ -21,7 +21,7 @@ template:
 
       # ── SENSORE MASTER (Entrambi lontani) ──────
       - name: "Pronti per Modalità Vacanza"
-        id: pronti_per_vacanza
+        unique_id: pronti_per_vacanza
         state: >
           {{ is_state('binary_sensor.status_vacanza_antonio', 'on') 
              and is_state('binary_sensor.status_vacanza_nicoletta', 'on') }}
