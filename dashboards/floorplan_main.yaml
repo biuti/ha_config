@@ -1,40 +1,49 @@
+# dashboards/floorplan_main.yaml
 views:
   - title: Garage e Cancelli
     path: garage
-    panel: true # Occupa tutta la pagina
+    panel: true
     cards:
       - type: 'custom:floorplan-card'
         config:
           image: /local/home-floorplan/garage.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
+          config: dashboards/floorplan_config.yaml
+          vars:
+            current_floor: "garage"
 
   - title: Seminterrato
     path: seminterrato
-    panel: true # Occupa tutta la pagina
+    panel: true
     cards:
       - type: 'custom:floorplan-card'
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
+          config: dashboards/floorplan_config.yaml
+          vars:
+            current_floor: "seminterrato"
 
   - title: Piano Terra
     path: piano-terra
-    panel: true # Occupa tutta la pagina
+    panel: true
     cards:
       - type: 'custom:floorplan-card'
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
+          config: dashboards/floorplan_config.yaml
+          vars:
+            current_floor: "piano-terra"
 
   - title: Piano Primo
     path: piano-primo
-    panel: true # Occupa tutta la pagina
+    panel: true
     cards:
       - type: 'custom:floorplan-card'
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
+          config: dashboards/floorplan_config.yaml
+          vars:
+            current_floor: "piano-primo"

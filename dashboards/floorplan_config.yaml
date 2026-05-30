@@ -1,6 +1,11 @@
+# dashboards/floorplan_config.yaml
 
 # floorplan base url definition for relative paths in rules
 base_url: /local/home-floorplan/
+
+# log levels
+log_level: warning
+console_log_level: warning
 
 defaults:
   hover_action: hover-info

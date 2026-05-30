@@ -12,7 +12,8 @@
     service: floorplan.class_set
     service_data: >
       ${
-        /* Aggiungiamo un check di sicurezza */
+        if (!element || !element.id) return null;
+
         const currentPath = (config && config.path) ? config.path : 'seminterrato';
         const layerId = element.id.replace('layer_', '').replaceAll('_', '-');
 
@@ -27,12 +28,13 @@
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${ 
+      ${
+        if (!element || !element.id) return null;
+
         const isNight = (entity.state === "below_horizon");
         const label = element.getAttribute('inkscape:label');
-        
-        if (!label) return "render-hidden"; 
 
+        if (!label) return "render-hidden"; 
         if (label === "notte") {
           return isNight ? "render-visible" : "render-hidden";
         } else if (label === "giorno") {
@@ -80,6 +82,8 @@
     service: floorplan.class_set
     service_data: >
       ${
+        if (!element || !element.id) return null;
+
         if (entity.state === "opening" || entity.state === "closing")
           return "cover-moving";
 
@@ -98,4 +102,8 @@
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${ entity.state === 'on' ? 'sensor-on' : 'sensor-off' }
+      ${
+        if (!element || !element.id) return null;
+
+        return entity.state === 'on' ? 'sensor-on' : 'sensor-off';
+      }
