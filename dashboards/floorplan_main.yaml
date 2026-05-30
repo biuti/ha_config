@@ -5,11 +5,27 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
+          # Puntiamo direttamente ai file statici che sappiamo per certo che vede
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml?v=3
-          vars:
-            current_floor: "layer_seminterrato"
+          
+          # INIETTIAMO LE REGOLE INLINE, SENZA USARE IL FILE CONFIG
+          rules:
+            - name: "Forza isolamento totale"
+              entities:
+                - sensor.time
+              element:
+                - layer_piano_terra
+                - layer_piano_primo
+                - layer_tetto
+              state_action:
+                action: call-service
+                service: floorplan.class_set
+                service_data: >
+                  ${
+                    console.log("=== CRITICAL: REGOLA DIRECT-INLINE ESEGUITA ===");
+                    return "layer-hidden";
+                  }
 
 
   # - title: Garage e Cancelli
