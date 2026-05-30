@@ -14,10 +14,10 @@
       ${
         if (!element || !element.id) return null;
 
-        const currentPath = (config && config.path) ? config.path : 'seminterrato';
+        const currentFloor = (vars && vars.current_floor) ? vars.current_floor : 'seminterrato';
         const layerId = element.id.replace('layer_', '').replaceAll('_', '-');
 
-        return (layerId === currentPath) ? "layer-visible" : "layer-hidden";
+        return (layerId === currentFloor) ? "layer-visible" : "layer-hidden";
       }
 
 - name: Gestione Ciclo Giorno Notte via Label
@@ -29,8 +29,22 @@
     service: floorplan.class_set
     service_data: >
       ${
-        if (!element || !element.id) return null;
+        // 1. Controllo difensivo in cima
+        if (!element || !document.getElementById(element.id)) return;
 
+        // 2. Controllo di contesto: Se l'immagine si trova dentro un layer che non è quello attivo, nascondila a prescindere dal sole!
+        const currentPath = (config && config.vars && config.vars.current_floor) ? config.vars.current_floor : 'seminterrato';
+        
+        // Risaliamo l'albero del DOM dell'SVG per vedere se questa immagine è figlia di un layer disattivato
+        const parentLayer = element.closest('[id^="layer_"]');
+        if (parentLayer) {
+          const parentLayerId = parentLayer.id.replace('layer_', '').replaceAll('_', '-');
+          if (parentLayerId !== currentPath) {
+            return "render-hidden"; // Forza il PNG a nascondersi se il piano è sbagliato
+          }
+        }
+
+        // 3. Se siamo nel piano corretto, applichiamo la logica giorno/notte standard
         const isNight = (entity.state === "below_horizon");
         const label = element.getAttribute('inkscape:label');
 
@@ -53,7 +67,11 @@
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${ entity.state === 'on' ? 'light-on' : 'light-off' }
+      ${ 
+        if (!element || !document.getElementById(element.id)) return;
+
+        return entity.state === 'on' ? 'light-on' : 'light-off';
+      }
 
 # TEMPERATURE (Label di testo)
 - name: Temperature Sensors
