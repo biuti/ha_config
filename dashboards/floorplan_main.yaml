@@ -8,12 +8,11 @@ views:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
           
-          # TRICK DI INIZIALIZZAZIONE: Usiamo entità che forzano il boot immediato
           rules:
             - name: "Forza isolamento totale al boot"
               entities:
-                - sun.sun        # Cambia al boot se riceve i dati correnti
-                - zone.home      # Ha uno stato fisso inviato subito al frontend
+                - sun.sun
+                - zone.home
               element:
                 - layer_piano_terra
                 - layer_piano_primo
@@ -22,10 +21,7 @@ views:
                 action: call-service
                 service: floorplan.class_set
                 service_data: >
-                  ${
-                    console.log("=== TRIGGER RIUSCITO! STATO ENTITÀ RICEVUTO ===");
-                    return "layer-hidden";
-                  }
+                  ${ console.log("LOG_OK") || "layer-hidden" }
 
 
   # - title: Garage e Cancelli
