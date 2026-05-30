@@ -14,6 +14,12 @@ svg {
 /* Gestione Layer Piani */
 .layer-visible { display: inline !important; }
 .layer-hidden { display: none !important; }
+/* Se il padre è nascosto, tutti i figli DEVONO sparire a prescindere dallo stile inline */
+.layer-hidden * {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
 
 /* Gestione Render Giorno/Notte */
 .render-img {
@@ -21,14 +27,17 @@ svg {
   transition: opacity 2s ease-in-out !important;
 }
 
+/* Classi specifiche per nascondere/mostrare le immagini */
 .render-visible {
+  display: inline !important;
   opacity: 1 !important;
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .render-hidden {
+  display: none !important;
   opacity: 0 !important;
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 /* Stili per le label temperature */
