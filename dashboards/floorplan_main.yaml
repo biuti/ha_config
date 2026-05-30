@@ -1,4 +1,6 @@
+# dashboards/floorplan_main.yaml
 views:
+
   - title: Seminterrato
     path: seminterrato
     panel: true
@@ -7,9 +9,20 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
-          vars:
-            current_floor: "layer_seminterrato"
+          
+          rules:
+            - name: "Seminterrato attivo: nascondi gli altri tre"
+              entities:
+                - sun.sun
+                - zone.home
+              element:
+                - layer_piano_terra
+                - layer_piano_primo
+                - layer_tetto
+              state_action:
+                action: call-service
+                service: floorplan.class_set
+                service_data: ${ console.log("LOG_SEMINTERRATO") || "layer-hidden" }
 
   - title: Piano Terra
     path: piano-terra
@@ -19,9 +32,20 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml
-          vars:
-            current_floor: "layer_piano_terra"
+          
+          rules:
+            - name: "Piano Terra attivo: nascondi gli altri tre"
+              entities:
+                - sun.sun
+                - zone.home
+              element:
+                - layer_seminterrato
+                - layer_piano_primo
+                - layer_tetto
+              state_action:
+                action: call-service
+                service: floorplan.class_set
+                service_data: ${ console.log("LOG_PIANO_TERRA") || "layer-hidden" }
 
 
   # - title: Garage e Cancelli
