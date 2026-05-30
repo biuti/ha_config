@@ -1,16 +1,4 @@
 image: /local/home-floorplan/home.svg
 stylesheet: /local/home-floorplan/floorplan.css
 
-rules:
-  - name: "Test Vita"
-    entities:
-      - sensor.time
-    element: layer_seminterrato
-    state_action:
-      action: call-service
-      service: floorplan.class_set
-      service_data: >
-        ${
-          console.log("=== VITTORIA! FLOORPLAN CONFIG LETTO ===");
-          return "layer-visible";
-        }
+rules: floorplan_rules.yaml
