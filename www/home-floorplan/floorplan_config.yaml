@@ -6,4 +6,4 @@ defaults:
   hover_action: hover-info
   tap_action: more-info
 
-rules: floorplan_rules.yaml
+rules: ./floorplan_rules.yaml
