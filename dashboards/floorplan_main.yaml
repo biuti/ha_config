@@ -1,4 +1,3 @@
-# dashboards/floorplan_main.yaml
 views:
   - title: Seminterrato
     path: seminterrato
@@ -8,21 +7,10 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml?v=2
+          config: /local/home-floorplan/floorplan_config.yaml?v=3
           vars:
             current_floor: "layer_seminterrato"
 
-  - title: Piano Terra
-    path: piano-terra
-    panel: true
-    cards:
-      - type: 'custom:floorplan-card'
-        config:
-          image: /local/home-floorplan/home.svg
-          stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml?v=2
-          vars:
-            current_floor: "layer_piano_terra"
 
   # - title: Garage e Cancelli
   #   path: garage

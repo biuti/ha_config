@@ -1,4 +1,6 @@
-# dashboards/floorplan_config.yaml
+image: /local/home-floorplan/home.svg
+stylesheet: /local/home-floorplan/floorplan.css
+
 rules:
   - name: "Test Vita"
     entities:
@@ -9,6 +11,6 @@ rules:
       service: floorplan.class_set
       service_data: >
         ${
-          console.log("FLOORPLAN CONFIG LETTO - elemento:", element ? element.id : "NULL");
+          console.log("=== VITTORIA! FLOORPLAN CONFIG LETTO ===");
           return "layer-visible";
         }
