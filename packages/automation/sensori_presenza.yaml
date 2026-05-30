@@ -3,31 +3,41 @@
 
 template:
   - binary_sensor:
-      # ─── PROSSIMITÀ ───────────────────────────────────────
       - name: "Presenza — Qualcuno in Prossimità"
         unique_id: qualcuno_in_prossimita
         state: >
           {% set raggio = states('input_number.raggio_nearby') | float(5.0) %}
-          {{ expand('group.residenti')
-             | selectattr('state', 'ne', 'home')
-             | map('attr', 'entity_id')
-             | map('distance', 'zone.home') | map('float')
-             | select('lt', raggio) | list | count > 0 }}
+          {% set ns = namespace(trovato=false) %}
+          {% for persona in expand('group.residenti') %}
+            {% if persona.state != 'home' and persona.attributes.latitude is defined %}
+              {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+              {% if dist < raggio %}
+                {% set ns.trovato = true %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.trovato }}
         icon: mdi:home-import-outline
 
-      # ─── LONTANANZA ───────────────────────────────────────
       - name: "Presenza — Tutti Lontani"
         unique_id: nessuno_nearby
         state: >
           {% set raggio = states('input_number.raggio_nearby') | float(5.0) %}
           {% set totale = expand('group.residenti') | list | count %}
-          {{ expand('group.residenti')
-             | map('attr', 'entity_id')
-             | map('distance', 'zone.home') | map('float')
-             | select('gt', raggio) | list | count == totale }}
+          {% set ns = namespace(lontani=0) %}
+          {% for persona in expand('group.residenti') %}
+            {% if persona.attributes.latitude is defined %}
+              {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+            {% else %}
+              {% set dist = 999 %}
+            {% endif %}
+            {% if dist > raggio %}
+              {% set ns.lontani = ns.lontani + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.lontani == totale }}
         icon: mdi:map-marker-distance
 
-      # ─── PRONTI PER VACANZA ───────────────────────────────
       - name: "Presenza — Pronti per Modalità Vacanza"
         unique_id: pronti_per_vacanza
         state: >
@@ -36,7 +46,11 @@ template:
           {% set totale = expand('group.residenti') | list | count %}
           {% set ns = namespace(pronti=0) %}
           {% for persona in expand('group.residenti') %}
-            {% set dist = distance(persona.entity_id, 'zone.home') | float(0) %}
+            {% if persona.attributes.latitude is defined %}
+              {% set dist = distance(persona.entity_id, 'zone.home') | float(0) %}
+            {% else %}
+              {% set dist = 0 %}
+            {% endif %}
             {% set tempo = (as_timestamp(now()) - as_timestamp(persona.last_changed)) %}
             {% if dist > raggio or (persona.state != 'home' and tempo > secondi_24h) %}
               {% set ns.pronti = ns.pronti + 1 %}
@@ -45,24 +59,34 @@ template:
           {{ ns.pronti == totale }}
         icon: mdi:suitcase
 
-      # ─── RIENTRO DA GRANDE DISTANZA ───────────────────────
       - name: "Presenza — Tutti Sotto i 300km"
         unique_id: possibile_rientro_vacanza
         state: >
           {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
           {% set totale = expand('group.residenti') | list | count %}
-          {{ expand('group.residenti')
-             | map('attr', 'entity_id')
-             | map('distance', 'zone.home') | map('float')
-             | select('lt', raggio) | list | count == totale }}
+          {% set ns = namespace(vicini=0) %}
+          {% for persona in expand('group.residenti') %}
+            {% if persona.attributes.latitude is defined %}
+              {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+            {% else %}
+              {% set dist = 999 %}
+            {% endif %}
+            {% if dist < raggio %}
+              {% set ns.vicini = ns.vicini + 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ ns.vicini == totale }}
         icon: mdi:airplane-landing
 
-      # ─── STATUS INDIVIDUALE ───────────────────────────────
       - name: "Status Vacanza Antonio"
         unique_id: status_vacanza_antonio
         state: >
           {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
-          {% set dist = distance('person.antonio_golfari', 'zone.home') | float(0) %}
+          {% if states.person.antonio_golfari.attributes.latitude is defined %}
+            {% set dist = distance('person.antonio_golfari', 'zone.home') | float(0) %}
+          {% else %}
+            {% set dist = 0 %}
+          {% endif %}
           {% set tempo = (as_timestamp(now()) - as_timestamp(states.person.antonio_golfari.last_changed)) %}
           {{ dist > raggio or (states('person.antonio_golfari') != 'home' and tempo > 86400) }}
         icon: mdi:account-question
@@ -71,7 +95,11 @@ template:
         unique_id: status_vacanza_nicoletta
         state: >
           {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
-          {% set dist = distance('person.nicoletta_orsenigo', 'zone.home') | float(0) %}
+          {% if states.person.nicoletta_orsenigo.attributes.latitude is defined %}
+            {% set dist = distance('person.nicoletta_orsenigo', 'zone.home') | float(0) %}
+          {% else %}
+            {% set dist = 0 %}
+          {% endif %}
           {% set tempo = (as_timestamp(now()) - as_timestamp(states.person.nicoletta_orsenigo.last_changed)) %}
           {{ dist > raggio or (states('person.nicoletta_orsenigo') != 'home' and tempo > 86400) }}
         icon: mdi:account-question
