@@ -1,8 +1,8 @@
-# /config/www/home-floorplan/floorplan_rules.yaml
+# dashboards/floorplan_rules.yaml
 
-- name: "Algoritmo Parametrico Isolamento Livelli"
+- name: "Logica X: Isolamento Strutturale"
   entities:
-    - sun.sun # Usato come trigger di spinta al boot
+    - sun.sun
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -14,18 +14,21 @@
     service_data: >
       ${
         (() => {
-          console.log("[STEP 2] - Entrato in floorplan_rules.yaml (Regola Livelli)");
-          const targetFloor = config.vars.current_floor;
-          const currentLayerName = element.id.replace('layer_', '');
+          const targetDellaCard = config.vars.current_floor;
+          const nomeLayerCorrente = element.id.replace('layer_', '');
           
-          console.log(`[PARAMETRIC] Analizzo macro-layer: ${element.id} | Target della card: layer_${targetFloor}`);
+          console.log(`[LOGICA X] Sto analizzando il macro-layer: ${element.id} | Il target attivo è: ${targetDellaCard}`);
           
-          // Se il nome del layer corrisponde alla variabile della card, lo mostra. Altrimenti lo inibisce.
-          return (currentLayerName === targetFloor) ? "layer-visible" : "layer-hidden";
+          if (nomeLayerCorrente === targetDellaCard) {
+            console.log(`-> [LOGICA X] RISULTATO: ${element.id} deve essere VISIBILE`);
+            return "layer-visible";
+          } else {
+            return "layer-hidden";
+          }
         })()
       }
 
-- name: "Algoritmo Parametrico Giorno/Notte Immagini"
+- name: "Logica SOLE: Filtro Immagini Giorno Notte"
   entities:
     - sun.sun
   element:
@@ -43,25 +46,24 @@
     service_data: >
       ${
         (() => {
-          console.log("[STEP 3] - Entrato in floorplan_rules.yaml (Regola Sole)");
-          const sole = states['sun.sun'].state;
-          const targetFloor = config.vars.current_floor;
-
-          // Capisce a quale piano appartiene l'immagine corrente (es. "seminterrato_img" -> "seminterrato")
-          const imageFloor = element.id.replace('_img', '').replace('_bg_night', '');
-
-          console.log(`[LOGICA SOLE] Immagine: ${element.id} | Sole: ${sole} | Target: ${targetFloor}`);
-
-          // Se questa immagine appartiene a un piano DIVERSO da quello visualizzato nella card, spengila subito
-          if (imageFloor !== targetFloor) {
+          const statoSole = states['sun.sun'].state;
+          const targetDellaCard = config.vars.current_floor;
+          
+          // Estraiamo il piano dall'ID dell'immagine (es. "seminterrato_img" -> "seminterrato")
+          const pianoImmagine = element.id.replace('_img', '').replace('_bg_night', '');
+          
+          console.log(`[LOGICA SOLE] Immagine sotto esame: ${element.id} | Appartiene al piano: ${pianoImmagine} | Stato Sole: ${statoSole}`);
+          
+          // Passaggio 1: Se l'immagine appartiene a un piano che NON è quello attivo, spegnila subito
+          if (pianoImmagine !== targetDellaCard) {
             return "layer-hidden";
           }
           
-          // Se appartiene al piano attivo, discrimina in base al sole
-          if (sole === 'above_horizon' && element.id.endsWith('_bg_night')) return "layer-hidden";
-          if (sole === 'below_horizon' && element.id.endsWith('_img')) return "layer-hidden";
+          // Passaggio 2: Se è il piano attivo, discrimina in base al giorno/notte
+          if (statoSole === 'above_horizon' && element.id.endsWith('_bg_night')) return "layer-hidden";
+          if (statoSole === 'below_horizon' && element.id.endsWith('_img')) return "layer-hidden";
           
-          console.log(`[PARAMETRIC IMAGE] Mostro immagine corretta: ${element.id} per il piano: ${imageFloor}`);
+          console.log(`-> [LOGICA SOLE] RISULTATO: Mostro l'immagine corretta di questo piano: ${element.id}`);
           return "layer-visible";
         })()
       }

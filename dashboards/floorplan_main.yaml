@@ -8,9 +8,11 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml?v=9
           vars:
             current_floor: "seminterrato"
+          
+          # Includiamo il file delle regole parametriche centralizzato
+          rules: !include floorplan_rules.yaml
 
   - title: Piano Terra
     path: piano-terra
@@ -20,9 +22,11 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: /local/home-floorplan/floorplan_config.yaml?v=9
           vars:
             current_floor: "piano_terra"
+          
+          # Stesso identico file di regole per tutti
+          rules: !include floorplan_rules.yaml
 
 
   # - title: Garage e Cancelli
