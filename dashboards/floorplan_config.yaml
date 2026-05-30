@@ -1,15 +1,60 @@
 # dashboards/floorplan_config.yaml
 
-# floorplan base url definition for relative paths in rules
-base_url: /local/home-floorplan/
+image: /local/home-floorplan/home.svg
+stylesheet: /local/home-floorplan/floorplan.css
 
-# log levels
-log_level: warning
-console_log_level: warning
+# Manteniamo la tua inclusione per vedere se viene digerita
+rules: !include floorplan_rules.yaml
 
-defaults:
-  hover_action: hover-info
-  tap_action: more-info
+# INIETTIAMO UNA REGOLA DI DEBUG DIRETTAMENTE NEL CONFIG
+# Se questa viene eseguita, abbiamo la risposta al punto 1 e 3.
+rules_debug:
+  - name: "Isolamento e Analisi Directory Home"
+    entities:
+      - sensor.time
+    element:
+      - layer_seminterrato
+    state_action:
+      action: call-service
+      service: floorplan.class_set
+      service_data: >
+        ${
+          console.group("=== FLOORPLAN SYSTEM DIAGNOSTIC ===");
+          console.log("1. CONFIG STATUS: Il file floorplan_config.yaml viene LETTO CORRETTAMENTE.");
+          console.log("2. BROWSER URL CURRENT LOCATION:", window.location.href);
+          console.log("3. SVG PATH RILEVATO DA CONFIG:", config.image);
+          console.log("4. CSS PATH RILEVATO DA CONFIG:", config.stylesheet);
+          console.log("5. INTERFACCIA CONFIG COMPLETA:", config);
 
-rules:
-  - !include floorplan_rules.yaml
+          // 2. Ispezione della proprietà 'rules'
+          const rulesProperty = config.rules;
+          
+          if (typeof rulesProperty === 'undefined') {
+            console.error("-> [ERRORE] config.rules è UNDEFINED. Il server non ha passato nessuna proprietà 'rules'.");
+          } else if (rulesProperty === null) {
+            console.error("-> [ERRORE] config.rules è NULL. Il puntamento esiste ma è vuoto.");
+          } else if (Array.isArray(rulesProperty)) {
+            console.log("-> [SUCCESS] config.rules è un ARRAY! Significa che il file floorplan_rules.yaml È STATO TROVATO e incluso dal server.");
+            console.log("-> Contenuto rilevato in floorplan_rules.yaml:", rulesProperty);
+            console.log("-> Numero di regole caricate:", rulesProperty.length);
+          } else {
+            console.warn("-> [ANOMALIA] config.rules esiste ma non è un array. Tipo rilevato:", typeof rulesProperty, "| Valore:", rulesProperty);
+          }
+          
+          console.groupEnd();
+          return "layer-visible";
+        }
+
+# # floorplan base url definition for relative paths in rules
+# base_url: /local/home-floorplan/
+
+# # log levels
+# log_level: warning
+# console_log_level: warning
+
+# defaults:
+#   hover_action: hover-info
+#   tap_action: more-info
+
+# rules:
+#   - !include floorplan_rules.yaml
