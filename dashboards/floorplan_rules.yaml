@@ -2,7 +2,7 @@
 
 - name: Master Layer Controller Debug
   entities:
-    - zone.home
+    - sensor.time  # Entità standard di HA che forza il calcolo dinamico
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -11,12 +11,13 @@
     service: floorplan.class_set
     service_data: >
       ${
-        const targetFloor = (config && config.vars) ? config.vars.current_floor : 'NON_DEFINITO';
-        const currentElementId = element.id;
-        const actionResult = (currentElementId === targetFloor) ? "layer-visible" : "layer-hidden";
+        /* TEST DI VITA ASSOLUTO */
+        console.log("-> [FLOORPLAN TRIGGERED] Sto analizzando l'elemento:", element.id);
 
-        /* OUTPUT DI DEBUGGING IN CONSOLE */
-        console.log("[FLOORPLAN DEBUG] — Elemento:", currentElementId, " | Target atteso dalla card:", targetFloor, " | Risultato classe:", actionResult);
+        const targetFloor = (config && config.vars) ? config.vars.current_floor : 'VARIABILE_NON_PERVENUTA';
+        const actionResult = (element.id === targetFloor) ? "layer-visible" : "layer-hidden";
+
+        console.log("-> [FLOORPLAN VOTE] Elemento:", element.id, " | Target:", targetFloor, " | Decisione:", actionResult);
 
         return actionResult;
       }
