@@ -1,3 +1,13 @@
+- name: Test Debug Floorplan
+  entities:
+    - light.luce_taverna  # <--- Metti un'entità REALE che hai su HA
+  element: tetto_img  # <--- Punta direttamente all'ID dell'immagine diurna
+  state_action:
+    action: call-service
+    service: floorplan.style_set
+    service_data: >
+      ${ entity.state === 'on' ? 'opacity: 1;' : 'opacity: 0.1;' }
+
 - name: Master Layer Controller
   entities:
     - sun.sun
