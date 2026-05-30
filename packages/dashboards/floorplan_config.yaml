@@ -1,0 +1,16 @@
+# dashboards/floorplan_config.yaml
+
+# Usiamo la sintassi corretta del server HA per includere le regole
+rules: !include floorplan_rules.yaml
+
+# Regola esca dentro il CONFIG per testare se viene raggiunto
+rules_config_debug:
+  - name: "Esca Config"
+    entities:
+      - sun.sun
+    element:
+      - layer_seminterrato
+    state_action:
+      action: call-service
+      service: floorplan.class_set
+      service_data: ${ console.log("[2. CONFIG FILE REACHED] Il server ha caricato floorplan_config.yaml") || "layer-visible" }

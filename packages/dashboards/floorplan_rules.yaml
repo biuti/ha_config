@@ -1,9 +1,8 @@
-# www/home-floorplan/floorplan_rules.yaml
+# dashboards/floorplan_rules.yaml
 
 - name: "Master Layer Controller"
   entities:
     - sun.sun
-    - zone.home
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -13,21 +12,7 @@
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${
-        (() => {
-          console.group("-> [RULES.YAML] Master Layer Controller");
-          console.log("Macro-layer sotto esame:", element.id);
-          console.log("Vista attiva (Target):", config.vars.current_floor);
-          
-          const isTarget = (element.id === config.vars.current_floor);
-          const classResult = isTarget ? "layer-visible" : "layer-hidden";
-          
-          console.log("Esito accoppiamento:", isTarget ? "MOSTRA (layer-visible)" : "INIBISCI (layer-hidden)");
-          console.groupEnd();
-          
-          return classResult;
-        })()
-      }
+      ${ console.log("[3. RULES FILE INTEGRATED] Sto analizzando il macro-layer:", element.id) || ((element.id === config.vars.current_floor) ? "layer-visible" : "layer-hidden") }
 
 - name: "Gestione Giorno/Notte Immagini"
   entities:
@@ -37,48 +22,11 @@
     - seminterrato_bg_night
     - piano_terra_img
     - piano_terra_bg_night
-    - piano_primo_img
-    - piano_primo_bg_night
-    - tetto_img
-    - tetto_bg_night
   state_action:
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${
-        (() => {
-          const soleStato = states['sun.sun'].state;
-          console.group("-> [RULES.YAML] Gestione Giorno/Notte");
-          console.log("ID Immagine sotto esame:", element.id);
-          console.log("Stato del Sole attuale:", soleStato);
-          
-          let actionResult = "layer-visible";
-          
-          // Logica esplicita basata sui tuoi ID reali
-          if (soleStato === 'above_horizon') {
-            // È giorno: nascondiamo i background notturni
-            if (element.id === 'seminterrato_bg_night' || 
-                element.id === 'piano_terra_bg_night' || 
-                element.id === 'piano_primo_bg_night' || 
-                element.id === 'tetto_bg_night') {
-              actionResult = "layer-hidden";
-            }
-          } else {
-            // È notte: nascondiamo le immagini diurne
-            if (element.id === 'seminterrato_img' || 
-                element.id === 'piano_terra_img' || 
-                element.id === 'piano_primo_img' || 
-                element.id === 'tetto_img') {
-              actionResult = "layer-hidden";
-            }
-          }
-          
-          console.log("Classe assegnata all'immagine:", actionResult);
-          console.groupEnd();
-          
-          return actionResult;
-        })()
-      }
+      ${ (states['sun.sun'].state === 'above_horizon' && element.id.endsWith('_bg_night')) || (states['sun.sun'].state === 'below_horizon' && element.id.endsWith('_img')) ? "layer-hidden" : "layer-visible" }
 
 # - name: Master Layer Controller
 #   entities:
