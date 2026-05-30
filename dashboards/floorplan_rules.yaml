@@ -18,12 +18,11 @@
             const targetDellaCard = config.vars.current_floor;
             const nomeLayerCorrente = element.id.replace('layer_', '');
             
-            console.log(`[LOGICA X] Analizzo macro-layer: ${element.id} | Target: ${targetDellaCard}`);
-            
             if (nomeLayerCorrente === targetDellaCard) {
-              console.log(`-> [LOGICA X] MOSTRA: ${element.id}`);
+              console.log(`[LOGICA X] -> ASSEGNO 'layer-visible' A: ${element.id}`);
               return "layer-visible";
             } else {
+              console.log(`[LOGICA X] -> ASSEGNO 'layer-hidden' A: ${element.id}`);
               return "layer-hidden";
             }
           })()
@@ -52,18 +51,23 @@
             const targetDellaCard = config.vars.current_floor;
             const pianoImmagine = element.id.replace('_img', '').replace('_bg_night', '');
             
-            console.log(`[LOGICA SOLE] Analizzo immagine: ${element.id} | Piano: ${pianoImmagine} | Sole: ${statoSole}`);
-            
-            // Se l'immagine appartiene a un piano diverso da quello attivo, spegnila subito
+            // Se l'immagine non è del piano attivo, va spenta in modo categorico
             if (pianoImmagine !== targetDellaCard) {
+              console.log(`[LOGICA SOLE] -> IMPOSTO 'layer-hidden' (PIANO DIVERSO) PER: ${element.id}`);
               return "layer-hidden";
             }
             
-            // Se è il piano attivo, discrimina in base al sole
-            if (statoSole === 'above_horizon' && element.id.endsWith('_bg_night')) return "layer-hidden";
-            if (statoSole === 'below_horizon' && element.id.endsWith('_img')) return "layer-hidden";
+            // Se è del piano attivo, filtriamo in base al sole
+            if (statoSole === 'above_horizon' && element.id.endsWith('_bg_night')) {
+              console.log(`[LOGICA SOLE] -> IMPOSTO 'layer-hidden' (C'È IL SOLE) PER: ${element.id}`);
+              return "layer-hidden";
+            }
+            if (statoSole === 'below_horizon' && element.id.endsWith('_img')) {
+              console.log(`[LOGICA SOLE] -> IMPOSTO 'layer-hidden' (È NOTTE) PER: ${element.id}`);
+              return "layer-hidden";
+            }
             
-            console.log(`-> [LOGICA SOLE] MOSTRA IMMAGINE: ${element.id}`);
+            console.log(`[LOGICA SOLE] -> IMPOSTO 'layer-visible' (CORRETTA) PER: ${element.id}`);
             return "layer-visible";
           })()
         }
