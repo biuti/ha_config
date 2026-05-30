@@ -12,12 +12,12 @@
     service: floorplan.class_set
     service_data: >
       ${
-        if (!element || !element.id) return null;
+        if (!element || !document.getElementById(element.id)) return;
 
-        const currentFloor = (vars && vars.current_floor) ? vars.current_floor : 'seminterrato';
+        const currentPath = (config && config.vars && config.vars.current_floor) ? config.vars.current_floor : 'seminterrato';
         const layerId = element.id.replace('layer_', '').replaceAll('_', '-');
 
-        return (layerId === currentFloor) ? "layer-visible" : "layer-hidden";
+        return (layerId === currentPath) ? "layer-visible" : "layer-hidden";
       }
 
 - name: Gestione Ciclo Giorno Notte via Label
@@ -29,32 +29,33 @@
     service: floorplan.class_set
     service_data: >
       ${
-        // 1. Controllo difensivo in cima
         if (!element || !document.getElementById(element.id)) return;
 
-        // 2. Controllo di contesto: Se l'immagine si trova dentro un layer che non è quello attivo, nascondila a prescindere dal sole!
+        // 1. Controllo antenato: se il livello superiore è spento, spegni l'immagine subito
         const currentPath = (config && config.vars && config.vars.current_floor) ? config.vars.current_floor : 'seminterrato';
-        
-        // Risaliamo l'albero del DOM dell'SVG per vedere se questa immagine è figlia di un layer disattivato
         const parentLayer = element.closest('[id^="layer_"]');
+        
         if (parentLayer) {
           const parentLayerId = parentLayer.id.replace('layer_', '').replaceAll('_', '-');
           if (parentLayerId !== currentPath) {
-            return "render-hidden"; // Forza il PNG a nascondersi se il piano è sbagliato
+            return "render-hidden";
           }
         }
 
-        // 3. Se siamo nel piano corretto, applichiamo la logica giorno/notte standard
+        // 2. Controllo Giorno/Notte basato sulle classi reali dell'immagine (render-day / render-night)
         const isNight = (entity.state === "below_horizon");
-        const label = element.getAttribute('inkscape:label');
+        const hasDayClass = element.classList.contains('render-day');
+        const hasNightClass = element.classList.contains('render-night');
 
-        if (!label) return "render-hidden"; 
-        if (label === "notte") {
+        if (hasNightClass) {
           return isNight ? "render-visible" : "render-hidden";
-        } else if (label === "giorno") {
+        }
+        
+        if (hasDayClass) {
           return isNight ? "render-hidden" : "render-visible";
         }
-        return "render-hidden";
+
+        return "render-visible";
       }
 
 # LUCI (Elementi interattivi)
