@@ -1,9 +1,1 @@
-# log levels
-log_level: warning
-console_log_level: warning
-
-defaults:
-  hover_action: hover-info
-  tap_action: more-info
-
 rules: ./floorplan_rules.yaml
