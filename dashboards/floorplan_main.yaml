@@ -9,38 +9,9 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          
-          rules:
-            # 1. REGOLA PER I LAYER (Quella che funziona)
-            - name: "Seminterrato attivo: nascondi gli altri tre"
-              entities:
-                - sun.sun
-                - zone.home
-              element:
-                - layer_piano_terra
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: ${ console.log("LOG_SEMINTERRATO") || "layer-hidden" }
-
-            # 2. NUOVA REGOLA PER IMMAGINI GIORNO/NOTTE DEL SEMINTERRATO
-            - name: "Seminterrato: Gestione Giorno/Notte"
-              entities:
-                - sun.sun
-              element:
-                - seminterrato_img        # ID dell'immagine giorno nell'SVG
-                - seminterrato_bg_night   # ID dell'immagine notte nell'SVG
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${
-                    console.log("LOG_SOLE_SEMINTERRATO:", states['sun.sun'].state) ||
-                    (element.id === 'seminterrato_img' && states['sun.sun'].state === 'below_horizon' ? "layer-hidden" :
-                     element.id === 'seminterrato_bg_night' && states['sun.sun'].state === 'above_horizon' ? "layer-hidden" : "layer-visible")
-                  }
+          config: /local/home-floorplan/floorplan_config.yaml
+          vars:
+            current_floor: "layer_seminterrato"
 
   - title: Piano Terra
     path: piano-terra
@@ -50,38 +21,9 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          
-          rules:
-            # 1. REGOLA PER I LAYER (Quella che funziona)
-            - name: "Piano Terra attivo: nascondi gli altri tre"
-              entities:
-                - sun.sun
-                - zone.home
-              element:
-                - layer_seminterrato
-                - layer_piano_primo
-                - layer_tetto
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: ${ console.log("LOG_PIANO_TERRA") || "layer-hidden" }
-
-            # 2. NUOVA REGOLA PER IMMAGINI GIORNO/NOTTE DEL PIANO TERRA
-            - name: "Piano Terra: Gestione Giorno/Notte"
-              entities:
-                - sun.sun
-              element:
-                - piano_terra_img  # ID dell'immagine giorno nell'SVG
-                - piano_terra_bg_night   # ID dell'immagine notte nell'SVG
-              state_action:
-                action: call-service
-                service: floorplan.class_set
-                service_data: >
-                  ${
-                    console.log("LOG_SOLE_PIANOTERRA:", states['sun.sun'].state) ||
-                    (element.id === 'piano_terra_img' && states['sun.sun'].state === 'below_horizon' ? "layer-hidden" :
-                     element.id === 'piano_terra_bg_night' && states['sun.sun'].state === 'above_horizon' ? "layer-hidden" : "layer-visible")
-                  }
+          config: /local/home-floorplan/floorplan_config.yaml
+          vars:
+            current_floor: "layer_piano_terra"
 
 
   # - title: Garage e Cancelli
