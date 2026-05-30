@@ -8,7 +8,7 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: dashboards/floorplan_config.yaml
+          config: /local/home-floorplan/floorplan_config.yaml
           vars:
             current_floor: "layer_seminterrato"
 
@@ -20,7 +20,7 @@ views:
         config:
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
-          config: dashboards/floorplan_config.yaml
+          config: /local/home-floorplan/floorplan_config.yaml
           vars:
             current_floor: "layer_piano_terra"
 
