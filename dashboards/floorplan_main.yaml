@@ -5,15 +5,15 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
-          # Puntiamo direttamente ai file statici che sappiamo per certo che vede
           image: /local/home-floorplan/home.svg
           stylesheet: /local/home-floorplan/floorplan.css
           
-          # INIETTIAMO LE REGOLE INLINE, SENZA USARE IL FILE CONFIG
+          # TRICK DI INIZIALIZZAZIONE: Usiamo entità che forzano il boot immediato
           rules:
-            - name: "Forza isolamento totale"
+            - name: "Forza isolamento totale al boot"
               entities:
-                - sensor.time
+                - sun.sun        # Cambia al boot se riceve i dati correnti
+                - zone.home      # Ha uno stato fisso inviato subito al frontend
               element:
                 - layer_piano_terra
                 - layer_piano_primo
@@ -23,7 +23,7 @@ views:
                 service: floorplan.class_set
                 service_data: >
                   ${
-                    console.log("=== CRITICAL: REGOLA DIRECT-INLINE ESEGUITA ===");
+                    console.log("=== TRIGGER RIUSCITO! STATO ENTITÀ RICEVUTO ===");
                     return "layer-hidden";
                   }
 
