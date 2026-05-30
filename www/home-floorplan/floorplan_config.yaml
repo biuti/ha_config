@@ -1,0 +1,4 @@
+# /config/www/home-floorplan/floorplan_config.yaml
+
+# Caricamento nativo delle regole tramite endpoint HTTP locale
+rules: /local/home-floorplan/floorplan_rules.yaml

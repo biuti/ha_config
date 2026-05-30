@@ -1,8 +1,8 @@
-# dashboards/floorplan_rules.yaml
+# /config/www/home-floorplan/floorplan_rules.yaml
 
-- name: "Master Layer Controller"
+- name: "Algoritmo Parametrico Isolamento Livelli"
   entities:
-    - sun.sun
+    - sun.sun # Usato come trigger di spinta al boot
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -12,9 +12,19 @@
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${ console.log("[3. RULES FILE INTEGRATED] Sto analizzando il macro-layer:", element.id) || ((element.id === config.vars.current_floor) ? "layer-visible" : "layer-hidden") }
+      ${
+        (() => {
+          const targetFloor = config.vars.current_floor;
+          const currentLayerName = element.id.replace('layer_', '');
+          
+          console.log(`[PARAMETRIC] Analizzo macro-layer: ${element.id} | Target della card: layer_${targetFloor}`);
+          
+          // Se il nome del layer corrisponde alla variabile della card, lo mostra. Altrimenti lo inibisce.
+          return (currentLayerName === targetFloor) ? "layer-visible" : "layer-hidden";
+        })()
+      }
 
-- name: "Gestione Giorno/Notte Immagini"
+- name: "Algoritmo Parametrico Giorno/Notte Immagini"
   entities:
     - sun.sun
   element:
@@ -22,11 +32,36 @@
     - seminterrato_bg_night
     - piano_terra_img
     - piano_terra_bg_night
+    - piano_primo_img
+    - piano_primo_bg_night
+    - tetto_img
+    - tetto_bg_night
   state_action:
     action: call-service
     service: floorplan.class_set
     service_data: >
-      ${ (states['sun.sun'].state === 'above_horizon' && element.id.endsWith('_bg_night')) || (states['sun.sun'].state === 'below_horizon' && element.id.endsWith('_img')) ? "layer-hidden" : "layer-visible" }
+      ${
+        (() => {
+          const sole = states['sun.sun'].state;
+          const targetFloor = config.vars.current_floor;
+          
+          // Capisce a quale piano appartiene l'immagine corrente (es. "seminterrato_img" -> "seminterrato")
+          const imageFloor = element.id.replace('_img', '').replace('_bg_night', '');
+          
+          // Se questa immagine appartiene a un piano DIVERSO da quello visualizzato nella card, spengila subito
+          if (imageFloor !== targetFloor) {
+            return "layer-hidden";
+          }
+          
+          // Se appartiene al piano attivo, discrimina in base al sole
+          if (sole === 'above_horizon' && element.id.endsWith('_bg_night')) return "layer-hidden";
+          if (sole === 'below_horizon' && element.id.endsWith('_img')) return "layer-hidden";
+          
+          console.log(`[PARAMETRIC IMAGE] Mostro immagine corretta: ${element.id} per il piano: ${imageFloor}`);
+          return "layer-visible";
+        })()
+      }
+
 
 # - name: Master Layer Controller
 #   entities:
