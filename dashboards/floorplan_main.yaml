@@ -5,6 +5,8 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
+          image: /local/home-floorplan/home.svg
+          stylesheet: /local/home-floorplan/floorplan.css
           config: /local/home-floorplan/floorplan_config.yaml
           vars:
             current_floor: "layer_seminterrato"
@@ -15,6 +17,8 @@ views:
     cards:
       - type: 'custom:floorplan-card'
         config:
+          image: /local/home-floorplan/home.svg
+          stylesheet: /local/home-floorplan/floorplan.css
           config: /local/home-floorplan/floorplan_config.yaml
           vars:
             current_floor: "layer_piano_terra"
