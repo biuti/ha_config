@@ -49,7 +49,7 @@
 
     service_data: >
       ${
-        config.vars.current_floor === 'seminterrato'
+        config.config.vars.current_floor === 'seminterrato'
           ? 'layer-visible'
           : 'layer-hidden'
       }
