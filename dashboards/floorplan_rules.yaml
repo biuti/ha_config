@@ -28,6 +28,8 @@
   entities:
     - sun.sun
   element:
+    - garage_img
+    - garage_bg_night
     - seminterrato_img
     - seminterrato_bg_night
     - piano_terra_img
