@@ -12,6 +12,7 @@
    xmlns:svg="http://www.w3.org/2000/svg"><defs
      id="defs1" /><g
      id="layer_garage"
+     data-floor="garage"
      style="display:inline"><image
        width="1440"
        height="2215"
@@ -21,7 +22,8 @@
        id="image1"
        x="0"
        y="1860"
-       class="render-img render-day" /><image
+       class="render-img"
+       data-mode="day" /><image
        width="1440"
        height="2215"
        preserveAspectRatio="none"
@@ -30,7 +32,8 @@
        id="image2"
        x="0"
        y="1860"
-       class="render-img render-night" /><g
+       class="render-img"
+       data-mode="night" /><g
        id="layer_garage_interattivo"
        style="display:inline"><g
          id="layer_garage_interattivo_sensor"
