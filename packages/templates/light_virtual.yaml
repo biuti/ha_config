@@ -24,7 +24,7 @@ template:
           entity_id: input_boolean.luce_garage
 
     # ── SEMINTERRATO ────────────────────────────────────────
-    - name: "Luce Taverna"
+    - name: "Taverna"
       unique_id: taverna
       state: "{{ states('input_boolean.luce_taverna') }}"
       turn_on:
