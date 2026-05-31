@@ -3,17 +3,23 @@
 - name: "Logica X: Isolamento Strutturale"
   entities:
     - sun.sun
+
   element:
     - layer_seminterrato
     - layer_piano_terra
     - layer_piano_primo
     - layer_tetto
+    - layer_garage
+
   state_action:
     action: call-service
     service: floorplan.class_set
+
     service_data: >
       ${
-        window.location.pathname.includes(element.getAttribute('data-floor'))
+        window.location.pathname.includes(
+          element.getAttribute('data-floor').replaceAll('_', '-')
+        )
           ? 'layer-visible'
           : 'layer-hidden'
       }

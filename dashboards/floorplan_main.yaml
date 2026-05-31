@@ -10,8 +10,6 @@ views:
           stylesheet: /local/home-floorplan/floorplan.css
           vars:
             current_floor: "seminterrato"
-          
-          # Includiamo il file delle regole parametriche centralizzato
           rules: !include floorplan_rules.yaml
 
   - title: Piano Terra
@@ -24,8 +22,30 @@ views:
           stylesheet: /local/home-floorplan/floorplan.css
           vars:
             current_floor: "piano_terra"
-          
-          # Stesso identico file di regole per tutti
+          rules: !include floorplan_rules.yaml
+
+  - title: Piano Primo
+    path: piano-primo
+    panel: true
+    cards:
+      - type: 'custom:floorplan-card'
+        config:
+          image: /local/home-floorplan/home.svg
+          stylesheet: /local/home-floorplan/floorplan.css
+          vars:
+            current_floor: "piano-primo"
+          rules: !include floorplan_rules.yaml
+
+  - title: Tetto
+    path: tetto
+    panel: true
+    cards:
+      - type: 'custom:floorplan-card'
+        config:
+          image: /local/home-floorplan/home.svg
+          stylesheet: /local/home-floorplan/floorplan.css
+          vars:
+            current_floor: "tetto"
           rules: !include floorplan_rules.yaml
 
 
