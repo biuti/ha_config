@@ -12,6 +12,7 @@
    xmlns:svg="http://www.w3.org/2000/svg"><defs
      id="defs1" /><g
      id="layer_seminterrato"
+     data-floor="seminterrato"
      style="display:inline"><image
        width="1440"
        height="1860"
@@ -138,6 +139,7 @@
            r="15"
            class="binary-sensor sensori-finestre" /></g></g></g><g
      id="layer_piano_terra"
+     data-floor="piano_terra"
      style="display:inline"><image
        width="1440"
        height="1860"
@@ -300,6 +302,7 @@
            r="15"
            class="binary-sensor sensori-finestre" /></g></g></g><g
      id="layer_piano_primo"
+     data-floor="piano_primo"
      style="display:inline"><image
        width="1440"
        height="1860"
@@ -425,6 +428,7 @@
            r="15"
            class="binary-sensor sensori-porte sensori-finestre" /></g></g></g><g
      id="layer_tetto"
+     data-floor="tetto"
      style="display:inline"><image
        width="1440"
        height="1860"

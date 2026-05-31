@@ -13,7 +13,7 @@
     service: floorplan.class_set
     service_data: >
       ${
-        window.location.pathname.includes(element.id.replace('layer_', '').replaceAll('_', '-'))
+        window.location.pathname.includes(element.getAttribute('data-floor'))
           ? 'layer-visible'
           : 'layer-hidden'
       }
