@@ -21,7 +21,8 @@
        id="seminterrato_img"
        x="0"
        y="0"
-       class="render-img render-day" /><image
+       class="render-img"
+       data-mode="day" /><image
        width="1440"
        height="1860"
        preserveAspectRatio="none"
@@ -30,7 +31,8 @@
        id="seminterrato_bg_night"
        x="0"
        y="0"
-       class="render-img render-night" /><g
+       class="render-img"
+       data-mode="night" /><g
        id="layer_seminterrato_interattivo"
        style="display:inline"><g
          id="layer_seminterrato_sensor"
@@ -145,7 +147,8 @@
        id="piano_terra_img"
        x="0"
        y="0"
-       class="render-img render-day" /><image
+       class="render-img"
+       data-mode="day" /><image
        width="1440"
        height="1860"
        preserveAspectRatio="none"
@@ -154,7 +157,8 @@
        id="piano_terra_bg_night"
        x="0"
        y="0"
-       class="render-img render-night" /><g
+       class="render-img"
+       data-mode="night" /><g
        id="layer_piano_terra_interattivo"
        style="display:inline"><g
          id="layer_piano_terra_sensor"
@@ -305,7 +309,8 @@
        id="piano_primo_img"
        x="0"
        y="0"
-       class="render-img render-day" /><image
+       class="render-img"
+       data-mode="day" /><image
        width="1440"
        height="1860"
        preserveAspectRatio="none"
@@ -314,7 +319,8 @@
        id="piano_primo_bg_night"
        x="0"
        y="0"
-       class="render-img render-night" /><g
+       class="render-img"
+       data-mode="night" /><g
        id="layer_piano_primo_interattivo"
        style="display:inline"><g
          id="layer_piano_primo_sensor"
@@ -428,7 +434,8 @@
        id="tetto_img"
        x="0"
        y="0"
-       class="render-img render-day" /><image
+       class="render-img"
+       data-mode="day" /><image
        width="1440"
        height="1860"
        preserveAspectRatio="none"
@@ -437,7 +444,8 @@
        id="tetto_bg_night"
        x="0"
        y="0"
-       class="render-img render-night" /><g
+       class="render-img"
+       data-mode="night" /><g
        id="layer_tetto_interattivo"
        style="display:inline"><g
          id="layer_tetto_sensor"

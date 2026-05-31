@@ -35,13 +35,11 @@
     service: floorplan.class_set
     service_data: >
       ${
-        entity.state === "below_horizon"
-          ? (element.className.includes('render-day')
-              ? 'render-hidden'
-              : 'render-visible')
-          : (element.className.includes('render-night')
-              ? 'render-hidden'
-              : 'render-visible')
+        (entity.state === "below_horizon" && element.getAttribute('data-mode') === 'day')
+          ? 'render-hidden'
+          : (entity.state !== "below_horizon" && element.getAttribute('data-mode') === 'night')
+            ? 'render-hidden'
+            : 'render-visible'
       }
 
 
