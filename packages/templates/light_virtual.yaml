@@ -11,7 +11,7 @@ template:
   - light:
 
     # ── GARAGE ──────────────────────────────────────────────
-    - name: "Luce Garage"
+    - name: "Garage"
       unique_id: garage
       state: "{{ states('input_boolean.luce_garage') }}"
       turn_on:
@@ -36,7 +36,7 @@ template:
         target:
           entity_id: input_boolean.luce_taverna
 
-    - name: "Luce Bagno Taverna"
+    - name: "Bagno Taverna"
       unique_id: bagno_taverna
       state: "{{ states('input_boolean.luce_bagno_taverna') }}"
       turn_on:
@@ -48,7 +48,7 @@ template:
         target:
           entity_id: input_boolean.luce_bagno_taverna
 
-    - name: "Luce Lavanderia"
+    - name: "Lavanderia"
       unique_id: lavanderia
       state: "{{ states('input_boolean.luce_lavanderia') }}"
       turn_on:
@@ -60,7 +60,7 @@ template:
         target:
           entity_id: input_boolean.luce_lavanderia
 
-    - name: "Luce Locale Tecnico"
+    - name: "Locale Tecnico"
       unique_id: locale_tecnico
       state: "{{ states('input_boolean.luce_locale_tecnico') }}"
       turn_on:
@@ -73,7 +73,7 @@ template:
           entity_id: input_boolean.luce_locale_tecnico
 
     # ── VANO SCALE / CORRIDOIO ──────────────────────────────
-    - name: "Luce Vano Scale"
+    - name: "Vano Scale"
       unique_id: vano_scale
       state: "{{ states('input_boolean.luce_vano_scale') }}"
       turn_on:
@@ -85,7 +85,7 @@ template:
         target:
           entity_id: input_boolean.luce_vano_scale
 
-    - name: "Luce Segnapassi Scale"
+    - name: "Segnapassi Scale"
       unique_id: segnapassi_scale
       state: "{{ states('input_boolean.luce_segnapassi_scale') }}"
       turn_on:
@@ -97,7 +97,7 @@ template:
         target:
           entity_id: input_boolean.luce_segnapassi_scale
 
-    - name: "Luce Corridoio"
+    - name: "Corridoio"
       unique_id: corridoio
       state: "{{ states('input_boolean.luce_corridoio') }}"
       turn_on:
@@ -110,7 +110,7 @@ template:
           entity_id: input_boolean.luce_corridoio
 
     # ── PIANO TERRA ─────────────────────────────────────────
-    - name: "Luce Camera Padronale"
+    - name: "Camera Padronale"
       unique_id: camera_padronale
       state: "{{ states('input_boolean.luce_camera_padronale') }}"
       turn_on:
@@ -122,7 +122,7 @@ template:
         target:
           entity_id: input_boolean.luce_camera_padronale
 
-    - name: "Luce Cabina Armadio"
+    - name: "Cabina Armadio"
       unique_id: cabina_armadio
       state: "{{ states('input_boolean.luce_cabina_armadio') }}"
       turn_on:
@@ -134,7 +134,7 @@ template:
         target:
           entity_id: input_boolean.luce_cabina_armadio
 
-    - name: "Luce Bagno Padronale"
+    - name: "Bagno Padronale"
       unique_id: bagno_padronale
       state: "{{ states('input_boolean.luce_bagno_padronale') }}"
       turn_on:
@@ -146,7 +146,7 @@ template:
         target:
           entity_id: input_boolean.luce_bagno_padronale
 
-    - name: "Luce Bagno Comune"
+    - name: "Bagno Comune"
       unique_id: bagno_comune
       state: "{{ states('input_boolean.luce_bagno_comune') }}"
       turn_on:
@@ -158,7 +158,7 @@ template:
         target:
           entity_id: input_boolean.luce_bagno_comune
 
-    - name: "Luce Camera Ospiti"
+    - name: "Camera Ospiti"
       unique_id: camera_ospiti
       state: "{{ states('input_boolean.luce_camera_ospiti') }}"
       turn_on:
@@ -170,7 +170,7 @@ template:
         target:
           entity_id: input_boolean.luce_camera_ospiti
 
-    - name: "Luce Studio"
+    - name: "Studio"
       unique_id: studio
       state: "{{ states('input_boolean.luce_studio') }}"
       turn_on:
@@ -182,7 +182,7 @@ template:
         target:
           entity_id: input_boolean.luce_studio
 
-    - name: "Luce Ripostiglio Piano Terra"
+    - name: "Ripostiglio Piano Terra"
       unique_id: ripostiglio_pt
       state: "{{ states('input_boolean.luce_ripostiglio_pt') }}"
       turn_on:
@@ -195,7 +195,7 @@ template:
           entity_id: input_boolean.luce_ripostiglio_pt
 
     # ── PIANO PRIMO ─────────────────────────────────────────
-    - name: "Luce Cucina"
+    - name: "Cucina"
       unique_id: cucina
       state: "{{ states('input_boolean.luce_cucina') }}"
       turn_on:
@@ -207,7 +207,7 @@ template:
         target:
           entity_id: input_boolean.luce_cucina
 
-    - name: "Luce Accento Cucina"
+    - name: "Accento Cucina"
       unique_id: accento_cucina
       state: "{{ states('input_boolean.luce_accento_cucina') }}"
       turn_on:
@@ -219,7 +219,7 @@ template:
         target:
           entity_id: input_boolean.luce_accento_cucina
 
-    - name: "Luce Soggiorno"
+    - name: "Soggiorno"
       unique_id: soggiorno
       state: "{{ states('input_boolean.luce_soggiorno') }}"
       turn_on:
@@ -231,7 +231,7 @@ template:
         target:
           entity_id: input_boolean.luce_soggiorno
 
-    - name: "Luce Bagno Piano Primo"
+    - name: "Bagno Piano Primo"
       unique_id: bagno_p1
       state: "{{ states('input_boolean.luce_bagno_p1') }}"
       turn_on:
@@ -243,7 +243,7 @@ template:
         target:
           entity_id: input_boolean.luce_bagno_p1
 
-    - name: "Luce Ripostiglio Piano Primo"
+    - name: "Ripostiglio Piano Primo"
       unique_id: ripostiglio_p1
       state: "{{ states('input_boolean.luce_ripostiglio_p1') }}"
       turn_on:
@@ -256,7 +256,7 @@ template:
           entity_id: input_boolean.luce_ripostiglio_p1
 
     # ── LUCI ESTERNE ────────────────────────────────────────
-    - name: "Luce Ingresso Principale"
+    - name: "Ingresso Principale"
       unique_id: ingresso_principale
       state: "{{ states('input_boolean.luce_ingresso_principale') }}"
       turn_on:
@@ -268,7 +268,7 @@ template:
         target:
           entity_id: input_boolean.luce_ingresso_principale
 
-    - name: "Luce Ingresso Seminterrato"
+    - name: "Ingresso Seminterrato"
       unique_id: ingresso_seminterrato
       state: "{{ states('input_boolean.luce_ingresso_seminterrato') }}"
       turn_on:
@@ -280,7 +280,7 @@ template:
         target:
           entity_id: input_boolean.luce_ingresso_seminterrato
 
-    - name: "Luce Perimetro Edificio"
+    - name: "Perimetro Edificio"
       unique_id: perimetro_edificio
       state: "{{ states('input_boolean.luce_perimetro_edificio') }}"
       turn_on:
@@ -292,7 +292,7 @@ template:
         target:
           entity_id: input_boolean.luce_perimetro_edificio
 
-    - name: "Luce Balcone Piano Terra"
+    - name: "Balcone Piano Terra"
       unique_id: balcone_piano_terra
       state: "{{ states('input_boolean.luce_balcone_piano_terra') }}"
       turn_on:
@@ -304,7 +304,7 @@ template:
         target:
           entity_id: input_boolean.luce_balcone_piano_terra
 
-    - name: "Luce Terrazzo Nord"
+    - name: "Terrazzo Nord"
       unique_id: terrazzo_nord
       state: "{{ states('input_boolean.luce_terrazzo_nord') }}"
       turn_on:
@@ -316,7 +316,7 @@ template:
         target:
           entity_id: input_boolean.luce_terrazzo_nord
 
-    - name: "Luce Terrazzo Sud"
+    - name: "Terrazzo Sud"
       unique_id: terrazzo_sud
       state: "{{ states('input_boolean.luce_terrazzo_sud') }}"
       turn_on:
@@ -328,7 +328,7 @@ template:
         target:
           entity_id: input_boolean.luce_terrazzo_sud
 
-    - name: "Luce Giardino"
+    - name: "Giardino"
       unique_id: giardino
       state: "{{ states('input_boolean.luce_giardino') }}"
       turn_on:
@@ -340,7 +340,7 @@ template:
         target:
           entity_id: input_boolean.luce_giardino
 
-    - name: "Luce Vialetto Pedonale"
+    - name: "Vialetto Pedonale"
       unique_id: vialetto_pedonale
       state: "{{ states('input_boolean.luce_vialetto_pedonale') }}"
       turn_on:
@@ -352,7 +352,7 @@ template:
         target:
           entity_id: input_boolean.luce_vialetto_pedonale
 
-    - name: "Luce Vialetto Carraio"
+    - name: "Vialetto Carraio"
       unique_id: vialetto_carraio
       state: "{{ states('input_boolean.luce_vialetto_carraio') }}"
       turn_on:
@@ -364,7 +364,7 @@ template:
         target:
           entity_id: input_boolean.luce_vialetto_carraio
 
-    - name: "Luce Cancelli"
+    - name: "Cancelli"
       unique_id: cancelli
       state: "{{ states('input_boolean.luce_cancelli') }}"
       turn_on:
@@ -376,7 +376,7 @@ template:
         target:
           entity_id: input_boolean.luce_cancelli
 
-    - name: "Luce Segnapassi Scale Esterne"
+    - name: "Segnapassi Scale Esterne"
       unique_id: segnapassi_scale_esterne
       state: "{{ states('input_boolean.luce_segnapassi_scale_esterne') }}"
       turn_on:
