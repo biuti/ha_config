@@ -44,12 +44,16 @@ input_boolean:
     name: "Strisce LED Vialetto Pedonale"
     icon: mdi:led-strip-variant
 
-  luce_segnapassi_scale:
+  luce_segnapassi_scale_esterne:
     name: "Strisce LED Segnapassi Scale"
     icon: mdi:led-strip-variant
 
   luce_vialetto_carraio:
     name: "Strisce LED Vialetto Carraio"
+    icon: mdi:led-strip-variant
+
+  luce_cancelli:
+    name: "Strisce LED Cancelli"
     icon: mdi:led-strip-variant
 
   # ── MODALITÀ EVENTI ───────────────────────────────────────
@@ -67,7 +71,7 @@ input_number:
     step: 1
     icon: mdi:brightness-6
 
-  bright_segnapassi_scale:
+  bright_segnapassi_scale_esterne:
     name: "Luminosità Segnapassi Scale"
     min: 0
     max: 255

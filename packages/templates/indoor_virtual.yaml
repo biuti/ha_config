@@ -50,6 +50,10 @@ input_boolean:
     name: "Luce Camera Padronale"
     icon: mdi:light-recessed
 
+  luce_cabina_armadio:
+    name: "Luce Cabina Armadio"
+    icon: mdi:light-recessed
+
   luce_bagno_padronale:
     name: "Luce Bagno Padronale"
     icon: mdi:light-recessed

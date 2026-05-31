@@ -16,6 +16,7 @@
 *.env
 * copy*.*
 *_master.svg
+private/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
