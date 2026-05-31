@@ -1,0 +1,19 @@
+# packages/ui/state_helpers.yaml
+
+input_select:
+  current_floor:
+    name: Piano corrente
+    options:
+      - garage
+      - seminterrato
+      - piano_terra
+      - piano_primo
+      - tetto
+    initial: seminterrato
+
+template:
+  - sensor:
+      - name: "Sun Phase"
+        unique_id: sun_phase
+        state: >
+          {{ 'day' if is_state('sun.sun', 'above_horizon') else 'night' }}

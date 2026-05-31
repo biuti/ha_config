@@ -139,7 +139,7 @@
            r="15"
            class="binary-sensor sensori-finestre" /></g></g></g><g
      id="layer_piano_terra"
-     data-floor="piano_terra"
+     data-floor="piano-terra"
      style="display:inline"><image
        width="1440"
        height="1860"
@@ -302,7 +302,7 @@
            r="15"
            class="binary-sensor sensori-finestre" /></g></g></g><g
      id="layer_piano_primo"
-     data-floor="piano_primo"
+     data-floor="piano-primo"
      style="display:inline"><image
        width="1440"
        height="1860"

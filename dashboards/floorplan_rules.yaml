@@ -17,16 +17,14 @@
 
     service_data: >
       ${
-        window.location.pathname.includes(
-          element.getAttribute('data-floor').replaceAll('_', '-')
-        )
+        window.location.pathname.includes(element.getAttribute('data-floor'))
           ? 'layer-visible'
           : 'layer-hidden'
       }
 
 - name: "Logica SOLE: Filtro Immagini Giorno Notte"
   entities:
-    - sun.sun
+    - sensor.sun_phase
   element:
     - garage_img_day
     - garage_img_night
@@ -43,9 +41,7 @@
     service: floorplan.class_set
     service_data: >
       ${
-        (entity.state === "below_horizon" && element.getAttribute('data-mode') === 'day')
-          ? 'render-hidden'
-          : (entity.state !== "below_horizon" && element.getAttribute('data-mode') === 'night')
-            ? 'render-hidden'
-            : 'render-visible'
+        entity.state === element.getAttribute('data-mode')
+          ? 'render-visible'
+          : 'render-hidden'
       }
