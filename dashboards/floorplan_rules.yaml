@@ -35,6 +35,25 @@
     service: floorplan.class_set
     service_data: layer-visible
 
+- name: TEST_CURRENT_FLOOR
+
+  entities:
+    - sun.sun
+
+  element:
+    - layer_seminterrato
+
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+
+    service_data: >
+      ${
+        config.vars.current_floor === 'seminterrato'
+          ? 'layer-visible'
+          : 'layer-hidden'
+      }
+
 
 # - name: Master Layer Controller
 #   entities:
