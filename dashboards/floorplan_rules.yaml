@@ -35,6 +35,23 @@
     service: floorplan.class_set
     service_data: layer-visible
 
+- name: TEST
+  entities:
+    - sun.sun
+
+  element:
+    - layer_seminterrato
+
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: >
+      ${
+          console.log('TEST JS');
+          console.log('entity', entity);
+          console.log('element', element);
+          'layer-hidden';
+      }
 
 # - name: Master Layer Controller
 #   entities:
