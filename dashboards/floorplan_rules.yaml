@@ -13,7 +13,7 @@
     service: floorplan.class_set
     service_data: >
       ${
-        element.id === 'layer_seminterrato'
+        window.location.pathname.includes(element.id.replace('layer_', '').replaceAll('_', '-'))
           ? 'layer-visible'
           : 'layer-hidden'
       }
@@ -33,26 +33,38 @@
   state_action:
     action: call-service
     service: floorplan.class_set
-    service_data: layer-visible
-
-- name: TEST_ROUTE
-
-  entities:
-    - sun.sun
-
-  element:
-    - layer_seminterrato
-
-  state_action:
-    action: call-service
-    service: floorplan.class_set
-
     service_data: >
       ${
-        window.location.pathname.includes('seminterrato')
-          ? 'layer-visible'
-          : 'layer-hidden'
+        entity.state === "below_horizon"
+          ? (element.className.includes('render-day')
+              ? 'render-hidden'
+              : 'render-visible')
+          : (element.className.includes('render-night')
+              ? 'render-hidden'
+              : 'render-visible')
       }
+
+
+# - name: TEST_ROUTE
+
+#   entities:
+#     - sun.sun
+
+#   element:
+#     - layer_seminterrato
+
+#   state_action:
+#     action: call-service
+#     service: floorplan.class_set
+
+#     service_data: >
+#       ${
+#         window.location.pathname.includes('seminterrato')
+#           ? 'layer-visible'
+#           : 'layer-hidden'
+#       }
+
+
 
 # - name: Master Layer Controller
 #   entities:
