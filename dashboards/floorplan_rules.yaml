@@ -11,7 +11,12 @@
   state_action:
     action: call-service
     service: floorplan.class_set
-    service_data: layer-visible
+    service_data: >
+      ${
+        element.id === 'layer_seminterrato'
+          ? 'layer-visible'
+          : 'layer-hidden'
+      }
 
 - name: "Logica SOLE: Filtro Immagini Giorno Notte"
   entities:
