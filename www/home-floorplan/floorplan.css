@@ -49,11 +49,19 @@ svg {
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
-/* Colora le stanze quando la luce è accesa */
-.light-on {
-  fill: #ffeb3b !important; /* Giallo */
-  fill-opacity: 0.4 !important;
+path[id^="light_"] {
+  fill: #ffeb3b;
   transition: fill-opacity 0.5s ease;
+  cursor: pointer;
+}
+
+/* Colora le stanze quando la luce è accesa */
+.light-off {
+  fill-opacity: 0 !important;
+}
+
+.light-on {
+  fill-opacity: 0.4 !important;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
