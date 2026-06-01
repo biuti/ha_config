@@ -45,3 +45,62 @@
           ? 'render-visible'
           : 'render-hidden'
       }
+
+# LUCI (Elementi interattivi)
+- name: Lights
+  entities:
+    - domain: light
+  element: ${entity.entity_id.replace('.', '_')}
+  tap_action: toggle
+  state_action:
+    action: call-service
+    service: floorplan.class_set
+    service_data: >
+      ${ entity.state === 'on' ? 'light-on' : 'light-off' }
+
+# # TEMPERATURE (Label di testo)
+# - name: Temperature Sensors
+#   entities:
+#     - domain: sensor
+#   element: >
+#     ${
+#       /temp|temperature/i.test(entity.entity_id)
+#         ? entity.entity_id.replace('.', '_')
+#         : null
+#     }
+#   state_action:
+#     action: floorplan.text_set
+#     text: >
+#       ${ entity.state + " °C" }
+#   class_set: temp-label
+
+# # RAFFSTORE E CANCELLI (Linee Penna Bezier)
+# - name: Covers
+#   entities:
+#     - domain: cover
+#   element: ${entity.entity_id.replace('.', '_')}
+#   tap_action: more-info
+#   state_action:
+#     action: call-service
+#     service: floorplan.class_set
+#     service_data: >
+#       ${
+#         if (entity.state === "opening" || entity.state === "closing")
+#           return "cover-moving";
+
+#         if (entity.state === "open")
+#           return "cover-open";
+
+#         return "cover-closed";
+#       }
+
+# # SENSORI DI STATO (Elementi con label "porta" e "finestra")
+# - name: Binary Sensors
+#   entities:
+#     - domain: binary_sensor
+#   element: ${entity.entity_id.replace('.', '_')}
+#   state_action:
+#     action: call-service
+#     service: floorplan.class_set
+#     service_data: >
+#       ${ entity.state === 'on' ? 'sensor-on' : 'sensor-off' }
