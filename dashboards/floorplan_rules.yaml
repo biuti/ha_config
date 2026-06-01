@@ -50,7 +50,9 @@
 - name: Test Light
   entities:
     - light.taverna
-  element: light_taverna
+    - light.lavanderia
+    - light.locale_tecnico
+  element: ${entity.entity_id.replace('.', '_')}
   tap_action: toggle
   state_action:
     action: call-service
