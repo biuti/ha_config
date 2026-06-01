@@ -50,9 +50,7 @@ svg {
 }
 
 path[id^="light_"] {
-  fill: #ffeb3b;
-  transition: fill-opacity 0.5s ease;
-  cursor: pointer;
+  fill-opacity: 0; /* Inizialmente trasparente */
 }
 
 /* Colora le stanze quando la luce è accesa */
@@ -61,7 +59,9 @@ path[id^="light_"] {
 }
 
 .light-on {
+  fill: #ffeb3b !important; /* Giallo */
   fill-opacity: 0.4 !important;
+  transition: fill-opacity 0.5s ease !important;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
