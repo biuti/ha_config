@@ -46,12 +46,15 @@
       }
 
 # LUCI (Elementi interattivi)
-- name: Luci Interne
+- name: Luci
   entities:
+    - light.garage
     - light.taverna
     - light.bagno_taverna
     - light.lavanderia
+    - light.locale_tecnico
     - light.vano_scale
+    - light.segnapassi_scale
     - light.corridoio
     - light.camera_padronale
     - light.cabina_armadio
@@ -61,39 +64,26 @@
     - light.studio
     - light.ripostiglio_pt
     - light.cucina
+    - light.accento_cucina
     - light.soggiorno
     - light.bagno_p1
     - light.ripostiglio_p1
     - light.ingresso_principale
     - light.ingresso_seminterrato
+    - light.perimetro_edificio
     - light.balcone_piano_terra
     - light.terrazzo_nord
     - light.terrazzo_sud
-  element: ${entity.entity_id.replace('.', '_')}
-  tap_action: toggle
-  state_action:
-    action: call-service
-    service: floorplan.class_set
-    service_data: >
-      ${ entity.state === 'on'
-          ? 'light-interno light-on'
-          : 'light-interno light-off' }
-
-- name: Luci Esterne
-  entities:
-    - light.garage
-    - light.locale_tecnico
-    - light.perimetro_edificio
     - light.giardino
     - light.vialetto_pedonale
     - light.vialetto_carraio
     - light.cancelli
+    - light.segnapassi_scale_esterne
   element: ${entity.entity_id.replace('.', '_')}
   tap_action: toggle
   state_action:
     action: call-service
-    service: floorplan.class_set
-    service_data: >
-      ${ entity.state === 'on'
-          ? 'light-esterno light-on'
-          : 'light-esterno light-off' }
+    service: floorplan.dataset_set
+    service_data:
+      key: state
+      value: ${entity.state}

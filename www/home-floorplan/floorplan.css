@@ -51,25 +51,39 @@ svg {
 
 /* Tutte le luci del floorplan */
 path[id^="light_"] {
-  fill-opacity: 0;
+  fill-opacity: 0 !important; /* elimina eventuali colori definiti nel file SVG */
   transition: fill-opacity 0.5s ease-in-out;
+}
+
+.light[data-state="off"] {
+  fill-opacity: 0;
+}
+
+.light-interno[data-state="on"] {
+  fill: lightyellow;
+  fill-opacity: 0.75;
+}
+
+.light-esterno[data-state="on"] {
+  fill: lightblue;
+  fill-opacity: 0.55;
 }
 
 /* Luce spenta */
 .light-off {
-  fill-opacity: 0;
+  fill-opacity: 0 !important;
 }
 
 /* Luce interna accesa */
 .light-interno.light-on {
-  fill: yellow;
-  fill-opacity: 0.75;
+  fill: yellow !important;
+  fill-opacity: 0.75 !important;
 }
 
 /* Luce esterna accesa */
 .light-esterno.light-on {
-  fill: lightblue;
-  fill-opacity: 0.55;
+  fill: lightblue !important;
+  fill-opacity: 0.55 !important;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
