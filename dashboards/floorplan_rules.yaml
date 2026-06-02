@@ -3,7 +3,6 @@
 - name: "Logica X: Isolamento Strutturale"
   entities:
     - sun.sun
-
   element:
     - layer_seminterrato
     - layer_piano_terra
@@ -47,11 +46,39 @@
       }
 
 # LUCI (Elementi interattivi)
-- name: Test Light
+- name: Lights
   entities:
+    - light.garage
     - light.taverna
+    - light.bagno_taverna
     - light.lavanderia
     - light.locale_tecnico
+    - light.vano_scale
+    - light.segnapassi_scale
+    - light.corridoio
+    - light.camera_padronale
+    - light.cabina_armadio
+    - light.bagno_padronale
+    - light.bagno_comune
+    - light.camera_ospiti
+    - light.studio
+    - light.ripostiglio_pt
+    - light.cucina
+    - light.accento_cucina
+    - light.soggiorno
+    - light.bagno_p1
+    - light.ripostiglio_p1
+    - light.ingresso_principale
+    - light.ingresso_seminterrato
+    - light.perimetro_edificio
+    - light.balcone_piano_terra
+    - light.terrazzo_nord
+    - light.terrazzo_sud
+    - light.giardino
+    - light.vialetto_pedonale
+    - light.vialetto_carraio
+    - light.cancelli
+    - light.segnapassi_scale_esterno
   element: ${entity.entity_id.replace('.', '_')}
   tap_action: toggle
   state_action:
