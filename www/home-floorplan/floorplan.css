@@ -56,18 +56,18 @@ path[id^="light_"] {
 /* Colora le stanze quando la luce è accesa */
 .light-off {
   fill-opacity: 0 !important;
-  transition: fill-opacity 0.5s ease !important;
+  transition: fill-opacity 0.5s ease-in-out !important;
 }
 
 .light-on {
-  fill: #ffeb3b !important; /* Giallo */
-  fill-opacity: 0.4 !important;
-  transition: fill-opacity 0.5s ease !important;
+  fill: yellow !important; /* Giallo */
+  fill-opacity: 0.75 !important;
+  transition: fill-opacity 0.5s ease-in-out !important;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
 .cover-open {
-  stroke: #4caf50 !important; /* Verde */
+  stroke: green !important; /* Verde */
   stroke-width: 10px !important;
   opacity: 1 !important;
 }
@@ -78,14 +78,14 @@ path[id^="light_"] {
 
 /* Effetto Frangisole (Lamelle orizzontali) */
 .cover-tilt {
-  stroke: #ff9800 !important; /* Arancio */
+  stroke: orange !important; /* Arancio */
   stroke-dasharray: 10, 5; /* Crea l'effetto tratteggiato */
   opacity: 1 !important;
 }
 
 /* Animazione Rosso Pulsante per il movimento */
 .cover-moving {
-  stroke: #f44336 !important; /* Rosso */
+  stroke: red !important; /* Rosso */
   animation: pulse 1s infinite;
 }
 
