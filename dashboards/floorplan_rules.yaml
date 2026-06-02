@@ -78,7 +78,7 @@
     - light.vialetto_pedonale
     - light.vialetto_carraio
     - light.cancelli
-    - light.segnapassi_scale_esterno
+    - light.segnapassi_scale_esterne
   element: ${entity.entity_id.replace('.', '_')}
   tap_action: toggle
   state_action:
