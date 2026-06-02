@@ -87,3 +87,18 @@
     service_data:
       key: state
       value: ${entity.state}
+
+- name: Pulsante Taverna
+  entities:
+    - light.garage
+
+  element: btn_light_garage
+
+  tap_action: toggle
+
+  state_action:
+    action: call-service
+    service: floorplan.dataset_set
+    service_data:
+      key: state
+      value: ${entity.state}

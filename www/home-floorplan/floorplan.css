@@ -86,6 +86,20 @@ path[id^="light_"] {
   fill-opacity: 0.55 !important;
 }
 
+.light-button {
+  transition: opacity 0.3s ease;
+}
+
+.light-button[data-state="off"] {
+  fill: darkgray;
+  opacity: 0.5;
+}
+
+.light-button[data-state="on"] {
+  fill: gold;
+  opacity: 1;
+}
+
 /* Gestione Raffstore e Cancelli (Linee) */
 .cover-open {
   stroke: green !important; /* Verde */
@@ -110,8 +124,7 @@ path[id^="light_"] {
   animation: pulse 1s infinite;
 }
 
-.light-on,
-.light-off,
+.light-button,
 .cover-open,
 .cover-moving,
 .cover-tilt,

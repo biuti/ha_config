@@ -83,7 +83,30 @@
          style="display:inline;fill:#ffcc00" /><g
          id="layer_garage_interattivo_light"
          style="display:inline;fill:#ffcc00"
-         transform="matrix(3.7749082,0,0,3.7787087,1.1003035,0.91394362)"><path
+         transform="matrix(3.7749082,0,0,3.7787087,1.1003035,0.91394362)">
+           <image
+           preserveAspectRatio="none"
+           inkscape:svg-dpi="96"
+           width="19"
+           height="19"
+           xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAy&#10;NCI+PHBhdGggZD0iTTEyLDJBNyw3IDAgMCwxIDE5LDlDMTksMTEuMzggMTcuODEsMTMuNDcgMTYs&#10;MTQuNzRWMTdBMSwxIDAgMCwxIDE1LDE4SDlBMSwxIDAgMCwxIDgsMTdWMTQuNzRDNi4xOSwxMy40&#10;NyA1LDExLjM4IDUsOUE3LDcgMCAwLDEgMTIsMk05LDIxVjIwSDE1VjIxQTEsMSAwIDAsMSAxNCwy&#10;MkgxMEExLDEgMCAwLDEgOSwyMU0xMiw0QTUsNSAwIDAsMCA3LDlDNywxMS4wNSA4LjIzLDEyLjgx&#10;IDEwLDEzLjU4VjE2SDE0VjEzLjU4QzE1Ljc3LDEyLjgxIDE3LDExLjA1IDE3LDlBNSw1IDAgMCww&#10;IDEyLDRaIiAvPjwvc3ZnPg==&#10;"
+           id="btn_light_garage"
+           class="light-button"
+           x="273"
+           y="553"
+           style="display:inline;fill:#ffcc00"
+           transform="translate(0,-1.1543626e-5)" />
+           <image
+           preserveAspectRatio="none"
+           inkscape:svg-dpi="96"
+           width="19"
+           height="19"
+           xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAy&#10;NCI+PHBhdGggZD0iTTEyLDJBNyw3IDAgMCwxIDE5LDlDMTksMTEuMzggMTcuODEsMTMuNDcgMTYs&#10;MTQuNzRWMTdBMSwxIDAgMCwxIDE1LDE4SDlBMSwxIDAgMCwxIDgsMTdWMTQuNzRDNi4xOSwxMy40&#10;NyA1LDExLjM4IDUsOUE3LDcgMCAwLDEgMTIsMk05LDIxVjIwSDE1VjIxQTEsMSAwIDAsMSAxNCwy&#10;MkgxMEExLDEgMCAwLDEgOSwyMU0xMiw0QTUsNSAwIDAsMCA3LDlDNywxMS4wNSA4LjIzLDEyLjgx&#10;IDEwLDEzLjU4VjE2SDE0VjEzLjU4QzE1Ljc3LDEyLjgxIDE3LDExLjA1IDE3LDlBNSw1IDAgMCww&#10;IDEyLDRaIiAvPjwvc3ZnPg==&#10;"
+           id="btn_light_cancelli"
+           class="light-button"
+           x="249"
+           y="1047" />
+           <path
            fill="#0000ff"
            d="m 247.22005,1026.7763 0.96462,26.5961 1.51585,0.1378 -0.55122,12.6779 122.3698,0.4134 v -39.6875 z"
            id="light_cancelli"
