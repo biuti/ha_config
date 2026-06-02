@@ -60,30 +60,13 @@ path[id^="light_"] {
 }
 
 .light-interno[data-state="on"] {
-  fill: lightyellow;
-  fill-opacity: 0.75;
+  fill: yellow;
+  fill-opacity: 0.5 !important;
 }
 
 .light-esterno[data-state="on"] {
   fill: lightblue;
-  fill-opacity: 0.55;
-}
-
-/* Luce spenta */
-.light-off {
-  fill-opacity: 0 !important;
-}
-
-/* Luce interna accesa */
-.light-interno.light-on {
-  fill: yellow !important;
-  fill-opacity: 0.75 !important;
-}
-
-/* Luce esterna accesa */
-.light-esterno.light-on {
-  fill: lightblue !important;
-  fill-opacity: 0.55 !important;
+  fill-opacity: 0.5 !important;
 }
 
 .light-button {
