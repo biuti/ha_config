@@ -49,20 +49,27 @@ svg {
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
+/* Tutte le luci del floorplan */
 path[id^="light_"] {
-  fill-opacity: 0; /* Inizialmente trasparente */
+  fill-opacity: 0;
+  transition: fill-opacity 0.5s ease-in-out;
 }
 
-/* Colora le stanze quando la luce è accesa */
+/* Luce spenta */
 .light-off {
-  fill-opacity: 0 !important;
-  transition: fill-opacity 0.5s ease-in-out !important;
+  fill-opacity: 0;
 }
 
-.light-on {
-  fill: yellow !important; /* Giallo */
-  fill-opacity: 0.75 !important;
-  transition: fill-opacity 0.5s ease-in-out !important;
+/* Luce interna accesa */
+.light-interno.light-on {
+  fill: yellow;
+  fill-opacity: 0.75;
+}
+
+/* Luce esterna accesa */
+.light-esterno.light-on {
+  fill: lightblue;
+  fill-opacity: 0.55;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
