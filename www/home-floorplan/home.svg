@@ -65,21 +65,21 @@
           r="15"
           class="binary-sensor sensori-porte" />
         <circle
-          id="binary_sensor_seminterrato_porta_fiestra"
+          id="binary_sensor_seminterrato_porta_finestra"
           cx="280"
           cy="1635"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
           id="binary_sensor_seminterrato_finestra_bagno"
-          cx="265"
-          cy="1060"
+          cx="269"
+          cy="1068"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
           id="binary_sensor_seminterrato_finestra_lavanderia"
-          cx="872.53333"
-          cy="937.59998"
+          cx="873"
+          cy="952"
           r="15"
           class="binary-sensor sensori-finestre" />
       </g>
@@ -203,8 +203,8 @@
       <g id="layer_piano_terra_binary_sensor">
         <circle
           id="binary_sensor_piano_terra_porta"
-          cx="881.06952"
-          cy="999.85437"
+          cx="883"
+          cy="1013"
           r="15"
           class="binary-sensor sensori-porte" />
         <circle
@@ -215,26 +215,26 @@
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
           id="binary_sensor_piano_terra_finestra_bagno_padronale"
-          cx="240"
-          cy="1020"
+          cx="247"
+          cy="1034"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
           id="binary_sensor_piano_terra_finestra_bagno"
-          cx="240"
-          cy="775"
+          cx="250"
+          cy="786"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
           id="binary_sensor_piano_terra_porta_finestra_camera_ospiti"
-          cx="242.55997"
-          cy="259.88965"
+          cx="2455"
+          cy="340"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
           id="binary_sensor_piano_terra_finestra_studio"
-          cx="890"
-          cy="525"
+          cx="888"
+          cy="534"
           r="15"
           class="binary-sensor sensori-finestre" />
       </g>
@@ -353,20 +353,20 @@
       <g id="layer_piano_primo_binary_sensor">
         <circle
           id="binary_sensor_piano_primo_porta_finestra_cucina"
-          cx="530.54297"
-          cy="385.72507"
+          cx="523"
+          cy="462"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
           id="binary_sensor_piano_primo_finestra_cucina"
-          cx="215"
-          cy="645"
+          cx="228"
+          cy="657"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
           id="binary_sensor_piano_primo_porta_finestra_soggiorno"
-          cx="234.79736"
-          cy="1415.6014"
+          cx="235"
+          cy="1422"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
       </g>
