@@ -51,7 +51,7 @@ svg {
 
 /* Tutte le luci del floorplan */
 path[id^="light_"] {
-  fill-opacity: 0 !important; /* elimina eventuali colori definiti nel file SVG */
+  fill-opacity: 0;
   transition: fill-opacity 0.5s ease-in-out;
 }
 
@@ -59,14 +59,14 @@ path[id^="light_"] {
   fill-opacity: 0;
 }
 
-.light-interno[data-state="on"] {
-  fill: yellow;
-  fill-opacity: 0.5 !important;
+.light[data-zone="interno"][data-state="on"] {
+  fill: yellow !important;
+  fill-opacity: 0.5;
 }
 
-.light-esterno[data-state="on"] {
-  fill: lightblue;
-  fill-opacity: 0.5 !important;
+.light[data-zone="esterno"][data-state="on"] {
+  fill: lightblue !important;
+  fill-opacity: 0.5;
 }
 
 .light-button {

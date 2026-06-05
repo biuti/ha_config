@@ -88,7 +88,7 @@
       key: state
       value: ${entity.state}
 
-- name: Pulsante Taverna
+- name: Test Pulsante 
   entities:
     - light.garage
 

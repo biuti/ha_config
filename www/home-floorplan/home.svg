@@ -1,467 +1,430 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="1440"
-   height="1860"
-   viewBox="0 0 1440 1860"
-   version="1.1"
-   id="svg1"
-   xml:space="preserve"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
-     id="defs1" /><g
-     id="layer_seminterrato"
-     data-floor="seminterrato"
-     style="display:inline"><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/seminterrato.png"
-       id="seminterrato_img_day"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="day" /><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/seminterrato_n.png"
-       id="seminterrato_img_night"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="night" /><g
-       id="layer_seminterrato_interattivo"
-       style="display:inline"><g
-         id="layer_seminterrato_sensor"
-         style="display:inline;fill:#ffcc00"><rect
-           style="display:inline;opacity:0.299712;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:4.4051;stroke-dasharray:none;stroke-opacity:0.502315"
-           id="sensor_sigenstor"
-           width="86.858932"
-           height="82.966431"
-           x="796.79803"
-           y="613.17828"
-           class="sensor impianto-elettrico impianto-fv" /><rect
-           style="display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:4.4051;stroke-dasharray:none;stroke-opacity:0.502315"
-           id="sensor_bollitore"
-           width="88.032692"
-           height="84.087593"
-           x="443.02896"
-           y="728.04492"
-           class="sensor impianto-idrico" /><text
-           xml:space="preserve"
-           style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444"
-           x="340"
-           y="1400"
-           id="sensor_seminterrato_temperature"
-           class="sensor sensori-temperatura"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
-             x="340"
-             y="1400"
-             id="tspan43">-Temp</tspan></text></g><g
-         id="layer_seminterrato_power"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_seminterrato_media"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_seminterrato_light"
-         style="display:inline;fill:#ffcc00"
-         transform="matrix(3.7749082,0,0,3.7787087,1.1003035,0.91394362)"><path
-           fill="#ffff00"
-           d="m 59.675584,326.82542 69.997156,0.4146 0.27887,-33.02887 46.85069,0.41459 -0.69719,145.24404 -116.987271,-0.13819 z"
-           id="light_taverna"
-           class="light light-interno light-seminterrato" /><path
-           fill="#ffff00"
-           d="m 179.58563,294.85954 60.21916,0.29193 -0.6799,111.03211 -24.67043,-0.29196 0.0972,-79.50324 -3.01095,-0.0972 -0.38851,82.71451 27.97276,0.0973 0.0973,30.75034 -52.06045,-0.19463 0.67989,-86.99622 -8.15871,-0.19461 z"
-           id="light_seminterrato_ingresso"
-           class="light light-seminterrato" /><path
-           fill="#ff7f2a"
-           d="m 60.803816,230.15804 66.163124,0.29232 -0.38976,93.64178 -66.358014,-0.4872 0.09744,-26.60169 h 43.459134 l -0.0974,-2.8258 -43.264251,-0.29234 z"
-           id="light_bagno_taverna"
-           class="light light-interno light-seminterrato" /><path
-           fill="#ff7f2a"
-           d="m 132.52114,230.40164 108.01447,0.73082 -0.29232,58.61137 -108.20936,-0.58465 z"
-           id="light_lavanderia"
-           class="light light-interno light-seminterrato" /><path
-           fill="#800000"
-           d="M 61.729516,72.301975 241.60747,73.276396 240.7305,220.56 60.852539,219.48814 Z"
-           id="light_locale_tecnico"
-           class="light light-seminterrato" /><path
-           style="opacity:0.299712;fill:#0000ff;fill-opacity:0.7;stroke-width:9.88488;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           d="m 272.56283,491.98978 2.64908,-165.40042 -25.5114,0.3502 -0.89572,122.78319 -1.40813,3.89413 H 55.339013 30.172838 l -0.06271,25.11358 122.921012,0.62013 -0.20631,12.63919 z"
-           id="light_ingresso_seminterrato"
-           class="light light-esterno light-esterno-sud" /></g><g
-         id="layer_seminterrato_cover"
-         transform="matrix(0.89264129,0,0,0.93534893,133.95018,176.90346)"><path
-           style="opacity:1;fill:none;stroke:#000000;stroke-width:4.16232;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 117.12921,1632.8295 285.22593,1.1212"
-           id="cover_seminterrato_raffstore_sud"
-           class="cover cover-seminterrato" /><path
-           style="opacity:0.299712;fill:none;stroke:#000000;stroke-width:4.16232;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 111.84725,974.70396 -1.17378,-72.31531 v 0"
-           id="cover_seminterrato_raffstore_bagno"
-           class="cover cover-seminterrato" /></g><g
-         id="layer_seminterrato_climate"
-         style="display:inline;fill:#ffcc00"><rect
-           style="opacity:0.299712;fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:4.4051;stroke-dasharray:none;stroke-opacity:0.502315"
-           id="climate_nilan"
-           width="89.206467"
-           height="85.208755"
-           x="796.79047"
-           y="728.41187"
-           class="climate impianto-climatizzazione" /></g><g
-         id="layer_seminterrato_binary_sensor"
-         style="display:inline;fill:#ffcc00"><circle
-           style="opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_seminterrato_porta"
-           cx="760"
-           cy="1635"
-           r="15"
-           class="binary-sensor sensori-porte" /><circle
-           style="opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_seminterrato_porta_fiestra"
-           cx="280"
-           cy="1635"
-           r="15"
-           class="binary-sensor sensori-porte sensori-finestre" /><circle
-           style="opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_seminterrato_finestra_bagno"
-           cx="265"
-           cy="1060"
-           r="15"
-           class="binary-sensor sensori-finestre" /><circle
-           style="opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_seminterrato_finestra_lavanderia"
-           cx="885"
-           cy="950"
-           r="15"
-           class="binary-sensor sensori-finestre" /></g></g></g><g
-     id="layer_piano_terra"
-     data-floor="piano-terra"
-     style="display:inline"><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="display:inline;fill:#00ffff;image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/piano_terra.png"
-       id="piano_terra_img_day"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="day" /><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/piano_terra_n.png"
-       id="piano_terra_img_night"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="night" /><g
-       id="layer_piano_terra_interattivo"
-       style="display:inline"><g
-         id="layer_piano_terra_sensor"
-         style="display:inline;fill:#ffcc00"><text
-           xml:space="preserve"
-           style="font-size:85.3333px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444"
-           x="256.03217"
-           y="1399.52"
-           id="sensor_piano_terra_temperature"
-           class="sensor sensori-temperatura"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
-             x="256.03217"
-             y="1399.52"
-             id="tspan43-4">-Temp</tspan></text></g><g
-         id="layer_piano_terra_power"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_terra_media"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_terra_light"
-         style="display:inline"
-         transform="matrix(3.783019,0,0,3.7819817,-0.00163084,-0.44528434)"><path
-           fill="#0000ff"
-           d="m 272.57594,494.9913 -119.4759,-0.27559 0.27561,-14.74501 92.05295,0.13779 -0.13781,-30.04121 1.37804,-4.68535 h 4.40972 l 1.37804,-201.19356 23.56447,0.2756 z"
-           id="light_piano_terra_esterno_sud"
-           class="light light-esterno light-esterno-sud" /><path
-           fill="#0000ff"
-           d="m 276.00449,244.38457 -23.6784,-0.19488 1.26675,-203.215323 -123.75136,-0.828257 0.38977,-26.747833 7.50304,0.194884 v 0.97442 l 7.25943,0.194884 0.0974,1.315467 7.35687,0.146163 0.0974,1.364188 7.45432,0.146163 v 1.169305 l 7.30815,0.04872 0.0487,1.120583 0.53593,0.682094 6.28501,-0.194884 0.43849,0.682094 -0.0974,0.633373 7.35687,0.04872 0.2436,0.97442 -0.0487,0.48721 6.77222,-0.09744 0.43849,1.266747 6.77222,0.04872 0.29233,1.364188 6.86966,0.243605 0.29233,1.315467 81.80256,0.828257 -0.43847,71.766045 -1.80269,10.57246 -6.43117,-0.19489 z"
-           id="light_esterno_nord"
-           class="light light-esterno light-esterno-nord" /><path
-           fill="#0000ff"
-           d="m 244.96922,450.27955 1.8514,-4.77467 -203.946135,-1.26674 0.682096,-122.87438 -23.1912,-0.0975 -0.779536,156.7842 225.578265,1.55908 z"
-           id="light_balcone"
-           class="light light-piano-terra light-esterno light-terrazzi" /><path
-           fill="#ffff00"
-           d="m 240.9741,435.32221 -54.66497,-0.19489 0.58465,-104.31169 -1.94884,-71.2301 -0.87698,-12.86235 58.17289,0.0487 z"
-           id="light_piano_terra_ingresso"
-           class="light light-piano-terra light-vano-scale" /><path
-           fill="#0000ff"
-           d="M 24.942491,134.35872 44.78624,134.08311 45.199651,35.691188 H 25.907118 Z"
-           id="light_esterno_ovest"
-           class="light light-esterno light-esterno-ovest" /><path
-           fill="#ff6600"
-           d="m 53.881292,296.82942 v -58.0154 l 96.738278,0.55121 -0.2756,58.42881 z"
-           id="light_bagno_padronale"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ff6600"
-           d="m 53.982876,235.4199 96.759924,0.97443 0.38976,-54.17776 -97.052243,-0.58466 z"
-           id="light_bagno_comune"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ff6600"
-           d="m 242.19021,243.56825 0.41341,-32.03939 -13.22917,-0.34451 0.20671,-28.31868 -41.89236,-0.27561 -0.34451,60.70258 z"
-           id="light_ripostiglio_pt"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ffff00"
-           d="m 52.813571,434.20162 0.682096,-132.71603 96.759913,0.58465 -0.0974,28.74539 h -15.7856 l -0.0974,3.21559 2.87415,9.03139 -0.41341,10.47308 -2.82498,0.0689 -0.31006,61.28827 3.23839,6.20117 -1.72255,13.74592 z"
-           id="light_camera_padronale"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ffff00"
-           d="m 135.05463,434.83498 46.57728,0.34104 0.63338,-101.29096 -48.04437,-0.004 2.94556,9.30174 -0.44787,10.35251 -0.34451,61.49496 -2.80775,-0.13779 3.29007,6.28729 z"
-           id="light_cabina_armadio"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ffff00"
-           d="M 150.96408,177.76692 151.68755,50.367294 55.22488,49.781629 54.53586,177.14681 Z"
-           id="light_camera_ospiti"
-           class="light light-interno light-piano-terra" /><path
-           fill="#ffff00"
-           d="m 156.37288,50.401746 87.09201,0.585666 -0.62011,114.101558 -34.55431,-0.24115 0.0689,13.29806 -20.46386,-0.17225 0.2756,-65.31901 -32.17719,-0.1378 z"
-           id="light_studio"
-           class="light light-interno light-piano-terra" /><path
-           style="opacity:0.299712;fill:#ffff00;fill-opacity:1;stroke-width:9.87001;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           d="m 184.37698,133.14984 -28.41646,-0.46272 -1.32169,198.30873 32.25495,-0.18022 -1.94884,-71.2301 -0.87698,-12.86235 z"
-           id="light_corridoio"
-           class="light light-interno light-piano-terra" /></g><g
-         id="layer_piano_terra_cover"
-         style="display:inline"
-         transform="matrix(0.89458394,0,0,0.93276152,132.6755,180.37114)"><path
-           style="display:inline;opacity:1;fill:none;stroke:#000000;stroke-width:4.16232;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 98.348903,1616.0121 285.225937,1.121"
-           id="cover_piano_terra_raffstore_sud"
-           class="cover cover-piano-terra" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:7.47461;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 85.179056,931.68644 0.288835,-78.63978 2.90493,2.37836"
-           id="cover_piano_terra_raffstore_bagno_padronale"
-           class="cover cover-piano-terra" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:7.38679;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 86.717972,667.9521 0.299694,-74.02396 3.013961,2.23874"
-           id="cover_piano_terra_raffstore_bagno"
-           class="cover cover-piano-terra" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:8.57717;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="M 92.51325,233.7958 93.513073,66.425701 95.221312,71.75128"
-           id="cover_piano_terra_raffstore_camera_ospiti"
-           class="cover cover-piano-terra" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:8.05184;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 872.28609,442.26188 1.01041,-145.94963 1.72635,4.644"
-           id="cover_piano_terra_raffstore_studio"
-           class="cover cover-piano-terra" /><path
-           style="display:inline;fill:none;stroke:#000000;stroke-width:3.23689;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 670.02233,1615.8198 170.585,1.1336"
-           id="cover_piano_terra_raffstore_vano_scale"
-           class="cover cover-piano-terra cover-vano-scale" /></g><g
-         id="layer_piano_terra_climate"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_terra_binary_sensor"
-         style="display:inline;fill:#ffcc00"><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_porta"
-           cx="890"
-           cy="1030"
-           r="15"
-           class="binary-sensor sensori-porte" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_porta_finestra_camera_padronale"
-           cx="260"
-           cy="1615"
-           r="15"
-           class="binary-sensor sensori-porte sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_finestra_bagno_padronale"
-           cx="240"
-           cy="1020"
-           r="15"
-           class="binary-sensor sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_finestra_bagno"
-           cx="240"
-           cy="775"
-           r="15"
-           class="binary-sensor sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_porta_finestra_camera_ospiti"
-           cx="250"
-           cy="340"
-           r="15"
-           class="binary-sensor sensori-porte sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_terra_finestra_studio"
-           cx="890"
-           cy="525"
-           r="15"
-           class="binary-sensor sensori-finestre" /></g></g></g><g
-     id="layer_piano_primo"
-     data-floor="piano-primo"
-     style="display:inline"><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/piano_primo.png"
-       id="piano_primo_img_day"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="day" /><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/piano_primo_n.png"
-       id="piano_primo_img_night"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="night" /><g
-       id="layer_piano_primo_interattivo"
-       style="display:inline"><g
-         id="layer_piano_primo_sensor"
-         style="display:inline;fill:#ffcc00"
-         transform="translate(56.715857,53.769579)"><text
-           xml:space="preserve"
-           style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444"
-           x="543.28412"
-           y="966.23041"
-           id="sensor_piano_primo_temperature"
-           class="sensor sensori-temperatura"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers"
-             x="543.28412"
-             y="966.23041"
-             id="tspan43-48">-Temp</tspan></text></g><g
-         id="layer_piano_primo_power"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_primo_media"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_primo_light"
-         style="display:inline"
-         transform="matrix(3.7895726,0,0,3.7828039,-1.4180075,-1.588514)"><path
-           fill="#0000ff"
-           d="M 254.51854,84.774552 V 29.427487 L 121.41275,28.842837 121.60763,12.667462 119.65879,1.5590722 119.51263,0.77953612 42.046228,0.43848906 41.802624,83.410363 Z"
-           id="light_terrazzo_nord"
-           class="light light-piano-primo light-esterno light-terrazzi" /><path
-           fill="#ffff00"
-           d="m 187.77076,392.10667 h 26.01702 l 0.29233,-76.39454 27.77097,0.19489 1.94884,-1.8514 0.87698,-110.79158 -65.45667,-0.26796 -133.193756,0.95357 -0.482311,179.35166 141.317817,0.96465 v 5.78776 z"
-           id="light_soggiorno"
-           class="light light-interno light-piano-primo" /><path
-           fill="#ffff00"
-           d="m 186.44857,428.63878 0.3445,-38.65398 0.96463,2.20487 25.97602,-0.0689 0.3342,-76.44519 27.80752,0.21923 1.9123,-1.8392 -0.54811,115.00594 z"
-           id="light_piano_primo_scala"
-           class="light light-interno light-piano-primo light-vano-scale" /><path
-           fill="#0000ff"
-           d="m 184.31261,444.41731 0.2067,-5.16763 -8.68164,-0.20672 0.68902,-44.30392 -141.455619,-0.96462 0.482314,-84.19814 -24.046766,-0.13779 -0.964627,164.67555 173.908418,1.17134 z"
-           id="light_terrazzo_sud"
-           class="light light-piano-primo light-esterno light-terrazzi" /><path
-           fill="#ff6600"
-           d="m 179.17941,202.98502 0.55122,-91.74289 -29.59337,-0.27561 0.24116,-16.329749 -102.870554,-0.75792 -1.481392,110.070799 z"
-           id="light_cucina"
-           class="light light-interno light-piano-primo" /><path
-           fill="#ff6600"
-           d="m 244.49842,200.02224 0.0689,-6.45955 -13.72871,-0.0344 0.0172,-29.85176 -48.04186,-0.25838 -0.20671,36.20796 z"
-           id="light_ripostiglio_p1"
-           class="light light-interno light-piano-primo" /><path
-           fill="#ff6600"
-           d="m 244.82306,144.75011 0.34105,-49.622343 -61.9244,-0.365409 -0.34105,63.629632 25.82213,0.14617 0.0731,-13.98293 z"
-           id="light_bagno_p1"
-           class="light light-interno light-piano-primo" /></g><g
-         id="layer_piano_primo_cover"
-         style="display:inline"
-         transform="matrix(0.88610744,0,0,0.93013187,137.2669,183.08448)"><path
-           style="display:inline;fill:none;stroke:#000000;stroke-width:3.29722;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 668.35976,1594.4152 177.22999,1.1322"
-           id="cover_piano_primo_raffstore_vano_scale"
-           class="cover cover-piano-primo cover-vano-scale" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:5.86304;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 53.449258,589.24822 0.399183,-195.88061 0.682014,6.23277"
-           id="cover_piano_primo_raffstore_cucina"
-           class="cover cover-piano-primo" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:5.75566;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 50.167601,1357.6022 0.400969,-187.9357 0.685043,5.98"
-           id="cover_piano_primo_raffstore_soggiorno_ovest"
-           class="cover cover-piano-primo" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:4.92561;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 881.19456,932.14717 0.43678,-46.43007 2.05467,1.47736"
-           id="cover_piano_primo_raffstore_vela_soggiorno"
-           class="cover cover-piano-primo" /><path
-           style="display:inline;opacity:0.299712;fill:none;stroke:#000000;stroke-width:5.48443;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 883.54879,390.73456 1.40835,-39.15371 2.99633,1.24585"
-           id="cover_piano_primo_raffstore_vela_bagno"
-           class="cover cover-piano-primo" /><path
-           style="display:inline;opacity:1;fill:none;stroke:#000000;stroke-width:4.31853;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 65.974751,1415.042 307.645219,1.119"
-           id="cover_piano_primo_raffstore_sud"
-           class="cover cover-piano-primo" /><path
-           style="display:inline;fill:none;stroke:#000000;stroke-width:3.00973;stroke-dasharray:none;stroke-opacity:0.502315"
-           d="m 377.0977,208.38261 100.20889,1.66852"
-           id="cover_piano_primo_raffstore_porta_cucina"
-           class="cover cover-piano-primo" /></g><g
-         id="layer_piano_primo_climate"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_piano_primo_binary_sensor"
-         style="display:inline;fill:#ffcc00"><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_primo_porta_finestra_cucina"
-           cx="525"
-           cy="460"
-           r="15"
-           class="binary-sensor sensori-porte sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_primo_finestra_cucina"
-           cx="215"
-           cy="645"
-           r="15"
-           class="binary-sensor sensori-finestre" /><circle
-           style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers"
-           id="binary_sensor_piano_primo_porta_finestra_soggiorno"
-           cx="235"
-           cy="1430"
-           r="15"
-           class="binary-sensor sensori-porte sensori-finestre" /></g></g></g><g
-     id="layer_tetto"
-     data-floor="tetto"
-     style="display:inline"><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/tetto.png"
-       id="tetto_img_day"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="day" /><image
-       width="1440"
-       height="1860"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
-       href="/local/home-floorplan/images/tetto_n.png"
-       id="tetto_img_night"
-       x="0"
-       y="0"
-       class="render-img"
-       data-mode="night" /><g
-       id="layer_tetto_interattivo"
-       style="display:inline"><g
-         id="layer_tetto_sensor"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_tetto_power"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_tetto_media"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_tetto_light" /><g
-         id="layer_tetto_cover"
-         style="display:inline" /><g
-         id="layer_tetto_climate"
-         style="display:inline;fill:#ffcc00" /><g
-         id="layer_tetto_binary_sensor"
-         style="display:inline;fill:#ffcc00" /></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="1440"
+  height="1860" viewBox="0 0 1440 1860" version="1.1" id="svg1" xml:space="preserve">
+  <defs id="defs1"/>
+  <g id="layer_seminterrato" data-floor="seminterrato">
+    <g id="layer_seminterrato_background">
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/seminterrato.png" id="seminterrato_img_day" x="0" y="0" class="render-img" data-mode="day"/>
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/seminterrato_n.png" id="seminterrato_img_night" x="0" y="0" class="render-img" data-mode="night"/>
+    </g>
+    <g id="layer_seminterrato_interattivo">
+      <g id="layer_seminterrato_sensor">
+        <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
+        <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
+        <text xml:space="preserve" style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="340" y="1400" id="sensor_seminterrato_temperature" class="sensor sensori-temperatura">
+          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="340" y="1400" id="tspan43">-Temp</tspan>
+        </text>
+      </g>
+      <g id="layer_seminterrato_power"/>
+      <g id="layer_seminterrato_media"/>
+      <g id="layer_seminterrato_light">
+        <path fill="#ffff00" 
+          d="m 228.50644,1236.4046 263.05799,1.6582 -0.11624,-124.537 174.04422,1.4075 -2.63374,546.869 -436.86583,-1.0673 z"
+          id="light_taverna"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00" 
+          d="m 679.74061,1114.5973 226.63762,2.2545 -2.18054,418.0541 -94.50471,-0.4278 1.56437,-301.5394 -10.5829,-0.2631 -2.60298,314.0984 105.48715,0.081 -0.4446,115.4045 -195.53949,-0.62 1.9065,-329.7478 -31.09814,-0.1632 z"
+          id="light_seminterrato_ingresso"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff7f2a"
+          d="m 230.54684,870.56638 249.2943,0.93853 -2.21009,353.13559 -248.84938,-1.9086 0.61695,-99.5202 162.98628,1.1302 0.25492,-13.5181 -163.26978,-1.1324 z"
+          id="light_bagno_taverna"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff7f2a"
+          d="m 501.93781,872.35998 405.74363,2.40998 -1.22379,220.16884 -405.65289,-2.7504 z"
+          id="light_lavanderia"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#800000" 
+          d="m 234.55996,274.88966 677.29334,3.8909 -3.4599,554.09598 -676.78253,-4.2384 z"
+          id="light_locale_tecnico"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff7f2a"
+          d="m 1031.2349,1860 9.603,-623.5607 -97.61059,-1.0101 -2.99761,465.7782 -751.95107,-2.5228 16.20987,14.9789 -91.24575,0.139 0.0854,96.0384 464.89383,1.4925 -0.12877,48.6666 z"
+          id="light_ingresso_seminterrato"
+          class="light"
+          data-zone="esterno"/>
+      </g>
+      <g id="layer_seminterrato_cover">
+        <path d="m 117.12921,1632.8295 285.22593,1.1212" id="cover_seminterrato_raffstore_sud" class="cover cover-seminterrato"/>
+        <path d="m 111.84725,974.70396 -1.17378,-72.31531 v 0" id="cover_seminterrato_raffstore_bagno" class="cover cover-seminterrato"/>
+      </g>
+      <g id="layer_seminterrato_climate">
+        <rect id="climate_nilan" width="89.206467" height="85.208755" x="796.79047" y="728.41187" class="climate impianto-climatizzazione"/>
+      </g>
+      <g id="layer_seminterrato_binary_sensor">
+        <circle
+          id="binary_sensor_seminterrato_porta"
+          cx="760"
+          cy="1635"
+          r="15"
+          class="binary-sensor sensori-porte" />
+        <circle
+          id="binary_sensor_seminterrato_porta_fiestra"
+          cx="280"
+          cy="1635"
+          r="15"
+          class="binary-sensor sensori-porte sensori-finestre" />
+        <circle
+          id="binary_sensor_seminterrato_finestra_bagno"
+          cx="265"
+          cy="1060"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+        <circle
+          id="binary_sensor_seminterrato_finestra_lavanderia"
+          cx="872.53333"
+          cy="937.59998"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+      </g>
+      <g id="layer_seminterrato_buttons">
+        <g id="light_buttons_seminterrato">
+          <path
+            id="btn_light_taverna"
+            class="light-button"
+            d="m 628.3596,1158.1444 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_vano_scale_seminterrato"
+            class="light-button"
+            d="m 864.74294,1159.6944 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_bagno_taverna"
+            class="light-button"
+            d="m 281.54294,922.6944 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_lavanderia"
+            class="light-button"
+            d="m 544.7596,924.76106 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.89174 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.89174 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_locale_tecnico"
+            class="light-button"
+            d="m 867.66665,353.05618 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+        </g>
+      </g>
+      <g id="layer_seminterrato_label">
+      </g>
+    </g>
+  </g>
+  <g id="layer_piano_terra" data-floor="piano-terra">
+    <g id="layer_piano_terra_background">
+      <image width="1440" height="1860" preserveAspectRatio="none" style="display:inline;fill:#00ffff;image-rendering:optimizeQuality" href="/local/home-floorplan/images/piano_terra.png" id="piano_terra_img_day" x="0" y="0" class="render-img" data-mode="day"/>
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/piano_terra_n.png" id="piano_terra_img_night" x="0" y="0" class="render-img" data-mode="night"/>
+    </g>
+    <g id="layer_piano_terra_interattivo">
+      <g id="layer_piano_terra_sensor">
+        <text xml:space="preserve" style="font-size:85.3333px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="256.03217" y="1399.52" id="sensor_piano_terra_temperature" class="sensor sensori-temperatura">
+          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="256.03217" y="1399.52" id="tspan43-4">-Temp</tspan>
+        </text>
+      </g>
+      <g id="layer_piano_terra_power"/>
+      <g id="layer_piano_terra_media"/>
+      <g id="layer_piano_terra_light">
+        <path fill="#0000ff"
+          d="M 1030.7075,1860 H 578.5368 l -0.0532,-46.9894 347.78389,2.2809 1.26152,-110.9319 12.94285,0.043 8.8714,-20.0395 4.6078,-763.59695 87.91084,0.19532 z"
+          id="light_piano_terra_esterno_sud"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#0000ff" 
+          d="m 1041.8619,920.96147 -87.91081,-0.19532 4.50417,-766.06718 -498.06945,-2.61188 -0.0675,-105.717012 30.46135,-0.177223 0.18267,5.415976 28.07721,0.188116 0.38774,4.8775 27.27775,-0.08725 0.38774,5.244193 27.1177,0.369412 0.27401,5.421446 28.36249,0.366621 0.39294,4.972919 28.32458,0.0954 0.46691,5.316495 26.3733,0.20036 0.06,4.750682 27.82213,0.02723 0.62814,5.128357 26.50301,-0.27657 0.28424,5.150158 26.229,0.0013 0.43306,5.518173 27.34758,0.372166 0.15906,5.516861 310.39658,2.76316 -1.8366,271.35161 -5.715,39.29538 -24.5061,0.35987 z"
+          id="light_esterno_nord"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#0000ff"
+          d="m 927.52904,1704.3596 5.33424,-20.0767 -770.95171,-4.9588 3.23345,-464.2099 -87.742778,-0.5007 -3.820697,595.0858 852.685975,5.5922 z"
+          id="light_balcone"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#ffff00"
+          d="m 909.64792,1644.7994 -205.06508,-0.3652 2.85745,-394.5308 -9.28131,-268.44193 -2.09416,-48.79111 218.00848,1.46247 z"
+          id="light_piano_terra_ingresso"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#0000ff" 
+          d="m 97.275662,136.09617 73.544828,-0.16901 -1.51555,381.91053 -72.736163,0.0848 z"
+          id="light_esterno_ovest"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#ff6600"
+          d="m 204.13373,1121.9045 1.00468,-218.63503 362.93305,2.42566 -0.93991,218.53627 z"
+          id="light_bagno_padronale"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff6600"
+          d="m 205.48383,889.71646 362.76352,2.25748 1.38783,-201.63201 -362.88409,-2.10367 z"
+          id="light_bagno_comune"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff6600"
+          d="m 914.67641,920.48565 1.09508,-120.76866 -50.0215,0.0822 1.0499,-107.49991 -156.42245,-1.03024 -1.38446,227.821 z"
+          id="light_ripostiglio_pt"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 201.2997,1640.7303 3.18678,-499.1509 361.61187,1.8101 0.0247,106.1193 -59.19191,-0.5167 0.37102,13.387 9.89537,34.8809 3.91848,46.7345 -3.98441,-7.624 -10.90114,-0.1411 -1.31502,232.6361 8.34421,22.3451 0.33729,51.3918 z"
+          id="light_camera_padronale"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 513.5969,1642.6024 171.9855,1.375 2.17097,-380.5479 -180.45125,-1.0504 9.89537,34.8809 3.91848,46.7345 -3.98441,-7.624 -1.4172,232.42 -10.79896,0.075 8.34421,22.3451 z"
+          id="light_cabina_armadio"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 207.59155,668.23386 2.44677,-478.64286 362.10923,2.28762 -3.18763,478.91642 z"
+          id="light_camera_ospiti"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 591.60926,191.41593 327.02814,2.2972 -2.31874,429.75983 -128.9786,-0.72561 -0.29038,50.17804 -76.61066,-0.92277 1.66988,-246.38728 -121.87099,-0.79302 z"
+          id="light_studio"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 697.70811,503.6691 -107.7676,-0.46605 -4.37096,745.55315 121.87074,1.1472 -9.28131,-268.44193 -2.09416,-48.79111 z"
+          id="light_corridoio"
+          class="light"
+          data-zone="interno"/>
+      </g>
+      <g id="layer_piano_terra_cover">
+        <path d="m 98.348903,1616.0121 285.225937,1.121" id="cover_piano_terra_raffstore_sud" class="cover cover-piano-terra"/>
+        <path d="m 85.179056,931.68644 0.288835,-78.63978 2.90493,2.37836" id="cover_piano_terra_raffstore_bagno_padronale" class="cover cover-piano-terra"/>
+        <path d="m 86.717972,667.9521 0.299694,-74.02396 3.013961,2.23874" id="cover_piano_terra_raffstore_bagno" class="cover cover-piano-terra"/>
+        <path d="M 92.51325,233.7958 93.513073,66.425701 95.221312,71.75128" id="cover_piano_terra_raffstore_camera_ospiti" class="cover cover-piano-terra"/>
+        <path d="m 872.28609,442.26188 1.01041,-145.94963 1.72635,4.644" id="cover_piano_terra_raffstore_studio" class="cover cover-piano-terra"/>
+        <path d="m 670.02233,1615.8198 170.585,1.1336" id="cover_piano_terra_raffstore_vano_scale" class="cover cover-piano-terra cover-vano-scale"/>
+      </g>
+      <g id="layer_piano_terra_climate"/>
+      <g id="layer_piano_terra_binary_sensor">
+        <circle
+          id="binary_sensor_piano_terra_porta"
+          cx="881.06952"
+          cy="999.85437"
+          r="15"
+          class="binary-sensor sensori-porte" />
+        <circle
+          id="binary_sensor_piano_terra_porta_finestra_camera_padronale"
+          cx="260"
+          cy="1615"
+          r="15"
+          class="binary-sensor sensori-porte sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_terra_finestra_bagno_padronale"
+          cx="240"
+          cy="1020"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_terra_finestra_bagno"
+          cx="240"
+          cy="775"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_terra_porta_finestra_camera_ospiti"
+          cx="242.55997"
+          cy="259.88965"
+          r="15"
+          class="binary-sensor sensori-porte sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_terra_finestra_studio"
+          cx="890"
+          cy="525"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+      </g>
+      <g id="layer_piano_terra_buttons">
+        <g id="light_buttons_piano_terra">
+          <path
+            id="btn_light_corridoio"
+            class="light-button"
+            d="m 646.33332,588.62359 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_studio"
+            class="light-button"
+            d="m 868.73428,285.45226 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.17139 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.08569,-13.07629 -12.08569,-22.3386 a 28.199935,27.242213 0 0 1 28.19988,-27.2422 m -12.08569,73.9431 v -3.8918 h 24.17139 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.02869,3.8917 h -16.11401 a 4.0285622,3.8917446 0 0 1 -4.02869,-3.8917 m 12.08569,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.11401 v -9.4178 c 7.13059,-2.99659 12.08591,-9.8462 12.08591,-17.8242 a 20.142811,19.458723 0 0 0 -20.14292,-19.4587 z" />
+          <path
+            id="btn_light_camera_ospiti"
+            class="light-button"
+            d="m 530.59999,284.89026 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_bagno_comune"
+            class="light-button"
+            d="m 527.11665,750.20692 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_bagno_padronale"
+            class="light-button"
+            d="m 526.98332,964.75692 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.26228 -4.794,17.39608 -12.0857,22.33858 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.33858 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 M 514.89762,1038.7 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.15958 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.82758 12.0859,17.82418 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.84618 12.0859,-17.82418 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_ripostiglio_pt"
+            class="light-button"
+            d="m 822.51665,758.09026 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_camera_padronale"
+            class="light-button"
+            d="m 263.48332,1193.5859 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_cabina_armadio"
+            class="light-button"
+            d="m 645.74998,1311.8236 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_vano_scale_pt"
+            class="light-button"
+            d="m 764.64999,998.34026 a 28.199935,27.242213 0 0 1 28.1999,27.24224 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.24224 m -12.0857,73.94314 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_balcone"
+            class="light-button"
+            d="m 128.09129,1700.5571 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.085697,-13.0763 -12.085697,-22.3386 a 28.199935,27.242213 0 0 1 28.199897,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_ingresso_pt"
+            class="light-button"
+            d="m 1001.7333,996.65692 a 28.199935,27.242213 0 0 1 28.1999,27.24218 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.17138 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.19988,-27.24218 M 989.64762,1070.6 v -3.8918 h 24.17138 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.11398 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.08568,-66.1596 a 20.142811,19.458723 0 0 0 -20.14288,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.11398 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+        </g>
+      </g>
+      <g id="layer_piano_terra_label">
+      </g>
+    </g>
+  </g>
+  <g id="layer_piano_primo" data-floor="piano-primo">
+    <g id="layer_piano_primo_background">
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/piano_primo.png" id="piano_primo_img_day" x="0" y="0" class="render-img" data-mode="day"/>
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/piano_primo_n.png" id="piano_primo_img_night" x="0" y="0" class="render-img" data-mode="night"/>
+    </g>
+    <g id="layer_piano_primo_interattivo">
+      <g id="layer_piano_primo_sensor">
+        <text xml:space="preserve" style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="543.28412" y="966.23041" id="sensor_piano_primo_temperature" class="sensor sensori-temperatura">
+          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="543.28412" y="966.23041" id="tspan43-48">-Temp</tspan>
+        </text>
+      </g>
+      <g id="layer_piano_primo_power"/>
+      <g id="layer_piano_primo_media"/>
+      <g id="layer_piano_primo_light">
+        <path fill="#0000ff"
+          d="m 961.25395,320.15304 1.09792,-208.31696 -504.76769,-2.87093 0.75138,-62.667618 -5.18558,-30.375464 -0.0471,-13.3789352 -293.49785,-1.40145 -0.002,314.4653072 z"
+          id="light_terrazzo_nord"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#ffff00"
+          d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 -497.67336,0.28443 -4.51579,677.66398 533.11578,4.2156 0.46679,3.4465 z"
+          id="light_soggiorno"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ffff00"
+          d="m 706.00255,1619.8606 1.63532,-164.773 3.1065,27.0858 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -4.05198,440.6351 z"
+          id="light_vano_scale_p1"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#0000ff"
+          d="m 696.82645,1680.5571 -32.49235,-19.9473 1.44166,-167.7679 -533.57008,-3.5012 1.54908,-318.4528 -89.207308,-0.2789 -4.478905,620.6053 656.175103,4.1696 z"
+          id="light_terrazzo_sud"
+          class="light"
+          data-zone="esterno"/>
+        <path fill="#ff6600"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -2.00824,413.17603 z"
+          id="light_cucina"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff6600"
+          d="m 923.57646,755.75501 0.16486,-23.41934 -52.51041,0.33487 0.79458,-113.36822 -180.2837,-0.82351 -0.58596,135.32561 z"
+          id="light_ripostiglio_p1"
+          class="light"
+          data-zone="interno"/>
+        <path fill="#ff6600"
+          d="m 924.54151,547.62537 1.16662,-186.5588 -232.24354,-1.5309 -1.3493,238.60587 96.34067,0.72198 0.63497,-52.32252 z"
+          id="light_bagno_p1"
+          class="light"
+          data-zone="interno"/>
+      </g>
+      <g id="layer_piano_primo_cover">
+        <path d="m 668.35976,1594.4152 177.22999,1.1322" id="cover_piano_primo_raffstore_vano_scale" class="cover cover-piano-primo cover-vano-scale"/>
+        <path d="m 53.449258,589.24822 0.399183,-195.88061 0.682014,6.23277" id="cover_piano_primo_raffstore_cucina" class="cover cover-piano-primo"/>
+        <path d="m 50.167601,1357.6022 0.400969,-187.9357 0.685043,5.98" id="cover_piano_primo_raffstore_soggiorno_ovest" class="cover cover-piano-primo"/>
+        <path d="m 881.19456,932.14717 0.43678,-46.43007 2.05467,1.47736" id="cover_piano_primo_raffstore_vela_soggiorno" class="cover cover-piano-primo"/>
+        <path d="m 883.54879,390.73456 1.40835,-39.15371 2.99633,1.24585" id="cover_piano_primo_raffstore_vela_bagno" class="cover cover-piano-primo"/>
+        <path d="m 65.974751,1415.042 307.645219,1.119" id="cover_piano_primo_raffstore_sud" class="cover cover-piano-primo"/>
+        <path d="m 377.0977,208.38261 100.20889,1.66852" id="cover_piano_primo_raffstore_porta_cucina" class="cover cover-piano-primo"/>
+      </g>
+      <g id="layer_piano_primo_climate"/>
+      <g id="layer_piano_primo_binary_sensor">
+        <circle
+          id="binary_sensor_piano_primo_porta_finestra_cucina"
+          cx="530.54297"
+          cy="385.72507"
+          r="15"
+          class="binary-sensor sensori-porte sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_primo_finestra_cucina"
+          cx="215"
+          cy="645"
+          r="15"
+          class="binary-sensor sensori-finestre" />
+        <circle
+          id="binary_sensor_piano_primo_porta_finestra_soggiorno"
+          cx="234.79736"
+          cy="1415.6014"
+          r="15"
+          class="binary-sensor sensori-porte sensori-finestre" />
+      </g>
+      <g id="layer_piano_primo_buttons">
+        <g id="light_buttons_piano_primo">
+          <path
+            id="btn_light_soggiorno"
+            class="light-button"
+            d="m 244.85936,788.50898 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_cucina"
+            class="light-button"
+            d="m 242.40936,442.40897 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_bagno_p1"
+            class="light-button"
+            d="m 728.92603,449.50233 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_ripostiglio_p1"
+            class="light-button"
+            d="m 834.32603,670.88567 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_vano_scale_p1"
+            class="light-button"
+            d="m 875.84937,1211.4058 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+          <path
+            id="btn_light_terrazzo_nord"
+            class="light-button"
+            d="m 215.30526,53.964598 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.338602 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.942502 -12.0857,-13.076302 -12.0857,-22.338602 a 28.199935,27.242213 0 0 1 28.1999,-27.242199 m -12.0857,73.943101 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.159601 a 20.142811,19.458723 0 0 0 -20.1429,19.458699 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.417802 h 16.114 v -9.417802 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.458699 z" />
+        </g>
+      </g>
+      <g id="layer_piano_primo_label">
+      </g>
+    </g>
+  </g>
+  <g id="layer_tetto" data-floor="tetto">
+    <g id="layer_tetto_background">
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/tetto.png" id="tetto_img_day" x="0" y="0" class="render-img" data-mode="day"/>
+      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/tetto_n.png" id="tetto_img_night" x="0" y="0" class="render-img" data-mode="night"/>
+    </g>
+    <g id="layer_tetto_interattivo">
+      <g id="layer_tetto_sensor"/>
+      <g id="layer_tetto_power"/>
+      <g id="layer_tetto_media"/>
+      <g id="layer_tetto_light"/>
+      <g id="layer_tetto_cover"/>
+      <g id="layer_tetto_climate"/>
+      <g id="layer_tetto_binary_sensor"/>
+      <g id="layer_tetto_buttons">
+        <g id="light_buttons_tetto">
+          <path
+            id="btn_light_perimetro"
+            class="light-button"
+            d="m 933.76513,306.58237 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+        </g>
+      </g>
+      <g id="layer_tetto_label">
+      </g>
+    </g>
+  </g>
+</svg>
