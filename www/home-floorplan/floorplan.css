@@ -83,6 +83,38 @@ path[id^="light_"] {
   opacity: 1;
 }
 
+/* ── SENSORI APERTURA (porte e finestre) ─────────────────── */
+/* Cerchi nel SVG con id che inizia per binary_sensor_ */
+
+/* Stato base */
+[id^="binary_sensor_"] {
+  fill: greenyellow;
+  fill-opacity: 0.0;
+  transition: fill 0.3s ease-in-out, fill-opacity 0.3s ease-in-out;
+}
+
+/* Chiuso — verde */
+/* [id^="binary_sensor_"][data-state="off"] {
+  fill: #4caf50;
+  fill-opacity: 0.9;
+} */
+
+/* Aperto */
+[id^="binary_sensor_"][data-state="on"] {
+  fill-opacity: 0.75;
+}
+
+/* Serrande garage — rettangoli, stesso schema colore */
+[id^="binary_sensor_serranda_"] {
+  stroke: #4caf50;
+  stroke-width: 3px;
+  fill: none;
+}
+
+[id^="binary_sensor_serranda_"][data-state="on"] {
+  stroke: #f44336;
+}
+
 /* Gestione Raffstore e Cancelli (Linee) */
 .cover-open {
   stroke: green !important; /* Verde */

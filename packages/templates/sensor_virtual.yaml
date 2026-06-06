@@ -1,0 +1,168 @@
+# packages/templates/sensor_virtual.yaml
+# TEMPORANEO — Template binary_sensor che wrappano gli input_boolean virtuali
+# Espongono entità binary_sensor.* per compatibilità con floorplan e automazioni
+# A casa ultimata: rimuovere questo file
+# I sensori ZigBee fisici si espongono direttamente come binary_sensor.*
+# con gli stessi entity_id tramite Zigbee2MQTT
+#
+# Convenzione unique_id: corrisponde al suffisso dell'entity_id
+# es. unique_id: pf_taverna → binary_sensor.pf_taverna
+
+template:
+  - binary_sensor:
+
+      # ── SEMINTERRATO ────────────────────────────────────────
+      - name: "pf_taverna"
+        unique_id: pf_taverna
+        device_class: door
+        state: "{{ states('input_boolean.pf_taverna') == 'on' }}"
+
+      - name: "fin_bagno_taverna"
+        unique_id: fin_bagno_taverna
+        device_class: window
+        state: "{{ states('input_boolean.fin_bagno_taverna') == 'on' }}"
+
+      - name: "fin_lavanderia"
+        unique_id: fin_lavanderia
+        device_class: window
+        state: "{{ states('input_boolean.fin_lavanderia') == 'on' }}"
+
+      - name: "porta_seminterrato"
+        unique_id: porta_seminterrato
+        device_class: door
+        state: "{{ states('input_boolean.porta_seminterrato') == 'on' }}"
+
+      # ── VANO SCALE ──────────────────────────────────────────
+      - name: "porta_piano_terra"
+        unique_id: porta_piano_terra
+        device_class: door
+        state: "{{ states('input_boolean.porta_piano_terra') == 'on' }}"
+
+      - name: "fin_vano_scale_pt"
+        unique_id: fin_vano_scale_pt
+        device_class: window
+        state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
+
+      - name: "fin_vano_scale_p1"
+        unique_id: fin_vano_scale_p1
+        device_class: window
+        state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
+
+      # ── PIANO TERRA ─────────────────────────────────────────
+      - name: "pf_camera_padronale"
+        unique_id: pf_camera_padronale
+        device_class: door
+        state: "{{ states('input_boolean.pf_camera_padronale') == 'on' }}"
+
+      - name: "fin_bagno_padronale"
+        unique_id: fin_bagno_padronale
+        device_class: window
+        state: "{{ states('input_boolean.fin_bagno_padronale') == 'on' }}"
+
+      - name: "fin_bagno_comune"
+        unique_id: fin_bagno_comune
+        device_class: window
+        state: "{{ states('input_boolean.fin_bagno_comune') == 'on' }}"
+
+      - name: "fin_studio"
+        unique_id: fin_studio
+        device_class: window
+        state: "{{ states('input_boolean.fin_studio') == 'on' }}"
+
+      - name: "pf_camera_ospiti"
+        unique_id: pf_camera_ospiti
+        device_class: door
+        state: "{{ states('input_boolean.pf_camera_ospiti') == 'on' }}"
+
+      # ── PIANO PRIMO ─────────────────────────────────────────
+      - name: "pf_soggiorno"
+        unique_id: pf_soggiorno
+        device_class: door
+        state: "{{ states('input_boolean.pf_soggiorno') == 'on' }}"
+
+      # - name: "fin_soggiorno_ovest"
+      #   unique_id: fin_soggiorno_ovest
+      #   device_class: window
+      #   state: "{{ states('input_boolean.fin_soggiorno_ovest') == 'on' }}"
+
+      # - name: "fin_soggiorno_est"
+      #   unique_id: fin_soggiorno_est
+      #   device_class: window
+      #   state: "{{ states('input_boolean.fin_soggiorno_est') == 'on' }}"
+
+      - name: "pf_cucina"
+        unique_id: pf_cucina
+        device_class: door
+        state: "{{ states('input_boolean.pf_ingresso_terrazzo') == 'on' }}"
+
+      - name: "fin_cucina"
+        unique_id: fin_cucina
+        device_class: window
+        state: "{{ states('input_boolean.fin_cucina') == 'on' }}"
+
+      # - name: "fin_bagno_p1"
+      #   unique_id: fin_bagno_p1
+      #   device_class: window
+      #   state: "{{ states('input_boolean.fin_bagno_p1') == 'on' }}"
+
+      # ── GARAGE ──────────────────────────────────────────────
+      - name: "porta_garage"
+        unique_id: porta_garage
+        device_class: garage_door
+        state: "{{ states('input_boolean.porta_garage') == 'on' }}"
+
+      - name: "serranda_garage_est_stato"
+        unique_id: serranda_garage_est_stato
+        device_class: garage_door
+        state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
+
+      - name: "serranda_garage_ovest_stato"
+        unique_id: serranda_garage_ovest_stato
+        device_class: garage_door
+        state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
+
+      # ── SENSORI PIR (movimento) ──────────────────────────────
+      - name: "pir_garage"
+        unique_id: pir_garage
+        device_class: motion
+        state: "{{ states('input_boolean.pir_garage') == 'on' }}"
+
+      - name: "pir_terrazzo_nord"
+        unique_id: pir_terrazzo_nord
+        device_class: motion
+        state: "{{ states('input_boolean.pir_terrazzo_nord') == 'on' }}"
+
+      - name: "pir_giardino_sud"
+        unique_id: pir_giardino_sud
+        device_class: motion
+        state: "{{ states('input_boolean.pir_giardino_sud') == 'on' }}"
+
+      - name: "pir_taverna"
+        unique_id: pir_taverna
+        device_class: motion
+        state: "{{ states('input_boolean.pir_taverna') == 'on' }}"
+
+      - name: "pir_vano_scale"
+        unique_id: pir_vano_scale
+        device_class: motion
+        state: "{{ states('input_boolean.pir_vano_scale') == 'on' }}"
+
+      - name: "pir_camera_padronale"
+        unique_id: pir_camera_padronale
+        device_class: motion
+        state: "{{ states('input_boolean.pir_camera_padronale') == 'on' }}"
+
+      - name: "pir_camera_ospiti"
+        unique_id: pir_camera_ospiti
+        device_class: motion
+        state: "{{ states('input_boolean.pir_camera_ospiti') == 'on' }}"
+
+      - name: "pir_studio"
+        unique_id: pir_studio
+        device_class: motion
+        state: "{{ states('input_boolean.pir_studio') == 'on' }}"
+
+      - name: "pir_soggiorno"
+        unique_id: pir_soggiorno
+        device_class: motion
+        state: "{{ states('input_boolean.pir_soggiorno') == 'on' }}"

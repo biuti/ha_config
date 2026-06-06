@@ -54,9 +54,20 @@
       </g>
       <g id="layer_garage_interattivo_climate"/>
       <g id="layer_garage_interattivo_binary_sensor" style="display:inline;fill:#ffcc00">
-        <path style="display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:110.898;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" d="m 938.60506,3980.188 6.03829,-99.8911" id="binary_sensor_cancello_pedonale" class="binary-sensor cancello garage"/>
-        <path style="display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:110.898;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" d="m 938.60506,3980.188 6.03829,-99.8911" id="binary_sensor_cancello_carraio" class="binary-sensor cancello garage"/>
-        <circle style="display:inline;opacity:0.299712;fill:#00ff16;fill-opacity:1;stroke-width:37.3333;stroke-opacity:0.194444;paint-order:stroke fill markers" id="binary_sensor_garage_porta" cx="980" cy="1975" r="15" class="binary-sensor sensori-porte"/>
+        <path
+          d="m 938.60506,3980.188 6.03829,-99.8911"
+          id="binary_sensor_cancello_pedonale"
+          class="binary-sensor cancello garage"/>
+        <path
+          d="m 938.60506,3980.188 6.03829,-99.8911"
+          id="binary_sensor_cancello_carraio"
+          class="binary-sensor cancello garage"/>
+        <circle
+          id="binary_sensor_porta_garage"
+          cx="980"
+          cy="1975"
+          r="15"
+          class="binary-sensor sensori-porte"/>
       </g>
       <g id="layer_garage_interattivo_button">
         <g id="light_buttons">
