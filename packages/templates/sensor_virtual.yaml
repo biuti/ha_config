@@ -124,7 +124,7 @@ template:
     # ── CANCELLO ──────────────────────────────────────────────
     - name: "cancello_pedonale"
       unique_id: cancello_pedonale
-      device_class: gate
+      device_class: opening
       state: "{{ states('input_boolean.cancello_pedonale') == 'on' }}"
 
     # ── SENSORI PIR (movimento) ──────────────────────────────
