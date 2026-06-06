@@ -38,15 +38,15 @@ template:
         device_class: door
         state: "{{ states('input_boolean.porta_piano_terra') == 'on' }}"
 
-      - name: "Finestra Vano Scale Piano Terra"
-        unique_id: fin_vano_scale_pt
-        device_class: window
-        state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
+      # - name: "Finestra Vano Scale Piano Terra"
+      #   unique_id: fin_vano_scale_pt
+      #   device_class: window
+      #   state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
 
-      - name: "Finestra Vano Scale Piano Primo"
-        unique_id: fin_vano_scale_p1
-        device_class: window
-        state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
+      # - name: "Finestra Vano Scale Piano Primo"
+      #   unique_id: fin_vano_scale_p1
+      #   device_class: window
+      #   state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
 
       # ── PIANO TERRA ─────────────────────────────────────────
       - name: "Portafinestra Camera Padronale"
