@@ -79,8 +79,7 @@
     - light.vialetto_carraio
     - light.cancelli
     - light.segnapassi_scale_esterne
-  element: ${entity.entity_id.replace('.', '_')}
-  tap_action: toggle
+  element: ${`.light[data-entity="${entity.entity_id}"]`}
   state_action:
     action: call-service
     service: floorplan.dataset_set
@@ -91,11 +90,10 @@
 - name: Test Pulsante 
   entities:
     - light.garage
-
-  element: btn_light_garage
-
+    - light.cancelli
+    - light.taverna
+  element: ${`.light-button[data-entity="${entity.entity_id}"]`}
   tap_action: toggle
-
   state_action:
     action: call-service
     service: floorplan.dataset_set
