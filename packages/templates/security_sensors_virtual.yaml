@@ -8,6 +8,15 @@
 
 input_boolean:
 
+  # ── CANCELLO ──────────────────────────────────────────────
+  cancello_pedonale:
+    name: "Cancello Pedonale"
+    icon: mdi:gate
+
+  cancello_carrabile_stato:
+    name: "Cancello Carrabile (stato)"
+    icon: mdi:gate
+
   # ── GARAGE ────────────────────────────────────────────────
   porta_garage:
     name: "Porta Garage"

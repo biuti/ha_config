@@ -187,8 +187,7 @@
     - binary_sensor.pf_cucina
     - binary_sensor.fin_cucina
     - binary_sensor.porta_garage
-    - binary_sensor.serranda_garage_est_stato
-    - binary_sensor.serranda_garage_ovest_stato
+    - binary_sensor.cancello_pedonale
 
   element: ${entity.entity_id.replace('.', '_')}
 
@@ -199,4 +198,20 @@
     service: floorplan.dataset_set
     service_data:
       key: state
+      value: ${entity.state}
+
+- name: Covers Garage
+
+  entities:
+    - sensor.serranda_garage_est
+    - sensor.serranda_garage_ovest
+    - sensor.cancello_carrabile
+
+  element: ${entity.entity_id.replace('.', '_')}
+
+  state_action:
+    action: call-service
+    service: floorplan.dataset_set
+    service_data:
+      key: status
       value: ${entity.state}

@@ -11,158 +11,201 @@
 template:
   - binary_sensor:
 
-      # ── SEMINTERRATO ────────────────────────────────────────
-      - name: "Portafinestra Taverna"
-        unique_id: pf_taverna
-        device_class: door
-        state: "{{ states('input_boolean.pf_taverna') == 'on' }}"
+    # ── SEMINTERRATO ────────────────────────────────────────
+    - name: "Portafinestra Taverna"
+      unique_id: pf_taverna
+      device_class: door
+      state: "{{ states('input_boolean.pf_taverna') == 'on' }}"
 
-      - name: "Finestra Bagno Taverna"
-        unique_id: fin_bagno_taverna
-        device_class: window
-        state: "{{ states('input_boolean.fin_bagno_taverna') == 'on' }}"
+    - name: "Finestra Bagno Taverna"
+      unique_id: fin_bagno_taverna
+      device_class: window
+      state: "{{ states('input_boolean.fin_bagno_taverna') == 'on' }}"
 
-      - name: "Finestra Lavanderia"
-        unique_id: fin_lavanderia
-        device_class: window
-        state: "{{ states('input_boolean.fin_lavanderia') == 'on' }}"
+    - name: "Finestra Lavanderia"
+      unique_id: fin_lavanderia
+      device_class: window
+      state: "{{ states('input_boolean.fin_lavanderia') == 'on' }}"
 
-      - name: "Porta Seminterrato"
-        unique_id: porta_seminterrato
-        device_class: door
-        state: "{{ states('input_boolean.porta_seminterrato') == 'on' }}"
+    - name: "Porta Seminterrato"
+      unique_id: porta_seminterrato
+      device_class: door
+      state: "{{ states('input_boolean.porta_seminterrato') == 'on' }}"
 
-      # ── VANO SCALE ──────────────────────────────────────────
-      - name: "Porta Ingresso"
-        unique_id: porta_piano_terra
-        device_class: door
-        state: "{{ states('input_boolean.porta_piano_terra') == 'on' }}"
+    # ── VANO SCALE ──────────────────────────────────────────
+    - name: "Porta Ingresso"
+      unique_id: porta_piano_terra
+      device_class: door
+      state: "{{ states('input_boolean.porta_piano_terra') == 'on' }}"
 
-      # - name: "Finestra Vano Scale Piano Terra"
-      #   unique_id: fin_vano_scale_pt
-      #   device_class: window
-      #   state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
+    # - name: "Finestra Vano Scale Piano Terra"
+    #   unique_id: fin_vano_scale_pt
+    #   device_class: window
+    #   state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
 
-      # - name: "Finestra Vano Scale Piano Primo"
-      #   unique_id: fin_vano_scale_p1
-      #   device_class: window
-      #   state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
+    # - name: "Finestra Vano Scale Piano Primo"
+    #   unique_id: fin_vano_scale_p1
+    #   device_class: window
+    #   state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
 
-      # ── PIANO TERRA ─────────────────────────────────────────
-      - name: "Portafinestra Camera Padronale"
-        unique_id: pf_camera_padronale
-        device_class: door
-        state: "{{ states('input_boolean.pf_camera_padronale') == 'on' }}"
+    # ── PIANO TERRA ─────────────────────────────────────────
+    - name: "Portafinestra Camera Padronale"
+      unique_id: pf_camera_padronale
+      device_class: door
+      state: "{{ states('input_boolean.pf_camera_padronale') == 'on' }}"
 
-      - name: "Finestra Bagno Padronale"
-        unique_id: fin_bagno_padronale
-        device_class: window
-        state: "{{ states('input_boolean.fin_bagno_padronale') == 'on' }}"
+    - name: "Finestra Bagno Padronale"
+      unique_id: fin_bagno_padronale
+      device_class: window
+      state: "{{ states('input_boolean.fin_bagno_padronale') == 'on' }}"
 
-      - name: "Finestra Bagno Comune"
-        unique_id: fin_bagno_comune
-        device_class: window
-        state: "{{ states('input_boolean.fin_bagno_comune') == 'on' }}"
+    - name: "Finestra Bagno Comune"
+      unique_id: fin_bagno_comune
+      device_class: window
+      state: "{{ states('input_boolean.fin_bagno_comune') == 'on' }}"
 
-      - name: "Finestra Studio"
-        unique_id: fin_studio
-        device_class: window
-        state: "{{ states('input_boolean.fin_studio') == 'on' }}"
+    - name: "Finestra Studio"
+      unique_id: fin_studio
+      device_class: window
+      state: "{{ states('input_boolean.fin_studio') == 'on' }}"
 
-      - name: "Portafinestra Camera Ospiti"
-        unique_id: pf_camera_ospiti
-        device_class: door
-        state: "{{ states('input_boolean.pf_camera_ospiti') == 'on' }}"
+    - name: "Portafinestra Camera Ospiti"
+      unique_id: pf_camera_ospiti
+      device_class: door
+      state: "{{ states('input_boolean.pf_camera_ospiti') == 'on' }}"
 
-      # ── PIANO PRIMO ─────────────────────────────────────────
-      - name: "Portafinestra Soggiorno"
-        unique_id: pf_soggiorno
-        device_class: door
-        state: "{{ states('input_boolean.pf_soggiorno') == 'on' }}"
+    # ── PIANO PRIMO ─────────────────────────────────────────
+    - name: "Portafinestra Soggiorno"
+      unique_id: pf_soggiorno
+      device_class: door
+      state: "{{ states('input_boolean.pf_soggiorno') == 'on' }}"
 
-      # - name: "Finestra Soggiorno Ovest"
-      #   unique_id: fin_soggiorno_ovest
-      #   device_class: window
-      #   state: "{{ states('input_boolean.fin_soggiorno_ovest') == 'on' }}"
+    # - name: "Finestra Soggiorno Ovest"
+    #   unique_id: fin_soggiorno_ovest
+    #   device_class: window
+    #   state: "{{ states('input_boolean.fin_soggiorno_ovest') == 'on' }}"
 
-      # - name: "Finestra Soggiorno Est"
-      #   unique_id: fin_soggiorno_est
-      #   device_class: window
-      #   state: "{{ states('input_boolean.fin_soggiorno_est') == 'on' }}"
+    # - name: "Finestra Soggiorno Est"
+    #   unique_id: fin_soggiorno_est
+    #   device_class: window
+    #   state: "{{ states('input_boolean.fin_soggiorno_est') == 'on' }}"
 
-      - name: "Portafinestra Cucina"
-        unique_id: pf_cucina
-        device_class: door
-        state: "{{ states('input_boolean.pf_ingresso_terrazzo') == 'on' }}"
+    - name: "Portafinestra Cucina"
+      unique_id: pf_cucina
+      device_class: door
+      state: "{{ states('input_boolean.pf_ingresso_terrazzo') == 'on' }}"
 
-      - name: "Finestra Cucina"
-        unique_id: fin_cucina
-        device_class: window
-        state: "{{ states('input_boolean.fin_cucina') == 'on' }}"
+    - name: "Finestra Cucina"
+      unique_id: fin_cucina
+      device_class: window
+      state: "{{ states('input_boolean.fin_cucina') == 'on' }}"
 
-      # - name: "Finestra Bagno Piano Primo"
-      #   unique_id: fin_bagno_p1
-      #   device_class: window
-      #   state: "{{ states('input_boolean.fin_bagno_p1') == 'on' }}"
+    # - name: "Finestra Bagno Piano Primo"
+    #   unique_id: fin_bagno_p1
+    #   device_class: window
+    #   state: "{{ states('input_boolean.fin_bagno_p1') == 'on' }}"
 
-      # ── GARAGE ──────────────────────────────────────────────
-      - name: "Porta Garage"
-        unique_id: porta_garage
-        device_class: door
-        state: "{{ states('input_boolean.porta_garage') == 'on' }}"
+    # ── GARAGE ──────────────────────────────────────────────
+    - name: "Porta Garage"
+      unique_id: porta_garage
+      device_class: door
+      state: "{{ states('input_boolean.porta_garage') == 'on' }}"
 
-      - name: "Serranda Garage Est"
-        unique_id: serranda_garage_est_stato
-        device_class: garage_door
-        state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
+    - name: "Serranda Garage Est"
+      unique_id: serranda_garage_est_stato
+      device_class: garage_door
+      state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
 
-      - name: "Serranda Garage Ovest"
-        unique_id: serranda_garage_ovest_stato
-        device_class: garage_door
-        state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
+    - name: "Serranda Garage Ovest"
+      unique_id: serranda_garage_ovest_stato
+      device_class: garage_door
+      state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
 
-      # ── SENSORI PIR (movimento) ──────────────────────────────
-      - name: "Movimento Garage"
-        unique_id: pir_garage
-        device_class: motion
-        state: "{{ states('input_boolean.pir_garage') == 'on' }}"
+    # ── CANCELLO ──────────────────────────────────────────────
+    - name: "cancello_pedonale"
+      unique_id: cancello_pedonale
+      device_class: gate
+      state: "{{ states('input_boolean.cancello_pedonale') == 'on' }}"
 
-      - name: "Movimento Terrazzo Nord"
-        unique_id: pir_terrazzo_nord
-        device_class: motion
-        state: "{{ states('input_boolean.pir_terrazzo_nord') == 'on' }}"
+    # ── SENSORI PIR (movimento) ──────────────────────────────
+    - name: "Movimento Garage"
+      unique_id: pir_garage
+      device_class: motion
+      state: "{{ states('input_boolean.pir_garage') == 'on' }}"
 
-      - name: "Movimento Giardino Sud"
-        unique_id: pir_giardino_sud
-        device_class: motion
-        state: "{{ states('input_boolean.pir_giardino_sud') == 'on' }}"
+    - name: "Movimento Terrazzo Nord"
+      unique_id: pir_terrazzo_nord
+      device_class: motion
+      state: "{{ states('input_boolean.pir_terrazzo_nord') == 'on' }}"
 
-      - name: "Movimento Taverna"
-        unique_id: pir_taverna
-        device_class: motion
-        state: "{{ states('input_boolean.pir_taverna') == 'on' }}"
+    - name: "Movimento Giardino Sud"
+      unique_id: pir_giardino_sud
+      device_class: motion
+      state: "{{ states('input_boolean.pir_giardino_sud') == 'on' }}"
 
-      - name: "Movimento Vano Scale"
-        unique_id: pir_vano_scale
-        device_class: motion
-        state: "{{ states('input_boolean.pir_vano_scale') == 'on' }}"
+    - name: "Movimento Taverna"
+      unique_id: pir_taverna
+      device_class: motion
+      state: "{{ states('input_boolean.pir_taverna') == 'on' }}"
 
-      - name: "Movimento Camera Padronale"
-        unique_id: pir_camera_padronale
-        device_class: motion
-        state: "{{ states('input_boolean.pir_camera_padronale') == 'on' }}"
+    - name: "Movimento Vano Scale"
+      unique_id: pir_vano_scale
+      device_class: motion
+      state: "{{ states('input_boolean.pir_vano_scale') == 'on' }}"
 
-      - name: "Movimento Camera Ospiti"
-        unique_id: pir_camera_ospiti
-        device_class: motion
-        state: "{{ states('input_boolean.pir_camera_ospiti') == 'on' }}"
+    - name: "Movimento Camera Padronale"
+      unique_id: pir_camera_padronale
+      device_class: motion
+      state: "{{ states('input_boolean.pir_camera_padronale') == 'on' }}"
 
-      - name: "Movimento Studio"
-        unique_id: pir_studio
-        device_class: motion
-        state: "{{ states('input_boolean.pir_studio') == 'on' }}"
+    - name: "Movimento Camera Ospiti"
+      unique_id: pir_camera_ospiti
+      device_class: motion
+      state: "{{ states('input_boolean.pir_camera_ospiti') == 'on' }}"
 
-      - name: "Movimento Soggiorno"
-        unique_id: pir_soggiorno
-        device_class: motion
-        state: "{{ states('input_boolean.pir_soggiorno') == 'on' }}"
+    - name: "Movimento Studio"
+      unique_id: pir_studio
+      device_class: motion
+      state: "{{ states('input_boolean.pir_studio') == 'on' }}"
+
+    - name: "Movimento Soggiorno"
+      unique_id: pir_soggiorno
+      device_class: motion
+      state: "{{ states('input_boolean.pir_soggiorno') == 'on' }}"
+
+  - sensor:
+    - name: Serranda Garage Est
+      unique_id: serranda_garage_est
+
+      state: >
+        {% if is_state('input_boolean.serranda_garage_est_in_movimento','on') %}
+          moving
+        {% elif is_state('input_boolean.serranda_garage_est_stato','on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}
+
+    - name: Serranda Garage Ovest
+      unique_id: serranda_garage_ovest
+
+      state: >
+        {% if is_state('input_boolean.serranda_garage_ovest_in_movimento','on') %}
+          moving
+        {% elif is_state('input_boolean.serranda_garage_ovest_stato','on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}
+
+    - name: Cancello Carrabile
+      unique_id: cancello_carrabile
+
+      state: >
+        {% if is_state('input_boolean.cancello_carrabile_in_movimento','on') %}
+          moving
+        {% elif is_state('input_boolean.cancello_carrabile_stato','on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}

@@ -42,32 +42,43 @@
         </g>
       </g>
       <g id="layer_garage_interattivo_cover">
-        <path d="m 760.63045,2526.0229 291.68165,2.8029"
-            id="cover_garage_ovest" 
-            class="cover garage"/>
-        <path d="m 1087.9335,2528.5021 288.7471,1.6817" 
-            id="cover_garage_est" 
-            class="cover garage"/>
-        <path d="m 1043.9473,3877.1735 373.5415,0.057" 
-            id="cover_cancello_carraio" 
-            class="cover cancello garage"/>
+        <path
+          d="m 775.57365,2476.6403 258.71885,1.2779"
+          id="sensor_serranda_garage_ovest"
+          data-entity="cover.garage_ovest"
+          data-type="serranda"
+          class="serranda garage"/>
+        <path
+          d="m 1097.6413,2477.8924 259.4872,0.9188"
+          id="sensor_serranda_garage_est"
+          data-entity="cover.garage_est"
+          data-type="serranda"
+          class="serranda garage"/>
+        <path
+          d="m 1039.1019,3832.2581 364.851,-0.5582"
+          id="sensor_cancello_carrabile"
+          data-entity="cover.cancello_carrabile"
+          data-type="cancello"
+          class="cancello"/>
       </g>
       <g id="layer_garage_interattivo_climate"/>
       <g id="layer_garage_interattivo_binary_sensor" style="display:inline;fill:#ffcc00">
-        <path
-          d="m 938.60506,3980.188 6.03829,-99.8911"
-          id="binary_sensor_cancello_pedonale"
-          class="binary-sensor cancello garage"/>
-        <path
-          d="m 938.60506,3980.188 6.03829,-99.8911"
-          id="binary_sensor_cancello_carraio"
-          class="binary-sensor cancello garage"/>
         <circle
           id="binary_sensor_porta_garage"
           cx="980"
           cy="1975"
           r="15"
+          data-entity="binary_sensor.porta_garage"
+          data-type="porta"
           class="binary-sensor sensori-porte"/>
+        <circle
+          id="binary_sensor_cancello_pedonale"
+          cx="899"
+          cy="3915"
+          r="15"
+          data-entity="binary_sensor.cancello_pedonale"
+          data-type="cancello"
+          class="binary-sensor sensori-porte" />
       </g>
       <g id="layer_garage_interattivo_button">
         <g id="light_buttons">

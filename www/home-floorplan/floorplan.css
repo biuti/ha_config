@@ -105,14 +105,22 @@ path[id^="light_"] {
 }
 
 /* Serrande garage — rettangoli, stesso schema colore */
-[id^="binary_sensor_serranda_"] {
-  stroke: #4caf50;
-  stroke-width: 3px;
-  fill: none;
+[id^="sensor_serranda_"],
+[id^="sensor_cancello_"] {
+  stroke-width: 10px;
+  transition: all 0.3s ease;
+  opacity: 0.0;
 }
 
-[id^="binary_sensor_serranda_"][data-state="on"] {
-  stroke: #f44336;
+[id^="sensor_serranda_"][data-status="open"],
+[id^="sensor_cancello_"][data-status="open"] {
+  stroke: lightgreen; /* Verde chiaro */
+  opacity: 0.75;
+}
+
+[data-status="moving"] {
+  stroke: orange; /* Arancio */
+  animation: pulseCover 1s infinite;
 }
 
 /* Gestione Raffstore e Cancelli (Linee) */
@@ -151,4 +159,18 @@ path[id^="light_"] {
   0%   { opacity: 1; stroke-width: 10px; }
   50%  { opacity: 0.4; stroke-width: 14px; }
   100% { opacity: 1; stroke-width: 10px; }
+}
+
+@keyframes pulseCover {
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
 }
