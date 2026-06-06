@@ -21,6 +21,7 @@
 light:
   # ── GRUPPO PRINCIPALE ─────────────────────────────────────
   - platform: group
+    unique_id: group_tutte_le_luci
     name: "Tutte le Luci"
     entities:
       - light.luci_interne
@@ -30,6 +31,7 @@ light:
 
   # ── LUCI INTERNE ──────────────────────────────────────────
   - platform: group
+    unique_id: group_luci_interne
     name: "Luci Interne"
     entities:
       - light.luci_zona_giorno
@@ -39,80 +41,91 @@ light:
       - light.luci_vano_scale
 
   - platform: group
+    unique_id: group_luci_zona_giorno
     name: "Luci Zona Giorno"
     entities:
-      - light.luce_soggiorno
-      - light.luce_cucina
+      - light.soggiorno
+      - light.cucina
 
   - platform: group
+    unique_id: group_luci_zone_notte
     name: "Luci Zone Notte"
     entities:
-      - light.luce_camera_padronale
-      - light.luce_camera_ospiti
-      - light.luce_taverna
+      - light.camera_padronale
+      - light.camera_ospiti
+      - light.taverna
 
   - platform: group
+    unique_id: group_luci_bagni
     name: "Luci Bagni"
     entities:
-      - light.luce_bagno_padronale
-      - light.luce_bagno_comune
-      - light.luce_bagno_taverna
-      - light.luce_bagno_p1
+      - light.bagno_padronale
+      - light.bagno_comune
+      - light.bagno_taverna
+      - light.bagno_p1
 
   - platform: group
+    unique_id: group_luci_servizio
     name: "Luci Servizio"
     entities:
-      - light.luce_ripostiglio_pt
-      - light.luce_ripostiglio_p1
-      - light.luce_lavanderia
-      - light.luce_locale_tecnico
-      - light.luce_garage
+      - light.ripostiglio_pt
+      - light.ripostiglio_p1
+      - light.lavanderia
+      - light.locale_tecnico
+      - light.garage
 
   - platform: group
+    unique_id: group_luci_vano_scale
     name: "Luci Vano Scale"
     entities:
-      - light.luce_vano_scale
-      - light.luce_corridoio
+      - light.vano_scale
+      - light.corridoio
 
   # ── LUCI ESTERNE ──────────────────────────────────────────
   - platform: group
+    unique_id: group_luci_esterne
     name: "Luci Esterne"
     entities:
       - light.luci_terrazzi_balcone
-      - light.luci_giardino
-      - light.luci_perimetro
+      - light.giardino
+      - light.perimetro_edificio
 
   - platform: group
+    unique_id: group_luci_terrazzi_balcone
     name: "Luci Terrazzi e Balcone"
     entities:
-      - light.luce_terrazzo_nord
-      - light.luce_terrazzo_sud
-      - light.luce_balcone_piano_terra
+      - light.terrazzo_nord
+      - light.terrazzo_sud
+      - light.balcone_piano_terra
 
   - platform: group
+    unique_id: group_luci_giardino
     name: "Luci Giardino"
     entities:
-      - light.luce_giardino
-      - light.luce_vialetto_pedonale
-      - light.luce_vialetto_carraio
+      - light.giardino
+      - light.vialetto_pedonale
+      - light.vialetto_carraio
 
   - platform: group
+    unique_id: group_luci_perimetro
     name: "Luci Perimetro"
     entities:
-      - light.luce_perimetro_edificio
-      - light.luce_ingresso_principale
-      - light.luce_ingresso_seminterrato
+      - light.perimetro_edificio
+      - light.ingresso_principale
+      - light.ingresso_seminterrato
 
   # ── LUCI SEGNAPASSI ───────────────────────────────────────
   - platform: group
+    unique_id: group_luci_segnapassi
     name: "Luci Segnapassi"
     entities:
-      - light.luce_segnapassi_scale
-      - light.luce_segnapassi_scale_esterno
+      - light.segnapassi_scale
+      - light.segnapassi_scale_esterno
 
   # ── LUCI ACCENTO ──────────────────────────────────────────
   - platform: group
+    unique_id: group_luci_accento
     name: "Luci Accento"
     entities:
-      - light.luce_accento_cucina
+      - light.accento_cucina
       # future luci accento: soggiorno, camera padronale, ecc.
