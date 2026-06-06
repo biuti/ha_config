@@ -61,12 +61,12 @@ path[id^="light_"] {
 
 .light[data-zone="interno"][data-state="on"] {
   fill: yellow !important;
-  fill-opacity: 0.5;
+  fill-opacity: 0.25;
 }
 
 .light[data-zone="esterno"][data-state="on"] {
   fill: lightblue !important;
-  fill-opacity: 0.5;
+  fill-opacity: 0.25;
 }
 
 .light-button {
@@ -74,8 +74,8 @@ path[id^="light_"] {
 }
 
 .light-button[data-state="off"] {
-  fill: darkgray;
-  opacity: 0.5;
+  fill: black;
+  opacity: 0.75;
 }
 
 .light-button[data-state="on"] {
