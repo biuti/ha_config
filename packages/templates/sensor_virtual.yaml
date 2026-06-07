@@ -173,39 +173,19 @@ template:
       device_class: motion
       state: "{{ states('input_boolean.pir_soggiorno') == 'on' }}"
 
-  # - sensor:
-  #   - name: Serranda Garage Est
-  #     unique_id: serranda_garage_est
 
-  #     state: >
-  #       {% if is_state('input_boolean.serranda_garage_est_in_movimento','on') %}
-  #         moving
-  #       {% elif is_state('input_boolean.serranda_garage_est_stato','on') %}
-  #         open
-  #       {% else %}
-  #         closed
-  #       {% endif %}
+  - sensor:
 
-  #   - name: Serranda Garage Ovest
-  #     unique_id: serranda_garage_ovest
+      - name: Temperatura Soggiorno
+        unique_id: temperatura_soggiorno
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: "{{ states('input_number.temp_soggiorno') }}"
 
-  #     state: >
-  #       {% if is_state('input_boolean.serranda_garage_ovest_in_movimento','on') %}
-  #         moving
-  #       {% elif is_state('input_boolean.serranda_garage_ovest_stato','on') %}
-  #         open
-  #       {% else %}
-  #         closed
-  #       {% endif %}
-
-  #   - name: Cancello Carrabile
-  #     unique_id: cancello_carrabile
-
-  #     state: >
-  #       {% if is_state('input_boolean.cancello_carrabile_in_movimento','on') %}
-  #         moving
-  #       {% elif is_state('input_boolean.cancello_carrabile_stato','on') %}
-  #         open
-  #       {% else %}
-  #         closed
-  #       {% endif %}
+      - name: Temperatura Camera Padronale
+        unique_id: temperatura_camera_padronale
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: "{{ states('input_number.temp_camera_padronale') }}"
