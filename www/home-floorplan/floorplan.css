@@ -104,7 +104,7 @@ path[id^="light_"] {
   fill-opacity: 0.75;
 }
 
-/* Serrande garage — rettangoli, stesso schema colore */
+/* Gestione Serrande garage e cancelli — linee */
 [id^="cover_garage_"],
 [id^="cover_cancello_"] {
   stroke-width: 10px;
@@ -126,15 +126,31 @@ path[id^="light_"] {
   animation: pulseCover 1s infinite;
 }
 
-/* Gestione Raffstore e Cancelli (Linee) */
-.cover-open {
-  stroke: green !important; /* Verde */
-  stroke-width: 10px !important;
-  opacity: 1 !important;
+/* Gestione Raffstore - linee */
+[id^="cover_raffstore_"] {
+  stroke-width: 10px;
+  transition: all 0.3s ease;
+  opacity: 0.0;
 }
 
-.cover-closed {
-  opacity: 0 !important; /* Sparisce se chiusa */
+/* Completamente chiusa */
+[id^="cover_raffstore_"][data-state="closed"] {
+  stroke: black;
+  opacity: 0.9;
+}
+
+/* Posizione intermedia */
+[id^="cover_raffstore_"][data-state="open"]:not([data-position="100"]) {
+  stroke: orange;
+  opacity: 0.9;
+}
+
+/* In movimento */
+[id^="cover_raffstore_"][data-state="opening"],
+[id^="cover_raffstore_"][data-state="closing"] {
+  stroke: orange;
+  opacity: 0.9;
+  animation: pulseCover 1s infinite;
 }
 
 /* Effetto Frangisole (Lamelle orizzontali) */

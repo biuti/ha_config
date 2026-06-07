@@ -200,6 +200,7 @@
       key: state
       value: ${entity.state}
 
+# GARAGE E CANCELLI
 - name: Covers Garage
 
   entities:
@@ -215,3 +216,38 @@
     service_data:
       key: status
       value: ${entity.state}
+
+# Raffstore
+- name: Raffstore State
+
+  entities:
+    - cover.raffstore_pf_taverna
+    - cover.raffstore_fin_bagno_taverna
+    - cover.raffstore_fin_vano_scale_pt
+    - cover.raffstore_fin_vano_scale_p1
+    - cover.raffstore_pf_camera_padronale
+    - cover.raffstore_fin_bagno_padronale
+    - cover.raffstore_fin_bagno_comune
+    - cover.raffstore_fin_studio
+    - cover.raffstore_pf_camera_ospiti
+    - cover.raffstore_pf_soggiorno
+    - cover.raffstore_fin_soggiorno_ovest
+    - cover.raffstore_fin_soggiorno_est
+    - cover.raffstore_pf_ingresso_terrazzo
+    - cover.raffstore_fin_cucina
+    - cover.raffstore_fin_bagno_p1
+
+  element: ${entity.entity_id.replace('.', '_')}
+
+  state_action:
+    - action: call-service
+      service: floorplan.dataset_set
+      service_data:
+        key: state
+        value: ${entity.state}
+
+    - action: call-service
+      service: floorplan.dataset_set
+      service_data:
+        key: position
+        value: ${entity.attributes.current_position}
