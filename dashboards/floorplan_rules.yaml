@@ -251,3 +251,17 @@
       service_data:
         key: position
         value: ${entity.attributes.current_position}
+
+# TEMPERATURA
+- name: Temperatura Interna
+
+  entities:
+    - sensor.temperatura_taverna
+    - sensor.temperatura_camera_padronale
+    - sensor.temperatura_soggiorno
+
+  element: ${entity.entity_id.replace('.', '_')}
+
+  state_action:
+    action: text_set
+    text: '${parseFloat(entity.state).toFixed(1) + "°"}'

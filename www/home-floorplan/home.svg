@@ -12,8 +12,12 @@
       <g id="layer_seminterrato_sensor">
         <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
         <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
-        <text xml:space="preserve" style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="340" y="1400" id="sensor_seminterrato_temperature" class="sensor sensori-temperatura">
-          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="340" y="1400" id="tspan43">-Temp</tspan>
+        <text 
+          x="340" y="1400"
+          id="sensor_temperatura_taverna"
+          data-entity="sensor.temperatura_taverna"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
         </text>
       </g>
       <g id="layer_seminterrato_power"/>
@@ -144,8 +148,12 @@
     </g>
     <g id="layer_piano_terra_interattivo">
       <g id="layer_piano_terra_sensor">
-        <text xml:space="preserve" style="font-size:85.3333px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="256.03217" y="1399.52" id="sensor_piano_terra_temperature" class="sensor sensori-temperatura">
-          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="256.03217" y="1399.52" id="tspan43-4">-Temp</tspan>
+        <text 
+          x="256" y="1400"
+          id="sensor_temperatura_camera_padronale"
+          data-entity="sensor.temperatura_camera_padronale"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
         </text>
       </g>
       <g id="layer_piano_terra_power"/>
@@ -375,8 +383,12 @@
     </g>
     <g id="layer_piano_primo_interattivo">
       <g id="layer_piano_primo_sensor">
-        <text xml:space="preserve" style="font-size:105.723px;writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.299712;fill:#ff0000;fill-opacity:1;stroke:#f52727;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.944444" x="543.28412" y="966.23041" id="sensor_piano_primo_temperature" class="sensor sensori-temperatura">
-          <tspan style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.723px;font-family:'Avenir Next';-inkscape-font-specification:'Avenir Next Bold';fill:#ff0000;fill-opacity:0.7;stroke:none;stroke-width:41.1144;stroke-dasharray:none;stroke-opacity:0.194444;paint-order:stroke fill markers" x="543.28412" y="966.23041" id="tspan43-48">-Temp</tspan>
+        <text 
+          x="543" y="966"
+          id="sensor_temperatura_soggiorno"
+          data-entity="sensor.temperatura_soggiorno"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
         </text>
       </g>
       <g id="layer_piano_primo_power"/>
