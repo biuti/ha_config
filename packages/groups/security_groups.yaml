@@ -6,7 +6,6 @@ group:
 
   finestre_aperte:
     name: "Finestre Aperte"
-    unique_id: finestre_aperte
     entities:
       - input_boolean.pf_taverna
       - input_boolean.fin_bagno_taverna
@@ -26,7 +25,6 @@ group:
 
   portafinestre:
     name: "Portafinestre"
-    unique_id: portafinestre
     # Tutte le portafinestre con accesso a spazi esterni praticabili
     # Override portafinestra attivo se almeno una è aperta
     entities:
@@ -38,7 +36,6 @@ group:
 
   serramenti_recessi:
     name: "Serramenti Recessi"
-    unique_id: serramenti_recessi
     # Esclusi dall'override pioggia — protetti dalla geometria dell'edificio
     # pf_soggiorno: recesso 260cm
     # pf_camera_padronale: recesso 120cm
@@ -51,7 +48,6 @@ group:
 
   serramenti_non_recessi:
     name: "Serramenti Non Recessi"
-    unique_id: serramenti_non_recessi
     # Soggetti all'override pioggia — esposti alle intemperie
     entities:
       - input_boolean.fin_bagno_taverna
