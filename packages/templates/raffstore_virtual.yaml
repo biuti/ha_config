@@ -66,8 +66,8 @@ input_boolean:
     name: "Raffstore Finestra Soggiorno Est"
     icon: mdi:blinds
 
-  raffstore_pf_ingresso_terrazzo:
-    name: "Raffstore Portafinestra Ingresso Terrazzo"
+  raffstore_pf_cucina:
+    name: "Raffstore Portafinestra Cucina"
     icon: mdi:blinds
 
   raffstore_fin_cucina:
@@ -180,8 +180,8 @@ input_number:
     unit_of_measurement: "%"
     icon: mdi:blinds
 
-  pos_raffstore_pf_ingresso_terrazzo:
-    name: "Posizione Raffstore Portafinestra Ingresso Terrazzo"
+  pos_raffstore_pf_cucina:
+    name: "Posizione Raffstore Portafinestra Cucina"
     min: 0
     max: 100
     step: 1
@@ -518,31 +518,31 @@ template:
             target:
               entity_id: input_boolean.raffstore_fin_soggiorno_est
 
-      - name: "Raffstore Portafinestra Ingresso Terrazzo"
-        unique_id: raffstore_pf_ingresso_terrazzo
-        position: "{{ states('input_number.pos_raffstore_pf_ingresso_terrazzo') | int }}"
+      - name: "Raffstore Portafinestra Cucina"
+        unique_id: raffstore_pf_cucina
+        position: "{{ states('input_number.pos_raffstore_pf_cucina') | int }}"
         open_cover:
           - action: input_number.set_value
             target:
-              entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+              entity_id: input_number.pos_raffstore_pf_cucina
             data:
               value: 100
         close_cover:
           - action: input_number.set_value
             target:
-              entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+              entity_id: input_number.pos_raffstore_pf_cucina
             data:
               value: 0
         set_cover_position:
           - action: input_number.set_value
             target:
-              entity_id: input_number.pos_raffstore_pf_ingresso_terrazzo
+              entity_id: input_number.pos_raffstore_pf_cucina
             data:
               value: "{{ position }}"
         stop_cover:
           - action: input_boolean.turn_off
             target:
-              entity_id: input_boolean.raffstore_pf_ingresso_terrazzo
+              entity_id: input_boolean.raffstore_pf_cucina
 
       - name: "Raffstore Finestra Cucina"
         unique_id: raffstore_fin_cucina
