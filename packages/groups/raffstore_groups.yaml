@@ -8,7 +8,6 @@ cover:
   # ── GRUPPO PRINCIPALE ─────────────────────────────────────
   - platform: group
     name: "Tutti i Raffstore"
-    unique_id: raffstore_tutti
     entities:
       - cover.raffstore_pf_taverna
       - cover.raffstore_fin_bagno_taverna
@@ -29,7 +28,6 @@ cover:
   # ── GRUPPI AUTOMAZIONE CREPUSCOLO / MATTINA ───────────────
   - platform: group
     name: "Raffstore Crepuscolo"
-    unique_id: raffstore_crepuscolo
     # Tutti tranne le due panoramiche (pf_soggiorno, fin_soggiorno_ovest)
     # che rimangono manuali
     entities:
@@ -49,7 +47,6 @@ cover:
 
   - platform: group
     name: "Raffstore Sveglia"
-    unique_id: raffstore_sveglia
     # Camere e taverna — si aprono con la sveglia, non con l'alba
     entities:
       - cover.raffstore_pf_camera_padronale
@@ -58,7 +55,6 @@ cover:
 
   - platform: group
     name: "Raffstore Mattina"
-    unique_id: raffstore_mattina
     # Raffstore crepuscolo meno quelli sveglia
     # Si aprono all'alba, non attendono la sveglia
     entities:
@@ -76,7 +72,6 @@ cover:
   # ── GRUPPI OMBREGGIATURA PER FACCIATA ─────────────────────
   - platform: group
     name: "Raffstore Ombreggiatura Est"
-    unique_id: raffstore_ombreggiatura_est
     # Irraggiamento diretto mattutino
     # Logica: abbassa con lamelle aperte dal mattino fino a mezzogiorno
     entities:
@@ -86,7 +81,6 @@ cover:
 
   - platform: group
     name: "Raffstore Ombreggiatura Ovest"
-    unique_id: raffstore_ombreggiatura_ovest
     # Irraggiamento diretto pomeridiano
     # Logica: abbassa con lamelle aperte da mezzogiorno al tramonto
     entities:
@@ -99,7 +93,6 @@ cover:
 
   - platform: group
     name: "Raffstore Ombreggiatura Sud"
-    unique_id: raffstore_ombreggiatura_sud
     # Protette parzialmente da terrazzo e geometria edificio
     # Logica più permissiva — interviene solo nelle ore centrali estive
     entities:
