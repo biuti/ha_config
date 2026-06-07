@@ -1,0 +1,90 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/templates/cover_virtual.yaml
+# Cancelli e Serrande motorizzate
+# Simulati con input_boolean stato (open/close) e movimento (moving/not moving)
+# Convenzione: open + moving = closing, close + moving = opening, open/close + not moving = open/closed
+
+# Contiene: cover template
+# Quando installati i dispositivi fisici:
+#   1. Eliminare questo file
+#   2. Aggiornare groups/cover_groups.yaml con i cover fisici Zigbee2MQTT
+#   3. Le automazioni in automation/cover.yaml non cambiano
+
+template:
+  - cover:
+      - name: "Serranda Garage Est"
+        unique_id: garage_est
+        device_class: garage
+
+        value_template: >
+          {{ is_state('input_boolean.serranda_garage_est_stato', 'on') }}
+
+        opening: >
+          {{ is_state('input_boolean.serranda_garage_est_in_movimento', 'on')
+             and is_state('input_boolean.serranda_garage_est_stato', 'off') }}
+
+        closing: >
+          {{ is_state('input_boolean.serranda_garage_est_in_movimento', 'on')
+             and is_state('input_boolean.serranda_garage_est_stato', 'on') }}
+
+        open_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.serranda_garage_est
+
+        close_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.serranda_garage_est
+
+      - name: "Serranda Garage Ovest"
+        unique_id: garage_ovest
+        device_class: garage
+
+        value_template: >
+          {{ is_state('input_boolean.serranda_garage_ovest_stato', 'on') }}
+
+        opening: >
+          {{ is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on')
+             and is_state('input_boolean.serranda_garage_ovest_stato', 'off') }}
+
+        closing: >
+          {{ is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on')
+             and is_state('input_boolean.serranda_garage_ovest_stato', 'on') }}
+
+        open_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.serranda_garage_ovest
+
+        close_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.serranda_garage_ovest
+
+      - name: "Cancello Carrabile"
+        unique_id: cancello_carrabile
+        device_class: gate
+
+        value_template: >
+          {{ is_state('input_boolean.cancello_carrabile_stato', 'on') }}
+
+        opening: >
+          {{ is_state('input_boolean.cancello_carrabile_in_movimento', 'on')
+             and is_state('input_boolean.cancello_carrabile_stato', 'off') }}
+
+        closing: >
+          {{ is_state('input_boolean.cancello_carrabile_in_movimento', 'on')
+             and is_state('input_boolean.cancello_carrabile_stato', 'on') }}
+
+        open_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.cancello_carrabile
+
+        close_cover:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.cancello_carrabile

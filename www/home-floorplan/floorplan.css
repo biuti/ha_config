@@ -105,20 +105,25 @@ path[id^="light_"] {
 }
 
 /* Serrande garage — rettangoli, stesso schema colore */
-[id^="sensor_serranda_"],
-[id^="sensor_cancello_"] {
+[id^="cover_garage_"],
+[id^="cover_cancello_"] {
   stroke-width: 10px;
   transition: all 0.3s ease;
   opacity: 0.0;
 }
 
-[id^="sensor_serranda_"][data-status="open"],
-[id^="sensor_cancello_"][data-status="open"] {
+[id^="cover_garage_"][data-status="open"],
+[id^="cover_cancello_"][data-status="open"] {
   stroke: lightgreen; /* Verde chiaro */
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
-[data-status="moving"] {
+[id^="cover_garage_"][data-status="moving"],
+[id^="cover_cancello_"][data-status="moving"],
+[id^="cover_garage_"][data-status="opening"],
+[id^="cover_cancello_"][data-status="opening"],
+[id^="cover_garage_"][data-status="closing"],
+[id^="cover_cancello_"][data-status="closing"] {
   stroke: orange; /* Arancio */
   animation: pulseCover 1s infinite;
 }
@@ -163,14 +168,14 @@ path[id^="light_"] {
 
 @keyframes pulseCover {
   0% {
-    opacity: 0.25;
+    opacity: 0.2;
   }
 
   50% {
-    opacity: 0.75;
+    opacity: 0.8;
   }
 
   100% {
-    opacity: 0.25;
+    opacity: 0.2;
   }
 }

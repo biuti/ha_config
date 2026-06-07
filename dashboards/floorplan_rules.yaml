@@ -203,9 +203,9 @@
 - name: Covers Garage
 
   entities:
-    - sensor.serranda_garage_est
-    - sensor.serranda_garage_ovest
-    - sensor.cancello_carrabile
+    - cover.garage_est
+    - cover.garage_ovest
+    - cover.cancello_carrabile
 
   element: ${entity.entity_id.replace('.', '_')}
 
