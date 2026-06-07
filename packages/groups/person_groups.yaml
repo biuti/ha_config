@@ -4,7 +4,6 @@
 group:
   residenti:
     name: "Residenti Via Bosco"
-    unique_id: residenti
     entities:
       - person.antonio_golfari
       - person.nicoletta_orsenigo
