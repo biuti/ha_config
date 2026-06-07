@@ -135,7 +135,7 @@ path[id^="light_"] {
 
 /* Completamente chiusa */
 [id^="cover_raffstore_"][data-state="closed"] {
-  stroke: black;
+  stroke: red;
   opacity: 0.9;
 }
 
