@@ -253,15 +253,26 @@
         value: ${entity.attributes.current_position}
 
 # TEMPERATURA
+# - name: Temperatura Interna
+
+#   entities:
+#     - sensor.temperatura_taverna
+#     - sensor.temperatura_camera_padronale
+#     - sensor.temperatura_soggiorno
+
+#   element: ${entity.entity_id.replace('.', '_')}
+
+#   state_action:
+#     action: text_set
+#     text: '${parseFloat(entity.state).toFixed(1) + "°"}'
+
 - name: Temperatura Interna
 
   entities:
     - sensor.temperatura_taverna
-    - sensor.temperatura_camera_padronale
-    - sensor.temperatura_soggiorno
 
-  element: ${entity.entity_id.replace('.', '_')}
+  element: sensor_temperatura_taverna
 
   state_action:
-    action: text_set
-    text: '${parseFloat(entity.state).toFixed(1) + "°"}'
+    action: class_set
+    class: test-temp
