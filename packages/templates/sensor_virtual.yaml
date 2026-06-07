@@ -111,15 +111,15 @@ template:
       device_class: door
       state: "{{ states('input_boolean.porta_garage') == 'on' }}"
 
-    - name: "Serranda Garage Est"
-      unique_id: serranda_garage_est_stato
-      device_class: garage_door
-      state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
+    # - name: "Serranda Garage Est"
+    #   unique_id: serranda_garage_est_stato
+    #   device_class: garage_door
+    #   state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
 
-    - name: "Serranda Garage Ovest"
-      unique_id: serranda_garage_ovest_stato
-      device_class: garage_door
-      state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
+    # - name: "Serranda Garage Ovest"
+    #   unique_id: serranda_garage_ovest_stato
+    #   device_class: garage_door
+    #   state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
 
     # ── CANCELLO ──────────────────────────────────────────────
     - name: "cancello_pedonale"
