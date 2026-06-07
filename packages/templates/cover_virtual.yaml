@@ -15,7 +15,7 @@
 template:
   - cover:
 
-      - name: "Garage Est"
+      - name: "Serranda Garage Est"
         unique_id: garage_est
         device_class: garage
 
@@ -44,7 +44,7 @@ template:
 
         optimistic: false
 
-      - name: "Garage Ovest"
+      - name: "Serranda Garage Ovest"
         unique_id: garage_ovest
         device_class: garage
 
