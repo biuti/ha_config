@@ -302,8 +302,8 @@
           class="binary-sensor sensori-finestre" />
         <circle
           id="binary_sensor_pf_camera_ospiti"
-          cx="2455"
-          cy="340"
+          cx="261"
+          cy="350"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle

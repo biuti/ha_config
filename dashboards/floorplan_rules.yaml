@@ -274,5 +274,8 @@
   element: sensor_temperatura_taverna
 
   state_action:
-    action: class_set
-    class: test-temp
+    action: call-service
+    service: floorplan.dataset_set
+    service_data:
+      key: value
+      value: ${entity.state}
