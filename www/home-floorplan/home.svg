@@ -14,7 +14,7 @@
         <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
         <text 
           x="340" y="1400"
-          id="sensor_temperatura_taverna"
+          id="sensor.temperatura_taverna"
           data-entity="sensor.temperatura_taverna"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
@@ -150,7 +150,7 @@
       <g id="layer_piano_terra_sensor">
         <text 
           x="256" y="1400"
-          id="sensor_temperatura_camera_padronale"
+          id="sensor.temperatura_camera_padronale"
           data-entity="sensor.temperatura_camera_padronale"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
@@ -385,7 +385,7 @@
       <g id="layer_piano_primo_sensor">
         <text 
           x="543" y="966"
-          id="sensor_temperatura_soggiorno"
+          id="sensor.temperatura_soggiorno"
           data-entity="sensor.temperatura_soggiorno"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
