@@ -14,77 +14,60 @@
 
 template:
   - cover:
-      - name: "Serranda Garage Est"
+
+      - name: "Garage Est"
         unique_id: garage_est
         device_class: garage
 
-        value_template: >
-          {{ is_state('input_boolean.serranda_garage_est_stato', 'on') }}
+        state: >
+          {% if is_state('input_boolean.serranda_garage_est_in_movimento', 'on') %}
+            {% if is_state('input_boolean.serranda_garage_est_stato', 'on') %}
+              closing
+            {% else %}
+              opening
+            {% endif %}
+          {% elif is_state('input_boolean.serranda_garage_est_stato', 'on') %}
+            open
+          {% else %}
+            closed
+          {% endif %}
 
-        opening: >
-          {{ is_state('input_boolean.serranda_garage_est_in_movimento', 'on')
-             and is_state('input_boolean.serranda_garage_est_stato', 'off') }}
+        optimistic: false
 
-        closing: >
-          {{ is_state('input_boolean.serranda_garage_est_in_movimento', 'on')
-             and is_state('input_boolean.serranda_garage_est_stato', 'on') }}
-
-        open_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.serranda_garage_est
-
-        close_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.serranda_garage_est
-
-      - name: "Serranda Garage Ovest"
+      - name: "Garage Ovest"
         unique_id: garage_ovest
         device_class: garage
 
-        value_template: >
-          {{ is_state('input_boolean.serranda_garage_ovest_stato', 'on') }}
+        state: >
+          {% if is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on') %}
+            {% if is_state('input_boolean.serranda_garage_ovest_stato', 'on') %}
+              closing
+            {% else %}
+              opening
+            {% endif %}
+          {% elif is_state('input_boolean.serranda_garage_ovest_stato', 'on') %}
+            open
+          {% else %}
+            closed
+          {% endif %}
 
-        opening: >
-          {{ is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on')
-             and is_state('input_boolean.serranda_garage_ovest_stato', 'off') }}
-
-        closing: >
-          {{ is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on')
-             and is_state('input_boolean.serranda_garage_ovest_stato', 'on') }}
-
-        open_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.serranda_garage_ovest
-
-        close_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.serranda_garage_ovest
+        optimistic: false
 
       - name: "Cancello Carrabile"
         unique_id: cancello_carrabile
         device_class: gate
 
-        value_template: >
-          {{ is_state('input_boolean.cancello_carrabile_stato', 'on') }}
+        state: >
+          {% if is_state('input_boolean.cancello_carrabile_in_movimento', 'on') %}
+            {% if is_state('input_boolean.cancello_carrabile_stato', 'on') %}
+              closing
+            {% else %}
+              opening
+            {% endif %}
+          {% elif is_state('input_boolean.cancello_carrabile_stato', 'on') %}
+            open
+          {% else %}
+            closed
+          {% endif %}
 
-        opening: >
-          {{ is_state('input_boolean.cancello_carrabile_in_movimento', 'on')
-             and is_state('input_boolean.cancello_carrabile_stato', 'off') }}
-
-        closing: >
-          {{ is_state('input_boolean.cancello_carrabile_in_movimento', 'on')
-             and is_state('input_boolean.cancello_carrabile_stato', 'on') }}
-
-        open_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.cancello_carrabile
-
-        close_cover:
-          - action: input_boolean.turn_on
-            target:
-              entity_id: input_boolean.cancello_carrabile
+        optimistic: false

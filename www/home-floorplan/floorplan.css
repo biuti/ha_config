@@ -118,8 +118,6 @@ path[id^="light_"] {
   opacity: 0.8;
 }
 
-[id^="cover_garage_"][data-status="moving"],
-[id^="cover_cancello_"][data-status="moving"],
 [id^="cover_garage_"][data-status="opening"],
 [id^="cover_cancello_"][data-status="opening"],
 [id^="cover_garage_"][data-status="closing"],
