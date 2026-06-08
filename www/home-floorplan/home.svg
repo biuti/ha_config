@@ -16,6 +16,8 @@
           x="340" y="1400"
           id="sensor.temperatura_taverna"
           data-entity="sensor.temperatura_taverna"
+          data-zone="interno"
+          data-type="temperatura"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
@@ -152,6 +154,8 @@
           x="256" y="1400"
           id="sensor.temperatura_camera_padronale"
           data-entity="sensor.temperatura_camera_padronale"
+          data-zone="interno"
+          data-type="temperatura"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
@@ -387,6 +391,8 @@
           x="543" y="966"
           id="sensor.temperatura_soggiorno"
           data-entity="sensor.temperatura_soggiorno"
+          data-zone="interno"
+          data-type="temperatura"
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
