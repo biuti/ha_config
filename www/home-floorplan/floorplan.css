@@ -181,7 +181,8 @@ path[id^="light."] {
   paint-order: stroke fill;
 }
 
-[id^="sensor."][data-type="temperatura"][data-zone="esterno"] {
+[id^="sensor."][data-type="temperatura"][data-zone="esterno"],
+[id^="sensor."][data-type="vento"][data-zone="esterno"] {
   fill: lightskyblue;
   opacity: 0.6;
   fill-opacity: 0.6;
@@ -193,6 +194,10 @@ path[id^="light."] {
   stroke-width: 3px;
 
   paint-order: stroke fill;
+}
+
+.sensori-meteo {
+  font-family: monospace;
 }
 
 .light-button,

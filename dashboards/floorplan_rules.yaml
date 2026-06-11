@@ -263,3 +263,11 @@
   state_action:
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
+
+- name: Vento
+  entities:
+    - sensor.vento
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${entity.state}'

@@ -186,6 +186,28 @@ template:
       state: >
         {{ state_attr('weather.forecast_home', 'temperature') }}
 
+    - name: Vento
+      unique_id: vento
+
+      state: >
+        {% set speed = state_attr('weather.forecast_home', 'wind_speed') | float(0) %}
+        {% set bearing = state_attr('weather.forecast_home', 'wind_bearing') | float(0) %}
+
+        {% set dirs = {
+          0:'N',
+          1:'NE',
+          2:'E',
+          3:'SE',
+          4:'S',
+          5:'SO',
+          6:'O',
+          7:'NO'
+        } %}
+
+        {% set idx = ((bearing + 22.5) // 45) % 8 %}
+
+        {{ "%2s %5.1f km/h" | format(dirs[idx | int], speed) }}
+
     - name: Temperatura Soggiorno
       unique_id: temperatura_soggiorno
       unit_of_measurement: "°C"

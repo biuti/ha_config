@@ -582,6 +582,15 @@
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
+        <text 
+          x="1100" y="800"
+          id="sensor.vento"
+          data-entity="sensor.vento"
+          data-zone="esterno"
+          data-type="vento"
+          class="sensor sensori-meteo">
+          <tspan>-- --.- km/h</tspan>
+        </text>
       </g>
       <g id="layer_elementi_comuni_power"/>
       <g id="layer_elementi_comuni_media"/>
