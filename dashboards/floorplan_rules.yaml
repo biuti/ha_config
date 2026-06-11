@@ -260,12 +260,6 @@
   entities:
     - sensor.temperatura_esterna
 
-  element:
-    - sensor.temperatura_esterna_seminterrato
-    - sensor.temperatura_esterna_pt
-    - sensor.temperatura_esterna_p1
-    - sensor.temperatura_esterna_tetto
-
   state_action:
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
