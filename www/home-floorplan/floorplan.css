@@ -50,7 +50,7 @@ svg {
 }
 
 /* Tutte le luci del floorplan */
-path[id^="light_"] {
+path[id^="light."] {
   fill-opacity: 0;
   transition: fill-opacity 0.5s ease-in-out;
 }
@@ -87,7 +87,7 @@ path[id^="light_"] {
 /* Cerchi nel SVG con id che inizia per binary_sensor_ */
 
 /* Stato base */
-[id^="binary_sensor_"] {
+[id^="binary_sensor."] {
   fill: greenyellow;
   fill-opacity: 0.0;
   transition: fill 0.3s ease-in-out, fill-opacity 0.3s ease-in-out;
@@ -100,54 +100,54 @@ path[id^="light_"] {
 } */
 
 /* Aperto */
-[id^="binary_sensor_"][data-state="on"] {
+[id^="binary_sensor."][data-state="on"] {
   fill-opacity: 0.75;
 }
 
 /* Gestione Serrande garage e cancelli — linee */
-[id^="cover_garage_"],
-[id^="cover_cancello_"] {
+[id^="cover.garage_"],
+[id^="cover.cancello_"] {
   stroke-width: 10px;
   transition: all 0.3s ease;
   opacity: 0.0;
 }
 
-[id^="cover_garage_"][data-status="open"],
-[id^="cover_cancello_"][data-status="open"] {
+[id^="cover.garage_"][data-status="open"],
+[id^="cover.cancello_"][data-status="open"] {
   stroke: lightgreen; /* Verde chiaro */
   opacity: 0.8;
 }
 
-[id^="cover_garage_"][data-status="opening"],
-[id^="cover_cancello_"][data-status="opening"],
-[id^="cover_garage_"][data-status="closing"],
-[id^="cover_cancello_"][data-status="closing"] {
+[id^="cover.garage_"][data-status="opening"],
+[id^="cover.cancello_"][data-status="opening"],
+[id^="cover.garage_"][data-status="closing"],
+[id^="cover.cancello_"][data-status="closing"] {
   stroke: orange; /* Arancio */
   animation: pulseCover 1s infinite;
 }
 
 /* Gestione Raffstore - linee */
-[id^="cover_raffstore_"] {
+[id^="cover.raffstore_"] {
   stroke-width: 10px;
   transition: all 0.3s ease;
   opacity: 0.0;
 }
 
 /* Completamente chiusa */
-[id^="cover_raffstore_"][data-state="closed"] {
+[id^="cover.raffstore_"][data-state="closed"] {
   stroke: red;
   opacity: 0.9;
 }
 
 /* Posizione intermedia */
-[id^="cover_raffstore_"][data-state="open"]:not([data-position="100"]) {
+[id^="cover.raffstore_"][data-state="open"]:not([data-position="100"]) {
   stroke: orange;
   opacity: 0.9;
 }
 
 /* In movimento */
-[id^="cover_raffstore_"][data-state="opening"],
-[id^="cover_raffstore_"][data-state="closing"] {
+[id^="cover.raffstore_"][data-state="opening"],
+[id^="cover.raffstore_"][data-state="closing"] {
   stroke: orange;
   opacity: 0.9;
   animation: pulseCover 1s infinite;
@@ -167,7 +167,7 @@ path[id^="light_"] {
 }
 
 /* Sensori Temperatura */
-[id^="sensor"][data-type="temperatura"][data-zone="interno"] {
+[id^="sensor."][data-type="temperatura"][data-zone="interno"] {
   fill: linen;
   opacity: 0.6;
   fill-opacity: 0.6;
@@ -181,7 +181,7 @@ path[id^="light_"] {
   paint-order: stroke fill;
 }
 
-[id^="sensor"][data-type="temperatura"][data-zone="esterno"] {
+[id^="sensor."][data-type="temperatura"][data-zone="esterno"] {
   fill: lightskyblue;
   opacity: 0.6;
   fill-opacity: 0.6;

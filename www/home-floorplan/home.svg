@@ -13,7 +13,7 @@
         <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
         <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
         <text 
-          x="542" y="1500"
+          x="500" y="1500"
           id="sensor.temperatura_taverna"
           data-entity="sensor.temperatura_taverna"
           data-zone="interno"
@@ -22,7 +22,7 @@
           <tspan>--.-°</tspan>
         </text>
         <text 
-          x="1064" y="966"
+          x="1100" y="1000"
           id="sensor.temperatura_esterna_seminterrato"
           data-entity="sensor.temperatura_esterna"
           data-zone="esterno"
@@ -160,7 +160,7 @@
     <g id="layer_piano_terra_interattivo">
       <g id="layer_piano_terra_sensor">
         <text 
-          x="387" y="1460"
+          x="350" y="1500"
           id="sensor.temperatura_camera_padronale"
           data-entity="sensor.temperatura_camera_padronale"
           data-zone="interno"
@@ -169,7 +169,7 @@
           <tspan>--.-°</tspan>
         </text>
         <text 
-          x="1064" y="966"
+          x="1100" y="1000"
           id="sensor.temperatura_esterna_pt"
           data-entity="sensor.temperatura_esterna"
           data-zone="esterno"
@@ -406,7 +406,7 @@
     <g id="layer_piano_primo_interattivo">
       <g id="layer_piano_primo_sensor">
         <text 
-          x="543" y="966"
+          x="600" y="1400"
           id="sensor.temperatura_soggiorno"
           data-entity="sensor.temperatura_soggiorno"
           data-zone="interno"
@@ -415,7 +415,7 @@
           <tspan>--.-°</tspan>
         </text>
         <text 
-          x="1064" y="966"
+          x="1100" y="1000"
           id="sensor.temperatura_esterna_p1"
           data-entity="sensor.temperatura_esterna"
           data-zone="esterno"
@@ -583,7 +583,7 @@
     <g id="layer_tetto_interattivo">
       <g id="layer_tetto_sensor">
         <text 
-          x="1064" y="966"
+          x="1100" y="1000"
           id="sensor.temperatura_esterna_tetto"
           data-entity="sensor.temperatura_esterna"
           data-zone="esterno"
