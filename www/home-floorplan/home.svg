@@ -13,7 +13,7 @@
         <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
         <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
         <text 
-          x="500" y="1500"
+          x="500" y="1490"
           id="sensor.temperatura_taverna"
           data-entity="sensor.temperatura_taverna"
           data-zone="interno"
@@ -160,7 +160,7 @@
     <g id="layer_piano_terra_interattivo">
       <g id="layer_piano_terra_sensor">
         <text 
-          x="350" y="1500"
+          x="350" y="1450"
           id="sensor.temperatura_camera_padronale"
           data-entity="sensor.temperatura_camera_padronale"
           data-zone="interno"
