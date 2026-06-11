@@ -81,8 +81,6 @@
     - light.cancelli
     - light.segnapassi_scale_esterne
 
-  element: ${entity.entity_id.replace('.', '_')}
-
   state_action:
     action: call-service
     service: floorplan.dataset_set
@@ -95,10 +93,10 @@
     - light.luci_vano_scale
 
   element:
-    - light_vano_scale_seminterrato
-    - light_vano_scale_piano_terra
-    - light_vano_scale_piano_primo
-    - light_corridoio
+    - light.vano_scale_seminterrato
+    - light.vano_scale_piano_terra
+    - light.vano_scale_piano_primo
+    - light.corridoio
 
   state_action:
     action: call-service
@@ -139,7 +137,7 @@
     - light.cancelli
     - light.segnapassi_scale_esterne
 
-  element: ${`btn_${entity.entity_id.replace('.', '_')}`}
+  element: ${`btn_${entity.entity_id}`}
 
   tap_action: toggle
 
@@ -156,10 +154,10 @@
     - light.luci_vano_scale
 
   element:
-    - btn_light_vano_scale_seminterrato
-    - btn_light_vano_scale_piano_terra
-    - btn_light_vano_scale_piano_primo
-    - btn_light_corridoio
+    - btn_light.vano_scale_seminterrato
+    - btn_light.vano_scale_piano_terra
+    - btn_light.vano_scale_piano_primo
+    - btn_light.corridoio
 
   tap_action: toggle
 
@@ -189,8 +187,6 @@
     - binary_sensor.porta_garage
     - binary_sensor.cancello_pedonale
 
-  element: ${entity.entity_id.replace('.', '_')}
-
   tap_action: more-info
 
   state_action:
@@ -207,8 +203,6 @@
     - cover.garage_est
     - cover.garage_ovest
     - cover.cancello_carrabile
-
-  element: ${entity.entity_id.replace('.', '_')}
 
   state_action:
     action: call-service
@@ -237,8 +231,6 @@
     - cover.raffstore_fin_cucina
     - cover.raffstore_fin_bagno_p1
 
-  element: ${entity.entity_id.replace('.', '_')}
-
   state_action:
     - action: call-service
       service: floorplan.dataset_set
@@ -259,6 +251,19 @@
     - sensor.temperatura_taverna
     - sensor.temperatura_camera_padronale
     - sensor.temperatura_soggiorno
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
+
+- name: Temperatura Esterna
+  entities:
+    - sensor.temperatura_esterna
+
+  element:
+    - sensor.temperatura_esterna_seminterrato
+    - sensor.temperatura_esterna_pt
+    - sensor.temperatura_esterna_p1
 
   state_action:
     - service: floorplan.text_set

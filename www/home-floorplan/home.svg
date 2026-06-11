@@ -21,43 +21,52 @@
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
+        <text 
+          x="543" y="966"
+          id="sensor.temperatura_esterna_seminterrato"
+          data-entity="sensor.temperatura_esterna"
+          data-zone="esterno"
+          data-type="temperatura"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
+        </text>
       </g>
       <g id="layer_seminterrato_power"/>
       <g id="layer_seminterrato_media"/>
       <g id="layer_seminterrato_light">
         <path fill="#ffff00" 
           d="m 228.50644,1236.4046 263.05799,1.6582 -0.11624,-124.537 174.04422,1.4075 -2.63374,546.869 -436.86583,-1.0673 z"
-          id="light_taverna"
+          id="light.taverna"
           class="light"
           data-entity="light.taverna"
           data-zone="interno"/>
         <path fill="#ffff00" 
           d="m 679.74061,1114.5973 226.63762,2.2545 -2.18054,418.0541 -94.50471,-0.4278 1.56437,-301.5394 -10.5829,-0.2631 -2.60298,314.0984 105.48715,0.081 -0.4446,115.4045 -195.53949,-0.62 1.9065,-329.7478 -31.09814,-0.1632 z"
-          id="light_vano_scale_seminterrato"
+          id="light.vano_scale_seminterrato"
           class="light"
           data-entity="light.vano_scale"
           data-zone="interno"/>
         <path fill="#ff7f2a"
           d="m 230.54684,870.56638 249.2943,0.93853 -2.21009,353.13559 -248.84938,-1.9086 0.61695,-99.5202 162.98628,1.1302 0.25492,-13.5181 -163.26978,-1.1324 z"
-          id="light_bagno_taverna"
+          id="light.bagno_taverna"
           class="light"
           data-entity="light.bagno_taverna"
           data-zone="interno"/>
         <path fill="#ff7f2a"
           d="m 501.93781,872.35998 405.74363,2.40998 -1.22379,220.16884 -405.65289,-2.7504 z"
-          id="light_lavanderia"
+          id="light.lavanderia"
           class="light"
           data-entity="light.lavanderia"
           data-zone="interno"/>
         <path fill="#800000" 
           d="m 234.55996,274.88966 677.29334,3.8909 -3.4599,554.09598 -676.78253,-4.2384 z"
-          id="light_locale_tecnico"
+          id="light.locale_tecnico"
           class="light"
           data-entity="light.locale_tecnico"
           data-zone="interno"/>
         <path fill="#ff7f2a"
           d="m 1031.2349,1860 9.603,-623.5607 -97.61059,-1.0101 -2.99761,465.7782 -751.95107,-2.5228 16.20987,14.9789 -91.24575,0.139 0.0854,96.0384 464.89383,1.4925 -0.12877,48.6666 z"
-          id="light_ingresso_seminterrato"
+          id="light.ingresso_seminterrato"
           class="light"
           data-entity="light.ingresso_seminterrato"
           data-zone="esterno"/>
@@ -65,13 +74,13 @@
       <g id="layer_seminterrato_cover">
         <path
           d="m 243.98361,1719.8862 256.00878,1.6409"
-          id="cover_raffstore_pf_taverna"
+          id="cover.raffstore_pf_taverna"
           data-entity="cover.raffstore_pf_taverna"
           data-type="raffstore"
           class="cover cover-seminterrato"/>
         <path
           d="m 186.76391,1090.1831 0.50537,-72.0569 v 0"
-          id="cover_raffstore_fin_bagno_taverna"
+          id="cover.raffstore_fin_bagno_taverna"
           data-entity="cover.raffstore_fin_bagno_taverna"
           data-type="raffstore"
           class="cover cover-seminterrato"/>
@@ -81,25 +90,25 @@
       </g>
       <g id="layer_seminterrato_binary_sensor">
         <circle
-          id="binary_sensor_porta_seminterrato"
+          id="binary_sensor.porta_seminterrato"
           cx="760"
           cy="1635"
           r="15"
           class="binary-sensor sensori-porte" />
         <circle
-          id="binary_sensor_pf_taverna"
+          id="binary_sensor.pf_taverna"
           cx="280"
           cy="1635"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
-          id="binary_sensor_fin_bagno_taverna"
+          id="binary_sensor.fin_bagno_taverna"
           cx="269"
           cy="1068"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
-          id="binary_sensor_fin_lavanderia"
+          id="binary_sensor.fin_lavanderia"
           cx="873"
           cy="952"
           r="15"
@@ -159,83 +168,92 @@
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
+        <text 
+          x="543" y="966"
+          id="sensor.temperatura_esterna_pt"
+          data-entity="sensor.temperatura_esterna"
+          data-zone="esterno"
+          data-type="temperatura"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
+        </text>
       </g>
       <g id="layer_piano_terra_power"/>
       <g id="layer_piano_terra_media"/>
       <g id="layer_piano_terra_light">
         <path fill="#0000ff"
           d="M 1030.7075,1860 H 578.5368 l -0.0532,-46.9894 347.78389,2.2809 1.26152,-110.9319 12.94285,0.043 8.8714,-20.0395 4.6078,-763.59695 87.91084,0.19532 z"
-          id="light_ingresso_principale"
+          id="light.ingresso_principale"
           class="light"
           data-entity="light.ingresso_principale"
           data-zone="esterno"/>
         <path fill="#0000ff" 
           d="m 1041.8619,920.96147 -87.91081,-0.19532 4.50417,-766.06718 -498.06945,-2.61188 -0.0675,-105.717012 30.46135,-0.177223 0.18267,5.415976 28.07721,0.188116 0.38774,4.8775 27.27775,-0.08725 0.38774,5.244193 27.1177,0.369412 0.27401,5.421446 28.36249,0.366621 0.39294,4.972919 28.32458,0.0954 0.46691,5.316495 26.3733,0.20036 0.06,4.750682 27.82213,0.02723 0.62814,5.128357 26.50301,-0.27657 0.28424,5.150158 26.229,0.0013 0.43306,5.518173 27.34758,0.372166 0.15906,5.516861 310.39658,2.76316 -1.8366,271.35161 -5.715,39.29538 -24.5061,0.35987 z"
-          id="light_esterno_nord"
+          id="light.esterno_nord"
           class="light"
           data-zone="esterno"/>
         <path fill="#0000ff"
           d="m 927.52904,1704.3596 5.33424,-20.0767 -770.95171,-4.9588 3.23345,-464.2099 -87.742778,-0.5007 -3.820697,595.0858 852.685975,5.5922 z"
-          id="light_balcone_piano_terra"
+          id="light.balcone_piano_terra"
           class="light"
           data-entity="light.balcone_piano_terra"
           data-zone="esterno"/>
         <path fill="#ffff00"
           d="m 909.64792,1644.7994 -205.06508,-0.3652 2.85745,-394.5308 -9.28131,-268.44193 -2.09416,-48.79111 218.00848,1.46247 z"
-          id="light_vano_scale_piano_terra"
+          id="light.vano_scale_piano_terra"
           class="light"
           data-entity="light.vano_scale"
           data-zone="interno"/>
         <path fill="#0000ff" 
           d="m 97.275662,136.09617 73.544828,-0.16901 -1.51555,381.91053 -72.736163,0.0848 z"
-          id="light_esterno_ovest"
+          id="light.esterno_ovest"
           class="light"
           data-zone="esterno"/>
         <path fill="#ff6600"
           d="m 204.13373,1121.9045 1.00468,-218.63503 362.93305,2.42566 -0.93991,218.53627 z"
-          id="light_bagno_padronale"
+          id="light.bagno_padronale"
           class="light"
           data-entity="light.bagno_padronale"
           data-zone="interno"/>
         <path fill="#ff6600"
           d="m 205.48383,889.71646 362.76352,2.25748 1.38783,-201.63201 -362.88409,-2.10367 z"
-          id="light_bagno_comune"
+          id="light.bagno_comune"
           class="light"
           data-entity="light.bagno_comune"
           data-zone="interno"/>
         <path fill="#ff6600"
           d="m 914.67641,920.48565 1.09508,-120.76866 -50.0215,0.0822 1.0499,-107.49991 -156.42245,-1.03024 -1.38446,227.821 z"
-          id="light_ripostiglio_pt"
+          id="light.ripostiglio_pt"
           class="light"
           data-entity="light.ripostiglio_pt"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 201.2997,1640.7303 3.18678,-499.1509 361.61187,1.8101 0.0247,106.1193 -59.19191,-0.5167 0.37102,13.387 9.89537,34.8809 3.91848,46.7345 -3.98441,-7.624 -10.90114,-0.1411 -1.31502,232.6361 8.34421,22.3451 0.33729,51.3918 z"
-          id="light_camera_padronale"
+          id="light.camera_padronale"
           class="light"
           data-entity="light.camera_padronale"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 513.5969,1642.6024 171.9855,1.375 2.17097,-380.5479 -180.45125,-1.0504 9.89537,34.8809 3.91848,46.7345 -3.98441,-7.624 -1.4172,232.42 -10.79896,0.075 8.34421,22.3451 z"
-          id="light_cabina_armadio"
+          id="light.cabina_armadio"
           class="light"
           data-entity="light.cabina_armadio"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 207.59155,668.23386 2.44677,-478.64286 362.10923,2.28762 -3.18763,478.91642 z"
-          id="light_camera_ospiti"
+          id="light.camera_ospiti"
           class="light"
           data-entity="light.camera_ospiti"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 591.60926,191.41593 327.02814,2.2972 -2.31874,429.75983 -128.9786,-0.72561 -0.29038,50.17804 -76.61066,-0.92277 1.66988,-246.38728 -121.87099,-0.79302 z"
-          id="light_studio"
+          id="light.studio"
           class="light"
           data-entity="light.studio"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 697.70811,503.6691 -107.7676,-0.46605 -4.37096,745.55315 121.87074,1.1472 -9.28131,-268.44193 -2.09416,-48.79111 z"
-          id="light_corridoio"
+          id="light.corridoio"
           class="light"
           data-entity="light.corridoio"
           data-zone="interno"/>
@@ -243,37 +261,37 @@
       <g id="layer_piano_terra_cover">
         <path
           d="m 224.08155,1703.1719 264.28479,1.6397"
-          id="cover_raffstore_pf_camera_padronale"
+          id="cover.raffstore_pf_camera_padronale"
           data-entity="cover.raffstore_pf_camera_padronale"
           data-type="raffstore"
           class="cover cover-piano-terra"/>
         <path
           d="m 159.61076,1047.5072 -0.0253,-78.54475"
-          id="cover_raffstore_fin_bagno_padronale"
+          id="cover.raffstore_fin_bagno_padronale"
           data-entity="cover.raffstore_fin_bagno_padronale"
           data-type="raffstore"
           class="cover cover-piano-terra"/>
         <path
           d="m 161.61474,799.2046 -0.0253,-78.5448"
-          id="cover_raffstore_fin_bagno_comune"
+          id="cover.raffstore_fin_bagno_comune"
           data-entity="cover.raffstore_fin_bagno_comune"
           data-type="raffstore"
           class="cover cover-piano-terra"/>
         <path
           d="m 163.81325,415.08747 1.51649,-176.15343"
-          id="cover_raffstore_pf_camera_ospiti"
+          id="cover.raffstore_pf_camera_ospiti"
           data-entity="cover.raffstore_pf_camera_ospiti"
           data-type="raffstore"
           class="cover cover-piano-terra"/>
         <path
           d="m 961.5311,612.50963 0.60534,-162.08911"
-          id="cover_raffstore_fin_studio"
+          id="cover.raffstore_fin_studio"
           data-entity="cover.raffstore_fin_studio"
           data-type="raffstore"
           class="cover cover-piano-terra"/>
         <path
           d="m 729.98701,1706.4139 149.99687,1.0801"
-          id="cover_raffstore_fin_vano_scale_pt"
+          id="cover.raffstore_fin_vano_scale_pt"
           data-entity="cover.raffstore_fin_vano_scale_pt"
           data-type="raffstore"
           class="cover cover-piano-terra cover-vano-scale"/>
@@ -281,37 +299,37 @@
       <g id="layer_piano_terra_climate"/>
       <g id="layer_piano_terra_binary_sensor">
         <circle
-          id="binary_sensor_porta_piano_terra"
+          id="binary_sensor.porta_piano_terra"
           cx="883"
           cy="1013"
           r="15"
           class="binary-sensor sensori-porte" />
         <circle
-          id="binary_sensor_pf_camera_padronale"
+          id="binary_sensor.pf_camera_padronale"
           cx="260"
           cy="1615"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
-          id="binary_sensor_fin_bagno_padronale"
+          id="binary_sensor.fin_bagno_padronale"
           cx="247"
           cy="1034"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
-          id="binary_sensor_fin_bagno_comune"
+          id="binary_sensor.fin_bagno_comune"
           cx="250"
           cy="786"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
-          id="binary_sensor_pf_camera_ospiti"
+          id="binary_sensor.pf_camera_ospiti"
           cx="261"
           cy="350"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
-          id="binary_sensor_fin_studio"
+          id="binary_sensor.fin_studio"
           cx="888"
           cy="534"
           r="15"
@@ -396,49 +414,58 @@
           class="sensor sensori-temperatura">
           <tspan>--.-°</tspan>
         </text>
+        <text 
+          x="543" y="966"
+          id="sensor.temperatura_esterna_p1"
+          data-entity="sensor.temperatura_esterna"
+          data-zone="esterno"
+          data-type="temperatura"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
+        </text>
       </g>
       <g id="layer_piano_primo_power"/>
       <g id="layer_piano_primo_media"/>
       <g id="layer_piano_primo_light">
         <path fill="#0000ff"
           d="m 961.25395,320.15304 1.09792,-208.31696 -504.76769,-2.87093 0.75138,-62.667618 -5.18558,-30.375464 -0.0471,-13.3789352 -293.49785,-1.40145 -0.002,314.4653072 z"
-          id="light_terrazzo_nord"
+          id="light.terrazzo_nord"
           class="light"
           data-entity="light.terrazzo_nord"
           data-zone="esterno"/>
         <path fill="#ffff00"
           d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 -497.67336,0.28443 -4.51579,677.66398 533.11578,4.2156 0.46679,3.4465 z"
-          id="light_soggiorno"
+          id="light.soggiorno"
           class="light"
           data-entity="light.soggiorno"
           data-zone="interno"/>
         <path fill="#ffff00"
           d="m 706.00255,1619.8606 1.63532,-164.773 3.1065,27.0858 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -4.05198,440.6351 z"
-          id="light_vano_scale_piano_primo"
+          id="light.vano_scale_piano_primo"
           class="light"
           data-entity="light.vano_scale"
           data-zone="interno"/>
         <path fill="#0000ff"
           d="m 696.82645,1680.5571 -32.49235,-19.9473 1.44166,-167.7679 -533.57008,-3.5012 1.54908,-318.4528 -89.207308,-0.2789 -4.478905,620.6053 656.175103,4.1696 z"
-          id="light_terrazzo_sud"
+          id="light.terrazzo_sud"
           class="light"
           data-entity="light.terrazzo_sud"
           data-zone="esterno"/>
         <path fill="#ff6600"
           d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -2.00824,413.17603 z"
-          id="light_cucina"
+          id="light.cucina"
           class="light"
           data-entity="light.cucina"
           data-zone="interno"/>
         <path fill="#ff6600"
           d="m 923.57646,755.75501 0.16486,-23.41934 -52.51041,0.33487 0.79458,-113.36822 -180.2837,-0.82351 -0.58596,135.32561 z"
-          id="light_ripostiglio_p1"
+          id="light.ripostiglio_p1"
           class="light"
           data-entity="light.ripostiglio_p1"
           data-zone="interno"/>
         <path fill="#ff6600"
           d="m 924.54151,547.62537 1.16662,-186.5588 -232.24354,-1.5309 -1.3493,238.60587 96.34067,0.72198 0.63497,-52.32252 z"
-          id="light_bagno_p1"
+          id="light.bagno_p1"
           class="light"
           data-entity="light.bagno_p1"
           data-zone="interno"/>
@@ -446,41 +473,41 @@
       <g id="layer_piano_primo_cover">
         <path
           d="m 728.03476,1686.8986 158.88833,1.9072"
-          id="cover_raffstore_fin_vano_scale_p1"
+          id="cover.raffstore_fin_vano_scale_p1"
           data-entity="cover.raffstore_fin_vano_scale_p1"
           class="cover cover-piano-primo cover-vano-scale"/>
         <path
           d="m 130.94926,727.19821 1.69085,-184.77227"
-          id="cover_raffstore_fin_cucina"
+          id="cover.raffstore_fin_cucina"
           data-entity="cover.raffstore_fin_cucina"
           data-type="raffstore"
           class="cover cover-piano-primo"/>
         <path
           d="m 127.1131,1445.7215 1.17597,-182.5107"
-          id="cover_raffstore_fin_soggiorno_ovest"
+          id="cover.raffstore_fin_soggiorno_ovest"
           data-entity="cover.raffstore_fin_soggiorno_ovest"
           data-type="raffstore"
           class="cover cover-piano-primo"/>
         <path
           d="m 968.68564,1037.44 -0.053,-43.36403"
-          id="cover_raffstore_fin_soggiorno_est"
+          id="cover.raffstore_fin_soggiorno_est"
           data-entity="cover.raffstore_fin_soggiorno_est"
           data-type="raffstore"
           class="cover cover-piano-primo"/>
         <path
           d="m 971.59536,546.01229 -0.053,-43.36396"
-          id="cover_raffstore_fin_bagno_p1"
+          id="cover.raffstore_fin_bagno_p1"
           data-entity="cover.raffstore_fin_bagno_p1"
           class="cover cover-piano-primo"/>
         <path
           d="m 199.50597,1521.7208 278.96615,1.8497"
-          id="cover_raffstore_pf_soggiorno"
+          id="cover.raffstore_pf_soggiorno"
           data-entity="cover.raffstore_pf_soggiorno"
           data-type="raffstore"
           class="cover cover-piano-primo"/>
         <path
           d="m 470.37439,311.1982 85.77802,0.57251"
-          id="cover_raffstore_pf_cucina"
+          id="cover.raffstore_pf_cucina"
           data-entity="cover.raffstore_pf_cucina"
           data-type="raffstore"
           class="cover cover-piano-primo"/>
@@ -488,19 +515,19 @@
       <g id="layer_piano_primo_climate"/>
       <g id="layer_piano_primo_binary_sensor">
         <circle
-          id="binary_sensor_pf_cucina"
+          id="binary_sensor.pf_cucina"
           cx="523"
           cy="462"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
         <circle
-          id="binary_sensor_fin_cucina"
+          id="binary_sensor.fin_cucina"
           cx="228"
           cy="657"
           r="15"
           class="binary-sensor sensori-finestre" />
         <circle
-          id="binary_sensor_pf_soggiorno"
+          id="binary_sensor.pf_soggiorno"
           cx="235"
           cy="1422"
           r="15"
@@ -562,7 +589,7 @@
       <g id="layer_tetto_climate"/>
       <g id="layer_tetto_binary_sensor"/>
       <g id="layer_tetto_buttons">
-        <g id="light_buttons_tetto">
+        <g id="light.buttons_tetto">
           <path
             id="btn_light_perimetro_edificio"
             class="light-button"
