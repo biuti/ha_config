@@ -176,6 +176,12 @@ template:
 
   - sensor:
 
+    - name: Meteo Attuale
+      unique_id: meteo_attuale
+
+      state: >
+        {{ states('weather.forecast_home') }}
+
     - name: Temperatura Esterna
       unique_id: temperatura_esterna
 
@@ -207,6 +213,16 @@ template:
         {% set idx = ((bearing + 22.5) // 45) % 8 %}
 
         {{ "%2s %5.1f km/h" | format(dirs[idx | int], speed) }}
+
+    - name: Umidita Esterna
+      unique_id: umidita_esterna
+
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+
+      state: >
+        {{ state_attr('weather.forecast_home', 'humidity') }}
 
     - name: Temperatura Soggiorno
       unique_id: temperatura_soggiorno

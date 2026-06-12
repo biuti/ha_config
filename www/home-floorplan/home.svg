@@ -574,22 +574,41 @@
     <g id="layer_elementi_comuni_interattivo">
       <g id="layer_elementi_comuni_sensor">
         <text 
-          x="1060" y="800"
+          x="1060" y="700"
+          id="sensor.meteo_attuale"
+          data-entity="sensor.meteo_attuale"
+          data-zone="esterno"
+          data-type="meteo"
+          class="sensor sensori-meteo icona-meteo">
+          <tspan>---</tspan>
+        </text>
+        <text 
+          x="1060" y="850"
           id="sensor.vento"
           data-entity="sensor.vento"
           data-zone="esterno"
           data-type="vento"
           class="sensor sensori-meteo">
           <tspan>-- --.- km/h</tspan>
-        </text>        
+        </text>
         <text 
           x="1060" y="1000"
           id="sensor.temperatura_esterna"
           data-entity="sensor.temperatura_esterna"
           data-zone="esterno"
           data-type="temperatura"
-          class="sensor sensori-temperatura">
+          class="sensor sensori-meteo">
           <tspan>--.-°</tspan>
+        </text>
+        <text
+          x="1060"
+          y="1150"
+          id="sensor.umidita_esterna"
+          data-entity="sensor.umidita_esterna"
+          data-zone="esterno"
+          data-type="umidita"
+          class="sensor sensori-meteo">
+          <tspan>--%</tspan>
         </text>
       </g>
       <g id="layer_elementi_comuni_power"/>
@@ -602,7 +621,14 @@
       <g id="layer_elementi_comuni_label">
         <text
           x="1060"
-          y="730"
+          y="630"
+          id="label_meteo"
+          class="label label-meteo">
+          <tspan>Meteo:</tspan>
+        </text>
+        <text
+          x="1060"
+          y="780"
           id="label_vento"
           class="label label-meteo">
           <tspan>Vento:</tspan>
@@ -613,6 +639,13 @@
           id="label_temperatura_esterna"
           class="label label-meteo">
           <tspan>Temperatura Esterna:</tspan>
+        </text>
+        <text
+          x="1060"
+          y="1080"
+          id="label_umidita"
+          class="label label-meteo">
+          <tspan>Umidità:</tspan>
         </text>
       </g>
     </g>

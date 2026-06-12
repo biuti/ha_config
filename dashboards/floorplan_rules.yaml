@@ -264,6 +264,28 @@
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
+- name: Meteo Icona
+
+  entities:
+    - sensor.meteo_attuale
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: >
+        ${
+          {
+            "sunny":"☀️",
+            "partlycloudy":"⛅",
+            "cloudy":"☁️",
+            "rainy":"🌧️",
+            "pouring":"🌧️",
+            "snowy":"❄️",
+            "fog":"🌫️",
+            "windy":"💨",
+            "lightning":"⚡"
+          }[entity.state] || "?"
+        }
+
 - name: Vento
   entities:
     - sensor.vento
@@ -271,3 +293,12 @@
   state_action:
     - service: floorplan.text_set
       service_data: '${entity.state}'
+
+- name: Umidita Esterna
+
+  entities:
+    - sensor.umidita_esterna
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${entity.state + "%"}'

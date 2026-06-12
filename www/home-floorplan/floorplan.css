@@ -193,6 +193,10 @@ path[id^="light."] {
   font-family: monospace;
 } */
 
+.meteo-icona {
+  font-size: 72px;
+}
+
 /* Stili per le label */
 .label {
   fill: lightgray;
