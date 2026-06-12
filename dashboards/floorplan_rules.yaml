@@ -264,6 +264,18 @@
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
+# UMIDITÀ
+- name: Umidità Interna
+
+  entities:
+    # - sensor.umidita_taverna
+    # - sensor.umidita_camera_padronale
+    - sensor.umidita_soggiorno
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + "%"}'
+
 - name: Meteo Icona
 
   entities:

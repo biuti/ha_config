@@ -231,6 +231,13 @@ template:
       state_class: measurement
       state: "{{ states('input_number.temp_soggiorno') }}"
 
+    - name: Umidità Soggiorno
+      unique_id: umidita_soggiorno
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_soggiorno') }}"
+
     - name: Temperatura Camera Padronale
       unique_id: temperatura_camera_padronale
       unit_of_measurement: "°C"

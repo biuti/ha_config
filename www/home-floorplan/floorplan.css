@@ -158,7 +158,7 @@ path[id^="light."] {
 }
 
 /* Sensori Temperatura */
-[id^="sensor."][data-type="temperatura"][data-zone="interno"] {
+[id^="sensor."][data-zone="interno"] {
   fill: linen;
   opacity: 0.8;
   fill-opacity: 0.8;
@@ -173,8 +173,7 @@ path[id^="light."] {
   paint-order: stroke fill;
 }
 
-[id^="sensor."][data-type="temperatura"][data-zone="esterno"],
-[id^="sensor."][data-type="vento"][data-zone="esterno"] {
+[id^="sensor."][data-zone="esterno"].sensori-meteo {
   fill: lightskyblue;
   opacity: 0.8;
   fill-opacity: 0.8;
@@ -193,8 +192,8 @@ path[id^="light."] {
   font-family: monospace;
 } */
 
-.meteo-icona {
-  font-size: 72px;
+[id^="sensor."][data-zone="esterno"].icona-meteo {
+  font-size: 76px;
 }
 
 /* Stili per le label */
