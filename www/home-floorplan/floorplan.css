@@ -40,15 +40,6 @@ svg {
   visibility: hidden !important;
 }
 
-/* Stili per le label temperature */
-.temp-label {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  fill: white;
-  font-weight: bold;
-  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
-}
-
 /* Tutte le luci del floorplan */
 path[id^="light."] {
   fill-opacity: 0;
@@ -187,19 +178,28 @@ path[id^="light."] {
   opacity: 0.6;
   fill-opacity: 0.6;
 
-  font-size: 60px;
+  font-size: 58px;
   font-weight: bold;
 
   stroke: skyblue;
-  stroke-width: 3px;
+  stroke-width: 1px;
 
   paint-order: stroke fill;
 }
 
-.sensori-meteo {
+/* .sensori-meteo {
   font-family: monospace;
+} */
+
+/* Stili per le label */
+.label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  fill: white;
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
+/* Cursore a mano per elementi interattivi */
 .light-button,
 .cover-open,
 .cover-moving,
@@ -208,19 +208,7 @@ path[id^="light."] {
   cursor: pointer;
 }
 
-.test-temp {
-  fill: magenta !important;
-  opacity: 1 !important;
-
-  font-size: 30px !important;
-  font-weight: bold !important;
-
-  stroke: white !important;
-  stroke-width: 3px !important;
-
-  paint-order: stroke fill;
-}
-
+/* Animazioni */
 @keyframes pulse {
   0%   { opacity: 1; stroke-width: 10px; }
   50%  { opacity: 0.4; stroke-width: 14px; }

@@ -574,22 +574,22 @@
     <g id="layer_elementi_comuni_interattivo">
       <g id="layer_elementi_comuni_sensor">
         <text 
-          x="1100" y="1000"
-          id="sensor.temperatura_esterna"
-          data-entity="sensor.temperatura_esterna"
-          data-zone="esterno"
-          data-type="temperatura"
-          class="sensor sensori-temperatura">
-          <tspan>--.-°</tspan>
-        </text>
-        <text 
-          x="1100" y="800"
+          x="1060" y="800"
           id="sensor.vento"
           data-entity="sensor.vento"
           data-zone="esterno"
           data-type="vento"
           class="sensor sensori-meteo">
           <tspan>-- --.- km/h</tspan>
+        </text>        
+        <text 
+          x="1060" y="1000"
+          id="sensor.temperatura_esterna"
+          data-entity="sensor.temperatura_esterna"
+          data-zone="esterno"
+          data-type="temperatura"
+          class="sensor sensori-temperatura">
+          <tspan>--.-°</tspan>
         </text>
       </g>
       <g id="layer_elementi_comuni_power"/>
@@ -599,7 +599,22 @@
       <g id="layer_elementi_comuni_climate"/>
       <g id="layer_elementi_comuni_binary_sensor"/>
       <g id="layer_elementi_comuni_buttons"/>
-      <g id="layer_elementi_comuni_label"/>
+      <g id="layer_elementi_comuni_label">
+        <text
+          x="1060"
+          y="750"
+          id="label_vento"
+          class="label label-meteo">
+          <tspan>Vento:</tspan>
+        </text>
+        <text
+          x="1060"
+          y="950"
+          id="label_temperatura_esterna"
+          class="label label-meteo">
+          <tspan>Temperatura Esterna:</tspan>
+        </text>
+      </g>
     </g>
   </g>
 </svg>
