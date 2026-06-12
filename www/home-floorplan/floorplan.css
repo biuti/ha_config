@@ -160,14 +160,15 @@ path[id^="light."] {
 /* Sensori Temperatura */
 [id^="sensor."][data-type="temperatura"][data-zone="interno"] {
   fill: linen;
-  opacity: 0.6;
-  fill-opacity: 0.6;
+  opacity: 0.8;
+  fill-opacity: 0.8;
 
-  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 58px;
   font-weight: bold;
 
   stroke: linen;
-  stroke-width: 3px;
+  stroke-width: 1px;
 
   paint-order: stroke fill;
 }
@@ -175,9 +176,10 @@ path[id^="light."] {
 [id^="sensor."][data-type="temperatura"][data-zone="esterno"],
 [id^="sensor."][data-type="vento"][data-zone="esterno"] {
   fill: lightskyblue;
-  opacity: 0.6;
-  fill-opacity: 0.6;
+  opacity: 0.8;
+  fill-opacity: 0.8;
 
+  font-family: 'Roboto', sans-serif;
   font-size: 58px;
   font-weight: bold;
 
@@ -193,9 +195,12 @@ path[id^="light."] {
 
 /* Stili per le label */
 .label {
+  fill: lightgray;
+  opacity: 0.8;
+
   font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  fill: white;
+  font-size: 36px;
+
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 

@@ -602,14 +602,14 @@
       <g id="layer_elementi_comuni_label">
         <text
           x="1060"
-          y="750"
+          y="730"
           id="label_vento"
           class="label label-meteo">
           <tspan>Vento:</tspan>
         </text>
         <text
           x="1060"
-          y="950"
+          y="930"
           id="label_temperatura_esterna"
           class="label label-meteo">
           <tspan>Temperatura Esterna:</tspan>
