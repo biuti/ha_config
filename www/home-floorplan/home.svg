@@ -385,24 +385,77 @@
     </g>
     <g id="layer_piano_primo_interattivo">
       <g id="layer_piano_primo_sensor">
-        <text 
-          x="650" y="1300"
+        <g id="temperatura_soggiorno_group"
+          data-zone="interno"
+          data-type="temperatura">
+          <text
+            x="600" y="1250"
+            id="label.temperatura_soggiorno"
+            class="label label-temperatura">
+            <tspan>T:</tspan>
+          </text>
+          <text
+            x="650" y="1250"
+            id="sensor.temperatura_soggiorno"
+            class="sensor sensori-temperatura">
+            <tspan>--.-°</tspan>
+          </text>
+        </g>
+        <g id="umidita_soggiorno_group"
+          class="sensor-hidden"
+          data-zone="interno"
+          data-type="umidita"
+          data-limit="75">
+          <text
+            x="600" y="1325"
+            id="label.umidita_soggiorno"
+            class="label label-umidita">
+            <tspan>U:</tspan>
+          </text>
+          <text
+            x="650" y="1325"
+            id="sensor.umidita_soggiorno"
+            class="sensor sensori-umidita">
+            <tspan>--%</tspan>
+          </text>
+        </g>
+        <g id="co2_soggiorno_group"
+          class="sensor-hidden"
+          data-zone="interno"
+          data-type="co2"
+          data-limit="1000">
+          <text
+            x="600" y="1400"
+            id="label.co2_soggiorno"
+            class="label label-co2">
+            <tspan>CO₂:</tspan>
+          </text>
+          <text
+            x="650" y="1400"
+            id="sensor.co2_soggiorno"
+            class="sensor sensori-co2">
+            <tspan>--- ppm</tspan>
+          </text>
+        </g>
+
+        <!-- <text 
+          x="650" y="1320"
           id="sensor.temperatura_soggiorno"
           data-entity="sensor.temperatura_soggiorno"
           data-zone="interno"
           data-type="temperatura"
           class="sensor sensori-temperatura">
-          <tspan>--.-°</tspan>
-        </text>
-        <text 
-          x="690" y="1400"
+          <tspan>-.-°</tspan>
+        </text> -->
+        <!-- <text 
+          x="700" y="1400"
           id="sensor.umidita_soggiorno"
           data-entity="sensor.umidita_soggiorno"
           data-zone="interno"
           data-type="umidita"
           class="sensor sensori-umidita">
-          <tspan>--%</tspan>
-        </text>
+          <tspan>-%</tspan>
+        </text> -->
       </g>
       <g id="layer_piano_primo_power"/>
       <g id="layer_piano_primo_media"/>
@@ -553,14 +606,14 @@
       </g>
       <g id="layer_piano_primo_label">
         <text
-          x="500"
-          y="1300"
+          x="600"
+          y="1320"
           id="label_temperatura_p1"
           class="label label-temperatura">
           <tspan>T:</tspan>
         </text>
         <text
-          x="500"
+          x="600"
           y="1400"
           id="label_umidita_p1"
           class="label label-umidita">

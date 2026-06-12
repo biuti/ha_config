@@ -268,8 +268,8 @@
 - name: Umidità Interna
 
   entities:
-    # - sensor.umidita_taverna
-    # - sensor.umidita_camera_padronale
+    - sensor.umidita_taverna
+    - sensor.umidita_bagno_padronale
     - sensor.umidita_soggiorno
 
   state_action:
@@ -313,4 +313,47 @@
 
   state_action:
     - service: floorplan.text_set
-      service_data: '${entity.state + "%"}'
+      service_data: '${Math.round(entity.state) + "%"}'
+
+- name: Umidità Interna
+
+  entities:
+    - sensor.umidita_soggiorno
+    - sensor.umidita_bagno_padronale
+    - sensor.umidita_bagno_comune
+    - sensor.umidita_taverna
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + " %"}'
+
+- name: CO2
+
+  entities:
+    - sensor.co2_soggiorno
+    - sensor.co2_camera_padronale
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + " ppm"}'
+
+- name: Visibilità Sensori Umidità e CO2
+
+  entities:
+    - sensor.umidita_soggiorno
+    - sensor.umidita_bagno_padronale
+    - sensor.umidita_bagno_comune
+    - sensor.umidita_taverna
+    - sensor.co2_soggiorno
+    - sensor.co2_camera_padronale
+
+  element: ${entity.entity_id.replace('sensor.', '') + '_group'}
+
+  state_action:
+    - service: floorplan.class_set
+      service_data:
+        class: >
+          ${parseFloat(entity.state) >
+            parseFloat(element.getAttribute('data-limit'))
+            ? 'sensor-visible'
+            : 'sensor-hidden'}

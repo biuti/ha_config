@@ -24,6 +24,14 @@ input_number:
     unit_of_measurement: "%"
     icon: mdi:water-percent
 
+  co2_soggiorno:
+    name: "CO2 Soggiorno"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
+
   # Piano Terra
   temp_camera_padronale:
     name: "Temperatura Camera Padronale"
@@ -40,6 +48,14 @@ input_number:
     step: 1
     unit_of_measurement: "%"
     icon: mdi:water-percent
+
+  co2_camera_padronale:
+    name: "CO2 Camera Padronale"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
 
   temp_camera:
     name: "Temperatura Camera"

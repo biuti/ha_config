@@ -157,8 +157,8 @@ path[id^="light."] {
   animation: pulse 1s infinite;
 }
 
-/* Sensori Temperatura */
-[id^="sensor."][data-zone="interno"] {
+/* Sensori Temperatura Umidità e CO2 */
+[data-zone="interno"] [id^="sensor."] {
   fill: linen;
   opacity: 0.8;
   fill-opacity: 0.8;
@@ -188,6 +188,10 @@ path[id^="light."] {
   paint-order: stroke fill;
 }
 
+.sensor-hidden {
+  opacity: 0;
+}
+
 /* .sensori-meteo {
   font-family: monospace;
 } */
@@ -197,7 +201,7 @@ path[id^="light."] {
 }
 
 /* Stili per le label */
-.label {
+[data-zone="interno"][id^="label."] {
   fill: lightgray;
   opacity: 0.8;
 

@@ -238,6 +238,20 @@ template:
       state_class: measurement
       state: "{{ states('input_number.humidity_soggiorno') }}"
 
+    - name: Umidità Bagno Padronale
+      unique_id: umidita_bagno_padronale
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_bagno_padronale') }}"
+
+    - name: Umidità Bagno Comune
+      unique_id: umidita_bagno_comune
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_bagno_comune') }}"
+
     - name: Temperatura Camera Padronale
       unique_id: temperatura_camera_padronale
       unit_of_measurement: "°C"
@@ -251,3 +265,24 @@ template:
       device_class: temperature
       state_class: measurement
       state: "{{ states('input_number.temp_taverna') }}"
+
+    - name: Umidità Taverna
+      unique_id: umidita_taverna
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_taverna') }}"
+
+    - name: CO2 Soggiorno
+      unique_id: co2_soggiorno
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_soggiorno') }}"
+
+    - name: CO2 Camera Padronale
+      unique_id: co2_camera_padronale
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_camera_padronale') }}"
