@@ -346,6 +346,7 @@
     - sensor.umidita_taverna
     - sensor.co2_soggiorno
     - sensor.co2_camera_padronale
+    - sensor.co2_taverna
 
   element: ${entity.entity_id.replace('sensor.', '') + '_group'}
 

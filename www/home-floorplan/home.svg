@@ -440,12 +440,12 @@
           data-type="umidita"
           data-limit="75">
           <text
-            x="370" y="900"
+            x="370" y="870"
             id="label.umidita_bagno_comune">
             <tspan>U:</tspan>
           </text>
           <text
-            x="380" y="900"
+            x="380" y="870"
             id="sensor.umidita_bagno_comune">
             <tspan>--%</tspan>
           </text>
