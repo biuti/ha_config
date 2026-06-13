@@ -95,6 +95,12 @@
           cy="952"
           r="15"
           class="binary-sensor sensori-finestre" />
+        <path fill="#dd0000" 
+          d="m 234.55996,274.88966 677.29334,3.8909 -3.4599,554.09598 -676.78253,-4.2384 z"
+          id="binary_sensor.fumo_locale_tecnico"
+          data-type="smoke_alarm"
+          data-entity="binary_sensor.fumo_locale_tecnico"
+          data-zone="interno"/>
       </g>
       <g id="layer_seminterrato_buttons">
         <g id="light_buttons_seminterrato">
@@ -135,12 +141,12 @@
           data-zone="interno"
           data-type="temperatura">
           <text
-            x="490" y="1450"
+            x="420" y="1485"
             id="label.temperatura_taverna">
             <tspan>T:</tspan>
           </text>
           <text
-            x="500" y="1450"
+            x="430" y="1485"
             id="sensor.temperatura_taverna">
             <tspan>--.-°</tspan>
           </text>
@@ -151,12 +157,12 @@
           data-type="umidita"
           data-limit="75">
           <text
-            x="490" y="1525"
+            x="420" y="1560"
             id="label.umidita_taverna">
             <tspan>U:</tspan>
           </text>
           <text
-            x="500" y="1525"
+            x="430" y="1560"
             id="sensor.umidita_taverna">
             <tspan>--%</tspan>
           </text>
@@ -167,12 +173,12 @@
           data-type="co2"
           data-limit="1000">
           <text
-            x="490" y="1600"
+            x="420" y="1635"
             id="label.co2_taverna">
             <tspan>CO₂:</tspan>
           </text>
           <text
-            x="500" y="1600"
+            x="430" y="1635"
             id="sensor.co2_taverna">
             <tspan>--- ppm</tspan>
           </text>
@@ -584,6 +590,12 @@
           cy="1422"
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
+      <path fill="#dd0000"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -2.00824,413.17603 z"
+          id="binary_sensor.fumo_cucina"
+          data-type="smoke_alarm"
+          data-entity="binary_sensor.fumo_cucina"
+          data-zone="interno"/>
       </g>
       <g id="layer_piano_primo_buttons">
         <g id="light_buttons_piano_primo">

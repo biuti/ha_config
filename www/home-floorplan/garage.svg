@@ -79,6 +79,11 @@
           data-entity="binary_sensor.cancello_pedonale"
           data-type="cancello"
           class="binary-sensor sensori-porte" />
+        <path fill="#800000" d="m 755.27073,1947.6175 651.57837,4.2212 -3.3717,545.3703 -650.73544,-3.3773 z"
+          id="binary_sensor.fumo_garage"
+          data-type="smoke_alarm"
+          data-entity="binary_sensor.fumo_garage"
+          data-zone="interno"/>
       </g>
       <g id="layer_garage_interattivo_button">
         <g id="light_buttons">

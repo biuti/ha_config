@@ -196,6 +196,21 @@
       key: state
       value: ${entity.state}
 
+- name: Sensori Fumo
+  entities:
+    - binary_sensor.fumo_garage
+    - binary_sensor.fumo_locale_tecnico
+    - binary_sensor.fumo_cucina
+
+  tap_action: more-info
+
+  state_action:
+    action: call-service
+    service: floorplan.dataset_set
+    service_data:
+      key: state
+      value: ${entity.state}
+
 # GARAGE E CANCELLI
 - name: Covers Garage
 
