@@ -355,5 +355,5 @@
         class: >
           ${parseFloat(entity.state) >
             parseFloat(element.getAttribute('data-limit'))
-            ? 'sensor-visible'
-            : 'sensor-hidden'}
+            ? 'sensor-hidden'
+            : 'sensor-visible'}

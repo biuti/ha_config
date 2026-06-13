@@ -201,7 +201,7 @@ path[id^="light."] {
 }
 
 /* Stili per le label */
-[data-zone="interno"][id^="label."] {
+[data-zone="interno"] [id^="label."] {
   fill: lightgray;
   opacity: 0.8;
 
