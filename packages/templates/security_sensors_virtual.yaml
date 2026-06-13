@@ -30,6 +30,10 @@ input_boolean:
     name: "Serranda Garage Ovest (stato)"
     icon: mdi:garage
 
+  fumo_garage:
+    name: "Fumo Garage"
+    icon: mdi:smoke-detector
+
   # ── SEMINTERRATO ──────────────────────────────────────────
   pf_taverna:
     name: "Portafinestra Taverna"
@@ -46,6 +50,10 @@ input_boolean:
   porta_seminterrato:
     name: "Porta Ingresso Seminterrato"
     icon: mdi:door
+
+  fumo_locale_tecnico:
+    name: "Fumo Locale Tecnico"
+    icon: mdi:smoke-detector
 
   # ── VANO SCALE (elementi comuni ai piani) ─────────────────
   porta_piano_terra:
@@ -105,3 +113,7 @@ input_boolean:
   fin_bagno_p1:
     name: "Finestra Bagno Piano Primo"
     icon: mdi:window-open
+
+  fumo_cucina:
+    name: "Fumo Cucina"
+    icon: mdi:smoke-detector

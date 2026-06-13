@@ -32,21 +32,17 @@ template:
       device_class: door
       state: "{{ states('input_boolean.porta_seminterrato') == 'on' }}"
 
+    - name: "Fumo Locale Tecnico"
+      unique_id: fumo_locale_tecnico
+      device_class: smoke
+      state: >
+        {{ is_state('input_boolean.fumo_locale_tecnico', 'on') }}
+
     # ── VANO SCALE ──────────────────────────────────────────
     - name: "Porta Ingresso"
       unique_id: porta_piano_terra
       device_class: door
       state: "{{ states('input_boolean.porta_piano_terra') == 'on' }}"
-
-    # - name: "Finestra Vano Scale Piano Terra"
-    #   unique_id: fin_vano_scale_pt
-    #   device_class: window
-    #   state: "{{ states('input_boolean.fin_vano_scale_pt') == 'on' }}"
-
-    # - name: "Finestra Vano Scale Piano Primo"
-    #   unique_id: fin_vano_scale_p1
-    #   device_class: window
-    #   state: "{{ states('input_boolean.fin_vano_scale_p1') == 'on' }}"
 
     # ── PIANO TERRA ─────────────────────────────────────────
     - name: "Portafinestra Camera Padronale"
@@ -80,16 +76,6 @@ template:
       device_class: door
       state: "{{ states('input_boolean.pf_soggiorno') == 'on' }}"
 
-    # - name: "Finestra Soggiorno Ovest"
-    #   unique_id: fin_soggiorno_ovest
-    #   device_class: window
-    #   state: "{{ states('input_boolean.fin_soggiorno_ovest') == 'on' }}"
-
-    # - name: "Finestra Soggiorno Est"
-    #   unique_id: fin_soggiorno_est
-    #   device_class: window
-    #   state: "{{ states('input_boolean.fin_soggiorno_est') == 'on' }}"
-
     - name: "Portafinestra Cucina"
       unique_id: pf_cucina
       device_class: door
@@ -100,10 +86,11 @@ template:
       device_class: window
       state: "{{ states('input_boolean.fin_cucina') == 'on' }}"
 
-    # - name: "Finestra Bagno Piano Primo"
-    #   unique_id: fin_bagno_p1
-    #   device_class: window
-    #   state: "{{ states('input_boolean.fin_bagno_p1') == 'on' }}"
+    - name: "Fumo Cucina"
+      unique_id: fumo_cucina
+      device_class: smoke
+      state: >
+        {{ is_state('input_boolean.fumo_cucina', 'on') }}
 
     # ── GARAGE ──────────────────────────────────────────────
     - name: "Porta Garage"
@@ -111,15 +98,11 @@ template:
       device_class: door
       state: "{{ states('input_boolean.porta_garage') == 'on' }}"
 
-    # - name: "Serranda Garage Est"
-    #   unique_id: serranda_garage_est_stato
-    #   device_class: garage_door
-    #   state: "{{ states('input_boolean.serranda_garage_est_stato') == 'on' }}"
-
-    # - name: "Serranda Garage Ovest"
-    #   unique_id: serranda_garage_ovest_stato
-    #   device_class: garage_door
-    #   state: "{{ states('input_boolean.serranda_garage_ovest_stato') == 'on' }}"
+    - name: "Fumo Garage"
+      unique_id: fumo_garage
+      device_class: smoke
+      state: >
+        {{ is_state('input_boolean.fumo_garage', 'on') }}
 
     # ── CANCELLO ──────────────────────────────────────────────
     - name: "cancello_pedonale"

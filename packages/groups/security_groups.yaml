@@ -61,3 +61,10 @@ group:
       - input_boolean.pf_ingresso_terrazzo
       - input_boolean.fin_cucina
       - input_boolean.fin_bagno_p1
+
+  allarmi_fumo:
+    name: "Allarmi Fumo"
+    entities:
+      - binary_sensor.fumo_garage
+      - binary_sensor.fumo_locale_tecnico
+      - binary_sensor.fumo_cucina
