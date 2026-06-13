@@ -164,7 +164,7 @@ path[id^="light."] {
   fill-opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 58px;
+  font-size: 48px;
   font-weight: bold;
 
   stroke: linen;
@@ -179,7 +179,7 @@ path[id^="light."] {
   fill-opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 58px;
+  font-size: 56px;
   font-weight: bold;
 
   stroke: skyblue;
@@ -206,7 +206,19 @@ path[id^="light."] {
   opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 36px;
+  font-size: 32px;
+
+  text-anchor: end;
+
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
+}
+
+.label-meteo {
+  fill: lightgray;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
 
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
