@@ -138,6 +138,14 @@ input_number:
     unit_of_measurement: "%"
     icon: mdi:water-percent
 
+  co2_taverna:
+    name: "CO2 Taverna"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
+
   temp_bagno_taverna:
     name: "Temperatura Bagno Taverna"
     min: -10

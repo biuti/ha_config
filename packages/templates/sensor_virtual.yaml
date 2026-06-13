@@ -273,6 +273,13 @@ template:
       state_class: measurement
       state: "{{ states('input_number.humidity_taverna') }}"
 
+    - name: CO2 Taverna
+      unique_id: co2_taverna
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_taverna') }}"
+
     - name: CO2 Soggiorno
       unique_id: co2_soggiorno
       unit_of_measurement: "ppm"
