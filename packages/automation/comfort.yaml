@@ -12,7 +12,7 @@ automation:
   # ── 1. SCALDASALVIETTE ──────────────────────
 
   - id: comfort_scaldasalviette
-    alias: "Comfort - Scaldasalviette"
+    alias: "Comfort — Scaldasalviette"
     description: >
       Ogni giorno all'ora configurata da tensione alle prese comandate.
       Controlla periodo dell'anno, temnperatura dei bagni, presenza in casa.
