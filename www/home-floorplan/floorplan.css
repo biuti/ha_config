@@ -79,11 +79,12 @@ path[id^="light."] {
   fill: red;
   opacity: 0.8;
   animation: smokeAlarm 1s infinite;
+  display:inline;
 }
 
 [data-type="smoke_alarm"][data-state="off"] {
   opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 /* ── SENSORI APERTURA (porte cancelli e finestre) ─────────────────── */
@@ -96,12 +97,13 @@ path[id^="light."] {
   transition:
     fill 0.3s ease,
     fill-opacity 0.3s ease;
-  pointer-events: none;
+  display: none;
 }
 
 /* Aperto */
 [data-domain="security"][data-type="apertura"][data-state="on"] {
   fill-opacity: 0.75;
+  display: inline;
 }
 
 /* Gestione Serrande garage e cancelli — linee */
