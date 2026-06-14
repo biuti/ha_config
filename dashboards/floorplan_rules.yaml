@@ -279,7 +279,6 @@
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
-# UMIDITÀ
 - name: Umidità Interna
 
   entities:
@@ -366,3 +365,18 @@
   state_action:
     - service: floorplan.text_set
       service_data: '${Math.round(entity.state) + "%"}'
+
+# SWITCHES
+- name: Scaldasalviette
+
+  entities:
+    - input_boolean.scaldasalviette_bagno_padronale
+    - input_boolean.scaldasalviette_bagno_comune
+    - input_boolean.scaldasalviette_bagno_taverna
+
+  state_action:
+    action: call-service
+    service: floorplan.dataset_set
+    service_data:
+      key: state
+      value: ${entity.state}

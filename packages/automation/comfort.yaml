@@ -1,0 +1,35 @@
+alias: Comfort Scaldasalviette
+
+trigger:
+  - platform: time
+    at: "07:00:00"
+
+  - platform: time
+    at: "17:00:00"
+
+condition:
+  - condition: template
+    value_template: >
+      {{ states('input_select.modalita_casa')
+         in ['Casa', 'Notte', 'Ospiti'] }}
+
+  - condition: numeric_state
+    entity_id: sensor.temperatura_bagno_padronale
+    below: 21
+
+  - condition: template
+    value_template: >
+      {{ now().month >= 9 or now().month <= 4 }}
+
+action:
+  - service: homeassistant.turn_on
+    target:
+      entity_id: group.scaldasalviette
+
+  - delay: "02:00:00"
+
+  - service: homeassistant.turn_off
+    target:
+      entity_id: group.scaldasalviette
+
+mode: single
