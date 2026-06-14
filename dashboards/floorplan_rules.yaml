@@ -321,7 +321,7 @@
       service_data:
         class: >
           ${parseFloat(entity.state) >
-            parseFloat(element.getAttribute('data-limit'))
+            parseFloat(element.getAttribute('data-threshold'))
             ? 'sensor-visible'
             : 'sensor-hidden'}
 

@@ -139,47 +139,56 @@
       <g id="layer_seminterrato_label">
         <g id="temperatura_taverna_group"
           data-zone="interno"
-          data-type="temperatura">
+          data-domain="climate">
           <text
             x="420" y="1485"
-            id="label.temperatura_taverna">
+            id="label.temperatura_taverna"
+            data-role="label">
             <tspan>T:</tspan>
           </text>
           <text
             x="430" y="1485"
-            id="sensor.temperatura_taverna">
+            id="sensor.temperatura_taverna"
+            data-role="value"
+            data-type="temperatura">
             <tspan>--.-°</tspan>
           </text>
         </g>
         <g id="umidita_taverna_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="umidita"
-          data-limit="75">
+          data-domain="climate"
+          data-threshold="75">
           <text
             x="420" y="1560"
-            id="label.umidita_taverna">
+            id="label.umidita_taverna"
+            data-role="label">
             <tspan>U:</tspan>
           </text>
           <text
             x="430" y="1560"
-            id="sensor.umidita_taverna">
+            id="sensor.umidita_taverna"
+            data-role="value"
+            data-type="umidita">
             <tspan>--%</tspan>
           </text>
         </g>
         <g id="co2_taverna_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="co2"
-          data-limit="1000">
+          data-domain="climate"
+          data-threshold="1000">
           <text
             x="420" y="1635"
-            id="label.co2_taverna">
+            id="label.co2_taverna"
+            data-role="label">
             <tspan>CO₂:</tspan>
           </text>
           <text
             x="430" y="1635"
-            id="sensor.co2_taverna">
+            id="sensor.co2_taverna"
+            data-role="value"
+            data-type="co2">
             <tspan>--- ppm</tspan>
           </text>
         </g>
@@ -412,63 +421,75 @@
       <g id="layer_piano_terra_label">
         <g id="temperatura_camera_padronale_group"
           data-zone="interno"
-          data-type="temperatura">
+          data-domain="climate">
           <text
             x="370" y="1450"
-            id="label.temperatura_camera_padronale">
+            id="label.temperatura_camera_padronale"
+            data-role="label">
             <tspan>T:</tspan>
           </text>
           <text
             x="380" y="1450"
-            id="sensor.temperatura_camera_padronale">
+            id="sensor.temperatura_camera_padronale"
+            data-role="value"
+            data-type="temperatura">
             <tspan>--.-°</tspan>
           </text>
         </g>
         <g id="umidita_bagno_padronale_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="umidita"
-          data-limit="75">
+          data-domain="climate"
+          data-threshold="75">
           <text
             x="370" y="1100"
-            id="label.umidita_bagno_padronale">
+            id="label.umidita_bagno_padronale"
+            data-role="label">
             <tspan>U:</tspan>
           </text>
           <text
             x="380" y="1100"
-            id="sensor.umidita_bagno_padronale">
+            id="sensor.umidita_bagno_padronale"
+            data-role="value"
+            data-type="umidita">
             <tspan>--%</tspan>
           </text>
         </g>
         <g id="umidita_bagno_comune_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="umidita"
-          data-limit="75">
+          data-domain="climate"
+          data-threshold="75">
           <text
             x="370" y="870"
-            id="label.umidita_bagno_comune">
+            id="label.umidita_bagno_comune"
+            data-role="label">
             <tspan>U:</tspan>
           </text>
           <text
             x="380" y="870"
-            id="sensor.umidita_bagno_comune">
+            id="sensor.umidita_bagno_comune"
+            data-role="value"
+            data-type="umidita">
             <tspan>--%</tspan>
           </text>
         </g>
         <g id="co2_camera_padronale_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="co2"
-          data-limit="1000">
+          data-domain="climate"
+          data-threshold="1000">
           <text
             x="370" y="1625"
-            id="label.co2_camera_padronale">
+            id="label.co2_camera_padronale"
+            data-role="label">
             <tspan>CO₂:</tspan>
           </text>
           <text
             x="380" y="1625"
-            id="sensor.co2_camera_padronale">
+            id="sensor.co2_camera_padronale"
+            data-role="value"
+            data-type="co2">
             <tspan>--- ppm</tspan>
           </text>
         </g>
@@ -492,7 +513,7 @@
           data-entity="light.terrazzo_nord"
           data-zone="esterno"/>
         <path fill="#ffff00"
-          d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 -497.67336,0.28443 -4.51579,677.66398 533.11578,4.2156 0.46679,3.4465 z"
+          d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 2.98615,56.67109 -476.83309,0.0563 -23.61241,-26.44653 -4.7298,647.66755 533.11578,4.2156 0.46679,3.4465 z"
           id="light.soggiorno"
           class="light"
           data-entity="light.soggiorno"
@@ -510,7 +531,7 @@
           data-entity="light.terrazzo_sud"
           data-zone="esterno"/>
         <path fill="#ff6600"
-          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -2.00824,413.17603 z"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.79423,443.17246 23.61241,26.44653 476.83309,-0.0563 z"
           id="light.cucina"
           class="light"
           data-entity="light.cucina"
@@ -591,7 +612,7 @@
           r="15"
           class="binary-sensor sensori-porte sensori-finestre" />
       <path fill="#dd0000"
-          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -2.00824,413.17603 z"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.79423,443.17246 23.61241,26.44653 476.83309,-0.0563 z"
           id="binary_sensor.fumo_cucina"
           data-type="smoke_alarm"
           data-entity="binary_sensor.fumo_cucina"
@@ -602,12 +623,12 @@
           <path
             id="btn_light.soggiorno"
             class="light-button"
-            d="m 244.85936,788.50898 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+            d="m 246,849.99232 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
           <path
             id="btn_light.cucina"
             class="light-button"
             data-entity="light.cucina"
-            d="m 242.40936,442.40897 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
+            d="m 244,442.40897 a 28.199935,27.242213 0 0 1 28.1999,27.2422 c 0,9.2623 -4.794,17.3961 -12.0857,22.3386 v 8.7953 a 4.0285622,3.8917446 0 0 1 -4.0285,3.8919 h -24.1714 a 4.0285622,3.8917446 0 0 1 -4.0285,-3.8919 v -8.7953 c -7.2917,-4.9425 -12.0857,-13.0763 -12.0857,-22.3386 a 28.199935,27.242213 0 0 1 28.1999,-27.2422 m -12.0857,73.9431 v -3.8918 h 24.1714 v 3.8918 a 4.0285622,3.8917446 0 0 1 -4.0287,3.8917 h -16.114 a 4.0285622,3.8917446 0 0 1 -4.0287,-3.8917 m 12.0857,-66.1596 a 20.142811,19.458723 0 0 0 -20.1429,19.4587 c 0,7.978 4.9553,14.8276 12.0859,17.8242 v 9.4178 h 16.114 v -9.4178 c 7.1306,-2.9966 12.0859,-9.8462 12.0859,-17.8242 a 20.142811,19.458723 0 0 0 -20.1429,-19.4587 z" />
           <path
             id="btn_light.bagno_p1"
             class="light-button"
@@ -638,47 +659,56 @@
       <g id="layer_piano_primo_label">
         <g id="temperatura_soggiorno_group"
           data-zone="interno"
-          data-type="temperatura">
+          data-domain="climate">
           <text
             x="570" y="1275"
-            id="label.temperatura_soggiorno">
+            id="label.temperatura_soggiorno"
+            data-role="label">
             <tspan>T:</tspan>
           </text>
           <text
             x="580" y="1275"
-            id="sensor.temperatura_soggiorno">
+            id="sensor.temperatura_soggiorno"
+            data-role="value"
+            data-type="temperatura">
             <tspan>--.-°</tspan>
           </text>
         </g>
         <g id="umidita_soggiorno_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="umidita"
-          data-limit="75">
+          data-domain="climate"
+          data-threshold="75">
           <text
             x="570" y="1350"
-            id="label.umidita_soggiorno">
+            id="label.umidita_soggiorno"
+            data-role="label">
             <tspan>U:</tspan>
           </text>
           <text
             x="580" y="1350"
-            id="sensor.umidita_soggiorno">
+            id="sensor.umidita_soggiorno"
+            data-role="value"
+            data-type="umidita">
             <tspan>--%</tspan>
           </text>
         </g>
         <g id="co2_soggiorno_group"
           class="sensor-hidden"
           data-zone="interno"
-          data-type="co2"
-          data-limit="1000">
+          data-domain="climate"
+          data-threshold="1000">
           <text
             x="570" y="1425"
-            id="label.co2_soggiorno">
+            id="label.co2_soggiorno"
+            data-role="label">
             <tspan>CO₂:</tspan>
           </text>
           <text
             x="580" y="1425"
-            id="sensor.co2_soggiorno">
+            id="sensor.co2_soggiorno"
+            data-role="value"
+            data-type="co2">
             <tspan>--- ppm</tspan>
           </text>
         </g>
@@ -713,15 +743,22 @@
   <g id="layer_elementi_comuni">
     <g id="layer_elementi_comuni_interattivo">
       <g id="layer_elementi_comuni_sensor">
-        <text 
-          x="1060" y="700"
-          id="sensor.meteo_attuale"
-          data-entity="sensor.meteo_attuale"
+        <g id="meteo_attuale_group"
           data-zone="esterno"
-          data-type="meteo"
-          class="sensor sensori-meteo icona-meteo">
-          <tspan>---</tspan>
-        </text>
+          data-domain="weather">
+          <text
+            x="1060" y="630"
+            id="label.meteo_attuale"
+            data-role="label">
+            <tspan>Meteo:</tspan>
+          </text>
+          <text
+            x="1060" y="700"
+            id="sensor.meteo_attuale"
+            data-role="icon">
+            <tspan>---</tspan>
+          </text>
+        </g>
       </g>
       <g id="layer_elementi_comuni_power"/>
       <g id="layer_elementi_comuni_media"/>
@@ -731,62 +768,57 @@
       <g id="layer_elementi_comuni_binary_sensor"/>
       <g id="layer_elementi_comuni_buttons"/>
       <g id="layer_elementi_comuni_label">
-        <text
-          x="1060"
-          y="630"
-          id="label_meteo"
-          class="label label-meteo">
-          <tspan>Meteo:</tspan>
-        </text>
-        <text
-          x="1060"
-          y="780"
-          id="label_vento"
-          class="label label-meteo">
-          <tspan>Vento:</tspan>
-        </text>
-        <text 
-          x="1060" y="850"
-          id="sensor.vento"
-          data-entity="sensor.vento"
+        <g id="vento_group"
           data-zone="esterno"
-          data-type="vento"
-          class="sensor sensori-meteo">
-          <tspan>-- --.- km/h</tspan>
-        </text>
-        <text
-          x="1060"
-          y="930"
-          id="label_temperatura_esterna"
-          class="label label-meteo">
-          <tspan>Temperatura Esterna:</tspan>
-        </text>
-        <text 
-          x="1060" y="1000"
-          id="sensor.temperatura_esterna"
-          data-entity="sensor.temperatura_esterna"
+          data-domain="weather">
+          <text
+            x="1060" y="780"
+            id="label.vento"
+            data-role="label">
+            <tspan>Vento:</tspan>
+          </text>
+          <text
+            x="1060" y="850"
+            id="sensor.vento"
+            data-role="value"
+            data-type="vento">
+            <tspan>-- --.- km/h</tspan>
+          </text>
+        </g>
+        <g id="temperatura_esterna_group"
           data-zone="esterno"
-          data-type="temperatura"
-          class="sensor sensori-meteo">
-          <tspan>--.-°</tspan>
-        </text>
-        <text
-          x="1060"
-          y="1080"
-          id="label_umidita"
-          class="label label-meteo">
-          <tspan>Umidità:</tspan>
-        </text>
-        <text
-          x="1060"
-          y="1150"
-          id="sensor.umidita_esterna"
-          data-entity="sensor.umidita_esterna"
+          data-domain="weather">
+          <text
+            x="1060" y="930"
+            id="label.temperatura_esterna"
+            data-role="label">
+            <tspan>Temperatura Esterna:</tspan>
+          </text>
+          <text
+            x="1060" y="1000"
+            id="sensor.temperatura_esterna"
+            data-role="value"
+            data-type="temperatura_esterna">
+            <tspan>--.-°</tspan>
+          </text>
+        </g>
+        <g id="umidita_esterna_group"
           data-zone="esterno"
-          data-type="umidita"
-          class="sensor sensori-meteo">
-          <tspan>--%</tspan>
-        </text>
+          data-domain="weather">
+          <text
+            x="1060" y="1080"
+            id="label.umidita_esterna"
+            data-role="label">
+            <tspan>Umidità Esterna:</tspan>
+          </text>
+          <text
+            x="1060" y="1150"
+            id="sensor.umidita_esterna"
+            data-role="value"
+            data-type="umidita_esterna">
+            <tspan>--%</tspan>
+          </text>
+        </g>
       </g>
     </g>
   </g>
