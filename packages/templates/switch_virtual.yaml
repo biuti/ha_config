@@ -17,53 +17,63 @@ input_boolean:
   scaldasalviette_bagno_taverna:
     name: Scaldasalviette Bagno Taverna
 
-switch:
+template:
 
-  - platform: template
+  - switch:
 
-    switches:
+      - name: "Scaldasalviette Bagno Padronale"
+        unique_id: scaldasalviette_bagno_padronale
 
-      scaldasalviette_bagno_padronale:
-        friendly_name: "Scaldasalviette Bagno Padronale"
-        value_template: >
-          {{ is_state('input_boolean.scaldasalviette_bagno_padronale', 'on') }}
-
-        turn_on:
-          service: input_boolean.turn_on
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_padronale
-
-        turn_off:
-          service: input_boolean.turn_off
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_padronale
-
-      scaldasalviette_bagno_comune:
-        friendly_name: "Scaldasalviette Bagno Comune"
-        value_template: >
-          {{ is_state('input_boolean.scaldasalviette_bagno_comune', 'on') }}
+        state: >
+          {{ is_state(
+            'input_boolean.scaldasalviette_bagno_padronale',
+            'on'
+          ) }}
 
         turn_on:
-          service: input_boolean.turn_on
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_comune
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_padronale
 
         turn_off:
-          service: input_boolean.turn_off
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_comune
+          - action: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_padronale
 
-      scaldasalviette_bagno_taverna:
-        friendly_name: "Scaldasalviette Bagno Taverna"
-        value_template: >
-          {{ is_state('input_boolean.scaldasalviette_bagno_taverna', 'on') }}
+      - name: "Scaldasalviette Bagno Comune"
+        unique_id: scaldasalviette_bagno_comune
+
+        state: >
+          {{ is_state(
+            'input_boolean.scaldasalviette_bagno_comune',
+            'on'
+          ) }}
 
         turn_on:
-          service: input_boolean.turn_on
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_taverna
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_comune
 
         turn_off:
-          service: input_boolean.turn_off
-          target:
-            entity_id: input_boolean.scaldasalviette_bagno_taverna
+          - action: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_comune
+
+      - name: "Scaldasalviette Bagno Taverna"
+        unique_id: scaldasalviette_bagno_taverna
+
+        state: >
+          {{ is_state(
+            'input_boolean.scaldasalviette_bagno_taverna',
+            'on'
+          ) }}
+
+        turn_on:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_taverna
+
+        turn_off:
+          - action: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.scaldasalviette_bagno_taverna
