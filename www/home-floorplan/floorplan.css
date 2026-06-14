@@ -233,13 +233,14 @@ path[id^="light."] {
 /* SCALDASALVIETTE */
 [data-fixture="scaldasalviette"] {
   opacity: 0;
-  stroke: orange;
+  stroke: darkorange;
+  stroke-width: 15px;
   transition: all 1s ease;
 }
 
 [data-fixture="scaldasalviette"][data-state="on"] {
   opacity: 0.8;
-  animation: pulseHeat 3s infinite;
+  animation: pulseHeat 2s infinite;
 }
 
 /* Cursore a mano per elementi interattivi */

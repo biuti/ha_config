@@ -15,7 +15,7 @@
       </g>
       <g id="layer_seminterrato_power">
         <path
-          d="m 358,900 40,1.5"
+          d="m 358,900 45,1"
           id="switch.scaldasalviette_bagno_taverna"
           data-entity="switch.scaldasalviette_bagno_taverna"
           data-domain="switch"
@@ -226,13 +226,13 @@
       <g id="layer_piano_terra_sensor"/>
       <g id="layer_piano_terra_power">
         <path
-          d="m 358,935 40,1.5"
+          d="m 358,935 45,1"
           id="switch.scaldasalviette_bagno_padronale"
           data-entity="switch.scaldasalviette_bagno_padronale"
           data-domain="switch"
           data-fixture="scaldasalviette" />
         <path
-          d="m 358,714 40,1.5"
+          d="m 358,714 45,1"
           id="switch.scaldasalviette_bagno_comune"
           data-entity="switch.scaldasalviette_bagno_comune"
           data-domain="switch"
