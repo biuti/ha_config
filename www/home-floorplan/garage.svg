@@ -62,26 +62,29 @@
           class="cancello"/>
       </g>
       <g id="layer_garage_interattivo_climate"/>
-      <g id="layer_garage_interattivo_binary_sensor" style="display:inline;fill:#ffcc00">
+      <g id="layer_garage_interattivo_binary_sensor">
         <circle
           id="binary_sensor.porta_garage"
           cx="980"
           cy="1975"
           r="15"
           data-entity="binary_sensor.porta_garage"
-          data-type="porta"
-          class="binary-sensor sensori-porte"/>
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="porta"/>
         <circle
           id="binary_sensor.cancello_pedonale"
           cx="899"
           cy="3915"
           r="15"
           data-entity="binary_sensor.cancello_pedonale"
-          data-type="cancello"
-          class="binary-sensor sensori-porte" />
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="cancello"/>
         <path fill="#800000" d="m 755.27073,1947.6175 651.57837,4.2212 -3.3717,545.3703 -650.73544,-3.3773 z"
           id="binary_sensor.fumo_garage"
           data-type="smoke_alarm"
+          data-domain="security"
           data-entity="binary_sensor.fumo_garage"
           data-zone="interno"/>
       </g>

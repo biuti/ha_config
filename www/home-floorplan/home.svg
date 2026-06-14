@@ -76,29 +76,42 @@
           cx="760"
           cy="1635"
           r="15"
-          class="binary-sensor sensori-porte" />
+          data-entity="binary_sensor.porta_seminterrato"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="porta"/>
         <circle
           id="binary_sensor.pf_taverna"
           cx="280"
           cy="1635"
           r="15"
-          class="binary-sensor sensori-porte sensori-finestre" />
+          data-entity="binary_sensor.pf_taverna"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="portafinestra"/>
         <circle
           id="binary_sensor.fin_bagno_taverna"
           cx="269"
           cy="1068"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_bagno_taverna"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
         <circle
           id="binary_sensor.fin_lavanderia"
           cx="873"
           cy="952"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_lavanderia"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
         <path fill="#dd0000" 
           d="m 234.55996,274.88966 677.29334,3.8909 -3.4599,554.09598 -676.78253,-4.2384 z"
           id="binary_sensor.fumo_locale_tecnico"
           data-type="smoke_alarm"
+          data-domain="security"
           data-entity="binary_sensor.fumo_locale_tecnico"
           data-zone="interno"/>
       </g>
@@ -327,37 +340,55 @@
           cx="883"
           cy="1013"
           r="15"
-          class="binary-sensor sensori-porte" />
+          data-entity="binary_sensor.porta_piano_terra"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="porta"/>
         <circle
           id="binary_sensor.pf_camera_padronale"
           cx="260"
           cy="1615"
           r="15"
-          class="binary-sensor sensori-porte sensori-finestre" />
+          data-entity="binary_sensor.pf_camera_padronale"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="portafinestra"/>
         <circle
           id="binary_sensor.fin_bagno_padronale"
           cx="247"
           cy="1034"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_bagno_padronale"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
         <circle
           id="binary_sensor.fin_bagno_comune"
           cx="250"
           cy="786"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_bagno_comune"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
         <circle
           id="binary_sensor.pf_camera_ospiti"
           cx="261"
           cy="350"
           r="15"
-          class="binary-sensor sensori-porte sensori-finestre" />
+          data-entity="binary_sensor.pf_camera_ospiti"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="portafinestra"/>
         <circle
           id="binary_sensor.fin_studio"
           cx="888"
           cy="534"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_studio"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
       </g>
       <g id="layer_piano_terra_buttons">
         <g id="light_buttons_piano_terra">
@@ -513,7 +544,7 @@
           data-entity="light.terrazzo_nord"
           data-zone="esterno"/>
         <path fill="#ffff00"
-          d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 2.98615,56.67109 -476.83309,0.0563 -23.61241,-26.44653 -4.7298,647.66755 533.11578,4.2156 0.46679,3.4465 z"
+          d="m 710.74437,1482.1734 94.52381,-1.287 4.81957,-286.0526 103.52324,0.711 7.44323,-15.7754 -0.0101,-408.55774 -244.79965,-1.73457 2.98615,56.67109 -476.83309,0.0563 -23.49317,-55.89814 -4.84904,677.11916 533.11578,4.2156 0.46679,3.4465 z"
           id="light.soggiorno"
           class="light"
           data-entity="light.soggiorno"
@@ -531,7 +562,7 @@
           data-entity="light.terrazzo_sud"
           data-zone="esterno"/>
         <path fill="#ff6600"
-          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.79423,443.17246 23.61241,26.44653 476.83309,-0.0563 z"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.67499,413.72085 23.49317,55.89814 476.83309,-0.0563 z"
           id="light.cucina"
           class="light"
           data-entity="light.cucina"
@@ -598,23 +629,33 @@
           cx="523"
           cy="462"
           r="15"
-          class="binary-sensor sensori-porte sensori-finestre" />
+          data-entity="binary_sensor.pf_cucina"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="portafinestra"/>
         <circle
           id="binary_sensor.fin_cucina"
           cx="228"
           cy="657"
           r="15"
-          class="binary-sensor sensori-finestre" />
+          data-entity="binary_sensor.fin_cucina"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="finestra"/>
         <circle
           id="binary_sensor.pf_soggiorno"
           cx="235"
           cy="1422"
           r="15"
-          class="binary-sensor sensori-porte sensori-finestre" />
+          data-entity="binary_sensor.pf_soggiorno"
+          data-domain="security"
+          data-type="apertura"
+          data-fixture="portafinestra"/>
       <path fill="#dd0000"
-          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.79423,443.17246 23.61241,26.44653 476.83309,-0.0563 z"
+          d="m 676.24447,769.47709 2.23551,-347.29159 -111.30688,-1.22105 0.5328,-62.43679 -387.12655,-1.94217 -1.67499,413.72085 23.49317,55.89814 476.83309,-0.0563 z"
           id="binary_sensor.fumo_cucina"
           data-type="smoke_alarm"
+          data-domain="security"
           data-entity="binary_sensor.fumo_cucina"
           data-zone="interno"/>
       </g>

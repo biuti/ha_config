@@ -331,6 +331,8 @@
   entities:
     - sensor.meteo_attuale
 
+  tap_action: more-info
+
   state_action:
     - service: floorplan.text_set
       service_data: >

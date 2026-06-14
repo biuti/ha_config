@@ -81,24 +81,26 @@ path[id^="light."] {
   animation: smokeAlarm 1s infinite;
 }
 
-/* ── SENSORI APERTURA (porte e finestre) ─────────────────── */
+[data-type="smoke_alarm"][data-state="off"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── SENSORI APERTURA (porte cancelli e finestre) ─────────────────── */
 /* Cerchi nel SVG con id che inizia per binary_sensor_ */
 
 /* Stato base */
-[id^="binary_sensor."] {
+[data-domain="security"][data-type="apertura"] {
   fill: greenyellow;
-  fill-opacity: 0.0;
-  transition: fill 0.3s ease-in-out, fill-opacity 0.3s ease-in-out;
+  fill-opacity: 0;
+  transition:
+    fill 0.3s ease,
+    fill-opacity 0.3s ease;
+  pointer-events: none;
 }
 
-/* Chiuso — verde */
-/* [id^="binary_sensor_"][data-state="off"] {
-  fill: #4caf50;
-  fill-opacity: 0.9;
-} */
-
 /* Aperto */
-[id^="binary_sensor."][data-state="on"] {
+[data-domain="security"][data-type="apertura"][data-state="on"] {
   fill-opacity: 0.75;
 }
 
