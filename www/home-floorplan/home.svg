@@ -13,7 +13,14 @@
         <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
         <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
       </g>
-      <g id="layer_seminterrato_power"/>
+      <g id="layer_seminterrato_power">
+        <path
+          d="m 358,900 40,1.5"
+          id="switch.scaldasalviette_bagno_taverna"
+          data-entity="switch.scaldasalviette_bagno_taverna"
+          data-domain="switch"
+          data-fixture="scaldasalviette" />
+      </g>
       <g id="layer_seminterrato_media"/>
       <g id="layer_seminterrato_light">
         <path fill="#ffff00" 
@@ -217,7 +224,20 @@
     </g>
     <g id="layer_piano_terra_interattivo">
       <g id="layer_piano_terra_sensor"/>
-      <g id="layer_piano_terra_power"/>
+      <g id="layer_piano_terra_power">
+        <path
+          d="m 358,935 40,1.5"
+          id="switch.scaldasalviette_bagno_padronale"
+          data-entity="switch.scaldasalviette_bagno_padronale"
+          data-domain="switch"
+          data-fixture="scaldasalviette" />
+        <path
+          d="m 358,714 40,1.5"
+          id="switch.scaldasalviette_bagno_comune"
+          data-entity="switch.scaldasalviette_bagno_comune"
+          data-domain="switch"
+          data-fixture="scaldasalviette" />
+      </g>
       <g id="layer_piano_terra_media"/>
       <g id="layer_piano_terra_light">
         <path fill="#0000ff"

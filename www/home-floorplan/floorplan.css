@@ -230,6 +230,18 @@ path[id^="light."] {
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
+/* SCALDASALVIETTE */
+[data-fixture="scaldasalviette"] {
+  opacity: 0;
+  stroke: orange;
+  transition: all 1s ease;
+}
+
+[data-fixture="scaldasalviette"][data-state="on"] {
+  opacity: 0.8;
+  animation: pulseHeat 3s infinite;
+}
+
 /* Cursore a mano per elementi interattivi */
 .light-button,
 .cover-open,
@@ -247,17 +259,15 @@ path[id^="light."] {
 }
 
 @keyframes pulseCover {
-  0% {
-    opacity: 0.2;
-  }
+  0% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.2; }
+}
 
-  50% {
-    opacity: 0.8;
-  }
-
-  100% {
-    opacity: 0.2;
-  }
+@keyframes pulseHeat {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
 }
 
 @keyframes smokeAlarm {
