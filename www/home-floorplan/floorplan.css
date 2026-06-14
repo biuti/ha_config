@@ -107,49 +107,49 @@ path[id^="light."] {
 }
 
 /* Gestione Serrande garage e cancelli — linee */
-[id^="cover.garage_"],
-[id^="cover.cancello_"] {
+[data-domain="cover"][data-fixture="serranda"],
+[data-domain="cover"][data-fixture="cancello"] {
   stroke-width: 10px;
   transition: all 0.3s ease;
   opacity: 0.0;
 }
 
-[id^="cover.garage_"][data-status="open"],
-[id^="cover.cancello_"][data-status="open"] {
+[data-domain="cover"][data-fixture="serranda"][data-status="open"],
+[data-domain="cover"][data-fixture="cancello"][data-status="open"] {
   stroke: lightgreen; /* Verde chiaro */
   opacity: 0.8;
 }
 
-[id^="cover.garage_"][data-status="opening"],
-[id^="cover.cancello_"][data-status="opening"],
-[id^="cover.garage_"][data-status="closing"],
-[id^="cover.cancello_"][data-status="closing"] {
+[data-domain="cover"][data-fixture="serranda"][data-status="opening"],
+[data-domain="cover"][data-fixture="cancello"][data-status="opening"],
+[data-domain="cover"][data-fixture="serranda"][data-status="closing"],
+[data-domain="cover"][data-fixture="cancello"][data-status="closing"] {
   stroke: orange; /* Arancio */
   animation: pulseCover 1s infinite;
 }
 
 /* Gestione Raffstore - linee */
-[id^="cover.raffstore_"] {
+[data-domain="cover"][data-fixture="raffstore"] {
   stroke-width: 10px;
   transition: all 0.3s ease;
   opacity: 0.0;
 }
 
 /* Completamente chiusa */
-[id^="cover.raffstore_"][data-state="closed"] {
+[data-domain="cover"][data-fixture="raffstore"][data-state="closed"] {
   stroke: red;
   opacity: 0.9;
 }
 
 /* Posizione intermedia */
-[id^="cover.raffstore_"][data-state="open"]:not([data-position="100"]) {
+[data-domain="cover"][data-fixture="raffstore"][data-state="open"]:not([data-position="100"]) {
   stroke: orange;
   opacity: 0.9;
 }
 
 /* In movimento */
-[id^="cover.raffstore_"][data-state="opening"],
-[id^="cover.raffstore_"][data-state="closing"] {
+[data-domain="cover"][data-fixture="raffstore"][data-state="opening"],
+[data-domain="cover"][data-fixture="raffstore"][data-state="closing"] {
   stroke: orange;
   opacity: 0.9;
   animation: pulseCover 1s infinite;

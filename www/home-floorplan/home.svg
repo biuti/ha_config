@@ -58,14 +58,16 @@
           d="m 243.98361,1719.8862 256.00878,1.6409"
           id="cover.raffstore_pf_taverna"
           data-entity="cover.raffstore_pf_taverna"
-          data-type="raffstore"
-          class="cover cover-seminterrato"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 186.76391,1090.1831 0.50537,-72.0569 v 0"
           id="cover.raffstore_fin_bagno_taverna"
           data-entity="cover.raffstore_fin_bagno_taverna"
-          data-type="raffstore"
-          class="cover cover-seminterrato"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
       </g>
       <g id="layer_seminterrato_climate">
         <rect id="climate_nilan" width="89.206467" height="85.208755" x="796.79047" y="728.41187" class="climate impianto-climatizzazione"/>
@@ -300,38 +302,44 @@
           d="m 224.08155,1703.1719 264.28479,1.6397"
           id="cover.raffstore_pf_camera_padronale"
           data-entity="cover.raffstore_pf_camera_padronale"
-          data-type="raffstore"
-          class="cover cover-piano-terra"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 159.61076,1047.5072 -0.0253,-78.54475"
           id="cover.raffstore_fin_bagno_padronale"
           data-entity="cover.raffstore_fin_bagno_padronale"
-          data-type="raffstore"
-          class="cover cover-piano-terra"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 161.61474,799.2046 -0.0253,-78.5448"
           id="cover.raffstore_fin_bagno_comune"
           data-entity="cover.raffstore_fin_bagno_comune"
-          data-type="raffstore"
-          class="cover cover-piano-terra"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 163.81325,415.08747 1.51649,-176.15343"
           id="cover.raffstore_pf_camera_ospiti"
           data-entity="cover.raffstore_pf_camera_ospiti"
-          data-type="raffstore"
-          class="cover cover-piano-terra"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 961.5311,612.50963 0.60534,-162.08911"
           id="cover.raffstore_fin_studio"
           data-entity="cover.raffstore_fin_studio"
-          data-type="raffstore"
-          class="cover cover-piano-terra"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 729.98701,1706.4139 149.99687,1.0801"
           id="cover.raffstore_fin_vano_scale_pt"
           data-entity="cover.raffstore_fin_vano_scale_pt"
-          data-type="raffstore"
-          class="cover cover-piano-terra cover-vano-scale"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
       </g>
       <g id="layer_piano_terra_climate"/>
       <g id="layer_piano_terra_binary_sensor">
@@ -590,20 +598,23 @@
           d="m 130.94926,727.19821 1.69085,-184.77227"
           id="cover.raffstore_fin_cucina"
           data-entity="cover.raffstore_fin_cucina"
-          data-type="raffstore"
-          class="cover cover-piano-primo"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 127.1131,1445.7215 1.17597,-182.5107"
           id="cover.raffstore_fin_soggiorno_ovest"
           data-entity="cover.raffstore_fin_soggiorno_ovest"
-          data-type="raffstore"
-          class="cover cover-piano-primo"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 968.68564,1037.44 -0.053,-43.36403"
           id="cover.raffstore_fin_soggiorno_est"
           data-entity="cover.raffstore_fin_soggiorno_est"
-          data-type="raffstore"
-          class="cover cover-piano-primo"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 971.59536,546.01229 -0.053,-43.36396"
           id="cover.raffstore_fin_bagno_p1"
@@ -613,14 +624,16 @@
           d="m 199.50597,1521.7208 278.96615,1.8497"
           id="cover.raffstore_pf_soggiorno"
           data-entity="cover.raffstore_pf_soggiorno"
-          data-type="raffstore"
-          class="cover cover-piano-primo"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
         <path
           d="m 470.37439,311.1982 85.77802,0.57251"
           id="cover.raffstore_pf_cucina"
           data-entity="cover.raffstore_pf_cucina"
-          data-type="raffstore"
-          class="cover cover-piano-primo"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="raffstore"/>
       </g>
       <g id="layer_piano_primo_climate"/>
       <g id="layer_piano_primo_binary_sensor">

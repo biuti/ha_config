@@ -46,20 +46,23 @@
           d="m 775.57365,2476.6403 258.71885,1.2779"
           id="cover.garage_ovest"
           data-entity="cover.garage_ovest"
-          data-type="serranda"
-          class="serranda garage"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="serranda"/>
         <path
           d="m 1097.6413,2477.8924 259.4872,0.9188"
           id="cover.garage_est"
           data-entity="cover.garage_est"
-          data-type="serranda"
-          class="serranda garage"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="serranda"/>
         <path
           d="m 1039.1019,3832.2581 364.851,-0.5582"
           id="cover.cancello_carrabile"
           data-entity="cover.cancello_carrabile"
-          data-type="cancello"
-          class="cancello"/>
+          data-domain="cover"
+          data-type="position"
+          data-fixture="cancello"/>
       </g>
       <g id="layer_garage_interattivo_climate"/>
       <g id="layer_garage_interattivo_binary_sensor">
