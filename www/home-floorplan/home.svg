@@ -5,8 +5,20 @@
   <defs id="defs1"/>
   <g id="layer_seminterrato" data-floor="seminterrato">
     <g id="layer_seminterrato_background">
-      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/seminterrato.png" id="seminterrato_img_day" x="0" y="0" class="render-img" data-mode="day"/>
-      <image width="1440" height="1860" preserveAspectRatio="none" style="image-rendering:optimizeQuality" href="/local/home-floorplan/images/seminterrato_n.png" id="seminterrato_img_night" x="0" y="0" class="render-img" data-mode="night"/>
+      <image
+        width="1440" height="1860"
+        href="/local/home-floorplan/images/seminterrato.png"
+        id="seminterrato_img_day"
+        x="0" y="0"
+        class="render-img"
+        data-mode="day"/>
+      <image
+        width="1440" height="1860"
+        href="/local/home-floorplan/images/seminterrato_n.png"
+        id="seminterrato_img_night"
+        x="0" y="0"
+        class="render-img"
+        data-mode="night"/>
     </g>
     <g id="layer_seminterrato_interattivo">
       <g id="layer_seminterrato_sensor">

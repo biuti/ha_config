@@ -50,4 +50,4 @@ automation:
         target:
           entity_id: group.scaldasalviette
 
-    mode: single
+    mode: restart
