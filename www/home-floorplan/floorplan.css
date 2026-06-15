@@ -185,8 +185,7 @@ path[id^="light."] {
   paint-order: stroke fill;
 }
 
-[data-domain="weather"] [data-role="value"],
-[data-domain="water"] [data-role="value"] {
+[data-domain="weather"] [data-role="value"] {
   fill: lightskyblue;
   opacity: 0.8;
   fill-opacity: 0.8;
@@ -210,8 +209,25 @@ path[id^="light."] {
 }
 
 /* Elettrovalvole Impianto Idrico */
+[data-domain="water"] [data-role="value"] {
+  fill: lightskyblue;
+  opacity: 0.8;
+  fill-opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+  font-weight: bold;
+
+  stroke: skyblue;
+  stroke-width: 1px;
+
+  text-anchor: end;
+
+  paint-order: stroke fill;
+}
+
 /* Stato base */
-[data-domain="water"][data-fixture="valvola"] {
+[data-domain="water"] [data-fixture="valvola"] {
   fill: greenyellow;
   fill-opacity: 0;
   transition:
@@ -221,7 +237,7 @@ path[id^="light."] {
 }
 
 /* Aperto */
-[data-domain="water"][data-fixture="valvola"][data-state="on"] {
+[data-domain="water"] [data-fixture="valvola"][data-state="on"] {
   fill-opacity: 0.75;
   display: inline;
 }

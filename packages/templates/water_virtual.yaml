@@ -80,6 +80,22 @@ input_number:
     unit_of_measurement: "%"
     icon: mdi:gauge-low
 
+binary_sensor:
+
+  - name: Vasca Irrigazione Bassa
+    unique_id: vasca_irrigazione_bassa
+
+    state: >
+      {{ states('input_number.livello_vasca1')|float <
+         states('input_number.soglia_ripristino_vasca1')|float }}
+
+  - name: Vasca Sanitari Bassa
+    unique_id: vasca_sanitari_bassa
+
+    state: >
+      {{ states('input_number.livello_vasca2')|float <
+         states('input_number.soglia_ripristino_vasca2')|float }}
+
 template:
 
   - sensor:
