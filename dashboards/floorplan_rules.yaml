@@ -366,6 +366,17 @@
     - service: floorplan.text_set
       service_data: '${Math.round(entity.state) + "%"}'
 
+# IRRIGAZIONE
+- name: Vasche di Raccolta
+
+  entities:
+    - sensor.vasca_irrigazione
+    - sensor.vasca_sanitari
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + "%"}'
+
 # SWITCHES
 - name: Scaldasalviette
 
@@ -373,6 +384,9 @@
     - switch.scaldasalviette_bagno_padronale
     - switch.scaldasalviette_bagno_comune
     - switch.scaldasalviette_bagno_taverna
+    - switch.valvola_vasca_irrigazione
+    - switch.valvola_vasca_sanitari
+    - switch.valvola_impianto_irrigazione
 
   state_action:
     action: call-service
