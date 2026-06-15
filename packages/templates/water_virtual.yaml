@@ -18,13 +18,13 @@ input_boolean:
     icon: mdi:water-boiler
 
   # ── VASCA 1 — irrigazione ─────────────────────────────────
-  rubinetto_ripristino_vasca1:
-    name: "Rubinetto Ripristino Vasca 1"
+  bypass_vasca_irrigazione:
+    name: "Valvola Bypass Vasca Irrigazione"
     icon: mdi:valve
 
   # ── VASCA 2 — scarichi sanitari ───────────────────────────
-  rubinetto_ripristino_vasca2:
-    name: "Rubinetto Ripristino Vasca 2"
+  bypass_vasca_sanitari:
+    name: "Valvola Bypass Vasca Sanitari"
     icon: mdi:valve
 
 input_number:
@@ -47,38 +47,56 @@ input_number:
     icon: mdi:thermometer-check
 
   # ── VASCA 1 — irrigazione ─────────────────────────────────
-  livello_vasca1:
-    name: "Livello Vasca 1 (irrigazione)"
+  livello_vasca_irrigazione:
+    name: "Livello Vasca Irrigazione"
     min: 0
     max: 100
     step: 1
     unit_of_measurement: "%"
     icon: mdi:gauge
 
-  soglia_ripristino_vasca1:
-    name: "Soglia Ripristino Vasca 1"
+  soglia_minima_vasca_irrigazione:
+    name: "Soglia Minima Vasca Irrigazione"
     min: 0
     max: 50
     step: 5
     unit_of_measurement: "%"
+    initial: 10
     icon: mdi:gauge-low
+
+  isteresi_vasca_irrigazione:
+    name: Isteresi Vasca Irrigazione
+    min: 1
+    max: 20
+    step: 1
+    unit_of_measurement: "%"
+    initial: 5
 
   # ── VASCA 2 — scarichi sanitari ───────────────────────────
-  livello_vasca2:
-    name: "Livello Vasca 2 (sanitari)"
+  livello_vasca_sanitari:
+    name: "Livello Vasca Sanitari"
     min: 0
     max: 100
     step: 1
     unit_of_measurement: "%"
     icon: mdi:gauge
 
-  soglia_ripristino_vasca2:
-    name: "Soglia Ripristino Vasca 2"
+  soglia_minima_vasca_sanitari:
+    name: "Soglia Minima Vasca Sanitari"
     min: 0
     max: 50
     step: 5
     unit_of_measurement: "%"
+    initial: 10
     icon: mdi:gauge-low
+
+  isteresi_vasca_sanitari:
+    name: Isteresi Vasca Sanitari
+    min: 1
+    max: 20
+    step: 1
+    unit_of_measurement: "%"
+    initial: 5
 
 template:
 
@@ -88,47 +106,47 @@ template:
         unique_id: vasca_irrigazione
         unit_of_measurement: "%"
         state: >
-          {{ states('input_number.livello_vasca1') }}
+          {{ states('input_number.livello_vasca_irrigazione') }}
 
       - name: Vasca Sanitari
         unique_id: vasca_sanitari
         unit_of_measurement: "%"
         state: >
-          {{ states('input_number.livello_vasca2') }}
+          {{ states('input_number.livello_vasca_sanitari') }}
 
   - switch:
 
-      - name: valvola Vasca Irrigazione
-        unique_id: valvola_vasca_irrigazione
+      - name: Bypass Vasca Irrigazione
+        unique_id: bypass_vasca_irrigazione
 
         state: >
-          {{ is_state('input_boolean.rubinetto_ripristino_vasca1','on') }}
+          {{ is_state('input_boolean.bypass_vasca_irrigazione','on') }}
 
         turn_on:
           - service: input_boolean.turn_on
             target:
-              entity_id: input_boolean.rubinetto_ripristino_vasca1
+              entity_id: input_boolean.bypass_vasca_irrigazione
 
         turn_off:
           - service: input_boolean.turn_off
             target:
-              entity_id: input_boolean.rubinetto_ripristino_vasca1
+              entity_id: input_boolean.bypass_vasca_irrigazione
 
-      - name: Valvola Vasca Sanitari
-        unique_id: valvola_vasca_sanitari
+      - name: Bypass Vasca Sanitari
+        unique_id: bypass_vasca_sanitari
 
         state: >
-          {{ is_state('input_boolean.rubinetto_ripristino_vasca2','on') }}
+          {{ is_state('input_boolean.bypass_vasca_sanitari','on') }}
 
         turn_on:
           - service: input_boolean.turn_on
             target:
-              entity_id: input_boolean.rubinetto_ripristino_vasca2
+              entity_id: input_boolean.bypass_vasca_sanitari
 
         turn_off:
           - service: input_boolean.turn_off
             target:
-              entity_id: input_boolean.rubinetto_ripristino_vasca2
+              entity_id: input_boolean.bypass_vasca_sanitari
 
       - name: Valvola Impianto Irrigazione
         unique_id: valvola_impianto_irrigazione
@@ -152,12 +170,12 @@ template:
       unique_id: vasca_irrigazione_bassa
 
       state: >
-        {{ states('input_number.livello_vasca1')|float <
-          states('input_number.soglia_ripristino_vasca1')|float }}
+        {{ states('input_number.livello_vasca_irrigazione')|float <
+          states('input_number.soglia_minima_vasca_irrigazione')|float }}
 
     - name: Vasca Sanitari Bassa
       unique_id: vasca_sanitari_bassa
 
       state: >
-        {{ states('input_number.livello_vasca2')|float <
-          states('input_number.soglia_ripristino_vasca2')|float }}
+        {{ states('input_number.livello_vasca_sanitari')|float <
+          states('input_number.soglia_minima_vasca_sanitari')|float }}

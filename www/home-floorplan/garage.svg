@@ -27,13 +27,13 @@
           data-zone="esterno"
           data-domain="water">
           <text
-            x="260" y="100"
+            x="15" y="100"
             id="label.vasca_irrigazione"
             data-role="label">
             <tspan>VASCA IRRIGAZIONE:</tspan>
           </text>
           <text
-            x="415" y="100"
+            x="470" y="100"
             id="sensor.vasca_irrigazione"
             data-role="value"
             data-type="riempimento"
@@ -41,8 +41,8 @@
             <tspan>---%</tspan>
           </text>
           <circle
-            id="switch.valvola_vasca_irrigazione"
-            cx="460"
+            id="switch.bypass_vasca_irrigazione"
+            cx="510"
             cy="80"
             class="power impianto-idrico"
             data-fixture="valvola"
@@ -52,13 +52,13 @@
           data-zone="esterno"
           data-domain="water">
           <text
-            x="260" y="200"
+            x="15" y="200"
             id="label.vasca_sanitari"
             data-role="label">
             <tspan>VASCA SANITARI:</tspan>
           </text>
           <text
-            x="415" y="200"
+            x="470" y="200"
             id="sensor.vasca_sanitari"
             data-role="value"
             data-fixture="vasca"
@@ -66,8 +66,8 @@
             <tspan>---%</tspan>
           </text>
           <circle
-            id="switch.valvola_vasca_sanitari"
-            cx="460"
+            id="switch.bypass_vasca_sanitari"
+            cx="510"
             cy="180"
             data-fixture="valvola"
             class="power impianto-idrico"
@@ -77,15 +77,15 @@
           data-zone="esterno"
           data-domain="water">
           <text
-            x="770" y="310"
+            x="15" y="300"
             id="label.valvola_impianto_irrigazione"
             data-role="label">
-            <tspan>IRRIGAZIONE:</tspan>
+            <tspan>IMPIANTO DI IRRIGAZIONE:</tspan>
           </text>
           <circle
             id="switch.valvola_impianto_irrigazione"
-            cx="846"
-            cy="360"
+            cx="510"
+            cy="280"
             data-fixture="valvola"
             class="power impianto-idrico irrigazione"
             r="20" />

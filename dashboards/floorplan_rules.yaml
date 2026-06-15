@@ -384,8 +384,8 @@
     - switch.scaldasalviette_bagno_padronale
     - switch.scaldasalviette_bagno_comune
     - switch.scaldasalviette_bagno_taverna
-    - switch.valvola_vasca_irrigazione
-    - switch.valvola_vasca_sanitari
+    - switch.bypass_vasca_irrigazione
+    - switch.bypass_vasca_sanitari
     - switch.valvola_impianto_irrigazione
 
   state_action:

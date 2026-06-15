@@ -36,11 +36,11 @@ automation:
       - condition: state
         entity_id: input_boolean.override_pioggia_irrigazione
         state: "off"
-      # Non irrigare se livello vasca 1 troppo basso
+      # Non irrigare se livello vasca troppo basso
       - condition: template
         value_template: >
-          {{ states('input_number.livello_vasca1') | float >
-             states('input_number.soglia_ripristino_vasca1') | float }}
+          {{ states('input_number.livello_vasca_irrigazione') | float >
+             states('input_number.soglia_minima_vasca_irrigazione') | float }}
       # Non irrigare se piove ora
       - condition: template
         value_template: >
@@ -170,83 +170,94 @@ automation:
           entity_id: input_boolean.override_pioggia_irrigazione
     mode: single
 
-  # ── 4. RIPRISTINO VASCA 1 ─────────────────────────────────
+  # ── 4. BYPASS VASCA IRRIGAZIONE ─────────────────────────
 
-  - id: irrigazione_ripristino_vasca1
-    alias: "Irrigazione — Ripristino vasca 1"
+  - id: irrigazione_bypass_vasca
+    alias: "Irrigazione — Bypass Vasca"
     description: >
-      Se il livello della vasca 1 scende sotto la soglia configurata,
-      apre il rubinetto di ripristino da acqua corrente.
-      Chiude quando il livello raggiunge l'80%.
+      Se il livello della vasca scende sotto la soglia configurata,
+      apre l'elettrovalvola per alimentare da acqua corrente.
+      Chiude quando il livello supera nuovamente la soglia minima impostata.
     triggers:
       - trigger: numeric_state
-        entity_id: input_number.livello_vasca1
-        below: input_number.soglia_ripristino_vasca1
+        entity_id: input_number.livello_vasca_irrigazione
+        below: input_number.soglia_minima_vasca_irrigazione
     conditions:
       - condition: state
-        entity_id: input_boolean.rubinetto_ripristino_vasca1
+        entity_id: input_boolean.bypass_vasca_irrigazione
         state: "off"
     actions:
       - action: input_boolean.turn_on
         target:
-          entity_id: input_boolean.rubinetto_ripristino_vasca1
+          entity_id: input_boolean.bypass_vasca_irrigazione
     mode: single
 
-  - id: irrigazione_chiudi_ripristino_vasca1
-    alias: "Irrigazione — Chiudi ripristino vasca 1"
+  - id: irrigazione_ripristino_alimentazione_vasca
+    alias: "Irrigazione — Ripristina Alimentazione da Vasca"
     description: >
-      Chiude il rubinetto di ripristino quando la vasca 1
-      raggiunge l'80% di capacità.
+      Chiude l'elettrovalvola quando il livello supera nuovamente la soglia minima impostata.
     triggers:
-      - trigger: numeric_state
-        entity_id: input_number.livello_vasca1
-        above: 80
+      - trigger: template
+        value_template: >
+          {{
+            states('input_number.livello_vasca_irrigazione') | float >
+            (
+              states('input_number.soglia_minima_vasca_irrigazione') | float +
+              states('input_number.isteresi_vasca_irrigazione') | float
+            )
+          }}
     conditions:
       - condition: state
-        entity_id: input_boolean.rubinetto_ripristino_vasca1
+        entity_id: input_boolean.bypass_vasca_irrigazione
         state: "on"
     actions:
       - action: input_boolean.turn_off
         target:
-          entity_id: input_boolean.rubinetto_ripristino_vasca1
+          entity_id: input_boolean.bypass_vasca_irrigazione
     mode: single
 
-  # ── 5. RIPRISTINO VASCA 2 ─────────────────────────────────
+  # ── 5. BYPASS VASCA SANITARI ─────────────────────────────────
 
-  - id: irrigazione_ripristino_vasca2
-    alias: "Irrigazione — Ripristino vasca 2"
+  - id: sanitari_bypass_vasca
+    alias: "Sanitari — Bypass Vasca"
     description: >
-      Se il livello della vasca 2 (sanitari) scende sotto soglia,
-      apre il rubinetto di ripristino. Chiude all'80%.
+      Se il livello della vasca scende sotto la soglia configurata,
+      apre l'elettrovalvola per alimentare da acqua corrente.
+      Chiude quando il livello supera nuovamente la soglia minima impostata.
     triggers:
       - trigger: numeric_state
-        entity_id: input_number.livello_vasca2
-        below: input_number.soglia_ripristino_vasca2
+        entity_id: input_number.livello_vasca_sanitari
+        below: input_number.soglia_minima_vasca_sanitari
     conditions:
       - condition: state
-        entity_id: input_boolean.rubinetto_ripristino_vasca2
+        entity_id: input_boolean.bypass_vasca_sanitari
         state: "off"
     actions:
       - action: input_boolean.turn_on
         target:
-          entity_id: input_boolean.rubinetto_ripristino_vasca2
+          entity_id: input_boolean.bypass_vasca_sanitari
     mode: single
 
-  - id: irrigazione_chiudi_ripristino_vasca2
-    alias: "Irrigazione — Chiudi ripristino vasca 2"
+  - id: sanitari_ripristino_alimentazione_vasca
+    alias: "Sanitari — Ripristina Alimentazione da Vasca"
     description: >
-      Chiude il rubinetto di ripristino vasca 2 quando
-      raggiunge l'80% di capacità.
+      Chiude l'elettrovalvola quando il livello supera nuovamente la soglia minima impostata.
     triggers:
-      - trigger: numeric_state
-        entity_id: input_number.livello_vasca2
-        above: 80
+      - trigger: template
+        value_template: >
+          {{
+            states('input_number.livello_vasca_sanitari') | float >
+            (
+              states('input_number.soglia_minima_vasca_sanitari') | float +
+              states('input_number.isteresi_vasca_sanitari') | float
+            )
+          }}
     conditions:
       - condition: state
-        entity_id: input_boolean.rubinetto_ripristino_vasca2
+        entity_id: input_boolean.bypass_vasca_sanitari
         state: "on"
     actions:
       - action: input_boolean.turn_off
         target:
-          entity_id: input_boolean.rubinetto_ripristino_vasca2
+          entity_id: input_boolean.bypass_vasca_sanitari
     mode: single

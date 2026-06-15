@@ -243,8 +243,7 @@ path[id^="light."] {
 }
 
 /* Stili per le label */
-[data-domain="climate"] [data-role="label"],
-[data-domain="water"] [data-role="label"] {
+[data-domain="climate"] [data-role="label"] {
   fill: lightgray;
   opacity: 0.8;
 
@@ -257,6 +256,16 @@ path[id^="light."] {
 }
 
 [data-domain="weather"] [data-role="label"] {
+  fill: lightgray;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
+}
+
+[data-domain="water"] [data-role="label"] {
   fill: lightgray;
   opacity: 0.8;
 
