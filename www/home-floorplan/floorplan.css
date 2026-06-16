@@ -233,6 +233,11 @@ path[id^="light."] {
 
 [data-domain="energy"] [data-role="icon"] {
   font-size: 40px;
+  opacity: 0.8;
+}
+
+[data-domain="energy"] [data-role="link"] {
+  opacity: 0.8;
 }
 
 [data-domain="energy"][data-state="disconnected"] [data-role="link"],
@@ -257,6 +262,19 @@ path[id^="light."] {
 [data-domain="energy"][data-state="importing"] [data-role="icon"]  {
   fill: darkorange;
   animation: energyAlarm 4s infinite;
+}
+
+[data-domain="energy"][data-state="idle"] [data-role="icon"]  {
+  opacity: 0;
+}
+
+[data-domain="energy"][data-state="idle"] [data-role="link"]  {
+  fill: lightgray;
+  opacity: 0.4;
+}
+
+[data-domain="energy"][data-state="idle"] [data-role="value"]  {
+  opacity: 0.4;
 }
 
 /* Elettrovalvole Impianto Idrico */
