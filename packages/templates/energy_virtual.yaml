@@ -18,10 +18,9 @@ input_boolean:
     icon: mdi:remote
 
   # ── COLONNINA RICARICA AUTO ───────────────────────────────
-  colonnina_ricarica_attiva:
-    name: "Colonnina Ricarica Attiva"
-    icon: mdi:ev-station
-
+  ev_collegata:
+    name: "EV Collegata"
+    icon: mdi:power-plug
 
   # ── SENSORE BLACKOUT ──────────────────────────────────────
   blackout_rete:
@@ -58,11 +57,34 @@ input_number:
 
   batteria_potenza:
     name: "Batteria Potenza"
+
+    # Convenzione:
+    # +W = batteria in carica
+    # -W = batteria in scarica
+
     min: -10000
     max: 10000
     step: 10
     unit_of_measurement: "W"
     icon: mdi:battery-charging-outline
+
+  # ── EV ────────────────────────────────────────────────────
+  ev_soc:
+    name: "EV Stato di Carica"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:battery-charging
+
+  ev_capacita:
+    name: "EV Capacita"
+    min: 10000
+    max: 120000
+    step: 1000
+    unit_of_measurement: "Wh"
+    initial: 40000
+    icon: mdi:battery
 
   # ── RETE ──────────────────────────────────────────────────
   rete_potenza:
@@ -162,7 +184,7 @@ template:
           {% set grid_export =
             is_state('binary_sensor.grid_export', 'on') %}
 
-          {% if p > 50 %}
+          {% if p < -50 %}
 
             {% if grid_export %}
               discharging_to_grid
@@ -170,7 +192,7 @@ template:
               discharging
             {% endif %}
 
-          {% elif p < -50 %}
+          {% elif p > 50 %}
 
             {% if grid_import %}
               charging_from_grid
@@ -226,7 +248,7 @@ template:
       - name: "EV State"
         unique_id: ev_state
         state: >
-          {% if is_state('input_boolean.colonnina_ricarica_attiva', 'off') %}
+          {% if is_state('input_boolean.ev_collegata', 'off') %}
             disconnected
           {% else %}
             {% set p = states('input_number.colonnina_potenza') | float(0) %}

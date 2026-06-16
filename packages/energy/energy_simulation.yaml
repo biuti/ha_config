@@ -1,0 +1,395 @@
+# packages/energy/energy_simulation.yaml
+# Simulazione FV e consumi casa
+# TEMPORANEO - da rimuovere quando l'impianto reale sarà installato
+
+automation:
+
+  # ──────────────────────────────────────────────────────────
+  # PRODUZIONE FOTOVOLTAICA
+  # Aggiorna ogni 5 minuti
+  # ──────────────────────────────────────────────────────────
+
+  - id: energia_simulazione_fv
+    alias: "Simulazione Energia - FV"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    actions:
+
+      - variables:
+
+          ora: >
+            {{ now().hour + (now().minute / 60) }}
+
+          coeff_meteo: >
+            {% set meteo = states('sensor.meteo_attuale') %}
+
+            {% if meteo == 'sunny' %}
+              1.0
+            {% elif meteo == 'windy' %}
+              0.8
+            {% elif meteo == 'partlycloudy' %}
+              0.7
+            {% elif meteo == 'cloudy' %}
+              0.4
+            {% elif meteo == 'rainy' %}
+              0.2
+            {% else %}
+              0.1
+            {% endif %}
+
+          potenza_fv: >
+            {% set h = now().hour + (now().minute / 60) %}
+            {% set coeff = coeff_meteo | float %}
+
+            {% if h < 6 or h > 20 %}
+              0
+            {% else %}
+              {{ (10000 *
+                  sin(
+                    ((h - 6) / 14) * pi
+                  ) *
+                  coeff
+                ) | round(0) }}
+            {% endif %}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.fv_potenza_attuale
+        data:
+          value: "{{ potenza_fv | float }}"
+
+    mode: restart
+
+  # ──────────────────────────────────────────────────────────
+  # CONSUMI CASA
+  # Profilo realistico semplificato
+  # ──────────────────────────────────────────────────────────
+
+  - id: energia_simulazione_casa
+    alias: "Simulazione Energia - Casa"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    actions:
+
+      - variables:
+
+          consumo: >
+            {% set h = now().hour %}
+
+            {% if h >= 0 and h < 6 %}
+              450
+
+            {% elif h >= 6 and h < 9 %}
+              3200
+
+            {% elif h >= 9 and h < 12 %}
+              900
+
+            {% elif h >= 12 and h < 14 %}
+              2500
+
+            {% elif h >= 14 and h < 17 %}
+              800
+
+            {% elif h >= 17 and h < 23 %}
+              3500
+
+            {% else %}
+              600
+            {% endif %}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.casa_potenza_totale
+        data:
+          value: "{{ consumo | float }}"
+
+    mode: restart
+
+  # ──────────────────────────────────────────────────────────
+  # BATTERIA
+  # Simula il comportamento dell'accumulo
+  # ──────────────────────────────────────────────────────────
+
+  - id: energia_simulazione_batteria
+    alias: "Simulazione Energia - Batteria"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    actions:
+
+      - variables:
+
+          fv: >
+            {{ states('input_number.fv_potenza_attuale') | float(0) }}
+
+          casa: >
+            {{ states('input_number.casa_potenza_totale') | float(0) }}
+
+          soc: >
+            {{ states('input_number.batteria_soc') | float(0) }}
+
+          ev: > 
+            {{ states('input_number.colonnina_potenza') | float(0) }}
+
+          surplus: >
+            {{ fv - casa - ev }}
+
+          battery_power: >
+            {% set surplus = fv - casa - ev %}
+            {% set soc = states('input_number.batteria_soc') | float(0) %}
+
+            {# FV in eccesso -> carica batteria #}
+            {% if surplus > 200 and soc < 95 %}
+              {{ [surplus, 5000] | min }}
+
+            {# FV insufficiente -> scarica batteria #}
+            {% elif surplus < -200 and soc > 20 %}
+              {{ [(-surplus), 5000] | min * -1 }}
+
+            {# Nessuna azione #}
+            {% else %}
+              0
+            {% endif %}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.batteria_potenza
+        data:
+          value: "{{ battery_power | float }}"
+
+    mode: restart
+
+  # ──────────────────────────────────────────────────────────
+  # SOC BATTERIA
+  # Capacità simulata: 10 kWh
+  # ──────────────────────────────────────────────────────────
+
+  - id: energia_simulazione_soc
+    alias: "Simulazione Energia - SOC"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    actions:
+
+      - variables:
+
+          soc: >
+            {{ states('input_number.batteria_soc') | float(0) }}
+
+          power: >
+            {{ states('input_number.batteria_potenza') | float(0) }}
+
+          delta_soc: >
+            {{
+              (
+                power
+                * (5 / 60)
+                / 10000
+              ) * 100
+            }}
+
+          new_soc: >
+            {% set value =
+              soc - delta_soc %}
+
+            {% if value > 100 %}
+              100
+            {% elif value < 0 %}
+              0
+            {% else %}
+              {{ value }}
+            {% endif %}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.batteria_soc
+        data:
+          value: "{{ new_soc | float }}"
+
+    mode: restart
+
+  # ──────────────────────────────────────────────────────────
+  # EV
+  # Capacità simulata: ~40 kWh
+  # ──────────────────────────────────────────────────────────
+
+  - id: simulazione_ev_arrivo
+    alias: "Simulazione EV - Arrivo"
+
+    triggers:
+      - trigger: time
+        at: "18:00:00"
+
+    actions:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.ev_collegata
+
+  - id: simulazione_ev_partenza
+    alias: "Simulazione EV - Partenza"
+
+    triggers:
+      - trigger: time
+        at: "07:00:00"
+
+    actions:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.ev_collegata
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.colonnina_potenza
+        data:
+          value: 0
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.ev_soc
+        data:
+          value: >
+            {{ [states('input_number.ev_soc')|float - 15, 5] | max }}
+
+  - id: simulazione_ev_ricarica_start
+    alias: "Simulazione EV - Avvia Ricarica"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    conditions:
+      - condition: state
+        entity_id: input_boolean.ev_collegata
+        state: "on"
+
+      - condition: numeric_state
+        entity_id: input_number.ev_soc
+        below: 90
+
+    actions:
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.colonnina_potenza
+        data:
+          value: 7400
+
+  - id: simulazione_ev_ricarica_stop
+    alias: "Simulazione EV - Stop Ricarica"
+
+    triggers:
+      - trigger: numeric_state
+        entity_id: input_number.ev_soc
+        above: 90
+
+    actions:
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.colonnina_potenza
+        data:
+          value: 0
+
+  - id: simulazione_ev_soc
+    alias: "Simulazione EV - SOC"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    conditions:
+      - condition: state
+        entity_id: input_boolean.ev_collegata
+        state: "on"
+
+    actions:
+
+      - variables:
+
+          soc: >
+            {{ states('input_number.ev_soc') | float(0) }}
+
+          power: >
+            {{ states('input_number.colonnina_potenza') | float(0) }}
+
+          capacity: >
+            {{ states('input_number.ev_capacita') | float(40000) }}
+
+          delta_soc: >
+            {{
+              (
+                power
+                * (5 / 60)
+                / capacity
+              ) * 100
+            }}
+
+          new_soc: >
+            {% set value = soc + delta_soc %}
+
+            {% if value > 100 %}
+              100
+            {% else %}
+              {{ value }}
+            {% endif %}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.ev_soc
+        data:
+          value: "{{ new_soc | float }}"
+
+  # ──────────────────────────────────────────────────────────
+  # RETE
+  # Bilancio energetico complessivo
+  # ──────────────────────────────────────────────────────────
+
+  - id: energia_simulazione_grid
+    alias: "Simulazione Energia - Grid"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/5"
+
+    actions:
+
+      - variables:
+
+          casa: >
+            {{ states('input_number.casa_potenza_totale') | float(0) }}
+
+          ev: >
+            {{ states('input_number.colonnina_potenza') | float(0) }}
+
+          fv: >
+            {{ states('input_number.fv_potenza_attuale') | float(0) }}
+
+          batteria: >
+            {{ states('input_number.batteria_potenza') | float(0) }}
+
+          rete: >
+            {{
+              casa
+              + ev
+              - fv
+              + batteria
+            }}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.rete_potenza
+        data:
+          value: "{{ rete | round(0) }}"
+
+    mode: restart
