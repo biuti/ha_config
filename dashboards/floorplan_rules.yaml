@@ -401,10 +401,12 @@
       service_data: >
         ${
           {
-            "producing": "⚡",
+            "producing": "▼",
             "charging": "▲",
+            "charging_from_grid": "▲",
             "discharging": "▼",
-            "importing": "⚡",
+            "discharging_to_grid": "▼",
+            "importing": "▲",
             "exporting": "▼",
             "idle": "■",
             "disconnected": "✕"

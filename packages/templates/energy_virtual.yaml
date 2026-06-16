@@ -130,9 +130,10 @@ template:
       - name: "FV State"
         unique_id: fv_state
         state: >
-          {% set p = states('input_number.fv_potenza_attuale') | float(0) %}
+          {% set producing =
+            is_state('binary_sensor.fv_producing', 'on') %}
 
-          {% if p > 50 %}
+          {% if producing %}
             producing
           {% else %}
             idle
@@ -156,11 +157,27 @@ template:
         unique_id: battery_state
         state: >
           {% set p = states('input_number.batteria_potenza') | float(0) %}
+          {% set grid_import =
+            is_state('binary_sensor.grid_import', 'on') %}
+          {% set grid_export =
+            is_state('binary_sensor.grid_export', 'on') %}
 
           {% if p > 50 %}
-            discharging
+
+            {% if grid_export %}
+              discharging_to_grid
+            {% else %}
+              discharging
+            {% endif %}
+
           {% elif p < -50 %}
-            charging
+
+            {% if grid_import %}
+              charging_from_grid
+            {% else %}
+              charging
+            {% endif %}
+
           {% else %}
             idle
           {% endif %}
@@ -209,14 +226,34 @@ template:
       - name: "EV State"
         unique_id: ev_state
         state: >
-          {% set p = states('input_number.colonnina_potenza') | float(0) %}
-
-          {% if p > 100 %}
-            charging
-          {% elif p < -100 %}
-            importing
+          {% if is_state('input_boolean.colonnina_ricarica_attiva', 'off') %}
+            disconnected
           {% else %}
-            idle
+            {% set p = states('input_number.colonnina_potenza') | float(0) %}
+            {% set grid_import =
+              is_state('binary_sensor.grid_import', 'on') %}
+            {% set grid_export =
+              is_state('binary_sensor.grid_export', 'on') %}
+
+            {% if p > 100 %}
+
+              {% if grid_import %}
+                charging_from_grid
+              {% else %}
+                charging
+              {% endif %}
+
+            {% elif p < -100 %}
+
+              {% if grid_export %}
+                discharging_to_grid
+              {% else %}
+                discharging
+              {% endif %}
+
+            {% else %}
+              idle
+            {% endif %}
           {% endif %}
 
   - binary_sensor:

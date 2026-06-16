@@ -1022,7 +1022,8 @@
         </g>
         <g id="grid_state_group"
           data-zone="esterno"
-          data-domain="energy">
+          data-domain="energy"
+          data-source="grid">
           <circle
             id="state.grid"
             cx="1060"
