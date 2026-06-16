@@ -913,17 +913,17 @@
           <circle
             id="state.fv"
             cx="1060"
-            cy="1040"
+            cy="1290"
             r="8"
             data-role="link"/>
           <text
-            x="1080" y="1050"
+            x="1100" y="1300"
             id="label.fv_power"
             data-role="label">
             <tspan>FV:</tspan>
           </text>
           <text
-            x="1400" y="1050"
+            x="1380" y="1300"
             id="sensor.fv_power"
             data-role="value"
             data-type="potenza">
@@ -937,24 +937,24 @@
           <circle
             id="state.battery"
             cx="1060"
-            cy="1100"
+            cy="1360"
             r="8"
             data-role="link"/>
           <text
-            x="1080" y="1110"
+            x="1100" y="1370"
             id="label.battery_soc"
             data-role="label">
             <tspan>BAT:</tspan>
           </text>
           <text
-            x="1400" y="1110"
+            x="1380" y="1370"
             id="sensor.battery_soc"
             data-role="value"
             data-type="carica">
             <tspan>---%</tspan>
           </text>
           <text
-            x="1420" y="1110"
+            x="1400" y="1370"
             id="sensor.battery_state"
             data-role="icon">
             <tspan>▲</tspan>
@@ -967,17 +967,17 @@
           <circle
             id="state.home"
             cx="1060"
-            cy="1160"
+            cy="1430"
             r="8"
             data-role="link"/>
           <text
-            x="1080" y="1170"
+            x="1100" y="1440"
             id="label.home_power"
             data-role="label">
             <tspan>HOME:</tspan>
           </text>
           <text
-            x="1400" y="1170"
+            x="1380" y="1440"
             id="sensor.home_power"
             data-role="value"
             data-type="potenza">
@@ -991,24 +991,24 @@
           <circle
             id="state.ev"
             cx="1060"
-            cy="1220"
+            cy="1500"
             r="8"
             data-role="link"/>
           <text
-            x="1080" y="1230"
+            x="1100" y="1510"
             id="label.ev_power"
             data-role="label">
             <tspan>EV:</tspan>
           </text>
           <text
-            x="1400" y="1230"
+            x="1380" y="1510"
             id="sensor.ev_power"
             data-role="value"
             data-type="potenza">
             <tspan>----- W</tspan>
           </text>
           <text
-            x="1420" y="1230"
+            x="1400" y="1510"
             id="sensor.ev_state"
             data-role="icon">
             <tspan></tspan>
@@ -1020,24 +1020,24 @@
           <circle
             id="state.grid"
             cx="1060"
-            cy="1220"
+            cy="1570"
             r="8"
             data-role="link"/>
           <text
-            x="1080" y="1290"
+            x="1100" y="1580"
             id="label.grid_power"
             data-role="label">
             <tspan>GRID:</tspan>
           </text>
           <text
-            x="1400" y="1290"
+            x="1380" y="1580"
             id="sensor.grid_power"
             data-role="value"
             data-type="potenza">
             <tspan>----- W</tspan>
           </text>
           <text
-            x="1420" y="1290"
+            x="1400" y="1580"
             id="sensor.grid_state"
             data-role="icon">
             <tspan></tspan>

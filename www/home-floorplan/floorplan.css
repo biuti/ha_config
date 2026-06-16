@@ -231,8 +231,32 @@ path[id^="light."] {
   paint-order: stroke fill;
 }
 
-[data-domain="energy"] [data-role="value"] {
-  font-size: 50px;
+[data-domain="energy"] [data-role="icon"] {
+  font-size: 40px;
+}
+
+[data-domain="energy"][data-state="disconnected"] [data-role="link"],
+[data-domain="energy"][data-state="disconnected"] [data-role="icon"] {
+  fill: red;
+  animation: energyAlarm 1s infinite;
+}
+
+[data-domain="energy"][data-state="charging"] [data-role="link"],
+[data-domain="energy"][data-state="charging"] [data-role="icon"],
+[data-domain="energy"][data-state="producing"] [data-role="link"],
+[data-domain="energy"][data-state="producing"] [data-role="icon"],
+[data-domain="energy"][data-state="exporting"] [data-role="link"],
+[data-domain="energy"][data-state="exporting"] [data-role="icon"]   {
+  fill: greenyellow;
+  animation: energyAlarm 4s infinite;
+}
+
+[data-domain="energy"][data-state="discharging"] [data-role="link"],
+[data-domain="energy"][data-state="discharging"] [data-role="icon"],
+[data-domain="energy"][data-state="importing"] [data-role="link"],
+[data-domain="energy"][data-state="importing"] [data-role="icon"]  {
+  fill: darkorange;
+  animation: energyAlarm 4s infinite;
 }
 
 /* Elettrovalvole Impianto Idrico */
@@ -357,4 +381,16 @@ path[id^="light."] {
   0%   { opacity: 0.2; }
   50%  { opacity: 1; }
   100% { opacity: 0.2; }
+}
+
+@keyframes energyAlarm {
+  0%   { opacity: 0.2; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes energyFlow {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 0.8; }
+  100% { opacity: 0.6; }
 }

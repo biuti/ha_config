@@ -127,6 +127,17 @@ template:
         state: >
           {{ states('input_number.fv_potenza_attuale') }}
 
+      - name: "FV State"
+        unique_id: fv_state
+        state: >
+          {% set p = states('input_number.fv_potenza_attuale') | float(0) %}
+
+          {% if p > 50 %}
+            producing
+          {% else %}
+            idle
+          {% endif %}
+
       # ── BATTERIA ───────────────────────────────────────
 
       - name: "Battery SOC"
@@ -147,9 +158,9 @@ template:
           {% set p = states('input_number.batteria_potenza') | float(0) %}
 
           {% if p > 50 %}
-            charging
-          {% elif p < -50 %}
             discharging
+          {% elif p < -50 %}
+            charging
           {% else %}
             idle
           {% endif %}
@@ -165,14 +176,18 @@ template:
       - name: "Grid State"
         unique_id: grid_state
         state: >
-          {% set p = states('input_number.rete_potenza') | float(0) %}
-
-          {% if p > 50 %}
-            importing
-          {% elif p < -50 %}
-            exporting
+          {% if is_state('input_boolean.blackout_rete', 'on') %}
+            disconnected
           {% else %}
-            idle
+            {% set p = states('input_number.rete_potenza') | float(0) %}
+
+            {% if p > 50 %}
+              importing
+            {% elif p < -50 %}
+              exporting
+            {% else %}
+              idle
+            {% endif %}
           {% endif %}
 
       # ── CASA ───────────────────────────────────────────
