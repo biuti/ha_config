@@ -345,7 +345,8 @@
             "snowy":"❄️",
             "fog":"🌫️",
             "windy":"💨",
-            "lightning":"⚡"
+            "lightning":"⚡",
+            "clear-night":"🌙"
           }[entity.state] || "?"
         }
 

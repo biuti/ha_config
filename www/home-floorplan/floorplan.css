@@ -191,7 +191,7 @@ path[id^="light."] {
   fill-opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 56px;
+  font-size: 48px;
   font-weight: bold;
 
   stroke: skyblue;
@@ -206,6 +206,33 @@ path[id^="light."] {
 
 [data-domain="weather"] [data-role="icon"] {
   font-size: 76px;
+}
+
+/* Impianto Elettrico */
+[data-domain="energy"] [data-role="link"] {
+  fill: greenyellow;
+  opacity: 0.8;;
+}
+
+[data-domain="energy"] [data-role="value"] {
+  fill: lightskyblue;
+  opacity: 0.8;
+  fill-opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+
+  stroke: skyblue;
+  stroke-width: 1px;
+
+  text-anchor: end;
+
+  paint-order: stroke fill;
+}
+
+[data-domain="energy"] [data-role="value"] {
+  font-size: 50px;
 }
 
 /* Elettrovalvole Impianto Idrico */
@@ -256,6 +283,16 @@ path[id^="light."] {
 }
 
 [data-domain="weather"] [data-role="label"] {
+  fill: lightgray;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
+}
+
+[data-domain="energy"] [data-role="label"] {
   fill: lightgray;
   opacity: 0.8;
 

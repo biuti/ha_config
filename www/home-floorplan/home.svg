@@ -833,13 +833,13 @@
           data-zone="esterno"
           data-domain="weather">
           <text
-            x="1060" y="630"
+            x="1060" y="490"
             id="label.meteo_attuale"
             data-role="label">
             <tspan>Meteo:</tspan>
           </text>
           <text
-            x="1060" y="700"
+            x="1060" y="570"
             id="sensor.meteo_attuale"
             data-role="icon">
             <tspan>---</tspan>
@@ -858,13 +858,13 @@
           data-zone="esterno"
           data-domain="weather">
           <text
-            x="1060" y="780"
+            x="1060" y="650"
             id="label.vento"
             data-role="label">
             <tspan>Vento:</tspan>
           </text>
           <text
-            x="1060" y="850"
+            x="1060" y="710"
             id="sensor.vento"
             data-role="value"
             data-type="vento">
@@ -875,13 +875,13 @@
           data-zone="esterno"
           data-domain="weather">
           <text
-            x="1060" y="930"
+            x="1060" y="780"
             id="label.temperatura_esterna"
             data-role="label">
             <tspan>Temperatura Esterna:</tspan>
           </text>
           <text
-            x="1060" y="1000"
+            x="1060" y="840"
             id="sensor.temperatura_esterna"
             data-role="value"
             data-type="temperatura_esterna">
@@ -892,17 +892,155 @@
           data-zone="esterno"
           data-domain="weather">
           <text
-            x="1060" y="1080"
+            x="1060" y="910"
             id="label.umidita_esterna"
             data-role="label">
             <tspan>Umidità Esterna:</tspan>
           </text>
           <text
-            x="1060" y="1150"
+            x="1060" y="970"
             id="sensor.umidita_esterna"
             data-role="value"
             data-type="umidita_esterna">
             <tspan>--%</tspan>
+          </text>
+        </g>
+
+        <g id="fv_state_group"
+          data-zone="esterno"
+          data-domain="energy"
+          data-source="fv">
+          <circle
+            id="state.fv"
+            cx="1060"
+            cy="1040"
+            r="8"
+            data-role="link"/>
+          <text
+            x="1080" y="1050"
+            id="label.fv_power"
+            data-role="label">
+            <tspan>FV:</tspan>
+          </text>
+          <text
+            x="1400" y="1050"
+            id="sensor.fv_power"
+            data-role="value"
+            data-type="potenza">
+            <tspan>----- W</tspan>
+          </text>
+        </g>
+        <g id="battery_state_group"
+          data-zone="interno"
+          data-domain="energy"
+          data-source="battery">
+          <circle
+            id="state.battery"
+            cx="1060"
+            cy="1100"
+            r="8"
+            data-role="link"/>
+          <text
+            x="1080" y="1110"
+            id="label.battery_soc"
+            data-role="label">
+            <tspan>BAT:</tspan>
+          </text>
+          <text
+            x="1400" y="1110"
+            id="sensor.battery_soc"
+            data-role="value"
+            data-type="carica">
+            <tspan>---%</tspan>
+          </text>
+          <text
+            x="1420" y="1110"
+            id="sensor.battery_state"
+            data-role="icon">
+            <tspan>▲</tspan>
+          </text>
+        </g>
+        <g id="home_state_group"
+          data-zone="interno"
+          data-domain="energy"
+          data-source="home">
+          <circle
+            id="state.home"
+            cx="1060"
+            cy="1160"
+            r="8"
+            data-role="link"/>
+          <text
+            x="1080" y="1170"
+            id="label.home_power"
+            data-role="label">
+            <tspan>HOME:</tspan>
+          </text>
+          <text
+            x="1400" y="1170"
+            id="sensor.home_power"
+            data-role="value"
+            data-type="potenza">
+            <tspan>----- W</tspan>
+          </text>
+        </g>
+        <g id="ev_state_group"
+          data-zone="interno"
+          data-domain="energy"
+          data-source="ev">
+          <circle
+            id="state.ev"
+            cx="1060"
+            cy="1220"
+            r="8"
+            data-role="link"/>
+          <text
+            x="1080" y="1230"
+            id="label.ev_power"
+            data-role="label">
+            <tspan>EV:</tspan>
+          </text>
+          <text
+            x="1400" y="1230"
+            id="sensor.ev_power"
+            data-role="value"
+            data-type="potenza">
+            <tspan>----- W</tspan>
+          </text>
+          <text
+            x="1420" y="1230"
+            id="sensor.ev_state"
+            data-role="icon">
+            <tspan></tspan>
+          </text>
+        </g>
+        <g id="grid_state_group"
+          data-zone="esterno"
+          data-domain="energy">
+          <circle
+            id="state.grid"
+            cx="1060"
+            cy="1220"
+            r="8"
+            data-role="link"/>
+          <text
+            x="1080" y="1290"
+            id="label.grid_power"
+            data-role="label">
+            <tspan>GRID:</tspan>
+          </text>
+          <text
+            x="1400" y="1290"
+            id="sensor.grid_power"
+            data-role="value"
+            data-type="potenza">
+            <tspan>----- W</tspan>
+          </text>
+          <text
+            x="1420" y="1290"
+            id="sensor.grid_state"
+            data-role="icon">
+            <tspan></tspan>
           </text>
         </g>
       </g>
