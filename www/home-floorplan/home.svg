@@ -1002,16 +1002,16 @@
             data-role="link"/>
           <text
             x="1100" y="1640"
-            id="label.ev_power"
+            id="label.ev_soc"
             data-role="label">
             <tspan>EV:</tspan>
           </text>
           <text
             x="1380" y="1640"
-            id="sensor.ev_power"
+            id="sensor.ev_soc"
             data-role="value"
-            data-type="potenza">
-            <tspan>--.- kW</tspan>
+            data-type="carica">
+            <tspan>---%</tspan>
           </text>
           <text
             x="1400" y="1640"

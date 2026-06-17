@@ -285,6 +285,12 @@ template:
 
       # ── AUTO ───────────────────────────────────────────
 
+      - name: "EV SOC"
+        unique_id: ev_soc
+        unit_of_measurement: "%"
+        state: >
+          {{ states('input_number.ev_soc') }}
+
       - name: "EV Power"
         unique_id: ev_power
         unit_of_measurement: "W"

@@ -383,6 +383,7 @@
 - name: Indicatori di Carica
   entities:
     - sensor.battery_soc
+    - sensor.ev_soc
 
   state_action:
     - service: floorplan.text_set
