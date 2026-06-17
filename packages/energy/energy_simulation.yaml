@@ -201,7 +201,7 @@ automation:
 
           new_soc: >
             {% set value =
-              soc - delta_soc %}
+              soc + delta_soc %}
 
             {% if value > 100 %}
               100
