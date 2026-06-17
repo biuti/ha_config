@@ -3,9 +3,13 @@
 input_text:
 
   meteo_forecast_hourly:
+    name: "Meteo forecast Hourly"
+    icon: mdi:weather
     max: 8192
 
   meteo_forecast_daily:
+    name: "Meteo forecast Daily"
+    icon: mdi:weather
     max: 8192
 
 template:
