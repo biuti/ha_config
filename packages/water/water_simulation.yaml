@@ -1,0 +1,106 @@
+automation:
+
+  - id: water_rain_collection
+
+    alias: "Water - Raccolta acqua piovana"
+
+    triggers:
+
+      - trigger: time_pattern
+        minutes: "0"
+
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.meteo_pioggia_prossima_ora
+        above: 0
+
+    variables:
+
+      pioggia: >
+        {{ states('sensor.meteo_pioggia_prossima_ora') | float(0) }}
+
+      superficie: >
+        {{ states('input_number.superficie_raccolta_acqua') | float(0) }}
+
+      rendimento: >
+        {{ states('input_number.rendimento_raccolta_acqua') | float(0) }}
+
+      litri_raccolti: >
+        {{
+          (pioggia * superficie * rendimento)
+          | round(1)
+        }}
+
+      volume_irrigazione: >
+        {{ states('input_number.volume_vasca_irrigazione') | float(0) }}
+
+      volume_sanitari: >
+        {{ states('input_number.volume_vasca_sanitari') | float(0) }}
+
+      capacita_irrigazione: >
+        {{ states('input_number.capacita_vasca_irrigazione') | float(0) }}
+
+      capacita_sanitari: >
+        {{ states('input_number.capacita_vasca_sanitari') | float(0) }}
+
+      nuovo_volume_irrigazione: >
+        {{
+          [volume_irrigazione + litri_raccolti, capacita_irrigazione]
+          | min
+        }}
+
+      overflow_irrigazione: >
+        {{
+          [
+            volume_irrigazione + litri_raccolti - capacita_irrigazione,
+            0
+          ] | max
+        }}
+
+      nuovo_volume_sanitari: >
+        {{
+          [volume_sanitari + overflow_irrigazione, capacita_sanitari]
+          | min
+        }}
+
+      overflow_finale: >
+        {{
+          [
+            volume_sanitari + overflow_irrigazione - capacita_sanitari,
+            0
+          ] | max
+        }}
+
+    actions:
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.volume_vasca_irrigazione
+        data:
+          value: "{{ nuovo_volume_irrigazione }}"
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.volume_vasca_sanitari
+        data:
+          value: "{{ nuovo_volume_sanitari }}"
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.acqua_raccolta_oggi
+        data:
+          value: >
+            {{
+              states('input_number.acqua_raccolta_oggi')|float
+              + litri_raccolti
+            }}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.acqua_overflow_oggi
+        data:
+          value: >
+            {{
+              states('input_number.acqua_overflow_oggi')|float
+              + overflow_finale
+            }}
