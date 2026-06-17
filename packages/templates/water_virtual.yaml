@@ -47,13 +47,12 @@ input_number:
     icon: mdi:thermometer-check
 
   # ── VASCA 1 — irrigazione ─────────────────────────────────
-  livello_vasca_irrigazione:
-    name: "Livello Vasca Irrigazione"
+
+  volume_vasca_irrigazione:
     min: 0
-    max: 100
+    max: 5000
     step: 1
-    unit_of_measurement: "%"
-    icon: mdi:gauge
+    unit_of_measurement: L
 
   soglia_minima_vasca_irrigazione:
     name: "Soglia Minima Vasca Irrigazione"
@@ -73,13 +72,11 @@ input_number:
     initial: 5
 
   # ── VASCA 2 — scarichi sanitari ───────────────────────────
-  livello_vasca_sanitari:
-    name: "Livello Vasca Sanitari"
+  volume_vasca_sanitari:
     min: 0
-    max: 100
+    max: 5000
     step: 1
-    unit_of_measurement: "%"
-    icon: mdi:gauge
+    unit_of_measurement: L
 
   soglia_minima_vasca_sanitari:
     name: "Soglia Minima Vasca Sanitari"
@@ -106,13 +103,39 @@ template:
         unique_id: vasca_irrigazione
         unit_of_measurement: "%"
         state: >
-          {{ states('input_number.livello_vasca_irrigazione') }}
+          {{
+          (
+            states('input_number.volume_vasca_irrigazione')|float
+            /
+            states('input_number.capacita_vasca_irrigazione')|float
+            * 100
+          ) | round(0)
+          }}
 
       - name: Vasca Sanitari
         unique_id: vasca_sanitari
         unit_of_measurement: "%"
         state: >
-          {{ states('input_number.livello_vasca_sanitari') }}
+          {{
+          (
+            states('input_number.volume_vasca_sanitari')|float
+            /
+            states('input_number.capacita_vasca_sanitari')|float
+            * 100
+          ) | round(0)
+          }}
+
+      - name: Meteo Pioggia Prossima Ora
+        unique_id: meteo_pioggia_prossima_ora
+        unit_of_measurement: "mm"
+
+        state: >
+          {% set fc =
+            states('input_text.meteo_forecast_hourly')
+            | default('[]')
+            | from_json %}
+
+          {{ fc[0].get('precipitation', 0) }}
 
   - switch:
 
@@ -163,19 +186,3 @@ template:
           - service: input_boolean.turn_off
             target:
               entity_id: input_boolean.pompa_irrigazione
-
-  - binary_sensor:
-
-    - name: Vasca Irrigazione Bassa
-      unique_id: vasca_irrigazione_bassa
-
-      state: >
-        {{ states('input_number.livello_vasca_irrigazione')|float <
-          states('input_number.soglia_minima_vasca_irrigazione')|float }}
-
-    - name: Vasca Sanitari Bassa
-      unique_id: vasca_sanitari_bassa
-
-      state: >
-        {{ states('input_number.livello_vasca_sanitari')|float <
-          states('input_number.soglia_minima_vasca_sanitari')|float }}

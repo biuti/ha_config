@@ -55,9 +55,6 @@ script:
 
   # ── LUCI ──────────────────────────────────────────────────
 
-# packages/scripts/base_scripts.yaml
-# (solo sezione luci — il resto rimane invariato)
-
   luci_crepuscolo:
     alias: "Luci: modalità crepuscolo"
     description: >
@@ -86,42 +83,6 @@ script:
         data:
           brightness: 150
           color_temp: 400
-
-      # # Luci interne — per ogni luce controlla se è accesa o spenta
-      # - repeat:
-      #     for_each: >
-      #       {{ state_attr('light.luci_interne', 'entity_id') }}
-      #     sequence:
-      #       - choose:
-      #           # Se accesa: cambia solo colore e temperatura
-      #           - conditions:
-      #               - condition: template
-      #                 value_template: >
-      #                   {{ is_state(repeat.item, 'on') }}
-      #             sequence:
-      #               - action: light.turn_on
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
-      #                 data:
-      #                   color_temp: 450
-      #                   transition: 2
-      #           # Se spenta: imposta colore al minimo poi spegni
-      #           - conditions:
-      #               - condition: template
-      #                 value_template: >
-      #                   {{ is_state(repeat.item, 'off') }}
-      #             sequence:
-      #               - action: light.turn_on
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
-      #                 data:
-      #                   brightness: 1
-      #                   color_temp: 450
-      #               - delay:
-      #                   milliseconds: 200
-      #               - action: light.turn_off
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
 
   luci_notte:
     alias: "Luci: modalità notte"
@@ -195,39 +156,6 @@ script:
             - light.luci_esterne
             - light.luci_segnapassi
             - light.luci_accento
-
-      # # Luci interne — per ogni luce controlla se è accesa o spenta
-      # - repeat:
-      #     for_each: >
-      #       {{ state_attr('light.luci_interne', 'entity_id') }}
-      #     sequence:
-      #       - choose:
-      #           - conditions:
-      #               - condition: template
-      #                 value_template: "{{ is_state(repeat.item, 'on') }}"
-      #             sequence:
-      #               - action: light.turn_on
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
-      #                 data:
-      #                   brightness: 220
-      #                   color_temp: 250
-      #                   transition: 5
-      #           - conditions:
-      #               - condition: template
-      #                 value_template: "{{ is_state(repeat.item, 'off') }}"
-      #             sequence:
-      #               - action: light.turn_on
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
-      #                 data:
-      #                   brightness: 1
-      #                   color_temp: 250
-      #               - delay:
-      #                   milliseconds: 200
-      #               - action: light.turn_off
-      #                 target:
-      #                   entity_id: "{{ repeat.item }}"
 
   luci_tutte_spente:
     alias: "Luci: spegni tutto"

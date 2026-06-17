@@ -10,8 +10,6 @@
 #   Controller zone: OpenSprinkler o valvole ZigBee 24V AC
 #   Pompa: relè ZigBee o integrata nel controller
 #   Sensori livello vasche: galleggiante ultrasonico ZigBee
-#
-# NOTA: weather.casa → aggiornare con entity_id reale Met.no dopo installazione
 
 automation:
 
@@ -37,19 +35,18 @@ automation:
         entity_id: input_boolean.override_pioggia_irrigazione
         state: "off"
       # Non irrigare se livello vasca troppo basso
-      - condition: template
-        value_template: >
-          {{ states('input_number.livello_vasca_irrigazione') | float >
-             states('input_number.soglia_minima_vasca_irrigazione') | float }}
+      - condition: state
+        entity_id: binary_sensor.vasca_irrigazione_bassa
+        state: "off"
       # Non irrigare se piove ora
       - condition: template
         value_template: >
-          {{ states('weather.casa') not in
+          {{ states('sensor.meteo_attuale') not in
              ['rainy', 'pouring', 'lightning-rainy'] }}
       # Non irrigare se previsione pioggia domani > soglia
       - condition: template
         value_template: >
-          {% set forecast = state_attr('weather.casa', 'forecast') %}
+          {% set forecast = states('sensor.meteo_forecast') %}
           {% if forecast and forecast | length > 0 %}
             {% set domani = forecast[0] %}
             {% set prob = domani.get('precipitation_probability', 0) %}
@@ -119,7 +116,7 @@ automation:
       l'irrigazione se in corso e attiva l'override pioggia.
     triggers:
       - trigger: state
-        entity_id: weather.casa
+        entity_id: sensor.meteo_attuale
         to:
           - "rainy"
           - "pouring"
@@ -152,7 +149,7 @@ automation:
       di assorbire l'acqua piovana.
     triggers:
       - trigger: state
-        entity_id: weather.casa
+        entity_id: sensor.meteo_attuale
         from:
           - "rainy"
           - "pouring"
@@ -160,7 +157,7 @@ automation:
     conditions:
       - condition: template
         value_template: >
-          {{ states('weather.casa') not in
+          {{ states('sensor.meteo_attuale') not in
              ['rainy', 'pouring', 'lightning-rainy'] }}
     actions:
       - delay:
@@ -179,9 +176,9 @@ automation:
       apre l'elettrovalvola per alimentare da acqua corrente.
       Chiude quando il livello supera nuovamente la soglia minima impostata.
     triggers:
-      - trigger: numeric_state
-        entity_id: input_number.livello_vasca_irrigazione
-        below: input_number.soglia_minima_vasca_irrigazione
+      - trigger: state
+        entity_id: binary_sensor.vasca_irrigazione_bassa
+        to: "on"
     conditions:
       - condition: state
         entity_id: input_boolean.bypass_vasca_irrigazione
@@ -200,7 +197,7 @@ automation:
       - trigger: template
         value_template: >
           {{
-            states('input_number.livello_vasca_irrigazione') | float >
+            states('sensor.vasca_irrigazione') | float >
             (
               states('input_number.soglia_minima_vasca_irrigazione') | float +
               states('input_number.isteresi_vasca_irrigazione') | float
@@ -225,9 +222,9 @@ automation:
       apre l'elettrovalvola per alimentare da acqua corrente.
       Chiude quando il livello supera nuovamente la soglia minima impostata.
     triggers:
-      - trigger: numeric_state
-        entity_id: input_number.livello_vasca_sanitari
-        below: input_number.soglia_minima_vasca_sanitari
+      - trigger: state
+        entity_id: binary_sensor.vasca_sanitari_bassa
+        to: "on"
     conditions:
       - condition: state
         entity_id: input_boolean.bypass_vasca_sanitari
@@ -246,7 +243,7 @@ automation:
       - trigger: template
         value_template: >
           {{
-            states('input_number.livello_vasca_sanitari') | float >
+            states('sensor.vasca_sanitari') | float >
             (
               states('input_number.soglia_minima_vasca_sanitari') | float +
               states('input_number.isteresi_vasca_sanitari') | float

@@ -5,7 +5,6 @@
 #
 # HARDWARE DA INSTALLARE:
 #   Presa comandata Sonoff ZBMINIR2
-# NOTA: weather.casa → aggiornare con entity_id reale Met.no dopo installazione
 
 automation:
 

@@ -95,7 +95,7 @@ automation:
       I serramenti recessi vengono ignorati.
     triggers:
       - trigger: state
-        entity_id: weather.casa
+        entity_id: sensor.meteo_attuale
         to:
           - "rainy"
           - "pouring"
@@ -116,7 +116,7 @@ automation:
       Non riapre i raffstore — ACP e automazioni ripristinano.
     triggers:
       - trigger: state
-        entity_id: weather.casa
+        entity_id: sensor.meteo_attuale
         from:
           - "rainy"
           - "pouring"
@@ -124,7 +124,7 @@ automation:
     conditions:
       - condition: template
         value_template: >
-          {{ states('weather.casa') not in
+          {{ states('sensor.meteo_attuale') not in
              ['rainy', 'pouring', 'lightning-rainy'] }}
     actions:
       - action: input_boolean.turn_off
