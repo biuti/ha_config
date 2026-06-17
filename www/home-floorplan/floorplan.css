@@ -302,7 +302,7 @@ path[id^="light."] {
 }
 
 [data-domain="energy"][data-state="idle"] [data-role="value"],
-[data-domain="energy"][data-source="ev"][data-state="disconnected"] [data-role="value"] {
+[data-domain="energy"][data-state="disconnected"] [data-role="value"] {
   opacity: 0.2;
 }
 
