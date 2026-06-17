@@ -1,0 +1,46 @@
+# packages/automation/weather.yaml
+automation:
+
+  - id: update_meteo_forecast_hourly
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "/30"
+
+    actions:
+
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.forecast_home
+        data:
+          type: hourly
+        response_variable: forecast
+
+      - action: input_text.set_value
+        target:
+          entity_id: input_text.meteo_forecast_hourly
+        data:
+          value: >
+            {{ forecast['weather.forecast_home'].forecast[:12] | tojson }}
+
+  - id: update_meteo_forecast_daily
+
+    triggers:
+      - trigger: time_pattern
+        hours: "/6"
+
+    actions:
+
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.forecast_home
+        data:
+          type: daily
+        response_variable: forecast
+
+      - action: input_text.set_value
+        target:
+          entity_id: input_text.meteo_forecast_daily
+        data:
+          value: >
+            {{ forecast['weather.forecast_home'].forecast[:6] | tojson }}
