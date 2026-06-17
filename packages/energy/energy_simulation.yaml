@@ -14,7 +14,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 0
 
     actions:
 
@@ -73,7 +74,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 2
 
     actions:
 
@@ -122,7 +124,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 6
 
     actions:
 
@@ -178,7 +181,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 8
 
     actions:
 
@@ -266,7 +270,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 4
 
     conditions:
       - condition: state
@@ -306,7 +311,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 10
 
     conditions:
       - condition: state
@@ -360,7 +366,8 @@ automation:
 
     triggers:
       - trigger: time_pattern
-        minutes: "/5"
+        minutes: "/1"
+        seconds: 12
 
     actions:
 
