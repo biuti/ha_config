@@ -47,7 +47,6 @@ input_number:
     icon: mdi:thermometer-check
 
   # ── VASCA 1 — irrigazione ─────────────────────────────────
-
   volume_vasca_irrigazione:
     min: 0
     max: 5000

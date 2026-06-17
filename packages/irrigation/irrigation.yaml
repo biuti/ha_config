@@ -5,11 +5,6 @@
 
 input_boolean:
 
-  # ── POMPA ─────────────────────────────────────────────────
-  pompa_irrigazione:
-    name: "Pompa Irrigazione"
-    icon: mdi:pump
-
   # ── ZONE ──────────────────────────────────────────────────
   irrigazione_zona1_prato:
     name: "Irrigazione Zona 1 — Prato"
