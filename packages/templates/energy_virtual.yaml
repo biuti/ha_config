@@ -237,6 +237,52 @@ template:
         state: >
           {{ states('input_number.casa_potenza_totale') }}
 
+      - name: "Home State"
+        unique_id: home_state
+        state: >
+          {% set blackout =
+            is_state('input_boolean.blackout_rete', 'on') %}
+
+          {% set fv =
+            states('input_number.fv_potenza_attuale') | float(0) %}
+
+          {% set bat =
+            states('input_number.batteria_potenza') | float(0) %}
+
+          {% set ev =
+            states('input_number.colonnina_potenza') | float(0) %}
+
+          {% set home =
+            states('input_number.casa_potenza_totale') | float(0) %}
+
+          {% set balance = fv - home - ev - bat %}
+
+          {% set soc =
+            states('input_number.batteria_soc') | float(0) %}
+
+          {% if not blackout %}
+
+            {% if is_state('binary_sensor.grid_import', 'on') %}
+              importing
+            {% else %}
+              exporting
+            {% endif %}
+
+          {% else %}
+
+            {% if balance < 50 and soc < 20 %}
+              critical
+
+            {% elif balance > 100 %}
+              notice
+
+            {% else %}
+              warning
+
+            {% endif %}
+
+          {% endif %}
+
       # ── AUTO ───────────────────────────────────────────
 
       - name: "EV Power"

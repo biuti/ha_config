@@ -416,6 +416,7 @@
 - name: Indicatori di Stato
 
   entities:
+    - sensor.home_state
     - sensor.fv_state
     - sensor.battery_state
     - sensor.ev_state
