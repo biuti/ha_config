@@ -6,7 +6,7 @@ automation:
 
   # ──────────────────────────────────────────────────────────
   # PRODUZIONE FOTOVOLTAICA
-  # Aggiorna ogni 5 minuti
+  # Aggiorna ogni minuto
   # ──────────────────────────────────────────────────────────
 
   - id: energia_simulazione_fv
@@ -41,19 +41,36 @@ automation:
               0.1
             {% endif %}
 
+          casa: >
+            {{ states('input_number.casa_potenza_totale') | float(0) }}
+
+          # only battery charging
+          ev_charging: > 
+            {{ [states('input_number.colonnina_potenza') | float(0), 0] | max }}
+
+          # only battery charging
+          bat_charging: > 
+            {{ [states('input_number.batteria_potenza') | float(0), 0] | max }}
+
           potenza_fv: >
             {% set h = now().hour + (now().minute / 60) %}
-            {% set coeff = coeff_meteo | float %}
+            {% set cm = coeff_meteo | float %}
+            {% set ch = sin(((h - 6) / 14) * pi) %}
+            {% set pt = 0 if h < 6 or h > 20 else 10000 * cm * ch %}
 
-            {% if h < 6 or h > 20 %}
-              0
+            {% if is_state('input_boolean.blackout_rete','on') %}
+              {{
+                [
+                  casa | float(0)
+                  + ev_charging | float(0)
+                  + bat_charging | float(0),
+                  pt
+                ]
+                | min
+                | round(0)
+              }}
             {% else %}
-              {{ (10000 *
-                  sin(
-                    ((h - 6) / 14) * pi
-                  ) *
-                  coeff
-                ) | round(0) }}
+              {{ pt | round(0) }}
             {% endif %}
 
       - action: input_number.set_value
