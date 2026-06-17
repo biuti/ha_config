@@ -184,7 +184,7 @@ template:
           {% set grid_export =
             is_state('binary_sensor.grid_export', 'on') %}
 
-          {% if p < -50 %}
+          {% if p < -200 %}
 
             {% if grid_export %}
               discharging_to_grid
@@ -192,7 +192,7 @@ template:
               discharging
             {% endif %}
 
-          {% elif p > 50 %}
+          {% elif p > 200 %}
 
             {% if grid_import %}
               charging_from_grid
@@ -309,7 +309,7 @@ template:
             {% set grid_export =
               is_state('binary_sensor.grid_export', 'on') %}
 
-            {% if p > 100 %}
+            {% if p > 200 %}
 
               {% if grid_import %}
                 charging_from_grid
@@ -317,7 +317,7 @@ template:
                 charging
               {% endif %}
 
-            {% elif p < -100 %}
+            {% elif p < -200 %}
 
               {% if grid_export %}
                 discharging_to_grid
