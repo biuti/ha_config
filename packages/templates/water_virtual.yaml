@@ -1,7 +1,7 @@
 # TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
 # Rimuovere questo file quando il dispositivo reale è installato
 
-# packages/water/water.yaml
+# packages/templates/water_virtual.yaml
 # Impianto idraulico: autoclave, bollitore ACS, vasche raccolta piovana
 # Dispositivi simulati in attesa dell'hardware fisico
 
@@ -29,16 +29,7 @@ input_boolean:
 
 input_number:
 
-  # ── METEO ─────────────────────────────────────────────────
-  precipitazione_prossima_ora:
-    name: "Precipitazione Prossima Ora"
-    min: 0
-    max: 100
-    step: 0.1
-    unit_of_measurement: "mm"
-    icon: mdi:weather-rainy
-
-  # ── BOLLITORE ACS ─────────────────────────────────────────
+  # ── BOLLITORE ACS — Panasonic PAW-TD30C1E5-1 ─────────────
   temp_bollitore:
     name: "Temperatura Bollitore ACS"
     min: 0
@@ -55,53 +46,48 @@ input_number:
     unit_of_measurement: "°C"
     icon: mdi:thermometer-check
 
-  # ── VASCA 1 — irrigazione ─────────────────────────────────
-  volume_vasca_irrigazione:
+  # ── METEO ─────────────────────────────────────────────────
+  precipitazione_prossima_ora:
+    name: "Precipitazione Prossima Ora"
     min: 0
-    max: 5000
-    step: 1
-    unit_of_measurement: L
+    max: 100
+    step: 0.1
+    unit_of_measurement: "mm"
+    icon: mdi:weather-rainy
 
-  soglia_minima_vasca_irrigazione:
-    name: "Soglia Minima Vasca Irrigazione"
+  # ── IRRIGAZIONE ───────────────────────────────────────────
+  portata_zona_prato:
+    name: "Portata Irrigazione Zona Prato"
     min: 0
-    max: 50
-    step: 5
-    unit_of_measurement: "%"
-    initial: 10
-    icon: mdi:gauge-low
-
-  isteresi_vasca_irrigazione:
-    name: Isteresi Vasca Irrigazione
-    min: 1
-    max: 20
+    max: 1000
     step: 1
-    unit_of_measurement: "%"
-    initial: 5
+    initial: 800
+    unit_of_measurement: "L/h"
 
-  # ── VASCA 2 — scarichi sanitari ───────────────────────────
-  volume_vasca_sanitari:
+  portata_zona_aiuole:
+    name: "Portata Irrigazione Zona Aiuole"
     min: 0
-    max: 5000
+    max: 1000
     step: 1
-    unit_of_measurement: L
+    initial: 400
+    unit_of_measurement: "L/h"
 
-  soglia_minima_vasca_sanitari:
-    name: "Soglia Minima Vasca Sanitari"
+  portata_zona_contorno:
+    name: "Portata Irrigazione Zona Contorno"
     min: 0
-    max: 50
-    step: 5
-    unit_of_measurement: "%"
-    initial: 10
-    icon: mdi:gauge-low
-
-  isteresi_vasca_sanitari:
-    name: Isteresi Vasca Sanitari
-    min: 1
-    max: 20
+    max: 1000
     step: 1
-    unit_of_measurement: "%"
-    initial: 5
+    initial: 300
+    unit_of_measurement: "L/h"
+
+  # ── SANITARI ────────────────────────────────────────────────
+  consumo_sanitari_giornaliero:
+    name: "Consumo Sanitari Giornaliero"
+    min: 0
+    max: 1000
+    step: 1
+    initial: 300
+    unit_of_measurement: "L"
 
 template:
 

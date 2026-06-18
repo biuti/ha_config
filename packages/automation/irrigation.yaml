@@ -44,16 +44,10 @@ automation:
           {{ states('sensor.meteo_attuale') not in
              ['rainy', 'pouring', 'lightning-rainy'] }}
       # Non irrigare se previsione pioggia domani > soglia
-      - condition: template
-        value_template: >
-          {% set forecast = states('sensor.meteo_forecast') %}
-          {% if forecast and forecast | length > 0 %}
-            {% set domani = forecast[0] %}
-            {% set prob = domani.get('precipitation_probability', 0) %}
-            {{ prob < states('input_number.soglia_probabilita_pioggia') | float }}
-          {% else %}
-            true
-          {% endif %}
+      - condition: numeric_state
+        entity_id: input_number.accumulo_pioggia_6_ore
+        below: 1
+
     actions:
       - action: input_boolean.turn_on
         target:
@@ -129,14 +123,7 @@ automation:
         target:
           entity_id: input_boolean.override_pioggia_irrigazione
       # Ferma tutto se in corso
-      - action: input_boolean.turn_off
-        target:
-          entity_id:
-            - input_boolean.pompa_irrigazione
-            - input_boolean.irrigazione_zona1_prato
-            - input_boolean.irrigazione_zona2_aiuole
-            - input_boolean.irrigazione_zona3_contorno
-            - input_boolean.irrigazione_zona4_riserva
+      - action: script.irrigazione_ferma
     mode: single
 
   # ── 3. RIPRISTINO DOPO PIOGGIA ────────────────────────────

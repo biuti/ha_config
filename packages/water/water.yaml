@@ -32,22 +32,80 @@ input_number:
   acqua_raccolta_oggi:
     min: 0
     max: 6000
-    step: 100
+    step: 1
 
   acqua_irrigazione_oggi:
     min: 0
     max: 5000
-    step: 100
+    step: 1
 
   acqua_sanitari_oggi:
     min: 0
     max: 6000
-    step: 100
+    step: 1
+
+  acqua_rete_irrigazione_oggi:
+    min: 0
+    max: 10000
+    step: 1
+
+  acqua_rete_sanitari_oggi:
+    min: 0
+    max: 10000
+    step: 1
 
   acqua_overflow_oggi:
     min: 0
     max: 5000
-    step: 100
+    step: 1
+
+  # ── VASCA 1 — irrigazione ─────────────────────────────────
+  volume_vasca_irrigazione:
+    min: 0
+    max: 5000
+    step: 1
+    unit_of_measurement: L
+
+  soglia_minima_vasca_irrigazione:
+    name: "Soglia Minima Vasca Irrigazione"
+    min: 0
+    max: 50
+    step: 5
+    unit_of_measurement: "%"
+    initial: 10
+    icon: mdi:gauge-low
+
+  isteresi_vasca_irrigazione:
+    name: Isteresi Vasca Irrigazione
+    min: 1
+    max: 20
+    step: 1
+    unit_of_measurement: "%"
+    initial: 5
+
+  # ── VASCA 2 — scarichi sanitari ───────────────────────────
+  volume_vasca_sanitari:
+    min: 0
+    max: 5000
+    step: 1
+    unit_of_measurement: L
+
+  soglia_minima_vasca_sanitari:
+    name: "Soglia Minima Vasca Sanitari"
+    min: 0
+    max: 50
+    step: 5
+    unit_of_measurement: "%"
+    initial: 10
+    icon: mdi:gauge-low
+
+  isteresi_vasca_sanitari:
+    name: Isteresi Vasca Sanitari
+    min: 1
+    max: 20
+    step: 1
+    unit_of_measurement: "%"
+    initial: 5
 
 template:
 
