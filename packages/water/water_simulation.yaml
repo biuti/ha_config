@@ -142,3 +142,200 @@ automation:
               states('input_number.acqua_overflow_oggi')|float
               + overflow_finale
             }}
+
+  - id: water_sanitary_consumption
+
+    alias: "Water - Consumo Sanitari"
+
+    triggers:
+      - trigger: time_pattern
+        minutes: "10"
+
+    variables:
+
+      consumo: >
+        {{
+          (
+            states('input_number.consumo_sanitari_giornaliero')
+            | float(0)
+          ) / 24
+        }}
+
+      volume_attuale: >
+        {{ states('input_number.volume_vasca_sanitari') | float(0) }}
+
+      bypass: >
+        {{ is_state('input_boolean.bypass_vasca_sanitari', 'on') }}
+
+    actions:
+
+      - choose:
+
+          - conditions:
+              - condition: template
+                value_template: "{{ not bypass }}"
+
+            sequence:
+
+              - action: input_number.set_value
+                target:
+                  entity_id: input_number.volume_vasca_sanitari
+                data:
+                  value: >
+                    {{
+                      [volume_attuale - consumo, 0]
+                      | max
+                    }}
+
+              - action: input_number.set_value
+                target:
+                  entity_id: input_number.acqua_sanitari_oggi
+                data:
+                  value: >
+                    {{
+                      states('input_number.acqua_sanitari_oggi')|float
+                      + consumo
+                    }}
+
+        default:
+
+          - action: input_number.set_value
+            target:
+              entity_id: input_number.acqua_rete_sanitari_oggi
+            data:
+              value: >
+                {{
+                  states('input_number.acqua_rete_sanitari_oggi')|float
+                  + consumo
+                }}
+
+    mode: single
+
+  - id: water_irrigation_consumption
+    alias: "Irrigazione — Simulazione Consumo Ciclo automatico giornaliero"
+    triggers:
+      - trigger: template
+        value_template: >
+          {{ now().strftime('%H:%M') == '%02d:00' | format(states('input_number.ora_irrigazione') | int) }}
+    conditions:
+      # Non irrigare in modalità vacanza o via
+      - condition: template
+        value_template: >
+          {{ states('input_select.modalita_casa') not in ['Vacanza', 'Fuori Casa'] }}
+      # Non irrigare se override pioggia attivo
+      - condition: state
+        entity_id: input_boolean.override_pioggia_irrigazione
+        state: "off"
+      # Non irrigare se livello vasca troppo basso
+      - condition: state
+        entity_id: binary_sensor.vasca_irrigazione_bassa
+        state: "off"
+      # Non irrigare se piove ora
+      - condition: template
+        value_template: >
+          {{ states('sensor.meteo_attuale') not in
+             ['rainy', 'pouring', 'lightning-rainy'] }}
+      # Non irrigare se previsione pioggia domani > soglia
+      - condition: numeric_state
+        entity_id: input_number.accumulo_pioggia_6_ore
+        below: 1
+
+    variables:
+      portata_prato: >
+        {{
+          (
+            states('input_number.portata_zona_prato') | float(0)
+            *
+            states('input_number.durata_irrigazione_prato') | float(0)
+          ) / 60
+        }}
+      portata_aiuole: >
+        {{
+          (
+            states('input_number.portata_zona_aiuole') | float(0)
+            *
+            states('input_number.durata_irrigazione_aiuole') | float(0)
+          ) / 60
+        }}
+      portata_contorno: >
+        {{
+          (
+            states('input_number.portata_zona_contorno') | float(0)
+            *
+            states('input_number.durata_irrigazione_contorno') | float(0)
+          ) / 60
+        }}
+      consumo: >
+        {{
+          portata_prato|float(0)
+          + portata_aiuole|float(0)
+          + portata_contorno|float(0)
+        }}
+      volume_attuale: >
+        {{ states('input_number.volume_vasca_irrigazione') | float(0) }}
+      bypass: >
+        {{ is_state('input_boolean.bypass_vasca_irrigazione', 'on') }}
+      volume_soglia_minima: >
+        {{ 
+          states('input_number.capacita_vasca_irrigazione') | float(0)
+          *
+          states('input_number.soglia_minima_vasca_irrigazione') | float(0)
+          / 100
+        }}
+      # simula una logica che impedisca di utilizzare la rete per l'irrigazione automatica
+      consumo_effettivo: >
+        {{
+          [
+            consumo|float(0),
+            [
+              volume_attuale|float(0)
+              - volume_soglia_minima|float(0),
+              0
+            ] | max
+          ]
+          | min
+        }}
+
+    actions:
+
+      - choose:
+
+          - conditions:
+              - condition: template
+                value_template: "{{ not bypass }}"
+
+            sequence:
+
+              - action: input_number.set_value
+                target:
+                  entity_id: input_number.volume_vasca_irrigazione
+                data:
+                  value: >
+                    {{
+                      [volume_attuale - consumo_effettivo, 0]
+                      | max
+                    }}
+
+              - action: input_number.set_value
+                target:
+                  entity_id: input_number.acqua_irrigazione_oggi
+                data:
+                  value: >
+                    {{
+                      states('input_number.acqua_irrigazione_oggi')|float
+                      + consumo_effettivo
+                    }}
+
+        default:
+
+          - action: input_number.set_value
+            target:
+              entity_id: input_number.acqua_rete_irrigazione_oggi
+            data:
+              value: >
+                {{
+                  states('input_number.acqua_rete_irrigazione_oggi')|float
+                  + consumo
+                }}
+
+    mode: single
