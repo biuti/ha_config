@@ -29,6 +29,15 @@ input_boolean:
 
 input_number:
 
+  # ── METEO ─────────────────────────────────────────────────
+  precipitazione_prossima_ora:
+    name: "Precipitazione Prossima Ora"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "mm"
+    icon: mdi:weather-rainy
+
   # ── BOLLITORE ACS ─────────────────────────────────────────
   temp_bollitore:
     name: "Temperatura Bollitore ACS"
@@ -123,18 +132,6 @@ template:
             * 100
           ) | round(0)
           }}
-
-      - name: Meteo Pioggia Prossima Ora
-        unique_id: meteo_pioggia_prossima_ora
-        unit_of_measurement: "mm"
-
-        state: >
-          {% set fc =
-            states('input_text.meteo_forecast_hourly')
-            | default('[]')
-            | from_json %}
-
-          {{ fc[0].get('precipitation', 0) }}
 
   - switch:
 

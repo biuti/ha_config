@@ -1,5 +1,43 @@
 automation:
 
+  - id: update_precipitazione_prossima_ora
+    alias: Meteo - Aggiorna Precipitazione Prossima Ora
+
+    triggers:
+      - trigger: homeassistant
+        event: start
+
+      - trigger: time_pattern
+        minutes: "/15"
+
+    actions:
+
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.forecast_home
+        data:
+          type: hourly
+        response_variable: hourly
+
+      - variables:
+
+          rain_next_hour: >
+            {{
+              hourly['weather.forecast_home'].forecast[0]
+              .get('precipitation', 0)
+              if (
+                hourly is defined and
+                hourly['weather.forecast_home'].forecast | count > 0
+              )
+              else 0
+            }}
+
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.precipitazione_prossima_ora
+        data:
+          value: "{{ rain_next_hour }}"
+
   - id: water_rain_collection
 
     alias: "Water - Raccolta acqua piovana"
@@ -7,17 +45,17 @@ automation:
     triggers:
 
       - trigger: time_pattern
-        minutes: "0"
+        minutes: "20"
 
     condition:
       - condition: numeric_state
-        entity_id: sensor.meteo_pioggia_prossima_ora
+        entity_id: input_number.precipitazione_prossima_ora
         above: 0
 
     variables:
 
       pioggia: >
-        {{ states('sensor.meteo_pioggia_prossima_ora') | float(0) }}
+        {{ states('input_number.precipitazione_prossima_ora') | float(0) }}
 
       superficie: >
         {{ states('input_number.superficie_raccolta_acqua') | float(0) }}
