@@ -1,0 +1,12 @@
+# packages/access/access_entities.yaml
+# PLACEHOLDER — cartella per configurazioni accesso definitive
+#
+# File temporaneo corrispondente: access/access_virtual.yaml
+# Da rimuovere quando tutti i dispositivi sono integrati
+
+input_boolean:
+  # OVERRIDE
+  # (quando allarme attivo, blocca apertura cancello/garage)
+  override_allarme_accessi:
+    name: "Override Allarme Accessi"
+    icon: mdi:shield-alert

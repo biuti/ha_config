@@ -1,0 +1,33 @@
+# packages/scripts/base_scripts.yaml
+
+script:
+
+  antifurto_perimetrale:
+    alias: "Antifurto: modalità perimetrale"
+    description: >
+      Attiva allarme perimetrale — monitora solo ingressi esterni.
+      Movimento interno ignorato (persone in casa).
+    sequence:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.allarme_attivo
+      # TODO: attivare solo sensori perimetrali quando allarme reale installato
+
+  antifurto_totale:
+    alias: "Antifurto: modalità totale"
+    description: >
+      Attiva allarme totale — monitora tutti i sensori incluso
+      movimento interno. Massima sicurezza.
+    sequence:
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.allarme_attivo
+      # TODO: attivare tutti i sensori quando allarme reale installato
+
+  antifurto_disattiva:
+    alias: "Antifurto: disattiva"
+    description: "Disattiva l'allarme"
+    sequence:
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.allarme_attivo

@@ -1,0 +1,126 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/access/access_virtual.yaml
+# Cancello carrabile e porte garage
+# Simulati con input_boolean in attesa dei dispositivi fisici
+# Nota: i dispositivi reali si espongono come entità cover in HA
+# Hörmann LPU42 via modulo BiSecur Gateway o relè ZigBee
+
+input_boolean:
+
+  # ── CANCELLO CARRABILE ────────────────────────────────────
+  cancello_carrabile:
+    name: "Cancello Carrabile"
+    icon: mdi:gate
+
+  cancello_carrabile_in_movimento:
+    name: "Cancello in Movimento"
+    icon: mdi:gate-arrow-right
+
+  # ── GARAGE ────────────────────────────────────────────────
+  serranda_garage_est:
+    name: "Serranda Garage Est"
+    icon: mdi:garage-variant
+
+  serranda_garage_est_in_movimento:
+    name: "Serranda Garage Est in Movimento"
+    icon: mdi:garage-variant
+
+  serranda_garage_ovest:
+    name: "Serranda Garage Ovest"
+    icon: mdi:garage-variant
+
+  serranda_garage_ovest_in_movimento:
+    name: "Serranda Garage Ovest in Movimento"
+    icon: mdi:garage-variant
+
+template:
+  - cover:
+
+    - name: "Serranda Garage Est"
+      unique_id: garage_est
+      device_class: garage
+
+      state: >
+        {% if is_state('input_boolean.serranda_garage_est_in_movimento', 'on') %}
+          {% if is_state('input_boolean.serranda_garage_est_stato', 'on') %}
+            closing
+          {% else %}
+            opening
+          {% endif %}
+        {% elif is_state('input_boolean.serranda_garage_est_stato', 'on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}
+
+      open_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.serranda_garage_est
+
+      close_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.serranda_garage_est
+
+      optimistic: false
+
+    - name: "Serranda Garage Ovest"
+      unique_id: garage_ovest
+      device_class: garage
+
+      state: >
+        {% if is_state('input_boolean.serranda_garage_ovest_in_movimento', 'on') %}
+          {% if is_state('input_boolean.serranda_garage_ovest_stato', 'on') %}
+            closing
+          {% else %}
+            opening
+          {% endif %}
+        {% elif is_state('input_boolean.serranda_garage_ovest_stato', 'on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}
+
+      open_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.serranda_garage_ovest
+
+      close_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.serranda_garage_ovest
+
+      optimistic: false
+
+    - name: "Cancello Carrabile"
+      unique_id: cancello_carrabile
+      device_class: gate
+
+      state: >
+        {% if is_state('input_boolean.cancello_carrabile_in_movimento', 'on') %}
+          {% if is_state('input_boolean.cancello_carrabile_stato', 'on') %}
+            closing
+          {% else %}
+            opening
+          {% endif %}
+        {% elif is_state('input_boolean.cancello_carrabile_stato', 'on') %}
+          open
+        {% else %}
+          closed
+        {% endif %}
+
+      open_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.cancello_carrabile
+
+      close_cover:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.cancello_carrabile
+
+      optimistic: false

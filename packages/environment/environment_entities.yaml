@@ -1,0 +1,44 @@
+# packages/environment/environment_entities.yaml
+# PLACEHOLDER — cartella per configurazioni sensori ambiente definitive
+#
+# File temporaneo corrispondente: environment/environment_virtual.yaml
+# Da rimuovere quando tutti i dispositivi sono integrati
+
+input_datetime:
+
+  # Orari configurabili per automazioni notte/giorno
+  ora_inizio_notte:
+    name: "Ora Inizio Modalità Notte"
+    has_date: false
+    has_time: true
+
+  ora_fine_notte:
+    name: "Ora Fine Modalità Notte"
+    has_date: false
+    has_time: true
+
+input_number:
+
+  soglia_lux_raffstore:
+    name: "Soglia Lux Raffstore"
+    min: 0
+    max: 100000
+    step: 100
+    unit_of_measurement: "lx"
+    icon: mdi:brightness-6
+
+  soglia_lux_luci_esterne:
+    name: "Soglia Lux Luci Esterne"
+    min: 0
+    max: 100000
+    step: 100
+    unit_of_measurement: "lx"
+    icon: mdi:brightness-6
+
+  soglia_vento_raffstore:
+    name: "Soglia Vento Raffstore"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "km/h"
+    icon: mdi:weather-windy-variant

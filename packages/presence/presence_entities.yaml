@@ -1,0 +1,155 @@
+# packages/presence/presence_entities.yaml
+# PLACEHOLDER — cartella per configurazioni presenza definitive
+#
+# File temporaneo corrispondente: templates/presence_virtual.yaml
+# Da rimuovere quando tutti i dispositivi sono integrati
+
+input_select:
+
+  modalita_casa:
+    name: "Modalità Casa"
+    options:
+      - Casa
+      - Fuori Casa
+      - Notte
+      - Ospiti
+      - Vacanza
+    initial: Casa
+    icon: mdi:home-account
+
+input_number:
+
+  raggio_nearby:
+    name: "Soglia Distanza Nearby"
+    initial: 5.0
+    min: 1.0
+    max: 10.0
+    step: 0.5
+    unit_of_measurement: "km"
+    icon: mdi:map-marker-distance
+
+  raggio_far_away:
+    name: "Soglia Distanza Far Away"
+    initial: 150.0
+    min: 10.0
+    max: 200.0
+    step: 10.0
+    unit_of_measurement: "km"
+    icon: mdi:airplane
+
+input_boolean:
+
+  # ── PRESENZA OSPITI ───────────────────────────────────────
+  ospiti_presenti:
+    name: "Ospiti Presenti"
+    icon: mdi:account-group
+
+  # ── STATO NOTTE ───────────────────────────────────────────
+  # Separato dalla modalità casa per permettere
+  # "Notte con ospiti" o "Notte in vacanza" come combinazioni
+  modalita_notte_attiva:
+    name: "Modalità Notte Attiva"
+    icon: mdi:weather-night
+
+template:
+  - binary_sensor:
+    - name: "Presenza — Qualcuno in Prossimità"
+      unique_id: qualcuno_in_prossimita
+      state: >
+        {% set raggio = states('input_number.raggio_nearby') | float(5.0) %}
+        {% set ns = namespace(trovato=false) %}
+        {% for persona in expand('group.residenti') %}
+          {% if persona.state != 'home' and persona.attributes.latitude is defined %}
+            {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+            {% if dist < raggio %}
+              {% set ns.trovato = true %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {{ ns.trovato }}
+      icon: mdi:home-import-outline
+
+    - name: "Presenza — Tutti Lontani"
+      unique_id: nessuno_nearby
+      state: >
+        {% set raggio = states('input_number.raggio_nearby') | float(5.0) %}
+        {% set totale = expand('group.residenti') | list | count %}
+        {% set ns = namespace(lontani=0) %}
+        {% for persona in expand('group.residenti') %}
+          {% if persona.attributes.latitude is defined %}
+            {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+          {% else %}
+            {% set dist = 999 %}
+          {% endif %}
+          {% if dist > raggio %}
+            {% set ns.lontani = ns.lontani + 1 %}
+          {% endif %}
+        {% endfor %}
+        {{ ns.lontani == totale }}
+      icon: mdi:map-marker-distance
+
+    - name: "Presenza — Pronti per Modalità Vacanza"
+      unique_id: pronti_per_vacanza
+      state: >
+        {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
+        {% set secondi_24h = 86400 %}
+        {% set totale = expand('group.residenti') | list | count %}
+        {% set ns = namespace(pronti=0) %}
+        {% for persona in expand('group.residenti') %}
+          {% if persona.attributes.latitude is defined %}
+            {% set dist = distance(persona.entity_id, 'zone.home') | float(0) %}
+          {% else %}
+            {% set dist = 0 %}
+          {% endif %}
+          {% set tempo = (as_timestamp(now()) - as_timestamp(persona.last_changed)) %}
+          {% if dist > raggio or (persona.state != 'home' and tempo > secondi_24h) %}
+            {% set ns.pronti = ns.pronti + 1 %}
+          {% endif %}
+        {% endfor %}
+        {{ ns.pronti == totale }}
+      icon: mdi:suitcase
+
+    - name: "Presenza — Tutti Sotto i 300km"
+      unique_id: possibile_rientro_vacanza
+      state: >
+        {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
+        {% set totale = expand('group.residenti') | list | count %}
+        {% set ns = namespace(vicini=0) %}
+        {% for persona in expand('group.residenti') %}
+          {% if persona.attributes.latitude is defined %}
+            {% set dist = distance(persona.entity_id, 'zone.home') | float(999) %}
+          {% else %}
+            {% set dist = 999 %}
+          {% endif %}
+          {% if dist < raggio %}
+            {% set ns.vicini = ns.vicini + 1 %}
+          {% endif %}
+        {% endfor %}
+        {{ ns.vicini == totale }}
+      icon: mdi:airplane-landing
+
+    - name: "Status Vacanza Antonio"
+      unique_id: status_vacanza_antonio
+      state: >
+        {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
+        {% if states.person.antonio_golfari.attributes.latitude is defined %}
+          {% set dist = distance('person.antonio_golfari', 'zone.home') | float(0) %}
+        {% else %}
+          {% set dist = 0 %}
+        {% endif %}
+        {% set tempo = (as_timestamp(now()) - as_timestamp(states.person.antonio_golfari.last_changed)) %}
+        {{ dist > raggio or (states('person.antonio_golfari') != 'home' and tempo > 86400) }}
+      icon: mdi:account-question
+
+    - name: "Status Vacanza Nicoletta"
+      unique_id: status_vacanza_nicoletta
+      state: >
+        {% set raggio = states('input_number.raggio_far_away') | float(150.0) %}
+        {% if states.person.nicoletta_orsenigo.attributes.latitude is defined %}
+          {% set dist = distance('person.nicoletta_orsenigo', 'zone.home') | float(0) %}
+        {% else %}
+          {% set dist = 0 %}
+        {% endif %}
+        {% set tempo = (as_timestamp(now()) - as_timestamp(states.person.nicoletta_orsenigo.last_changed)) %}
+        {{ dist > raggio or (states('person.nicoletta_orsenigo') != 'home' and tempo > 86400) }}
+      icon: mdi:account-question

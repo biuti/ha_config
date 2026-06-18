@@ -1,0 +1,79 @@
+# packages/climate/climate_scripts.yaml
+
+script:
+
+  clima_notte:
+    alias: "Clima: modalità notte"
+    description: "Riduce temperature target per il periodo notturno"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 18
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 17
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 1
+
+  clima_vacanza:
+    alias: "Clima: modalità vacanza"
+    description: "Porta il clima al minimo — solo anticongelamento"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 15
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 14
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.innova_piano_terra_on
+            - input_boolean.innova_piano_primo_on
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 1
+
+  clima_ripristino:
+    alias: "Clima: ripristino temperature normali"
+    description: "Riporta il clima alle temperature di comfort"
+    sequence:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_temp_target
+        data:
+          value: 21
+      - action: input_number.set_value
+        target:
+          entity_id:
+            - input_number.innova_pt_temp_target
+            - input_number.innova_p1_temp_target
+        data:
+          value: 21
+      - action: input_boolean.turn_on
+        target:
+          entity_id:
+            - input_boolean.innova_piano_terra_on
+            - input_boolean.innova_piano_primo_on
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.nilan_velocita_ventilatore
+        data:
+          value: 2

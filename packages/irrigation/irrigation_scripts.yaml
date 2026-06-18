@@ -1,0 +1,16 @@
+# packages/irrigation/irrigation_scripts.yaml
+
+script:
+
+  irrigazione_ferma:
+    alias: "Irrigazione: ferma tutto"
+    description: "Spegne immediatamente pompa e tutte le zone"
+    sequence:
+      - action: input_boolean.turn_off
+        target:
+          entity_id:
+            - input_boolean.pompa_irrigazione
+            - input_boolean.irrigazione_zona1_prato
+            - input_boolean.irrigazione_zona2_aiuole
+            - input_boolean.irrigazione_zona3_contorno
+            - input_boolean.irrigazione_zona4_riserva

@@ -1,0 +1,23 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/presence/presence_entities.yaml
+# Rilevamento presenza: modalità casa e stato per persona
+# Best practice 2026:
+# - input_select per modalità casa (unica sorgente di verità per tutte le automazioni)
+# - input_boolean per presenza per persona (alimentato da app HA companion)
+# - device_tracker viene gestito dall'integrazione HA companion, non qui
+# - le automazioni leggeranno sempre presence.modalita_casa, mai i device_tracker direttamente
+
+input_boolean:
+
+  # ── PRESENZA PER PERSONA ──────────────────────────────────
+  # Alimentato dall'app HA companion (GPS + WiFi + BLE)
+  # Non usare device_tracker direttamente nelle automazioni
+  presenza_antonio:
+    name: "Presenza Antonio"
+    icon: mdi:account
+
+  presenza_nicoletta:
+    name: "Presenza Nicoletta"
+    icon: mdi:account

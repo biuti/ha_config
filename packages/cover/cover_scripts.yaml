@@ -1,0 +1,29 @@
+# packages/cover/cover_scripts.yaml
+
+script:
+
+  check_infissi_aperti:
+    alias: "Check: infissi aperti"
+    description: >
+      Verifica se ci sono finestre o portafinestre aperte
+      e invia una notifica con l'elenco.
+      Da chiamare prima di attivare modalità via/vacanza.
+    sequence:
+      - variables:
+          infissi_aperti: >
+            {{ label_entities('portafinestra_esterna')
+               | select('is_state', 'on')
+               | map('state_attr', 'friendly_name')
+               | list }}
+      - choose:
+          - conditions:
+              - condition: template
+                value_template: "{{ infissi_aperti | count > 0 }}"
+            sequence:
+              - action: persistent_notification.create
+                data:
+                  title: "⚠️ Infissi aperti"
+                  message: >
+                    Attenzione — i seguenti infissi sono aperti:
+                    {{ infissi_aperti | join(', ') }}
+                  notification_id: "check_infissi"

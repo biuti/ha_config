@@ -1,0 +1,49 @@
+# packages/cover/raffstore_scripts.yaml
+
+script:
+
+  raffstore_crepuscolo:
+    alias: "Raffstore: abbassa gruppo crepuscolo"
+    description: "Abbassa tutti i raffstore del gruppo crepuscolo (escluse le panoramiche)"
+    sequence:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.raffstore_crepuscolo
+
+  raffstore_sigillati:
+    alias: "Raffstore: sigilla tutto"
+    description: "Abbassa tutti i raffstore senza eccezioni"
+    sequence:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.tutti_i_raffstore
+
+  raffstore_sveglia:
+    alias: "Raffstore: sveglia con lamelle aperte"
+    description: >
+      Mantiene i raffstore sveglia abbassati ma ruota le lamelle
+      in posizione orizzontale (90°) per luce diffusa senza sole diretto.
+      Usato da scenario_buongiorno quando crepuscolare è ancora on.
+    sequence:
+      - action: cover.set_cover_tilt_position
+        target:
+          entity_id: cover.raffstore_sveglia
+        data:
+          tilt_position: 90
+
+  raffstore_mattina:
+    alias: "Raffstore: mattina con lamelle aperte"
+    description: >
+      Alza il gruppo mattina e apre le lamelle a 90°.
+      ACP gestirà poi la posizione ottimale.
+    sequence:
+      - action: cover.set_cover_position
+        target:
+          entity_id: cover.raffstore_mattina
+        data:
+          position: 100
+      - action: cover.set_cover_tilt_position
+        target:
+          entity_id: cover.raffstore_mattina
+        data:
+          tilt_position: 90

@@ -1,0 +1,10 @@
+# packages/climate/climate_groups.yaml
+
+group:
+
+  scaldasalviette:
+    name: Scaldasalviette
+    entities:
+      - switch.scaldasalviette_bagno_padronale
+      - switch.scaldasalviette_bagno_comune
+      - switch.scaldasalviette_bagno_taverna

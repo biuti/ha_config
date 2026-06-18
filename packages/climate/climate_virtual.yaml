@@ -1,0 +1,540 @@
+# TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
+# Rimuovere questo file quando il dispositivo reale è installato
+
+# packages/climate/climate_virtual.yaml
+# Sensori temperatura e umidità per stanza
+# Simulati con input_number in attesa dei sensori ZigBee fisici
+
+input_boolean:
+
+  # ── NILAN HCR 800T — VMC + riscaldamento/raffrescamento ──
+  nilan_on:
+    name: "Nilan Acceso"
+    icon: mdi:air-filter
+
+  nilan_modalita_estate:
+    name: "Nilan Modalità Estate"
+    icon: mdi:sun-thermometer
+
+  # ── INNOVA FILOMURO SLW 600 ───────────────────────────────
+  innova_piano_terra_on:
+    name: "Fancoil Piano Terra Acceso"
+    icon: mdi:fan
+
+  innova_piano_primo_on:
+    name: "Fancoil Piano Primo Acceso"
+    icon: mdi:fan
+
+  # ── PANASONIC WH-WXG9ME8 — pompa di calore ───────────────
+  pompa_calore_on:
+    name: "Pompa di Calore Accesa"
+    icon: mdi:heat-pump
+
+  pompa_calore_modalita_riscaldamento:
+    name: "Pompa di Calore Riscaldamento"
+    icon: mdi:radiator
+
+  geo_pompa_circolatore:
+    name: "Geotermico Pompa Circolatore"
+    icon: mdi:pump
+
+  # ── SCALDASALVIETTE ELETTRICO ────────────────────────────
+  scaldasalviette_bagno_padronale:
+    name: Scaldasalviette Bagno Padronale
+
+  scaldasalviette_bagno_comune:
+    name: Scaldasalviette Bagno Comune
+
+  scaldasalviette_bagno_taverna:
+    name: Scaldasalviette Bagno Taverna
+
+input_number:
+
+  # Piano Primo
+  temp_soggiorno:
+    name: "Temperatura Soggiorno"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_soggiorno:
+    name: "Umidità Soggiorno"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  co2_soggiorno:
+    name: "CO2 Soggiorno"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
+
+  # Piano Terra
+  temp_camera_padronale:
+    name: "Temperatura Camera Padronale"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_camera_padronale:
+    name: "Umidità Camera Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  co2_camera_padronale:
+    name: "CO2 Camera Padronale"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
+
+  temp_camera:
+    name: "Temperatura Camera"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_camera:
+    name: "Umidità Camera"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_studio:
+    name: "Temperatura Studio"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_studio:
+    name: "Umidità Studio"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_bagno_padronale:
+    name: "Temperatura Bagno Padronale"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_padronale:
+    name: "Umidità Bagno Padronale"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_bagno_comune:
+    name: "Temperatura Bagno Comune"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_comune:
+    name: "Umidità Bagno Comune"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # Seminterrato
+  temp_taverna:
+    name: "Temperatura Taverna"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_taverna:
+    name: "Umidità Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  co2_taverna:
+    name: "CO2 Taverna"
+    min: 300
+    max: 3000
+    step: 10
+    unit_of_measurement: "ppm"
+    icon: mdi:molecule-co2
+
+  temp_bagno_taverna:
+    name: "Temperatura Bagno Taverna"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_bagno_taverna:
+    name: "Umidità Bagno Taverna"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  temp_locale_tecnico:
+    name: "Temperatura Locale Tecnico"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_locale_tecnico:
+    name: "Umidità Locale Tecnico"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # Garage
+  temp_garage:
+    name: "Temperatura Garage"
+    min: -10
+    max: 50
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  humidity_garage:
+    name: "Umidità Garage"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # ── NILAN HCR 800T ────────────────────────────────────────
+  nilan_temp_mandata:
+    name: "Nilan Temperatura Mandata"
+    min: 0
+    max: 50
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  nilan_temp_ripresa:
+    name: "Nilan Temperatura Ripresa"
+    min: 0
+    max: 50
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-down
+
+  nilan_temp_target:
+    name: "Nilan Temperatura Target"
+    min: 16
+    max: 28
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  nilan_velocita_ventilatore:
+    name: "Nilan Velocità Ventilatore"
+    min: 1
+    max: 4
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  nilan_umidita_ripresa:
+    name: "Nilan Umidità Ripresa"
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+    icon: mdi:water-percent
+
+  # ── INNOVA FILOMURO — piano terra ─────────────────────────
+  innova_pt_temp_target:
+    name: "Fancoil Piano Terra Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  innova_pt_velocita_ventilatore:
+    name: "Fancoil Piano Terra Velocità Ventilatore"
+    min: 1
+    max: 3
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  # ── INNOVA FILOMURO — piano primo ─────────────────────────
+  innova_p1_temp_target:
+    name: "Fancoil Piano Primo Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  innova_p1_velocita_ventilatore:
+    name: "Fancoil Piano Primo Velocità Ventilatore"
+    min: 1
+    max: 3
+    step: 1
+    unit_of_measurement: ""
+    icon: mdi:fan
+
+  # ── PANASONIC WH-WXG9ME8 ─────────────────────────────────
+  pompa_calore_temp_mandata:
+    name: "Pompa di Calore Temperatura Mandata"
+    min: 0
+    max: 60
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  pompa_calore_temp_target:
+    name: "Pompa di Calore Temperatura Target"
+    min: 16
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-auto
+
+  pompa_calore_cop:
+    name: "Pompa di Calore COP"
+    min: 0
+    max: 10
+    step: 0.1
+    unit_of_measurement: ""
+    icon: mdi:leaf
+
+  # ── IMPIANTO GEOTERMICO ECWK (EXRG) ──────────────────────
+  # Pre-trattamento aria: circuito glicole/aria interrato
+  # Integrazione: sensori ZigBee temperatura/umidità
+  # (o Modbus se centralina EXRG lo supporta — verificare con fornitore)
+
+  geo_temp_aria_pre_scambiatore:
+    name: "Geotermico Temperatura Aria Pre-Scambiatore"
+    min: -20
+    max: 40
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-down
+
+  geo_temp_aria_post_scambiatore:
+    name: "Geotermico Temperatura Aria Post-Scambiatore"
+    min: -20
+    max: 40
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-chevron-up
+
+  geo_temp_glicole_mandata:
+    name: "Geotermico Temperatura Glicole Mandata"
+    min: -10
+    max: 30
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-lines
+
+  geo_temp_glicole_ritorno:
+    name: "Geotermico Temperatura Glicole Ritorno"
+    min: -10
+    max: 30
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-lines
+
+  geo_delta_temperatura:
+    name: "Geotermico Delta Temperatura Aria"
+    min: -20
+    max: 20
+    step: 0.1
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer-alert
+
+template:
+
+  - sensor:
+    - name: "Geotermico Delta Temperatura Aria"
+      unique_id: geo_delta_temperatura_calcolato
+      unit_of_measurement: "°C"
+      icon: mdi:thermometer-alert
+      state: >
+        {{ (states('input_number.geo_temp_aria_post_scambiatore') | float
+            - states('input_number.geo_temp_aria_pre_scambiatore') | float) | round(1) }}
+      attributes:
+        descrizione: >
+          Positivo in inverno (lo scambiatore riscalda l'aria),
+          negativo in estate (lo scambiatore raffredda l'aria).
+
+    - name: "Geotermico Delta Glicole"
+      unique_id: geo_delta_glicole_calcolato
+      unit_of_measurement: "°C"
+      icon: mdi:thermometer-lines
+      state: >
+        {{ (states('input_number.geo_temp_glicole_mandata') | float
+            - states('input_number.geo_temp_glicole_ritorno') | float) | round(1) }}
+      attributes:
+        descrizione: >
+          Delta temperatura circuito glicole.
+          Indica l'energia scambiata con il terreno.
+
+    - name: Temperatura Soggiorno
+      unique_id: temperatura_soggiorno
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_soggiorno') }}"
+
+    - name: Umidità Soggiorno
+      unique_id: umidita_soggiorno
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_soggiorno') }}"
+
+    - name: Umidità Bagno Padronale
+      unique_id: umidita_bagno_padronale
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_bagno_padronale') }}"
+
+    - name: Umidità Bagno Comune
+      unique_id: umidita_bagno_comune
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_bagno_comune') }}"
+
+    - name: Temperatura Camera Padronale
+      unique_id: temperatura_camera_padronale
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_camera_padronale') }}"
+
+    - name: Temperatura Taverna
+      unique_id: temperatura_taverna
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_taverna') }}"
+
+    - name: Umidità Taverna
+      unique_id: umidita_taverna
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+      state: "{{ states('input_number.humidity_taverna') }}"
+
+    - name: CO2 Taverna
+      unique_id: co2_taverna
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_taverna') }}"
+
+    - name: CO2 Soggiorno
+      unique_id: co2_soggiorno
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_soggiorno') }}"
+
+    - name: CO2 Camera Padronale
+      unique_id: co2_camera_padronale
+      unit_of_measurement: "ppm"
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_camera_padronale') }}"
+
+  - switch:
+
+    - name: "Scaldasalviette Bagno Padronale"
+      unique_id: scaldasalviette_bagno_padronale
+
+      state: >
+        {{ is_state(
+          'input_boolean.scaldasalviette_bagno_padronale',
+          'on'
+        ) }}
+
+      turn_on:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_padronale
+
+      turn_off:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_padronale
+
+    - name: "Scaldasalviette Bagno Comune"
+      unique_id: scaldasalviette_bagno_comune
+
+      state: >
+        {{ is_state(
+          'input_boolean.scaldasalviette_bagno_comune',
+          'on'
+        ) }}
+
+      turn_on:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_comune
+
+      turn_off:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_comune
+
+    - name: "Scaldasalviette Bagno Taverna"
+      unique_id: scaldasalviette_bagno_taverna
+
+      state: >
+        {{ is_state(
+          'input_boolean.scaldasalviette_bagno_taverna',
+          'on'
+        ) }}
+
+      turn_on:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_taverna
+
+      turn_off:
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.scaldasalviette_bagno_taverna

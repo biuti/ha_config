@@ -1,0 +1,46 @@
+# packages/cover/raffstore_entities.yaml
+# PLACEHOLDER — cartella per configurazioni raffstore definitive
+#
+# File temporaneo corrispondente: templates/raffstore_virtual.yaml
+# Da rimuovere quando tutti i dispositivi sono integrati
+
+input_boolean:
+  # Override per portafinestra — uno per accesso esterno
+  # Attivati individualmente quando la portafinestra corrispondente è aperta
+  # Rilasciati quando la portafinestra si chiude
+  # Configurati come Force Override Entity in ACP per il cover corrispondente
+  override_pf_camera_padronale:
+    name: "Override Portafinestra Camera Padronale"
+    icon: mdi:door-open
+
+  override_pf_soggiorno:
+    name: "Override Portafinestra Soggiorno"
+    icon: mdi:door-open
+
+  override_pf_ingresso_terrazzo:
+    name: "Override Portafinestra Ingresso Terrazzo"
+    icon: mdi:door-open
+
+  override_pf_taverna:
+    name: "Override Portafinestra Taverna"
+    icon: mdi:door-open
+
+  override_pf_camera_ospiti:
+    name: "Override Portafinestra Camera Ospiti"
+    icon: mdi:door-open
+
+  override_vento_raffstore:
+    name: "Override Vento Raffstore"
+    icon: mdi:weather-windy-variant
+
+  override_presenza_raffstore:
+    name: "Override Presenza Raffstore"
+    icon: mdi:home-lock
+
+  override_manuale_raffstore:
+    name: "Override Manuale Raffstore"
+    icon: mdi:hand-back-right
+
+  override_pioggia_raffstore:
+    name: "Override Pioggia Raffstore"
+    icon: mdi:weather-rainy
