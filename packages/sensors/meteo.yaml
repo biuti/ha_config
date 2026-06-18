@@ -1,17 +1,5 @@
 # packages/weather/weather.yaml
 
-input_text:
-
-  meteo_forecast_hourly:
-    name: "Meteo forecast Hourly"
-    icon: mdi:weather
-    max: 8192
-
-  meteo_forecast_daily:
-    name: "Meteo forecast Daily"
-    icon: mdi:weather
-    max: 8192
-
 template:
 
   - sensor:
@@ -77,48 +65,50 @@ template:
     - name: Meteo Accumulo Pioggia 6 Ore
       unique_id: accumulo_pioggia_6_ore
       unit_of_measurement: "mm"
-
+      state_class: measurement
       state: >
-        {% set fc =
-          states('input_text.meteo_forecast_hourly')
-          | default('[]')
-          | from_json %}
-
-        {{
-          fc[:6]
-          | map(attribute='precipitation')
-          | sum
-          | round(1)
-        }}
+        {{ states('input_number.accumulo_pioggia_6_ore') }}
 
     - name: Meteo Accumulo Pioggia Domani
       unique_id: accumulo_pioggia_domani
       unit_of_measurement: "mm"
-
+      state_class: measurement
       state: >
-        {% set fc =
-          states('input_text.meteo_forecast_daily')
-          | default('[]')
-          | from_json %}
-
-        {% if fc | count > 1 %}
-          {{ fc[1].get('precipitation', 0) }}
-        {% else %}
-          0
-        {% endif %}
+        {{ states('input_number.accumulo_pioggia_domani') }}
 
     - name: Meteo Temperatura Domani
       unique_id: temperatura_max_domani
       unit_of_measurement: "°C"
-
+      state_class: measurement
+      device_class: temperature
       state: >
-        {% set fc =
-          states('input_text.meteo_forecast_daily')
-          | default('[]')
-          | from_json %}
+        {{ states('input_number.temperatura_max_domani') }}
 
-        {% if fc | count > 1 %}
-          {{ fc[1].get('temperature', 0) }}
-        {% else %}
-          0
-        {% endif %}
+input_number:
+
+  temperatura_max_domani:
+    name: "Temperatura Max Domani"
+    initial: 15.0
+    min: -40.0
+    max: 60.0
+    step: 0.5
+    unit_of_measurement: "°C"
+    icon: mdi:thermometer
+
+  accumulo_pioggia_domani:
+    name: "Accumulo Pioggia Domani"
+    initial: 0.0
+    min: 0.0
+    max: 300.0
+    step: 0.1
+    unit_of_measurement: "mm"
+    icon: mdi:water
+
+  accumulo_pioggia_6_ore:
+    name: "Accumulo Pioggia 6 Ore"
+    initial: 0.0
+    min: 0.0
+    max: 500.0
+    step: 0.1
+    unit_of_measurement: "mm"
+    icon: mdi:water
