@@ -22,8 +22,10 @@
     </g>
     <g id="layer_seminterrato_interattivo">
       <g id="layer_seminterrato_sensor">
-        <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803" y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
-        <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492" class="sensor impianto-idrico"/>
+        <!-- <rect id="sensor_sigenstor" width="86.858932" height="82.966431" x="796.79803"
+        y="613.17828" class="sensor impianto-elettrico impianto-fv"/>
+        <rect id="sensor_bollitore" width="88.032692" height="84.087593" x="443.02896" y="728.04492"
+        class="sensor impianto-idrico"/> -->
       </g>
       <g id="layer_seminterrato_power">
         <path
@@ -89,7 +91,105 @@
           data-fixture="raffstore"/>
       </g>
       <g id="layer_seminterrato_climate">
-        <rect id="climate_nilan" width="89.206467" height="85.208755" x="796.79047" y="728.41187" class="climate impianto-climatizzazione"/>
+        <!-- <rect id="climate_nilan" width="89.206467" height="85.208755" x="796.79047"
+        y="728.41187" class="climate impianto-climatizzazione"/> -->
+        <g id="nilan_group"
+          data-zone="interno"
+          data-domain="climate"
+          data-source="nilan">
+          <g id="nilan_power_group">
+            <circle
+              id="binary_sensor.nilan_active"
+              cx="290"
+              cy="490"
+              r="8"
+              data-role="power"/>
+            <text
+              x="330" y="500"
+              id="label.nilan_active"
+              data-role="label">
+              <tspan>NILAN |</tspan>
+            </text>
+            <text
+              x="450" y="500"
+              id="binary_sensor.nilan_defrost"
+              data-role="label">
+              <tspan>DEFROST</tspan>
+            </text>
+          </g>
+          <g id="nilan_supply_air_temperature_group">
+            <text
+              x="450" y="500"
+              id="label.nilan_supply_air_temperature"
+              data-role="label">
+              <tspan>Mandata:</tspan>
+            </text>
+            <text
+              x="550" y="500"
+              id="sensor.nilan_supply_air_temperature"
+              data-role="value"
+              data-type="temperature">
+              <tspan>--.- °C</tspan>
+            </text>
+            <text
+              x="800" y="500"
+              id="sensor.fv_state"
+              data-role="icon">
+              <tspan>▲</tspan>
+            </text>
+          </g>
+          <g id="nilan_velocita_ventilatore_group">
+            <text
+              x="450" y="570"
+              id="label.nilan_velocita_ventilatore"
+              data-role="label">
+              <tspan>Velocità:</tspan>
+            </text>
+            <text
+              x="550" y="570"
+              id="sensor.nilan_velocita_ventilatore"
+              data-role="value"
+              data-type="fan">
+              <tspan>---%</tspan>
+            </text>
+          </g>
+          <g id="geothermal_outlet_temperature_group">
+            <text
+              x="450" y="640"
+              id="label.geothermal_outlet_temperature"
+              data-role="label">
+              <tspan>T Post Scambiatore:</tspan>
+            </text>
+            <text
+              x="550" y="640"
+              id="sensor.geothermal_outlet_temperature"
+              data-role="value"
+              data-type="temperatura">
+              <tspan>--.- °C</tspan>
+            </text>
+            <circle
+              id="binary_sensor.geothermal_pump_active"
+              cx="800"
+              cy="630"
+              r="8"
+              data-role="power"/>
+          </g>
+          <g id="nilan_cop_group">
+            <text
+              x="450" y="710"
+              id="label.nilan_cop"
+              data-role="label">
+              <tspan>COP:</tspan>
+            </text>
+            <text
+              x="550" y="710"
+              id="sensor.nilan_cop"
+              data-role="value"
+              data-type="value">
+              <tspan>--.-</tspan>
+            </text>
+          </g>
+        </g>
       </g>
       <g id="layer_seminterrato_binary_sensor">
         <circle
