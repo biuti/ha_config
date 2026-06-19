@@ -271,14 +271,6 @@
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
-- name: Temperatura Esterna
-  entities:
-    - sensor.temperatura_esterna
-
-  state_action:
-    - service: floorplan.text_set
-      service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
-
 - name: Umidità Interna
 
   entities:
@@ -349,6 +341,22 @@
             "clear-night":"🌙"
           }[entity.state] || "?"
         }
+
+- name: Pressione Atmosferica
+  entities:
+    - sensor.pressione_atmosferica
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${parseFloat(entity.state).toFixed(1) + " hPa"}'
+
+- name: Temperatura Esterna
+  entities:
+    - sensor.temperatura_esterna
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
 - name: Vento
   entities:

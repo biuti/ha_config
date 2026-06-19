@@ -854,21 +854,21 @@
       <g id="layer_elementi_comuni_binary_sensor"/>
       <g id="layer_elementi_comuni_buttons"/>
       <g id="layer_elementi_comuni_label">
-        <g id="vento_group"
+        <g id="pressione_atmosferica_group"
           data-zone="esterno"
           data-domain="weather">
           <text
             x="1060" y="650"
-            id="label.vento"
+            id="label.pressione_atmosferica"
             data-role="label">
-            <tspan>Vento:</tspan>
+            <tspan>Pressione:</tspan>
           </text>
           <text
             x="1060" y="710"
-            id="sensor.vento"
+            id="sensor.pressione_atmosferica"
             data-role="value"
-            data-type="vento">
-            <tspan>-- --.- km/h</tspan>
+            data-type="pressione">
+            <tspan>----.- hPa</tspan>
           </text>
         </g>
         <g id="temperatura_esterna_group"
@@ -903,6 +903,23 @@
             data-role="value"
             data-type="umidita_esterna">
             <tspan>--%</tspan>
+          </text>
+        </g>
+        <g id="vento_group"
+          data-zone="esterno"
+          data-domain="weather">
+          <text
+            x="1060" y="1040"
+            id="label.vento"
+            data-role="label">
+            <tspan>Vento:</tspan>
+          </text>
+          <text
+            x="1060" y="1100"
+            id="sensor.vento"
+            data-role="value"
+            data-type="vento">
+            <tspan>-- --.- km/h</tspan>
           </text>
         </g>
 
