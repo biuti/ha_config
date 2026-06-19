@@ -16,6 +16,14 @@ input_boolean:
     name: "Nilan Modalità Estate"
     icon: mdi:sun-thermometer
 
+  nilan_defrost:
+    name: "Nilan Defrost Attivo"
+    icon: mdi:snowflake-melt
+
+  geo_pompa_circolatore:
+    name: "Geotermico Pompa Circolatore"
+    icon: mdi:pump
+
   # ── INNOVA FILOMURO SLW 600 ───────────────────────────────
   innova_piano_terra_on:
     name: "Fancoil Piano Terra Acceso"
@@ -26,27 +34,30 @@ input_boolean:
     icon: mdi:fan
 
   # ── PANASONIC WH-WXG9ME8 — pompa di calore ───────────────
-  pompa_calore_on:
-    name: "Pompa di Calore Accesa"
+  panasonic_on:
+    name: "Panasonic PDC Accesa"
     icon: mdi:heat-pump
 
-  pompa_calore_modalita_riscaldamento:
-    name: "Pompa di Calore Riscaldamento"
-    icon: mdi:radiator
+  panasonic_compressore_attivo:
+    name: "Panasonic Compressore Attivo"
+    icon: mdi:engine
 
-  geo_pompa_circolatore:
-    name: "Geotermico Pompa Circolatore"
-    icon: mdi:pump
+  panasonic_modalita_riscaldamento:
+    name: "Panasonic Riscaldamento"
+    icon: mdi:radiator
 
   # ── SCALDASALVIETTE ELETTRICO ────────────────────────────
   scaldasalviette_bagno_padronale:
     name: Scaldasalviette Bagno Padronale
+    icon: mdi:radiator
 
   scaldasalviette_bagno_comune:
     name: Scaldasalviette Bagno Comune
+    icon: mdi:radiator
 
   scaldasalviette_bagno_taverna:
     name: Scaldasalviette Bagno Taverna
+    icon: mdi:radiator
 
 input_number:
 
@@ -239,7 +250,7 @@ input_number:
     icon: mdi:water-percent
 
   # ── NILAN HCR 800T ────────────────────────────────────────
-  nilan_temp_mandata:
+  nilan_temperatura_mandata:
     name: "Nilan Temperatura Mandata"
     min: 0
     max: 50
@@ -247,7 +258,7 @@ input_number:
     unit_of_measurement: "°C"
     icon: mdi:thermometer-chevron-up
 
-  nilan_temp_ripresa:
+  nilan_temperatura_ripresa:
     name: "Nilan Temperatura Ripresa"
     min: 0
     max: 50
@@ -265,10 +276,10 @@ input_number:
 
   nilan_velocita_ventilatore:
     name: "Nilan Velocità Ventilatore"
-    min: 1
-    max: 4
+    min: 0
+    max: 100
     step: 1
-    unit_of_measurement: ""
+    unit_of_measurement: "%"
     icon: mdi:fan
 
   nilan_umidita_ripresa:
@@ -278,6 +289,13 @@ input_number:
     step: 1
     unit_of_measurement: "%"
     icon: mdi:water-percent
+
+  nilan_cop:
+    name: "Nilan COP"
+    min: 0
+    max: 10
+    step: 0.1
+    icon: mdi:leaf
 
   # ── INNOVA FILOMURO — piano terra ─────────────────────────
   innova_pt_temp_target:
@@ -290,10 +308,10 @@ input_number:
 
   innova_pt_velocita_ventilatore:
     name: "Fancoil Piano Terra Velocità Ventilatore"
-    min: 1
-    max: 3
+    min: 0
+    max: 100
     step: 1
-    unit_of_measurement: ""
+    unit_of_measurement: "%"
     icon: mdi:fan
 
   # ── INNOVA FILOMURO — piano primo ─────────────────────────
@@ -307,31 +325,39 @@ input_number:
 
   innova_p1_velocita_ventilatore:
     name: "Fancoil Piano Primo Velocità Ventilatore"
-    min: 1
-    max: 3
+    min: 0
+    max: 100
     step: 1
-    unit_of_measurement: ""
+    unit_of_measurement: "%"
     icon: mdi:fan
 
   # ── PANASONIC WH-WXG9ME8 ─────────────────────────────────
-  pompa_calore_temp_mandata:
-    name: "Pompa di Calore Temperatura Mandata"
+  panasonic_temp_mandata:
+    name: "Panasonic Temperatura Mandata"
     min: 0
     max: 60
     step: 0.5
     unit_of_measurement: "°C"
     icon: mdi:thermometer-chevron-up
 
-  pompa_calore_temp_target:
-    name: "Pompa di Calore Temperatura Target"
+  panasonic_temp_target:
+    name: "Panasonic Temperatura Target"
     min: 16
     max: 30
     step: 0.5
     unit_of_measurement: "°C"
     icon: mdi:thermometer-auto
 
-  pompa_calore_cop:
-    name: "Pompa di Calore COP"
+  panasonic_frequenza_compressore:
+    name: "Panasonic Frequenza Compressore"
+    min: 0
+    max: 120
+    step: 1
+    unit_of_measurement: "Hz"
+    icon: mdi:sine-wave
+
+  panasonic_cop:
+    name: "Panasonic COP"
     min: 0
     max: 10
     step: 0.1
@@ -374,14 +400,6 @@ input_number:
     step: 0.1
     unit_of_measurement: "°C"
     icon: mdi:thermometer-lines
-
-  geo_delta_temperatura:
-    name: "Geotermico Delta Temperatura Aria"
-    min: -20
-    max: 20
-    step: 0.1
-    unit_of_measurement: "°C"
-    icon: mdi:thermometer-alert
 
 template:
 

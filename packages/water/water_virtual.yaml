@@ -36,7 +36,7 @@ input_number:
     max: 90
     step: 0.5
     unit_of_measurement: "°C"
-    icon: mdi:thermometer
+    icon: mdi:thermometer-water
 
   temp_target_bollitore:
     name: "Temperatura Target Bollitore ACS"
@@ -44,7 +44,7 @@ input_number:
     max: 80
     step: 1
     unit_of_measurement: "°C"
-    icon: mdi:thermometer-check
+    icon: mdi:thermometer-water
 
   # ── SANITARI ────────────────────────────────────────────────
   consumo_sanitari_giornaliero:
