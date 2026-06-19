@@ -52,7 +52,7 @@ template:
       state: >
         {{ state_attr('weather.forecast_home', 'humidity') }}
 
-    - name: Pressione
+    - name: Pressione Atmosferica
       unique_id: pressione_atmosferica
 
       unit_of_measurement: "hPa"
