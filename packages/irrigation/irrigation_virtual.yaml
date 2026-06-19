@@ -13,6 +13,8 @@ input_boolean:
     name: "Pompa Irrigazione"
     icon: mdi:pump
 
+input_number:
+
   # ── IRRIGAZIONE ───────────────────────────────────────────
   portata_zona_prato:
     name: "Portata Irrigazione Zona Prato"
