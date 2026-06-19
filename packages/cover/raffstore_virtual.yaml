@@ -1,7 +1,7 @@
 # TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
 # Rimuovere questo file quando il dispositivo reale è installato
 
-# packages/lighting/raffstore.yaml
+# packages/cover/raffstore_virtual.yaml
 # Raffstore Hella AR92 motorizzati
 # Simulati con input_boolean (su/giù) e input_number (posizione %)
 # Convenzione: raffstore_ per tutti, posizione in 0-100 (0=chiuso, 100=aperto)

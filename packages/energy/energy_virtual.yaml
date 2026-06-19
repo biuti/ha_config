@@ -1,7 +1,7 @@
 # TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
 # Rimuovere questo file quando il dispositivo reale è installato
 
-# packages/energy/energy.yaml
+# packages/energy/energy_virtual.yaml
 # Sistema energetico: SigenStor (FV + accumulo + rete), colonnina ricarica auto
 # Integrazione reale: HACS Sigenergy ESS via Modbus TCP
 # Virtual sensors simulano le entità principali del sistema

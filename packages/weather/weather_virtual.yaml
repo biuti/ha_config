@@ -1,0 +1,11 @@
+# packages/weather/weather_virtual.yaml
+
+input_number:
+
+  precipitazione_prossima_ora:
+    name: "Precipitazione Prossima Ora"
+    min: 0
+    max: 100
+    step: 0.1
+    unit_of_measurement: "mm"
+    icon: mdi:weather-rainy

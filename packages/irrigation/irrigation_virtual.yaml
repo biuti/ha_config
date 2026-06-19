@@ -1,7 +1,7 @@
 # TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
 # Rimuovere questo file quando il dispositivo reale è installato
 
-# packages/irrigation/irrigation.yaml
+# packages/irrigation/irrigation_virtual.yaml
 # Impianto irrigazione interrato
 # Alimentato da vasca 1, integrazione meteo via Met.no
 # 4 zone: prato, aiuole, contorno edificio, riserva
@@ -12,3 +12,28 @@ input_boolean:
   pompa_irrigazione:
     name: "Pompa Irrigazione"
     icon: mdi:pump
+
+  # ── IRRIGAZIONE ───────────────────────────────────────────
+  portata_zona_prato:
+    name: "Portata Irrigazione Zona Prato"
+    min: 0
+    max: 1000
+    step: 1
+    initial: 800
+    unit_of_measurement: "L/h"
+
+  portata_zona_aiuole:
+    name: "Portata Irrigazione Zona Aiuole"
+    min: 0
+    max: 1000
+    step: 1
+    initial: 400
+    unit_of_measurement: "L/h"
+
+  portata_zona_contorno:
+    name: "Portata Irrigazione Zona Contorno"
+    min: 0
+    max: 1000
+    step: 1
+    initial: 300
+    unit_of_measurement: "L/h"

@@ -1,7 +1,7 @@
 # TEMPORANEO — simulazione virtuale in attesa dell'hardware fisico
 # Rimuovere questo file quando il dispositivo reale è installato
 
-# packages/presence/presence_entities.yaml
+# packages/presence/presence_virtual.yaml
 # Rilevamento presenza: modalità casa e stato per persona
 # Best practice 2026:
 # - input_select per modalità casa (unica sorgente di verità per tutte le automazioni)

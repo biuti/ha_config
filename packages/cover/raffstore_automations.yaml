@@ -1,4 +1,4 @@
-# packages/automation/raffstore_vento.yaml
+# packages/cover/raffstore_automations.yaml
 # Automazioni raffstore — gestione vento
 # Dipendenze:
 #   - input_number.velocita_vento (templates/environment_virtual.yaml)

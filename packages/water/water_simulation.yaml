@@ -1,3 +1,5 @@
+# packages/water/water_simulation.yaml
+
 automation:
 
   - id: update_precipitazione_prossima_ora
