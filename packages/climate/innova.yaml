@@ -1,5 +1,41 @@
 # packages/climate/innova.yaml
-# PLACEHOLDER — cartella per configurazioni clima definitive
-#
-# File temporaneo corrispondente: templates/climate_virtual.yaml
-# Da rimuovere quando tutti i dispositivi sono integrati
+
+template:
+
+  - binary_sensor:
+
+      - name: "Innova Piano Terra Attivo"
+        unique_id: innova_ground_floor_active
+        state: >
+          {{ is_state(
+              'input_boolean.innova_piano_terra_on',
+              'on'
+            ) }}
+
+      - name: "Innova Piano Primo Attivo"
+        unique_id: innova_first_floor_active
+        state: >
+          {{ is_state(
+              'input_boolean.innova_piano_primo_on',
+              'on'
+            ) }}
+
+  - sensor:
+
+      - name: "Innova Piano Terra Ventilatore"
+        unique_id: innova_ground_floor_fan_speed
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.innova_pt_velocita_ventilatore'
+            ) }}
+
+      - name: "Innova Piano Primo Ventilatore"
+        unique_id: innova_first_floor_fan_speed
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.innova_p1_velocita_ventilatore'
+            ) }}

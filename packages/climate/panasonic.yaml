@@ -1,6 +1,88 @@
 # packages/climate/panasonic.yaml
-# PLACEHOLDER — cartella per configurazioni clima definitive
-#
-# File temporaneo corrispondente: templates/climate_virtual.yaml
-# Da rimuovere quando tutti i dispositivi sono integrati
 
+template:
+
+  - binary_sensor:
+
+      - name: "Panasonic Attiva"
+        unique_id: panasonic_active
+        state: >
+          {{ is_state('input_boolean.panasonic_on', 'on') }}
+
+      - name: "Panasonic Compressore Attivo"
+        unique_id: panasonic_compressor_active
+        state: >
+          {{ is_state(
+              'input_boolean.panasonic_compressore_attivo',
+              'on'
+            ) }}
+
+      - name: "Panasonic Riscaldamento"
+        unique_id: panasonic_heating
+        state: >
+          {{ is_state(
+              'input_boolean.panasonic_modalita_riscaldamento',
+              'on'
+            ) }}
+
+      - name: "Panasonic ACS Attiva"
+        unique_id: panasonic_acs_heating
+
+        state: >
+          {{ is_state(
+              'input_boolean.bollitore_on',
+              'on'
+            ) }}
+
+      - name: "Panasonic Defrost"
+        unique_id: panasonic_defrost
+        state: >
+          {{ is_state('input_boolean.panasonic_defrost','on') }}
+
+  - sensor:
+
+      - name: "Panasonic Temperatura Mandata"
+        unique_id: panasonic_supply_temperature
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {{ states('input_number.panasonic_temp_mandata') }}
+
+      - name: "Panasonic Frequenza Compressore"
+        unique_id: panasonic_compressor_frequency
+        unit_of_measurement: "Hz"
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.panasonic_frequenza_compressore'
+            ) }}
+
+      - name: "Panasonic COP"
+        unique_id: panasonic_cop
+        state_class: measurement
+        state: >
+          {{ states('input_number.panasonic_cop') }}
+
+      - name: "Panasonic Temperatura ACS"
+        unique_id: panasonic_acs_temperature
+
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+
+        state: >
+          {{ states(
+              'input_number.temp_bollitore'
+            ) }}
+
+      - name: "Panasonic Target ACS"
+        unique_id: panasonic_acs_target_temperature
+
+        unit_of_measurement: "°C"
+        device_class: temperature
+
+        state: >
+          {{ states(
+              'input_number.temp_target_bollitore'
+            ) }}

@@ -46,6 +46,10 @@ input_boolean:
     name: "Panasonic Riscaldamento"
     icon: mdi:radiator
 
+  panasonic_defrost:
+    name: "Panasonic Defrost"
+    icon: mdi:snowflake-melt
+
   # ── SCALDASALVIETTE ELETTRICO ────────────────────────────
   scaldasalviette_bagno_padronale:
     name: Scaldasalviette Bagno Padronale

@@ -1,5 +1,72 @@
 # packages/climate/nilan.yaml
-# PLACEHOLDER — cartella per configurazioni clima definitive
-#
-# File temporaneo corrispondente: templates/climate_virtual.yaml
-# Da rimuovere quando tutti i dispositivi sono integrati
+
+template:
+
+  - binary_sensor:
+
+      - name: "Nilan Attiva"
+        unique_id: nilan_active
+        state: >
+          {{ is_state('input_boolean.nilan_on', 'on') }}
+
+      - name: "Nilan Defrost"
+        unique_id: nilan_defrost
+        state: >
+          {{ is_state('input_boolean.nilan_defrost', 'on') }}
+
+      # GEOTERMIA
+      - name: "Geotermico Pompa Attiva"
+        unique_id: geothermal_pump_active
+        state: >
+          {{ is_state(
+              'input_boolean.geo_pompa_circolatore',
+              'on'
+            ) }}
+
+  - sensor:
+
+      - name: "Nilan Temperatura Mandata"
+        unique_id: nilan_supply_air_temperature
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.nilan_temperatura_mandata'
+            ) }}
+
+      - name: "Nilan Temperatura Ripresa"
+        unique_id: nilan_extract_air_temperature
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.nilan_temperatura_ripresa'
+            ) }}
+
+      - name: "Nilan Velocità Ventilatore"
+        unique_id: nilan_fan_speed
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.nilan_velocita_ventilatore'
+            ) }}
+
+      - name: "Nilan COP"
+        unique_id: nilan_cop
+        state_class: measurement
+        state: >
+          {{ states('input_number.nilan_cop') }}
+
+      # GEOTERMIA
+      - name: "Geotermico Temperatura Uscita"
+        unique_id: geothermal_outlet_temperature
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {{ states(
+              'input_number.geo_temp_aria_post_scambiatore'
+            ) }}
