@@ -457,11 +457,11 @@
 - name: Climate - Indicatori di Stato
 
   entities:
-    - binary_sensor.nilan_active
-    - binary_sensor.panasonic_active
-    - binary_sensor.geothermal_pump_active
-    - binary_sensor.panasonic_compressor_active
-    - binary_sensor.panasonic_acs_heating
+    - binary_sensor.nilan_attiva
+    - binary_sensor.panasonic_attiva
+    - binary_sensor.geotermico_pompa_attiva
+    - binary_sensor.panasonic_compressore_attivo
+    - binary_sensor.panasonic_acs_attiva
 
   state_action:
     - service: floorplan.dataset_set
@@ -471,10 +471,10 @@
 
 - name: Climate - Temperature di Esercizio
   entities:
-    - sensor.panasonic_supply_temperature
-    - sensor.panasonic_acs_temperature
-    - sensor.nilan_supply_air_temperature
-    - sensor.geothermal_outlet_temperature
+    - sensor.panasonic_temperatura_mandata
+    - sensor.panasonic_temperatura_acs
+    - sensor.nilan_temperatura_mandata
+    - sensor.geotermico_temperatura_uscita
 
   state_action:
     - service: floorplan.text_set
@@ -482,7 +482,7 @@
 
 - name: Climate - Frequenza Compressore
   entities:
-    - sensor.panasonic_compressor_frequency
+    - sensor.panasonic_frequenza_compressore
 
   state_action:
     - service: floorplan.text_set

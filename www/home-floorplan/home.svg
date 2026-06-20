@@ -99,28 +99,28 @@
           data-source="nilan">
           <g id="nilan_power_group">
             <circle
-              id="binary_sensor.nilan_active"
+              id="binary_sensor.nilan_attiva"
               cx="270"
               cy="390"
               r="10"
               data-role="power"/>
             <text
               x="290" y="400"
-              id="label.nilan_active"
+              id="label.nilan_attiva"
               data-role="label">
               <tspan>NILAN</tspan>
             </text>
           </g>
-          <g id="nilan_supply_air_temperature_group">
+          <g id="nilan_temperatura_mandata_group">
             <text
               x="450" y="400"
-              id="label.nilan_supply_air_temperature"
+              id="label.nilan_temperatura_mandata"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
               x="740" y="400"
-              id="sensor.nilan_supply_air_temperature"
+              id="sensor.nilan_temperatura_mandata"
               data-role="value"
               data-type="temperature">
               <tspan>--.- °C</tspan>
@@ -148,23 +148,23 @@
               <tspan>---%</tspan>
             </text>
           </g>
-          <g id="geothermal_outlet_temperature_group">
+          <g id="geotermico_temperatura_uscita_group">
             <text
               x="450" y="500"
-              id="label.geothermal_outlet_temperature"
+              id="label.geotermico_temperatura_uscita"
               data-role="label">
-              <tspan>T Post Scambiatore:</tspan>
+              <tspan>T Post GEO:</tspan>
             </text>
             <text
               x="740" y="500"
-              id="sensor.geothermal_outlet_temperature"
+              id="sensor.geotermico_temperatura_uscita"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
             <text
               x="760" y="500"
-              id="binary_sensor.geothermal_pump_active"
+              id="binary_sensor.geotermico_pompa_attiva"
               data-role="icon">
               <tspan>◉</tspan>
             </text>
@@ -191,28 +191,28 @@
           data-source="panasonic">
           <g id="panasonic_power_group">
             <circle
-              id="binary_sensor.panasonic_active"
+              id="binary_sensor.panasonic_attiva"
               cx="270"
               cy="590"
               r="10"
               data-role="power"/>
             <text
               x="290" y="600"
-              id="label.panasonic_active"
+              id="label.panasonic_attiva"
               data-role="label">
               <tspan>PANASONIC |</tspan>
             </text>
           </g>
-          <g id="panasonic_supply_temperature_group">
+          <g id="panasonic_temperatura_mandata_group">
             <text
               x="450" y="600"
-              id="label.panasonic_supply_temperature"
+              id="label.panasonic_temperatura_mandata"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
               x="740" y="600"
-              id="sensor.panasonic_supply_temperature"
+              id="sensor.panasonic_temperatura_mandata"
               data-role="value"
               data-type="temperature">
               <tspan>--.- °C</tspan>
@@ -225,38 +225,38 @@
               <tspan>✳</tspan>
             </text>
           </g>
-          <g id="panasonic_compressor_frequency_group">
+          <g id="panasonic_frequenza_compressore_group">
             <text
               x="450" y="650"
-              id="label.panasonic_compressor_frequency"
+              id="label.panasonic_frequenza_compressore"
               data-role="label">
               <tspan>Compressore:</tspan>
             </text>
             <text
               x="740" y="650"
-              id="sensor.panasonic_compressor_frequency"
+              id="sensor.panasonic_frequenza_compressore"
               data-role="value"
               data-type="frequency">
               <tspan>---.- Hz</tspan>
             </text>
           </g>
-          <g id="geothermal_outlet_temperature_group">
+          <g id="panasonic_temperatura_acs_group">
             <text
               x="450" y="700"
-              id="label.panasonic_acs_temperature"
+              id="label.panasonic_temperatura_acs"
               data-role="label">
               <tspan>T ACS:</tspan>
             </text>
             <text
               x="740" y="700"
-              id="sensor.panasonic_acs_temperature"
+              id="sensor.panasonic_temperatura_acs"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
             <text
               x="760" y="700"
-              id="binary_sensor.panasonic_acs_heating"
+              id="binary_sensor.panasonic_acs_attiva"
               data-role="icon">
               <tspan>▲</tspan>
             </text>

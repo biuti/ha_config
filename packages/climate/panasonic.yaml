@@ -5,12 +5,12 @@ template:
   - binary_sensor:
 
       - name: "Panasonic Attiva"
-        unique_id: panasonic_active
+        unique_id: panasonic_attiva
         state: >
           {{ is_state('input_boolean.panasonic_on', 'on') }}
 
       - name: "Panasonic Compressore Attivo"
-        unique_id: panasonic_compressor_active
+        unique_id: panasonic_compressore_attivo
         state: >
           {{ is_state(
               'input_boolean.panasonic_compressore_attivo',
@@ -18,7 +18,7 @@ template:
             ) }}
 
       - name: "Panasonic Riscaldamento"
-        unique_id: panasonic_heating
+        unique_id: panasonic_riscaldamento
         state: >
           {{ is_state(
               'input_boolean.panasonic_modalita_riscaldamento',
@@ -26,7 +26,7 @@ template:
             ) }}
 
       - name: "Panasonic ACS Attiva"
-        unique_id: panasonic_acs_heating
+        unique_id: panasonic_acs_attiva
 
         state: >
           {{ is_state(
@@ -53,7 +53,7 @@ template:
               defrost
             {% elif is_state('input_boolean.bollitore_on', 'on') %}
               ACS
-            {% elif is_state('input_boolean.panasonic_compressor_active', 'on') %}
+            {% elif is_state('input_boolean.panasonic_compressore_attivo', 'on') %}
               climatizing
             {% else %}
               idle
@@ -61,7 +61,7 @@ template:
           {% endif %}
 
       - name: "Panasonic Temperatura Mandata"
-        unique_id: panasonic_supply_temperature
+        unique_id: panasonic_temperatura_mandata
         unit_of_measurement: "°C"
         device_class: temperature
         state_class: measurement
@@ -69,7 +69,7 @@ template:
           {{ states('input_number.panasonic_temp_mandata') }}
 
       - name: "Panasonic Frequenza Compressore"
-        unique_id: panasonic_compressor_frequency
+        unique_id: panasonic_frequenza_compressore
         unit_of_measurement: "Hz"
         state_class: measurement
         state: >
@@ -84,7 +84,7 @@ template:
           {{ states('input_number.panasonic_cop') }}
 
       - name: "Panasonic Temperatura ACS"
-        unique_id: panasonic_acs_temperature
+        unique_id: panasonic_temperatura_acs
 
         unit_of_measurement: "°C"
         device_class: temperature
@@ -96,7 +96,7 @@ template:
             ) }}
 
       - name: "Panasonic Target ACS"
-        unique_id: panasonic_acs_target_temperature
+        unique_id: panasonic_target_acs
 
         unit_of_measurement: "°C"
         device_class: temperature
