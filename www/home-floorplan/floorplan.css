@@ -232,7 +232,8 @@ path[id^="light."] {
   animation: energyAlarm 1s infinite;
 }
 
-[data-domain="climate"][data-source="nilan"] [data-role="label"] {
+[data-domain="climate"][data-source="nilan"] [data-role="label"],
+[data-domain="climate"][data-source="panasonic"] [data-role="label"] {
   fill: lightgray;
   opacity: 0.8;
 
@@ -242,7 +243,8 @@ path[id^="light."] {
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
-[data-domain="climate"] [data-role="value"] {
+[data-domain="climate"][data-source="nilan"] [data-role="value"],
+[data-domain="climate"][data-source="panasonic"] [data-role="value"] {
   fill: lightskyblue;
   opacity: 0.8;
   fill-opacity: 0.8;
