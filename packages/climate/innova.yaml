@@ -5,7 +5,7 @@ template:
   - binary_sensor:
 
       - name: "Innova Piano Terra Attivo"
-        unique_id: innova_ground_floor_active
+        unique_id: innova_piano_terra_attivo
         state: >
           {{ is_state(
               'input_boolean.innova_piano_terra_on',
@@ -13,7 +13,7 @@ template:
             ) }}
 
       - name: "Innova Piano Primo Attivo"
-        unique_id: innova_first_floor_active
+        unique_id: innova_piano_primo_attivo
         state: >
           {{ is_state(
               'input_boolean.innova_piano_primo_on',
@@ -23,7 +23,7 @@ template:
   - sensor:
 
       - name: "Innova Piano Terra Ventilatore"
-        unique_id: innova_ground_floor_fan_speed
+        unique_id: innova_piano_terra_ventilatore
         unit_of_measurement: "%"
         state_class: measurement
         state: >
@@ -32,7 +32,7 @@ template:
             ) }}
 
       - name: "Innova Piano Primo Ventilatore"
-        unique_id: innova_first_floor_fan_speed
+        unique_id: innova_piano_primo_ventilatore
         unit_of_measurement: "%"
         state_class: measurement
         state: >

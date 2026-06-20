@@ -298,7 +298,7 @@ input_number:
     name: "Nilan COP"
     min: 0
     max: 10
-    step: 0.1
+    step: 0.01
     icon: mdi:leaf
 
   # ── INNOVA FILOMURO — piano terra ─────────────────────────
@@ -364,7 +364,7 @@ input_number:
     name: "Panasonic COP"
     min: 0
     max: 10
-    step: 0.1
+    step: 0.01
     unit_of_measurement: ""
     icon: mdi:leaf
 

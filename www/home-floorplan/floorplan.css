@@ -205,7 +205,7 @@ path[id^="light."] {
   pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
 }
 
-[data-domain="climate"] [data-role="value"] {
+[data-domain="climate"][data-source="sensor"] [data-role="value"] {
   fill: linen;
   opacity: 0.8;
   fill-opacity: 0.8;
@@ -229,24 +229,43 @@ path[id^="light."] {
 [data-domain="climate"][data-state="disconnected"] [data-role="power"] {
   fill: red;
   opacity: 1;
-  animation: energyAlarm 1s infinite;
+  animation: climateAlarm 1s infinite;
 }
 
-[data-domain="climate"] [data-type="defrost"] {
-  fill: darkorange;
-  opacity: 0.8;;
+[data-domain="climate"] [data-type="defrost"]{
+  fill: orange;
+  opacity: 0.8;
   display: none;
 }
 
 [data-domain="climate"] [data-type="defrost"][data-state="on"] {
-  opacity: 0.8;;
   display: inline;
-  animation: energyAlarm 1s infinite;
+  animation: climateAlarm 1s infinite;
+}
+
+[data-domain="climate"] [data-type="acs"]{
+  fill: darkorange;
+  opacity: 0.8;
+  display: none;
+}
+
+[data-domain="climate"] [data-type="acs"][data-state="on"] {
+  display: inline;
+}
+
+[data-domain="climate"] [data-type="pump"]{
+  fill: greenyellow;
+  opacity: 0.8;
+  display: none;
+}
+
+[data-domain="climate"] [data-type="acs"][data-state="on"] {
+  display: inline;
 }
 
 [data-domain="climate"][data-source="nilan"] [data-role="label"],
 [data-domain="climate"][data-source="panasonic"] [data-role="label"] {
-  fill: lightgray;
+  fill: whitesmoke;
   opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
@@ -257,20 +276,30 @@ path[id^="light."] {
 
 [data-domain="climate"][data-source="nilan"] [data-role="value"],
 [data-domain="climate"][data-source="panasonic"] [data-role="value"] {
-  fill: lightskyblue;
+  fill: ivory;
   opacity: 0.8;
-  fill-opacity: 0.8;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
 
-  stroke: skyblue;
-  stroke-width: 1px;
+  text-anchor: end;
+}
+
+[data-domain="climate"] [data-role="icon"] {
+  font-size: 36px;
+}
+
+[data-domain="climate"][data-source="nilan"][data-state="defrost"] [data-role="value"],
+[data-domain="climate"][data-source="panasonic"] [data-role="value"] {
+  fill: ivory;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
 
   text-anchor: end;
-
-  paint-order: stroke fill;
 }
 
 [data-domain="climate"] [data-role="icon"] {
@@ -475,6 +504,12 @@ path[id^="light."] {
 @keyframes pulseHeat {
   0% { opacity: 0.4; }
   50% { opacity: 0.6; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes climateAlarm {
+  0%   { opacity: 0.4; }
+  50%  { opacity: 0.8; }
   100% { opacity: 0.4; }
 }
 

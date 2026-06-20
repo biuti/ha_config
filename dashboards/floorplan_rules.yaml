@@ -458,10 +458,12 @@
 
   entities:
     - binary_sensor.nilan_attiva
-    - binary_sensor.panasonic_attiva
+    - binary_sensor.nilan_defrost
     - binary_sensor.geotermico_pompa_attiva
+    - binary_sensor.panasonic_attiva
     - binary_sensor.panasonic_compressore_attivo
     - binary_sensor.panasonic_acs_attiva
+    - binary_sensor.panasonic_defrost
 
   state_action:
     - service: floorplan.dataset_set
@@ -488,6 +490,14 @@
     - service: floorplan.text_set
       service_data: '${Math.round(entity.state) + " Hz"}'
 
+- name: Climate - Velocità Fan
+  entities:
+    - sensor.nilan_velocita_ventilatore
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + "%"}'
+
 - name: Climate - COP
   entities:
     - sensor.panasonic_cop
@@ -495,7 +505,7 @@
 
   state_action:
     - service: floorplan.text_set
-      service_data: '${parseFloat(entity.state).toFixed(1)}'
+      service_data: '${parseFloat(entity.state).toFixed(2)}'
 
 # IRRIGAZIONE
 - name: Vasche di Raccolta

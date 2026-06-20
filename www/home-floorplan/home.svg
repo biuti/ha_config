@@ -113,13 +113,13 @@
           </g>
           <g id="nilan_temperatura_mandata_group">
             <text
-              x="450" y="400"
+              x="460" y="400"
               id="label.nilan_temperatura_mandata"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
-              x="740" y="400"
+              x="745" y="400"
               id="sensor.nilan_temperatura_mandata"
               data-role="value"
               data-type="temperature">
@@ -128,20 +128,20 @@
             <text
               x="760" y="400"
               id="binary_sensor.nilan_defrost"
-              data-role="value"
+              data-role="icon"
               data-type="defrost">
               <tspan>✳</tspan>
             </text>
           </g>
           <g id="nilan_velocita_ventilatore_group">
             <text
-              x="450" y="450"
+              x="460" y="440"
               id="label.nilan_velocita_ventilatore"
               data-role="label">
               <tspan>Fan:</tspan>
             </text>
             <text
-              x="740" y="450"
+              x="745" y="440"
               id="sensor.nilan_velocita_ventilatore"
               data-role="value"
               data-type="fan">
@@ -150,34 +150,35 @@
           </g>
           <g id="geotermico_temperatura_uscita_group">
             <text
-              x="450" y="500"
+              x="460" y="480"
               id="label.geotermico_temperatura_uscita"
               data-role="label">
               <tspan>T Post GEO:</tspan>
             </text>
             <text
-              x="740" y="500"
+              x="745" y="480"
               id="sensor.geotermico_temperatura_uscita"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="760" y="500"
+              x="760" y="480"
               id="binary_sensor.geotermico_pompa_attiva"
+              data-type="pump"
               data-role="icon">
               <tspan>◉</tspan>
             </text>
           </g>
           <g id="nilan_cop_group">
             <text
-              x="450" y="550"
+              x="460" y="520"
               id="label.nilan_cop"
               data-role="label">
               <tspan>COP:</tspan>
             </text>
             <text
-              x="740" y="550"
+              x="745" y="520"
               id="sensor.nilan_cop"
               data-role="value"
               data-type="value">
@@ -193,47 +194,47 @@
             <circle
               id="binary_sensor.panasonic_attiva"
               cx="270"
-              cy="590"
+              cy="550"
               r="10"
               data-role="power"/>
             <text
-              x="290" y="600"
+              x="290" y="560"
               id="label.panasonic_attiva"
               data-role="label">
-              <tspan>PANASONIC |</tspan>
+              <tspan>PANASONIC</tspan>
             </text>
           </g>
           <g id="panasonic_temperatura_mandata_group">
             <text
-              x="450" y="600"
+              x="460" y="560"
               id="label.panasonic_temperatura_mandata"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
-              x="740" y="600"
+              x="745" y="560"
               id="sensor.panasonic_temperatura_mandata"
               data-role="value"
               data-type="temperature">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="760" y="600"
+              x="760" y="560"
               id="binary_sensor.panasonic_defrost"
-              data-role="value"
+              data-role="icon"
               data-type="defrost">
               <tspan>✳</tspan>
             </text>
           </g>
           <g id="panasonic_frequenza_compressore_group">
             <text
-              x="450" y="650"
+              x="460" y="600"
               id="label.panasonic_frequenza_compressore"
               data-role="label">
               <tspan>Compressore:</tspan>
             </text>
             <text
-              x="740" y="650"
+              x="745" y="600"
               id="sensor.panasonic_frequenza_compressore"
               data-role="value"
               data-type="frequency">
@@ -242,38 +243,83 @@
           </g>
           <g id="panasonic_temperatura_acs_group">
             <text
-              x="450" y="700"
+              x="460" y="640"
               id="label.panasonic_temperatura_acs"
               data-role="label">
               <tspan>T ACS:</tspan>
             </text>
             <text
-              x="740" y="700"
+              x="745" y="640"
               id="sensor.panasonic_temperatura_acs"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="760" y="700"
+              x="760" y="640"
               id="binary_sensor.panasonic_acs_attiva"
+              data-type="acs"
               data-role="icon">
-              <tspan>▲</tspan>
+              <tspan>≋</tspan>
             </text>
           </g>
           <g id="panasonic_cop_group">
             <text
-              x="450" y="750"
+              x="460" y="680"
               id="label.panasonic_cop"
               data-role="label">
               <tspan>COP:</tspan>
             </text>
             <text
-              x="740" y="750"
+              x="745" y="680"
               id="sensor.panasonic_cop"
               data-role="value"
               data-type="value">
               <tspan>--.-</tspan>
+            </text>
+          </g>
+          <g id="innova_piano_primo_ventilatore_group">
+            <text
+              x="460" y="720"
+              id="label.innova_piano_primo_ventilatore"
+              data-role="label">
+              <tspan>Split PT:</tspan>
+            </text>
+            <text
+              x="745" y="720"
+              id="sensor.innova_piano_primo_ventilatore"
+              data-role="value"
+              data-type="fan">
+              <tspan>---%</tspan>
+            </text>
+            <text
+              x="760" y="720"
+              id="binary_sensor.innova_piano_primo_attivo"
+              data-type="acs"
+              data-role="icon">
+              <tspan>≋</tspan>
+            </text>
+          </g>
+          <g id="innova_piano_terra_ventilatore_group">
+            <text
+              x="460" y="760"
+              id="label.innova_piano_terra_ventilatore"
+              data-role="label">
+              <tspan>Split PT:</tspan>
+            </text>
+            <text
+              x="745" y="760"
+              id="sensor.innova_piano_terra_ventilatore"
+              data-role="value"
+              data-type="fan">
+              <tspan>---%</tspan>
+            </text>
+            <text
+              x="760" y="760"
+              id="binary_sensor.innova_piano_terra_attivo"
+              data-type="acs"
+              data-role="icon">
+              <tspan>≋</tspan>
             </text>
           </g>
         </g>
