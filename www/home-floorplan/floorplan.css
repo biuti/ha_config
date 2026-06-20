@@ -208,12 +208,62 @@ path[id^="light."] {
   font-size: 76px;
 }
 
-/* Impianto Elettrico */
-[data-domain="energy"] [data-role="link"] {
+/* Impianto Climatizzazione */
+[data-domain="climate"] [data-role="power"] {
   fill: greenyellow;
   opacity: 0.8;;
 }
 
+[data-domain="climate"][data-state="disconnected"] [data-role="power"] {
+  fill: red;
+  opacity: 1;
+  animation: energyAlarm 1s infinite;
+}
+
+[data-domain="climate"] [data-type="defrost"] {
+  fill: darkorange;
+  opacity: 0.8;;
+  display: none;
+}
+
+[data-domain="climate"] [data-type="defrost"][data-state="on"] {
+  opacity: 0.8;;
+  display: inline;
+  animation: energyAlarm 1s infinite;
+}
+
+[data-domain="climate"][data-source="nilan"] [data-role="label"] {
+  fill: lightgray;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
+}
+
+[data-domain="climate"] [data-role="value"] {
+  fill: lightskyblue;
+  opacity: 0.8;
+  fill-opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+
+  stroke: skyblue;
+  stroke-width: 1px;
+
+  text-anchor: end;
+
+  paint-order: stroke fill;
+}
+
+[data-domain="climate"] [data-role="icon"] {
+  font-size: 36px;
+}
+
+/* Impianto Elettrico */
 [data-domain="energy"] [data-role="value"] {
   fill: lightskyblue;
   opacity: 0.8;

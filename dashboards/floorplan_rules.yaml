@@ -439,6 +439,64 @@
         key: state
         value: ${entity.state}
 
+# CLIMATIZZAZIONE
+- name: Indicatori di Stato
+
+  entities:
+    - sensor.nilan_state
+    - sensor.panasonic_state
+
+  element: ${entity.entity_id.replace('sensor.', '') + '_group'}
+
+  state_action:
+    - service: floorplan.dataset_set
+      service_data:
+        key: state
+        value: ${entity.state}
+
+- name: Climatizzazione - Stato Macchine
+
+  entities:
+    - binary_sensor.nilan_active
+    - binary_sensor.panasonic_active
+    - binary_sensor.geothermal_pump_active
+    - binary_sensor.panasonic_compressor_active
+    - binary_sensor.panasonic_acs_heating
+
+  state_action:
+    - service: floorplan.dataset_set
+      service_data:
+        key: state
+        value: ${entity.state}
+
+- name: Climatizzazione - Temperature di Esercizio
+  entities:
+    - sensor.panasonic_supply_temperature
+    - sensor.panasonic_acs_temperature
+    - sensor.nilan_supply_air_temperature
+    - sensor.geothermal_outlet_temperature
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
+
+- name: Climatizzazione - Frequenza Compressore
+  entities:
+    - sensor.panasonic_compressor_frequency
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${Math.round(entity.state) + " Hz"}'
+
+- name: Climatizzazione - COP
+  entities:
+    - sensor.panasonic_cop
+    - sensor.nilan_cop
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: '${parseFloat(entity.state).toFixed(1)}'
+
 # IRRIGAZIONE
 - name: Vasche di Raccolta
 

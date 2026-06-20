@@ -41,6 +41,25 @@ template:
 
   - sensor:
 
+      - name: "Panasonic State"
+        unique_id: panasonic_state
+        state: >
+          {% if is_state('input_boolean.panasonic_on', 'off') %}
+            disconnected
+          {% else %}
+            {% set cop = states('input_number.nilan_cop') | float(0) %}
+
+            {% if is_state('input_boolean.panasonic_defrost', 'on') %}
+              defrost
+            {% elif is_state('input_boolean.bollitore_on', 'on') %}
+              ACS
+            {% elif is_state('input_boolean.panasonic_compressor_active', 'on') %}
+              climatizing
+            {% else %}
+              idle
+            {% endif %}
+          {% endif %}
+
       - name: "Panasonic Temperatura Mandata"
         unique_id: panasonic_supply_temperature
         unit_of_measurement: "°C"

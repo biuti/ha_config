@@ -93,60 +93,55 @@
       <g id="layer_seminterrato_climate">
         <!-- <rect id="climate_nilan" width="89.206467" height="85.208755" x="796.79047"
         y="728.41187" class="climate impianto-climatizzazione"/> -->
-        <g id="nilan_group"
+        <g id="nilan_state_group"
           data-zone="interno"
           data-domain="climate"
           data-source="nilan">
           <g id="nilan_power_group">
             <circle
               id="binary_sensor.nilan_active"
-              cx="290"
-              cy="490"
-              r="8"
+              cx="280"
+              cy="440"
+              r="10"
               data-role="power"/>
             <text
-              x="330" y="500"
+              x="310" y="450"
               id="label.nilan_active"
               data-role="label">
-              <tspan>NILAN |</tspan>
-            </text>
-            <text
-              x="450" y="500"
-              id="binary_sensor.nilan_defrost"
-              data-role="label">
-              <tspan>DEFROST</tspan>
+              <tspan>NILAN</tspan>
             </text>
           </g>
           <g id="nilan_supply_air_temperature_group">
             <text
-              x="450" y="500"
+              x="450" y="450"
               id="label.nilan_supply_air_temperature"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
-              x="550" y="500"
+              x="450" y="740"
               id="sensor.nilan_supply_air_temperature"
               data-role="value"
               data-type="temperature">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="800" y="500"
-              id="sensor.fv_state"
-              data-role="icon">
-              <tspan>▲</tspan>
+              x="450" y="760"
+              id="binary_sensor.nilan_defrost"
+              data-role="value"
+              data-type="defrost">
+              <tspan>✳</tspan>
             </text>
           </g>
           <g id="nilan_velocita_ventilatore_group">
             <text
-              x="450" y="570"
+              x="450" y="500"
               id="label.nilan_velocita_ventilatore"
               data-role="label">
               <tspan>Velocità:</tspan>
             </text>
             <text
-              x="550" y="570"
+              x="740" y="500"
               id="sensor.nilan_velocita_ventilatore"
               data-role="value"
               data-type="fan">
@@ -155,35 +150,127 @@
           </g>
           <g id="geothermal_outlet_temperature_group">
             <text
-              x="450" y="640"
+              x="450" y="550"
               id="label.geothermal_outlet_temperature"
               data-role="label">
               <tspan>T Post Scambiatore:</tspan>
             </text>
             <text
-              x="550" y="640"
+              x="740" y="550"
               id="sensor.geothermal_outlet_temperature"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
-            <circle
+            <text
+              x="760" y="550"
               id="binary_sensor.geothermal_pump_active"
-              cx="800"
-              cy="630"
-              r="8"
-              data-role="power"/>
+              data-role="icon">
+              <tspan>◉</tspan>
+            </text>
           </g>
           <g id="nilan_cop_group">
             <text
-              x="450" y="710"
+              x="450" y="450"
               id="label.nilan_cop"
               data-role="label">
               <tspan>COP:</tspan>
             </text>
             <text
-              x="550" y="710"
+              x="550" y="740"
               id="sensor.nilan_cop"
+              data-role="value"
+              data-type="value">
+              <tspan>--.-</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="panasonic_state_group"
+          data-zone="interno"
+          data-domain="climate"
+          data-source="panasonic">
+          <g id="panasonic_power_group">
+            <circle
+              id="binary_sensor.panasonic_active"
+              cx="280"
+              cy="590"
+              r="10"
+              data-role="power"/>
+            <text
+              x="310" y="600"
+              id="label.panasonic_active"
+              data-role="label">
+              <tspan>PANASONIC |</tspan>
+            </text>
+          </g>
+          <g id="panasonic_supply_temperature_group">
+            <text
+              x="450" y="600"
+              id="label.panasonic_supply_temperature"
+              data-role="label">
+              <tspan>Mandata:</tspan>
+            </text>
+            <text
+              x="740" y="600"
+              id="sensor.panasonic_supply_temperature"
+              data-role="value"
+              data-type="temperature">
+              <tspan>--.- °C</tspan>
+            </text>
+            <text
+              x="760" y="600"
+              id="binary_sensor.panasonic_defrost"
+              data-role="value"
+              data-type="defrost">
+              <tspan>DEFROST</tspan>
+            </text>
+          </g>
+          <g id="panasonic_compressor_frequency_group">
+            <text
+              x="450" y="650"
+              id="label.panasonic_compressor_frequency"
+              data-role="label">
+              <tspan>Frequenza Compressore:</tspan>
+            </text>
+            <text
+              x="740" y="650"
+              id="sensor.panasonic_compressor_frequency"
+              data-role="value"
+              data-type="frequency">
+              <tspan>---.- Hz</tspan>
+            </text>
+          </g>
+          <g id="geothermal_outlet_temperature_group">
+            <text
+              x="450" y="700"
+              id="label.panasonic_acs_temperature"
+              data-role="label">
+              <tspan>T Post Scambiatore:</tspan>
+            </text>
+            <text
+              x="740" y="700"
+              id="sensor.panasonic_acs_temperature"
+              data-role="value"
+              data-type="temperatura">
+              <tspan>--.- °C</tspan>
+            </text>
+            <text
+              x="760" y="700"
+              id="binary_sensor.panasonic_acs_heating"
+              data-role="icon">
+              <tspan>▲</tspan>
+            </text>
+          </g>
+          <g id="panasonic_cop_group">
+            <text
+              x="450" y="750"
+              id="label.panasonic_cop"
+              data-role="label">
+              <tspan>COP:</tspan>
+            </text>
+            <text
+              x="740" y="750"
+              id="sensor.panasonic_cop"
               data-role="value"
               data-type="value">
               <tspan>--.-</tspan>

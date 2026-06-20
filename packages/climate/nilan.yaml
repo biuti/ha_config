@@ -25,6 +25,23 @@ template:
 
   - sensor:
 
+      - name: "Nilan State"
+        unique_id: nilan_state
+        state: >
+          {% if is_state('input_boolean.nilan_on', 'off') %}
+            disconnected
+          {% else %}
+            {% set cop = states('input_number.nilan_cop') | float(0) %}
+
+            {% if is_state('input_boolean.nilan_defrost', 'on') %}
+              defrost
+            {% elif cop > 0 %}
+              climatizing
+            {% else %}
+              venting
+            {% endif %}
+          {% endif %}
+
       - name: "Nilan Temperatura Mandata"
         unique_id: nilan_supply_air_temperature
         unit_of_measurement: "°C"
