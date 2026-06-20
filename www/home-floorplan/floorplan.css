@@ -168,23 +168,6 @@ path[id^="light."] {
   animation: pulse 1s infinite;
 }
 
-/* Sensori Temperatura Umidità e CO2 */
-/* Sensori Riempimento Vasche di Raccolta */
-[data-domain="climate"] [data-role="value"] {
-  fill: linen;
-  opacity: 0.8;
-  fill-opacity: 0.8;
-
-  font-family: 'Roboto', sans-serif;
-  font-size: 48px;
-  font-weight: bold;
-
-  stroke: linen;
-  stroke-width: 1px;
-
-  paint-order: stroke fill;
-}
-
 [data-domain="weather"] [data-role="value"] {
   fill: lightskyblue;
   opacity: 0.8;
@@ -209,6 +192,35 @@ path[id^="light."] {
 }
 
 /* Impianto Climatizzazione */
+/* Sensori Temperatura Umidità e CO2 */
+[data-domain="climate"][data-source="sensor"] [data-role="label"] {
+  fill: lightgray;
+  opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+
+  text-anchor: end;
+
+  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
+}
+
+[data-domain="climate"] [data-role="value"] {
+  fill: linen;
+  opacity: 0.8;
+  fill-opacity: 0.8;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+
+  stroke: linen;
+  stroke-width: 1px;
+
+  paint-order: stroke fill;
+}
+
+/* Macchine Climatizzazione */
 [data-domain="climate"] [data-role="power"] {
   fill: greenyellow;
   opacity: 0.8;;
@@ -359,6 +371,7 @@ path[id^="light."] {
 }
 
 /* Elettrovalvole Impianto Idrico */
+/* Sensori Riempimento Vasche di Raccolta */
 [data-domain="water"] [data-role="value"] {
   fill: lightskyblue;
   opacity: 0.8;
@@ -393,17 +406,6 @@ path[id^="light."] {
 }
 
 /* Stili per le label */
-[data-domain="climate"] [data-role="label"] {
-  fill: lightgray;
-  opacity: 0.8;
-
-  font-family: 'Roboto', sans-serif;
-  font-size: 32px;
-
-  text-anchor: end;
-
-  pointer-events: none; /* Evita che il testo interferisca con i click sulla stanza */
-}
 
 [data-domain="weather"] [data-role="label"] {
   fill: lightgray;

@@ -376,7 +376,7 @@
       service_data: '${Math.round(entity.state) + "%"}'
 
 # IMPIANTO ELETTRICO
-- name: Indicatori di Potenza
+- name: Energy - Indicatori di Potenza
   entities:
     - sensor.fv_power
     - sensor.battery_power
@@ -388,7 +388,7 @@
     - service: floorplan.text_set
       service_data: '${(parseFloat(entity.state)/1000).toFixed(1) + " kW"}'
 
-- name: Indicatori di Carica
+- name: Energy - Indicatori di Carica
   entities:
     - sensor.battery_soc
     - sensor.ev_soc
@@ -397,7 +397,7 @@
     - service: floorplan.text_set
       service_data: '${Math.round(entity.state) + "%"}'
 
-- name: Sensore di Stato
+- name: Energy - Sensore di Stato
 
   entities:
     - sensor.battery_state
@@ -422,7 +422,7 @@
           }[entity.state] || "?"
         }
 
-- name: Indicatori di Stato
+- name: Energy - Indicatori di Stato
 
   entities:
     - sensor.home_state
@@ -440,7 +440,7 @@
         value: ${entity.state}
 
 # CLIMATIZZAZIONE
-- name: Indicatori di Stato
+- name: Climate - Stato Macchine
 
   entities:
     - sensor.nilan_state
@@ -454,7 +454,7 @@
         key: state
         value: ${entity.state}
 
-- name: Climatizzazione - Stato Macchine
+- name: Climate - Indicatori di Stato
 
   entities:
     - binary_sensor.nilan_active
@@ -469,7 +469,7 @@
         key: state
         value: ${entity.state}
 
-- name: Climatizzazione - Temperature di Esercizio
+- name: Climate - Temperature di Esercizio
   entities:
     - sensor.panasonic_supply_temperature
     - sensor.panasonic_acs_temperature
@@ -480,7 +480,7 @@
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(1) + "°"}'
 
-- name: Climatizzazione - Frequenza Compressore
+- name: Climate - Frequenza Compressore
   entities:
     - sensor.panasonic_compressor_frequency
 
@@ -488,7 +488,7 @@
     - service: floorplan.text_set
       service_data: '${Math.round(entity.state) + " Hz"}'
 
-- name: Climatizzazione - COP
+- name: Climate - COP
   entities:
     - sensor.panasonic_cop
     - sensor.nilan_cop

@@ -100,12 +100,12 @@
           <g id="nilan_power_group">
             <circle
               id="binary_sensor.nilan_active"
-              cx="280"
-              cy="440"
+              cx="270"
+              cy="390"
               r="10"
               data-role="power"/>
             <text
-              x="310" y="450"
+              x="290" y="400"
               id="label.nilan_active"
               data-role="label">
               <tspan>NILAN</tspan>
@@ -113,20 +113,20 @@
           </g>
           <g id="nilan_supply_air_temperature_group">
             <text
-              x="450" y="450"
+              x="450" y="400"
               id="label.nilan_supply_air_temperature"
               data-role="label">
               <tspan>Mandata:</tspan>
             </text>
             <text
-              x="450" y="740"
+              x="740" y="400"
               id="sensor.nilan_supply_air_temperature"
               data-role="value"
               data-type="temperature">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="450" y="760"
+              x="760" y="400"
               id="binary_sensor.nilan_defrost"
               data-role="value"
               data-type="defrost">
@@ -135,13 +135,13 @@
           </g>
           <g id="nilan_velocita_ventilatore_group">
             <text
-              x="450" y="500"
+              x="450" y="450"
               id="label.nilan_velocita_ventilatore"
               data-role="label">
-              <tspan>Velocità:</tspan>
+              <tspan>Fan:</tspan>
             </text>
             <text
-              x="740" y="500"
+              x="740" y="450"
               id="sensor.nilan_velocita_ventilatore"
               data-role="value"
               data-type="fan">
@@ -150,20 +150,20 @@
           </g>
           <g id="geothermal_outlet_temperature_group">
             <text
-              x="450" y="550"
+              x="450" y="500"
               id="label.geothermal_outlet_temperature"
               data-role="label">
               <tspan>T Post Scambiatore:</tspan>
             </text>
             <text
-              x="740" y="550"
+              x="740" y="500"
               id="sensor.geothermal_outlet_temperature"
               data-role="value"
               data-type="temperatura">
               <tspan>--.- °C</tspan>
             </text>
             <text
-              x="760" y="550"
+              x="760" y="500"
               id="binary_sensor.geothermal_pump_active"
               data-role="icon">
               <tspan>◉</tspan>
@@ -171,13 +171,13 @@
           </g>
           <g id="nilan_cop_group">
             <text
-              x="450" y="450"
+              x="450" y="550"
               id="label.nilan_cop"
               data-role="label">
               <tspan>COP:</tspan>
             </text>
             <text
-              x="550" y="740"
+              x="740" y="550"
               id="sensor.nilan_cop"
               data-role="value"
               data-type="value">
@@ -192,12 +192,12 @@
           <g id="panasonic_power_group">
             <circle
               id="binary_sensor.panasonic_active"
-              cx="280"
+              cx="270"
               cy="590"
               r="10"
               data-role="power"/>
             <text
-              x="310" y="600"
+              x="290" y="600"
               id="label.panasonic_active"
               data-role="label">
               <tspan>PANASONIC |</tspan>
@@ -222,7 +222,7 @@
               id="binary_sensor.panasonic_defrost"
               data-role="value"
               data-type="defrost">
-              <tspan>DEFROST</tspan>
+              <tspan>✳</tspan>
             </text>
           </g>
           <g id="panasonic_compressor_frequency_group">
@@ -230,7 +230,7 @@
               x="450" y="650"
               id="label.panasonic_compressor_frequency"
               data-role="label">
-              <tspan>Frequenza Compressore:</tspan>
+              <tspan>Compressore:</tspan>
             </text>
             <text
               x="740" y="650"
@@ -245,7 +245,7 @@
               x="450" y="700"
               id="label.panasonic_acs_temperature"
               data-role="label">
-              <tspan>T Post Scambiatore:</tspan>
+              <tspan>T ACS:</tspan>
             </text>
             <text
               x="740" y="700"
@@ -360,7 +360,8 @@
       <g id="layer_seminterrato_label">
         <g id="temperatura_taverna_group"
           data-zone="interno"
-          data-domain="climate">
+          data-domain="climate"
+          data-source="sensor">
           <text
             x="420" y="1485"
             id="label.temperatura_taverna"
@@ -379,6 +380,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="75">
           <text
             x="420" y="1560"
@@ -398,6 +400,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="1000">
           <text
             x="420" y="1635"
@@ -679,7 +682,8 @@
       <g id="layer_piano_terra_label">
         <g id="temperatura_camera_padronale_group"
           data-zone="interno"
-          data-domain="climate">
+          data-domain="climate"
+          data-source="sensor">
           <text
             x="370" y="1450"
             id="label.temperatura_camera_padronale"
@@ -698,6 +702,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="75">
           <text
             x="370" y="1100"
@@ -717,6 +722,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="75">
           <text
             x="370" y="870"
@@ -736,6 +742,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="1000">
           <text
             x="370" y="1625"
@@ -932,7 +939,8 @@
       <g id="layer_piano_primo_label">
         <g id="temperatura_soggiorno_group"
           data-zone="interno"
-          data-domain="climate">
+          data-domain="climate"
+          data-source="sensor">
           <text
             x="570" y="1275"
             id="label.temperatura_soggiorno"
@@ -951,6 +959,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="75">
           <text
             x="570" y="1350"
@@ -970,6 +979,7 @@
           class="sensor-hidden"
           data-zone="interno"
           data-domain="climate"
+          data-source="sensor"
           data-threshold="1000">
           <text
             x="570" y="1425"
