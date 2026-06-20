@@ -130,7 +130,7 @@
               id="binary_sensor.nilan_defrost"
               data-role="icon"
               data-type="defrost">
-              <tspan>✳</tspan>
+              <tspan>❄</tspan>
             </text>
           </g>
           <g id="nilan_velocita_ventilatore_group">
@@ -223,7 +223,7 @@
               id="binary_sensor.panasonic_defrost"
               data-role="icon"
               data-type="defrost">
-              <tspan>✳</tspan>
+              <tspan>❄</tspan>
             </text>
           </g>
           <g id="panasonic_frequenza_compressore_group">
@@ -283,7 +283,7 @@
               x="460" y="720"
               id="label.innova_piano_primo_ventilatore"
               data-role="label">
-              <tspan>Split PT:</tspan>
+              <tspan>Split P1:</tspan>
             </text>
             <text
               x="745" y="720"
@@ -294,8 +294,8 @@
             </text>
             <text
               x="760" y="720"
-              id="binary_sensor.innova_piano_primo_attivo"
-              data-type="acs"
+              id="sensor.innova_piano_primo_state"
+              data-type="mode"
               data-role="icon">
               <tspan>≋</tspan>
             </text>
@@ -316,8 +316,8 @@
             </text>
             <text
               x="760" y="760"
-              id="binary_sensor.innova_piano_terra_attivo"
-              data-type="acs"
+              id="sensor.innova_piano_terra_state"
+              data-type="mode"
               data-role="icon">
               <tspan>≋</tspan>
             </text>

@@ -47,14 +47,16 @@ template:
           {% if is_state('input_boolean.panasonic_on', 'off') %}
             disconnected
           {% else %}
-            {% set cop = states('input_number.nilan_cop') | float(0) %}
-
             {% if is_state('input_boolean.panasonic_defrost', 'on') %}
               defrost
             {% elif is_state('input_boolean.bollitore_on', 'on') %}
               ACS
             {% elif is_state('input_boolean.panasonic_compressore_attivo', 'on') %}
-              climatizing
+              {% if is_state('input_boolean.panasonic_modalita_riscaldamento', 'on') %}
+                heating
+              {% else %}
+                cooling
+              {% endif %}
             {% else %}
               idle
             {% endif %}

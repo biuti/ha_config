@@ -493,6 +493,8 @@
 - name: Climate - Velocità Fan
   entities:
     - sensor.nilan_velocita_ventilatore
+    - sensor.innova_piano_terra_ventilatore
+    - sensor.innova_piano_primo_ventilatore
 
   state_action:
     - service: floorplan.text_set
@@ -506,6 +508,22 @@
   state_action:
     - service: floorplan.text_set
       service_data: '${parseFloat(entity.state).toFixed(2)}'
+
+- name: Climate - Icone di Stato
+
+  entities:
+    - sensor.innova_piano_primo_state
+    - sensor.innova_piano_terra_state
+
+  state_action:
+    - service: floorplan.text_set
+      service_data: >
+        ${
+          {
+            "heating": "≋",
+            "cooling": "❄"
+          }[entity.state] || "?"
+        }
 
 # IRRIGAZIONE
 - name: Vasche di Raccolta

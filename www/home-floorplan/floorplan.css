@@ -233,7 +233,8 @@ path[id^="light."] {
 }
 
 [data-domain="climate"] [data-type="defrost"]{
-  fill: orange;
+  fill: darkorange;
+  font-weight: bold;
   opacity: 0.8;
   display: none;
 }

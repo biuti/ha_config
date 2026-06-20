@@ -22,6 +22,34 @@ template:
 
   - sensor:
 
+      - name: "Innova Piano Terra State"
+        unique_id: innova_piano_terra_state
+        state: >
+          {% if is_state('input_boolean.innova_piano_terra_on', 'off') %}
+            disconnected
+          {% else %}
+            {% set p = states('input_number.innova_pt_velocita_ventilatore') | float(0) %}
+            {% if p > 5 %}
+              {{ states('sensor.panasonic_state') }}
+            {% else %}
+              idle
+            {% endif %}
+          {% endif %}
+
+      - name: "Innova Piano Primo State"
+        unique_id: innova_piano_primo_state
+        state: >
+          {% if is_state('input_boolean.innova_piano_primo_on', 'off') %}
+            disconnected
+          {% else %}
+            {% set p = states('input_number.innova_p1_velocita_ventilatore') | float(0) %}
+            {% if p > 5 %}
+              {{ states('sensor.panasonic_state') }}
+            {% else %}
+              idle
+            {% endif %}
+          {% endif %}
+
       - name: "Innova Piano Terra Ventilatore"
         unique_id: innova_piano_terra_ventilatore
         unit_of_measurement: "%"
