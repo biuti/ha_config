@@ -307,6 +307,21 @@ path[id^="light."] {
   font-size: 36px;
 }
 
+[data-domain="climate"] [data-role="icon"][data-type="mode"]{
+  opacity: 0.8;
+  display: none;
+}
+
+[data-domain="climate"] [data-role="icon"][data-type="mode"][data-state="cooling"]{
+  display: inline;
+  fill: lightblue;
+}
+
+[data-domain="climate"] [data-role="icon"][data-type="mode"][data-state="heating"]{
+  display: inline;
+  fill: darkorange;
+}
+
 /* Impianto Elettrico */
 [data-domain="energy"] [data-role="value"] {
   fill: lightskyblue;

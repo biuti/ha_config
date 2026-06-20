@@ -278,7 +278,7 @@
               <tspan>--.-</tspan>
             </text>
           </g>
-          <g id="innova_piano_primo_ventilatore_group">
+          <g id="innova_piano_primo_state_group">
             <text
               x="460" y="720"
               id="label.innova_piano_primo_ventilatore"
@@ -300,7 +300,7 @@
               <tspan>≋</tspan>
             </text>
           </g>
-          <g id="innova_piano_terra_ventilatore_group">
+          <g id="innova_piano_terra_state_group">
             <text
               x="460" y="760"
               id="label.innova_piano_terra_ventilatore"

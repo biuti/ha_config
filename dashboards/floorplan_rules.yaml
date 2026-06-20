@@ -445,6 +445,8 @@
   entities:
     - sensor.nilan_state
     - sensor.panasonic_state
+    - sensor.innova_piano_primo_state
+    - sensor.innova_piano_terra_state
 
   element: ${entity.entity_id.replace('sensor.', '') + '_group'}
 
@@ -521,7 +523,8 @@
         ${
           {
             "heating": "≋",
-            "cooling": "❄"
+            "cooling": "❄",
+            "idle": "■"
           }[entity.state] || "?"
         }
 
