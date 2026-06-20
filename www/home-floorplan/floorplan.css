@@ -291,18 +291,6 @@ path[id^="light."] {
   font-size: 36px;
 }
 
-[data-domain="climate"][data-source="nilan"][data-state="defrost"] [data-role="value"],
-[data-domain="climate"][data-source="panasonic"] [data-role="value"] {
-  fill: ivory;
-  opacity: 0.8;
-
-  font-family: 'Roboto', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-
-  text-anchor: end;
-}
-
 [data-domain="climate"] [data-role="icon"] {
   font-size: 36px;
 }
@@ -312,12 +300,12 @@ path[id^="light."] {
   display: none;
 }
 
-[data-domain="climate"] [data-role="icon"][data-type="mode"][data-state="cooling"]{
+[data-domain="climate"] [data-source="innova"][data-state="cooling"] [data-role="icon"][data-type="mode"]{
   display: inline;
   fill: lightblue;
 }
 
-[data-domain="climate"] [data-role="icon"][data-type="mode"][data-state="heating"]{
+[data-domain="climate"] [data-source="innova"][data-state="heating"] [data-role="icon"][data-type="mode"]{
   display: inline;
   fill: darkorange;
 }
